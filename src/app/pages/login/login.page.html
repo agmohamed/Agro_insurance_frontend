@@ -1,0 +1,35 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <div >
+      <ion-item>
+          <ion-input type="text" placeholder="Username" [(ngModel)]="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+          <ion-input type="text" placeholder="Password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <!-- <ion-item>
+        <ion-label>Position</ion-label>
+        <ion-select interface="popover" [(ngModel)]="selected_value" (ionChange)="Getselected(selected_value)" >
+          <ion-select-option value="f">Farmer</ion-select-option>
+          <ion-select-option value="m">Insurance Company</ion-select-option>
+        </ion-select>
+      </ion-item> -->
+    
+      <ion-button expand="full" class="no-padding" (click)="tryLogin()" color="success">Login</ion-button>
+    </div>
+      <p class="ion-padding info-1">
+  
+        If you do not have an account,click <span (click)="Register()">Register now</span>
+        </p>
+        <!-- If you do not have an account,click <span (click)="image()">Register now</span>
+        If you do not have an account,click <span (click)="ge()">get</span> -->
+    </ion-list>
+
+</ion-content>

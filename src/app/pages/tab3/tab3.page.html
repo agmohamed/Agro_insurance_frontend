@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>Add claims</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Type</ion-label>
+    <ion-select interface="popover" [(ngModel)]="selected_value"  >
+      <ion-select-option value="f">Land</ion-select-option>
+      <ion-select-option value="m">livestock</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" placeholder="Tag Number" ></ion-input>
+</ion-item>
+<ion-item>
+  <ion-input type="text" placeholder="Incident Date" ></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label fixed>Add Image</ion-label>
+  <ion-button color="primary"  (click)="presentActionSheet()">Take picture</ion-button>
+</ion-item>
+<div>
+  <ion-button expand="full" color='danger'  (click)="add()">Submit</ion-button>
+</div>
+</ion-content>

@@ -1,0 +1,28 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-title>tab2</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label fixed>Images</ion-label>
+    <ion-button color="primary"  (click)="presentActionSheet()">Take picture</ion-button>
+</ion-item>
+<div>
+    <ion-button expand="full" color='danger'  (click)="add()">Submit</ion-button>
+</div>
+</ion-content> -->
+<ion-content>
+    <ion-slides pager="true">
+      <ion-slide class="slide-one">
+        <ion-img src="/assets/icon/im2.jpg"></ion-img>
+        <h1>Welcome All</h1>
+      </ion-slide>
+      <ion-slide class="slide-two">
+          <ion-img src="/assets/icon/im1.jpg"></ion-img>
+          <h1>Insurances</h1>
+          <ion-button color="success" (click)="openLogin()">Let's Login</ion-button>
+        </ion-slide>
+    </ion-slides>
+</ion-content>
