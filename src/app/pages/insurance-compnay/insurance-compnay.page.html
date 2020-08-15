@@ -1,20 +1,47 @@
 <ion-header>
-  <ion-toolbar>
-      <ion-header no-border>
-      <ion-toolbar color="success">
-      <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+  <ion-toolbar color="success">
+      
+      
+    <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
     <ion-title>insurance Compnaies</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-      </ion-toolbar>
-    <ion-item>
-    </ion-item>
-    <ion-button expand="full" class="no-padding" (click)="tryLogin1()" color="success">AAIB</ion-button>
-    <ion-button expand="full" class="no-padding" (click)="tryLogin2()" color="success">SANASA</ion-button>
+  </ion-toolbar>
+    
+    
 
 </ion-header>
 
 <ion-content>
 
+  <ion-card color="light" (click)="go()">
+          
+    <ion-item  class="ion-activated">
+        <div class="vertical-center"> <div class="center"> <ion-img src="/assets/icon/aaib.png" style="height: 100px;width: 100px;"> </ion-img> </div> </div>
+      <ion-card-title >Agricultural & Agrarian Insurance Board</ion-card-title>
+    </ion-item>
+      <ion-card-content >
+        We are providing reliable service for 40 years.
+       We provides insurance on agricultural and horticultural crops, livestock, fisheries and forestry activities, agricultural equipment, and for the storage and preservation of produce.
+      </ion-card-content>
+      <ion-button shape="round"  class="no-padding" (click)="tryLogin2()" color="secondary">More Info</ion-button>
+    </ion-card>
+
+   
+    <ion-card color="light" (click)="go()">
+          
+        <ion-item  class="ion-activated">
+            <div class="vertical-center"> <div class="center"> <ion-img src="/assets/icon/sanasa.jpg" style="height: 80px;width: 100px;"> </ion-img> </div> </div>
+          <ion-card-title >Sanasa</ion-card-title>
+        </ion-item>
+          <ion-card-content >
+              <ion-text >
+                  We mainly cover indemnity policy which is a general crop insurance that encompasses 35 different agri crops and 
+            general weather index policy and livestock policy to cattle and goats.
+            We offering currently covers approximately 10,000 farmers in the country</ion-text>
+          </ion-card-content>
+          <ion-button shape="round"  class="no-padding" (click)="tryLogin1()" color="secondary">More Info</ion-button>
+        </ion-card>
+    
 </ion-content>
