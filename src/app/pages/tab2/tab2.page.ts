@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ActionSheetController } from '@ionic/angular';
-
+import { Router,ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-tab2',
   templateUrl: './tab2.page.html',
@@ -11,7 +11,7 @@ export class Tab2Page implements OnInit {
 cameradata:string;
 base64Image:string
 
-  constructor(private camera: Camera,public actionSheetController: ActionSheetController) { }
+  constructor(private camera: Camera,public actionSheetController: ActionSheetController,private router:Router) { }
 
   ngOnInit() {
   }
@@ -76,5 +76,8 @@ add(){
     images:this.cameradata
   };
 
+}
+go(){
+  this.router.navigate(['/policies']);
 }
 }

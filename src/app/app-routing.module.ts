@@ -48,7 +48,31 @@ const routes: Routes = [
   {
     path: 'forum',
     loadChildren: () => import('./pages/forum/forum.module').then( m => m.ForumPageModule)
+  },  {
+    path: 'des1',
+    loadChildren: () => import('./pages/des1/des1.module').then( m => m.Des1PageModule)
   },
+  {
+    path: 'des2',
+    loadChildren: () => import('./pages/des2/des2.module').then( m => m.Des2PageModule)
+  },
+  {
+    path: 'des3',
+    loadChildren: () => import('./pages/des3/des3.module').then( m => m.Des3PageModule)
+  },
+  {
+    path: 'claim',
+    loadChildren: () => import('./pages/claim/claim.module').then( m => m.ClaimPageModule)
+  },
+  {
+    path: 'policies',
+    loadChildren: () => import('./pages/policies/policies.module').then( m => m.PoliciesPageModule)
+  },
+  {
+    path: 'client',
+    loadChildren: () => import('./pages/client/client.module').then( m => m.ClientPageModule)
+  },
+
   // {
   //   path: 'aaibtab1',
   //   loadChildren: () => import('./pages/aaibtab1/aaibtab1.module').then( m => m.Aaibtab1PageModule)

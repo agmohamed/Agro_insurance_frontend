@@ -5,18 +5,25 @@
 </ion-header>
 
  <ion-content>
-<ion-card>
+<ion-card color="light" (click)="go()">
     <ion-item>
       <ion-icon name="person" slot="start"></ion-icon>
-      <ion-card-title>Clients details</ion-card-title>
+      <ion-card-title>Client-1 </ion-card-title>
     </ion-item>
-  
+      <ion-card-content>
+      Tap to view details
+      </ion-card-content>
+</ion-card>
+<ion-card color="light" (click)="go()">
+  <ion-item>
+    <ion-icon name="person" slot="start"></ion-icon>
+    <ion-card-title>Client-2 </ion-card-title>
+  </ion-item>
     <ion-card-content>
-     Name,Address,payments
+    Tap to view details
     </ion-card-content>
-  </ion-card>
-  
-    <ion-card>
+</ion-card>
+    <!-- <ion-card>
         <ion-item>
           <ion-icon name="star-half" slot="start"></ion-icon>
           <ion-card-title>Ratings</ion-card-title>
@@ -25,5 +32,5 @@
         <ion-card-content>
           rate of user
         </ion-card-content>
-      </ion-card>
+      </ion-card> -->
     </ion-content> 

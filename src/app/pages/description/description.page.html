@@ -1,38 +1,41 @@
 <ion-header>
   <ion-toolbar color="success"> 
+      <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
     <ion-title>Policy Details</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-card>
+    <ion-card (click)="go1()">
         <ion-item>
-          <ion-icon name="pin" slot="start"></ion-icon>
-          <ion-card-title>Policy1</ion-card-title>
+            <ion-img src="/assets/icon/crop.png"  style="height: 50px;width: 100px;" slot="start"></ion-img>
+          <ion-card-title><strong>Indemnity based comprehensive
+                          Crop Insurance</strong>
+          </ion-card-title>
         </ion-item>
       
         <ion-card-content>
-          This is about policies and conditions
+          Tap To view the Description
         </ion-card-content>
       </ion-card>
-      <ion-card>
+      <ion-card (click)="go2()">
           <ion-item>
-            <ion-icon name="pin" slot="start"></ion-icon>
-            <ion-card-title>Policy2</ion-card-title>
+              <ion-img src="/assets/icon/weather.png"  style="height: 50px;width: 100px;" slot="start"></ion-img>
+            <ion-card-title><strong>Index base Insurance</strong> </ion-card-title>
           </ion-item>
         
           <ion-card-content>
-              This is about policies and conditions
+              Tap To view the Description
           </ion-card-content>
         </ion-card>
-        <ion-card>
+        <ion-card (click)="go3()">
             <ion-item>
-              <ion-icon name="pin" slot="start"></ion-icon>
-              <ion-card-title>Policy3</ion-card-title>
+                <ion-img src="/assets/icon/cow.png"  style="height: 50px;width: 100px;" slot="start"></ion-img>
+              <ion-card-title><strong>Livestock Insurance</strong></ion-card-title>
             </ion-item>
           
             <ion-card-content>
-                This is about policies and conditions
+                Tap To view the Description
             </ion-card-content>
           </ion-card>
 </ion-content>

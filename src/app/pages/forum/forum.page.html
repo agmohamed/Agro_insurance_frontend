@@ -1,15 +1,45 @@
 <ion-header>
   <ion-toolbar color="success">
+      <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
     <ion-title>forum</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-card >
+  <ion-title>Discussions</ion-title>
     <ion-item>
         <ion-input type="text" placeholder="Issues" ></ion-input>
     </ion-item>
+  
     <ion-item>
         <ion-input type="text" placeholder="Suggestions" ></ion-input>
     </ion-item>
     <ion-button expand="full" class="no-padding"   color="success">Submit</ion-button>
+  </ion-card> 
+    <ion-card color="light" (click)="go()">  
+        <ion-item  class="ion-activated">
+           <ion-card-title>forum-1</ion-card-title>
+        </ion-item>
+          <ion-card-content >
+             <p>Issue:- about the crop</p> 
+              <p>Answer:-</p> 
+            
+          </ion-card-content>
+          <ion-button shape="round" color="medium">Replied</ion-button>
+        </ion-card>
+        <ion-card color="light" (click)="go()">  
+            <ion-item  class="ion-activated">
+               <ion-card-title>forum-2</ion-card-title>
+            </ion-item>
+              <ion-card-content >
+                  <p>Issue:- about the crop</p> 
+                  <p>Answer:-not yet</p> 
+                
+              
+             
+              </ion-card-content>
+              <ion-button shape="round" color="medium">pending</ion-button>
+          </ion-card>  
+   
 </ion-content>

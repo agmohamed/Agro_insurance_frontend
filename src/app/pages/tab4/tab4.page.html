@@ -1,32 +1,65 @@
 <ion-header>
   <ion-toolbar color="success">
     <ion-title>Profile</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-card>
-        <ion-item>
-          <ion-icon name="person" slot="start"></ion-icon>
-          <ion-card-title>User details</ion-card-title>
-        </ion-item>
+       
+            <div class="vertical-center"> 
+              <div class="center"> 
+                <ion-img src="/assets/icon/man.png" style="height: 100px;width: 100px;" class="ion-align-self-end"></ion-img> 
+            </div> 
+          </div>
+        
       
-        <ion-card-content>
-         Name,Address
+        <ion-card-content color="light">
+          <ion-row>
+            <ion-img src="/assets/icon/star1.png"  style="height: 40px;width: 40px;" ></ion-img>
+            <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
+            <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
+            <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
+            <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
+          </ion-row>
+        <ion-row>
+          <ion-label><strong>Name  :</strong>    </ion-label>
+          <ion-label><strong>Kamal Perera</strong> </ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-label><strong>Telephone:</strong> </ion-label>
+            <ion-label><strong>077825690</strong></ion-label>
+          </ion-row>
+          <ion-row>
+              <ion-label><strong>Address:</strong> </ion-label>
+              <ion-label><strong>araliaya mawatha,Kandy</strong></ion-label>
+            </ion-row> 
         </ion-card-content>
       </ion-card>
       <ion-card>
           <ion-item>
             <ion-icon name="albums" slot="start"></ion-icon>
-            <ion-card-title>History</ion-card-title>
+            <ion-card-title>Insurance Name-1</ion-card-title>
           </ion-item>
         
           <ion-card-content>
-            history of payment
-
+              crop insurance of Sanasa
           </ion-card-content>
+          <ion-button shape="round" color="tertiary">Active</ion-button>
         </ion-card>
         <ion-card>
+            <ion-item>
+              <ion-icon name="albums" slot="start"></ion-icon>
+              <ion-card-title>Insurance Name-2</ion-card-title>
+            </ion-item>
+          
+            <ion-card-content>
+              Suwasetha insurance of AAIB
+            </ion-card-content>
+            <ion-button shape="round" color="tertiary">Closed</ion-button>
+          </ion-card> 
+        <!-- <ion-card>
             <ion-item>
               <ion-icon name="star-half" slot="start"></ion-icon>
               <ion-card-title>Ratings</ion-card-title>
@@ -35,5 +68,5 @@
             <ion-card-content>
               ratings of user
             </ion-card-content>
-          </ion-card>
+          </ion-card> -->
 </ion-content>

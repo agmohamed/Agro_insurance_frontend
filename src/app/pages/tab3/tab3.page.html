@@ -5,24 +5,39 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-label>Type</ion-label>
-    <ion-select interface="popover" [(ngModel)]="selected_value"  >
-      <ion-select-option value="f">Land</ion-select-option>
-      <ion-select-option value="m">livestock</ion-select-option>
-    </ion-select>
+  
+
+
+<ion-card color="light" (click)="go()">     
+  <ion-item  class="ion-activated">
+     <ion-card-title>Claim Number-1</ion-card-title>
   </ion-item>
-  <ion-item>
-    <ion-input type="text" placeholder="Tag Number" ></ion-input>
-</ion-item>
-<ion-item>
-  <ion-input type="text" placeholder="Incident Date" ></ion-input>
-</ion-item>
-<ion-item>
-  <ion-label fixed>Add Image</ion-label>
-  <ion-button color="primary"  (click)="presentActionSheet()">Take picture</ion-button>
-</ion-item>
-<div>
-  <ion-button expand="full" color='danger'  (click)="add()">Submit</ion-button>
+    <ion-card-content >
+     Claim for land
+    </ion-card-content>
+    <ion-button shape="round" color="success">Actived</ion-button>
+</ion-card>
+<ion-card color="light" (click)="go()">  
+  <ion-item  class="ion-activated">
+     <ion-card-title>Claim Number-2</ion-card-title>
+  </ion-item>
+    <ion-card-content >
+     Claim for Livestock
+    </ion-card-content>
+    <ion-button shape="round" color="tertiary">pending</ion-button>
+  </ion-card>
+
+  <ion-card color="light" (click)="go()">  
+  <ion-item  class="ion-activated">
+    <ion-card-title>Claim Number-3</ion-card-title>
+ </ion-item>
+   <ion-card-content >
+    Claim for Livestock
+   </ion-card-content>
+   <ion-button shape="round" color="warning">Rejected</ion-button>
+ </ion-card>
+
+ <div>
+  <ion-button expand="full" color='success'  (click)="add()">Add Claim</ion-button>
 </div>
 </ion-content>

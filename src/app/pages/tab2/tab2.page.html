@@ -15,13 +15,38 @@
 </ion-content> -->
 
 <ion-content>
-<ion-item>
-  <ion-button expand="full" class="no-padding"   color="success">Policy1</ion-button>
-  </ion-item>
-  <ion-item>
-    <ion-button expand="full" class="no-padding"  color="success">Policy2</ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-button expand="full" class="no-padding"   color="success">Policy3</ion-button>
-      </ion-item>
+    <ion-card color="light" (click)="go()">     
+        <ion-item  class="ion-activated">
+           <ion-card-title>Policy Number-1</ion-card-title>
+        </ion-item>
+          <ion-card-content >
+           Livestock insurance
+          </ion-card-content>
+          <ion-button shape="round" color="success">Actived</ion-button>
+      </ion-card>
+      <ion-card color="light" (click)="go()">  
+        <ion-item  class="ion-activated">
+           <ion-card-title>Policy Number-2</ion-card-title>
+        </ion-item>
+          <ion-card-content >
+          crop insurance
+          </ion-card-content>
+          <ion-button shape="round" color="tertiary">pending</ion-button>
+        </ion-card>
+      
+        <ion-card color="light" (click)="go()">  
+        <ion-item  class="ion-activated">
+          <ion-card-title>Policy Number-3</ion-card-title>
+       </ion-item>
+         <ion-card-content >
+          Suwasetha health insurance
+         </ion-card-content>
+         <ion-button shape="round" color="warning">Rejected</ion-button>
+       </ion-card>
+      
+       <div>
+        <ion-button expand="full" color='success'  (click)="go()">Add Policy</ion-button>
+      </div>
+
+
     </ion-content>

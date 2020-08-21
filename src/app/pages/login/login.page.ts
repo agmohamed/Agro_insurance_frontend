@@ -29,7 +29,7 @@ export class LoginPage implements OnInit {
     this.disableButton=false;
   }
   async tryLogin(){
-    if(this.email=="CompanyA" && this.password=="A123" ){
+    if(this.email=="ABC" && this.password=="abc" ){
       this.navCtrl.navigateRoot(['/aaib']);
     }
     if(this.email=="CompanyB" && this.password=="B123" ){
@@ -93,6 +93,9 @@ export class LoginPage implements OnInit {
 
   Register(){
     this.router.navigate(['/register']);
+  }
+  back(){
+    this.router.navigate(['/welcome']);
   }
 //   image(){
 //     this.router.navigate(['/welcome']);

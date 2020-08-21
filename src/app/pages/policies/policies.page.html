@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="success">
+      <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+      <ion-row>
+          <ion-button shape="round" size="small" >crop</ion-button>
+          <ion-button shape="round" size="small" >livestock</ion-button>
+          <ion-button shape="round" size="small" >suwasetha</ion-button>
+      </ion-row>
+      <ion-title>Add Policy</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+
+  <ion-item>
+      <ion-label>Crop type</ion-label>
+      <ion-select interface="popover" [(ngModel)]="selected_value"  >
+        <ion-select-option value="p">paddy</ion-select-option>
+        <ion-select-option value="b">Big Onion</ion-select-option>
+        <ion-select-option value="m">Maize</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" placeholder="Land Name/plot Number" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" placeholder="Address" ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" placeholder="District" ></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-input type="text" placeholder="Gramasewa Division" ></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input type="text" placeholder="Agrarian Service Centre" ></ion-input>
+      </ion-item>
+    <ion-item>
+          <ion-input type="text" placeholder="Ownership" ></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input type="text" placeholder="Land Size" ></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-input type="text" placeholder="Ownership" ></ion-input>
+ </ion-item>
+ <ion-item>
+    
+    <ion-label>Start Date</ion-label>
+    <ion-datetime displayFormat="DDDD MMM D, YYYY" min="2020" max="2030" ></ion-datetime>
+</ion-item>
+<ion-item>
+    <ion-label>End Date</ion-label>
+    <ion-datetime displayFormat="DDDD MMM D, YYYY" min="2020" max="2030" ></ion-datetime>
+</ion-item>
+
+<div>
+    <ion-button expand="full" color='success'  (click)="submit()">Submit</ion-button>
+  </div>
+</ion-content>

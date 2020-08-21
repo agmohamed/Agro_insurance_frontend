@@ -15,10 +15,10 @@
   <ion-card color="light" (click)="go()">
           
     <ion-item  class="ion-activated">
-      <ion-icon name="document" slot="start"></ion-icon>
+        <ion-img src="/assets/icon/doc1.png"  style="height: 50px;width: 100px;" slot="start"></ion-img>
       <ion-card-title>Insurances Details</ion-card-title>
     </ion-item>
-      <ion-card-content>
+      <ion-card-content class="si">
         Know more details about your insuraces policies
       </ion-card-content>
    
@@ -26,12 +26,35 @@
     <ion-card color="light" (click)="forum()">
           
         <ion-item  class="ion-activated">
-          <ion-icon name="card" slot="start"></ion-icon>
+            <ion-img src="/assets/icon/forum.png"  style="height: 50px;width: 100px;" slot="start"></ion-img>
           <ion-card-title>Discussion Forum</ion-card-title>
         </ion-item>
-          <ion-card-content>
+          <ion-card-content class="si">
            discussions your issues
           </ion-card-content>
        
         </ion-card>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+                <ion-card class="card">
+                    <h1>Policy1</h1>
+                    <ion-img src="/assets/icon/cal.png"  style="height: 50px;width: 100px;"></ion-img>
+                    <p>Next Payment : <strong class="te">January 20 2021 </strong>
+                      <strong class="am"> Total amount to pay:4000</strong>
+                    </p>
+                </ion-card>
+             
+            </ion-col>
+            <ion-col>
+            <ion-card class="card">
+                <h1>Policy2 </h1>
+                <ion-img src="/assets/icon/cal.png"  style="height: 50px;width: 100px;"></ion-img>
+                <p>Next Payment : <strong class="te">January 18 2021 </strong>
+                  <strong class="am">  Total amount to pay:2000</strong> </p>
+            </ion-card>
+          </ion-col>
+          </ion-row> 
+        </ion-grid> 
 </ion-content>
