@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ActionSheetController } from '@ionic/angular';
 import { Router,ActivatedRoute } from '@angular/router';
+//import { mobiscroll, MbscPopupOptions } from '@mobiscroll/angular';
+
+
 @Component({
   selector: 'app-tab2',
   templateUrl: './tab2.page.html',
@@ -80,4 +83,8 @@ add(){
 go(){
   this.router.navigate(['/policies']);
 }
+active(){
+  this.router.navigate(['/active-policy']);
+}
+
 }

@@ -2,16 +2,23 @@
   <ion-toolbar color="success">
       <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
       <ion-row>
-          <ion-button shape="round" size="small" >crop</ion-button>
-          <ion-button shape="round" size="small" >livestock</ion-button>
-          <ion-button shape="round" size="small" >suwasetha</ion-button>
+          <!-- <ion-button shape="round" size="small" >crop</ion-button>
+          <ion-button shape="round" size="small" >livestock</ion-button> -->
+         
       </ion-row>
       <ion-title>Add Policy</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
+  <ion-item>
+    <ion-label>Insurance type</ion-label>
+    <ion-select interface="popover" [(ngModel)]="selected_value"  >
+      <ion-select-option value="p">Indemnity based Comprehensive Crop insurance</ion-select-option>
+      <ion-select-option value="b">Weather Index Based Inusrance</ion-select-option>
+     
+    </ion-select>
+  </ion-item>
 
   <ion-item>
       <ion-label>Crop type</ion-label>
@@ -19,6 +26,7 @@
         <ion-select-option value="p">paddy</ion-select-option>
         <ion-select-option value="b">Big Onion</ion-select-option>
         <ion-select-option value="m">Maize</ion-select-option>
+        <ion-select-option value="m">Potato</ion-select-option>
       </ion-select>
     </ion-item>
     <ion-item>
@@ -55,6 +63,13 @@
     <ion-datetime displayFormat="DDDD MMM D, YYYY" min="2020" max="2030" ></ion-datetime>
 </ion-item>
 
+<ion-item>
+  <ion-label fixed>Add Required Documents (loan details,Bank Account number)</ion-label>
+  <ion-button color="primary"  (click)="presentActionSheet()">Take picture</ion-button>
+</ion-item>
+<!-- <div>
+  <ion-button expand="small" color='success'  (click)="add()">Submit</ion-button>
+</div> -->
 <div>
     <ion-button expand="full" color='success'  (click)="submit()">Submit</ion-button>
   </div>

@@ -36,7 +36,13 @@ export class LoginPage implements OnInit {
       this.navCtrl.navigateRoot(['/sanasa']);
     }
     if(this.email=="" && this.password=="" ){
-      this.navCtrl.navigateRoot(['/insurance-compnay']);
+      this.navCtrl.navigateRoot(['/types']);
+    }
+    if(this.email=="agent" && this.password=="agent" ){
+      this.navCtrl.navigateRoot(['/agent']);
+    }
+    if(this.email=="org" && this.password=="org" ){
+      this.navCtrl.navigateRoot(['/organization']);
     }
    
   }

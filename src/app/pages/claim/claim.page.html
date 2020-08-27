@@ -8,10 +8,12 @@
 <ion-content>
 
   <ion-item>
-    <ion-label>Type</ion-label>
+    <ion-label>Crop Type</ion-label>
     <ion-select interface="popover" [(ngModel)]="selected_value"  >
-      <ion-select-option value="f">Land</ion-select-option>
-      <ion-select-option value="m">livestock</ion-select-option>
+        <ion-select-option value="p">paddy</ion-select-option>
+        <ion-select-option value="b">Big Onion</ion-select-option>
+        <ion-select-option value="m">Maize</ion-select-option>
+        <ion-select-option value="m">Potato</ion-select-option>
     </ion-select>
   </ion-item>
   <ion-item>
@@ -28,6 +30,17 @@
 </ion-item>
 <ion-item>
   <ion-input type="text" placeholder="Expected Loss Amount" ></ion-input>
+</ion-item>
+
+  <h3>Loan details</h3>
+  <ion-item>
+  <ion-input type="text" placeholder="Bank Name " ></ion-input>
+</ion-item>
+<ion-item>
+  <ion-input type="text" placeholder="Branch" ></ion-input>
+</ion-item>
+<ion-item>
+  <ion-input type="text" placeholder="Account Number" ></ion-input>
 </ion-item>
 <ion-item>
   <ion-label fixed>Add Image</ion-label>

@@ -72,6 +72,22 @@ const routes: Routes = [
     path: 'client',
     loadChildren: () => import('./pages/client/client.module').then( m => m.ClientPageModule)
   },
+  {
+    path: 'types',
+    loadChildren: () => import('./pages/types/types.module').then( m => m.TypesPageModule)
+  },
+  {
+    path: 'agent',
+    loadChildren: () => import('./pages/agent/agent.module').then( m => m.AgentPageModule)
+  },
+  {
+    path: 'organization',
+    loadChildren: () => import('./pages/organization/organization.module').then( m => m.OrganizationPageModule)
+  },
+  {
+    path: 'active-policy',
+    loadChildren: () => import('./pages/active-policy/active-policy.module').then( m => m.ActivePolicyPageModule)
+  },
 
   // {
   //   path: 'aaibtab1',

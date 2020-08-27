@@ -1,3 +1,6 @@
+//import { MbscModule } from '@mobiscroll/angular';
+import { MbscModule } from '@mobiscroll/angular-lite';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -13,10 +16,15 @@ import { IonicStorageModule } from '@ionic/storage';
 import { AccessProviders } from './providers/access-providers';
 import { Camera} from '@ionic-native/camera/ngx';
 import { IonicRatingModule } from 'ionic-rating';
+
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicRatingModule ,IonicModule.forRoot(), AppRoutingModule,HttpClientModule,IonicStorageModule.forRoot()],
+  imports: [ 
+    MbscModule,  
+    FormsModule,  
+BrowserModule, IonicRatingModule ,IonicModule.forRoot(), AppRoutingModule,HttpClientModule,IonicStorageModule.forRoot()],
   providers: [
     StatusBar,
     SplashScreen,

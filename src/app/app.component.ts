@@ -13,6 +13,9 @@ import { AccessProviders } from './providers/access-providers';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  formSettings = {
+    theme: 'mobiscroll'
+};
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
