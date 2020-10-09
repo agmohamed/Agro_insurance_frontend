@@ -81,5 +81,9 @@ add(){
 }
 openLogin(){
   this.router.navigate(['/login']);
-}
+ }
+
+ details(){
+  this.router.navigate(['/types']);
+ }
 }

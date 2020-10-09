@@ -14,5 +14,9 @@ export class TypesPage implements OnInit {
   gopage(){
     this.router.navigate(['/insurance-compnay']);
   }
+  back(){
+
+    this.router.navigate(['/login']);
+  }
  
 }

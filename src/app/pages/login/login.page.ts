@@ -35,7 +35,7 @@ export class LoginPage implements OnInit {
     if(this.email=="CompanyB" && this.password=="B123" ){
       this.navCtrl.navigateRoot(['/sanasa']);
     }
-    if(this.email=="" && this.password=="" ){
+    if(this.email=="farmer1" && this.password=="farmer1" ){
       this.navCtrl.navigateRoot(['/types']);
     }
     if(this.email=="agent" && this.password=="agent" ){
@@ -44,7 +44,7 @@ export class LoginPage implements OnInit {
     if(this.email=="org" && this.password=="org" ){
       this.navCtrl.navigateRoot(['/organization']);
     }
-   
+    this.storage.set('storage_XXX',this.email);
   }
 //      if(this.email==""){
 //       this.presentToast("YourEmail is required");

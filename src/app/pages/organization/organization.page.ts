@@ -13,7 +13,7 @@ export class OrganizationPage implements OnInit {
   }
 
   back(){
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
  
 }

@@ -88,6 +88,10 @@ const routes: Routes = [
     path: 'active-policy',
     loadChildren: () => import('./pages/active-policy/active-policy.module').then( m => m.ActivePolicyPageModule)
   },
+  {
+    path: 'update',
+    loadChildren: () => import('./pages/update/update.module').then( m => m.UpdatePageModule)
+  },
 
   // {
   //   path: 'aaibtab1',
