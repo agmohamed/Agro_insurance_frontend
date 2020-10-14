@@ -37,7 +37,7 @@ export class Tab1Page implements OnInit {
       this.storage.get('storage_XXX').then((res)=>{
         console.log(res);
         this.datastorage=res;
-        this.name=this.datastorage.username;
+        this.name=this.datastorage.Name;
         //console.log(this.datastorage);
       });
     }

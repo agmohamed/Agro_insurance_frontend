@@ -9,8 +9,8 @@ import { AccessProviders } from '../../providers/access-providers';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  email:string="";
-  password:string="";
+  NIC:string="";
+  Password:string="";
   disableButton;
   selected_value:string;
   constructor(
@@ -29,73 +29,73 @@ export class LoginPage implements OnInit {
     this.disableButton=false;
   }
   async tryLogin(){
-    if(this.email=="ABC" && this.password=="abc" ){
+    if(this.NIC=="ABC" && this.Password=="abc" ){
       this.navCtrl.navigateRoot(['/aaib']);
     }
-    if(this.email=="CompanyB" && this.password=="B123" ){
+    if(this.NIC=="CompanyB" && this.Password=="B123" ){
       this.navCtrl.navigateRoot(['/sanasa']);
     }
-    if(this.email=="farmer1" && this.password=="farmer1" ){
+    /*if(this.NIC=="farmer1" && this.Password=="farmer1" ){
       this.navCtrl.navigateRoot(['/types']);
-    }
-    if(this.email=="agent" && this.password=="agent" ){
+    }*/
+    if(this.NIC=="agent" && this.Password=="agent" ){
       this.navCtrl.navigateRoot(['/agent']);
     }
-    if(this.email=="org" && this.password=="org" ){
+    if(this.NIC=="org" && this.Password=="org" ){
       this.navCtrl.navigateRoot(['/organization']);
     }
-    this.storage.set('storage_XXX',this.email);
-  }
-//      if(this.email==""){
-//       this.presentToast("YourEmail is required");
-//     }else if(this.password=="")
-//     {
-//       this.presentToast("YourPassword is required");
-//     }else{
-//       this.disableButton=true;
-//       const loader=await this.loadingCtrl.create({
-//           message:'Please wait......',
-//       });
-//       loader.present();
-//         return new Promise(resoler=>{
-//           let body={
-//             aksi:'process_login',
+    //this.storage.set('storage_XXX',this.NIC);
+ 
+     if(this.NIC==""){
+      this.presentToast("YourUsername is required");
+    }else if(this.Password=="")
+    {
+      this.presentToast("YourPassword is required");
+    }else{
+      this.disableButton=true;
+      const loader=await this.loadingCtrl.create({
+          message:'Please wait......',
+      });
+      loader.present();
+        return new Promise(resoler=>{
+          let body={
+            aksi:'process_login',
            
-//             email:this.email,
-//             password:this.password
-//           }
-//           this.acessPr.postLogin(body).subscribe((res:any)=>{
-//               if(res.status==true && this.selected_value=='f'){
-//                 loader.dismiss();
-//                 this.disableButton=false;
-//                 this.presentToast('Login sucessfully');
-//                 this.storage.set('storage_XXX',res.data);
+            NIC:this.NIC,
+            Password:this.Password
+          }
+          this.acessPr.postLogin(body).subscribe((res:any)=>{
+              if(res.status==true ){
+                loader.dismiss();
+                this.disableButton=false;
+                this.presentToast('Login sucessfully');
+                this.storage.set('storage_XXX',res.data);
                 
-//                 this.navCtrl.navigateRoot(['/insurance-compnay']);
-//                console.log(res.data);
-//               }else{
-//                 loader.dismiss();
-//                 this.disableButton=false;
-//                 this.presentToast('Email or password or status is wrong');
-//               }
-//           },(err=>{
-//             loader.dismiss();
-//             this.disableButton=false;
-//             this.presentToast('Timeout');
-//           }));
-//         });
+                this.navCtrl.navigateRoot(['/insurance-compnay']);
+               console.log(res.data);
+              }else{
+                loader.dismiss();
+                this.disableButton=false;
+                this.presentToast('Email or password or status is wrong');
+              }
+          },(err=>{
+            loader.dismiss();
+            this.disableButton=false;
+            this.presentToast('Timeout');
+          }));
+        });
 
       
-//     }
-//   }
-//   async presentToast(a) {
-//     let toast = await this.toastCtrl.create({
-//       message: a,
-//       duration: 3000,
-//       position: 'top'
-//     });
-//   toast.present();
-//   }
+    }
+  }
+  async presentToast(a) {
+    let toast = await this.toastCtrl.create({
+      message: a,
+      duration: 3000,
+      position: 'top'
+    });
+  toast.present();
+  }
 
   Register(){
     this.router.navigate(['/register']);
