@@ -11,57 +11,76 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
+  <!--<ion-item>
     <ion-label>Insurance type</ion-label>
     <ion-select interface="popover" [(ngModel)]="selected_value"  >
       <ion-select-option value="p">Indemnity based Comprehensive Crop insurance</ion-select-option>
       <ion-select-option value="b">Weather Index Based Inusrance</ion-select-option>
      
     </ion-select>
-  </ion-item>
+  </ion-item>-->
 
-  <ion-item>
+   <ion-item>
       <ion-label>Crop type</ion-label>
-      <ion-select interface="popover" [(ngModel)]="selected_value"  >
-        <ion-select-option value="p">paddy</ion-select-option>
-        <ion-select-option value="b">Big Onion</ion-select-option>
-        <ion-select-option value="m">Maize</ion-select-option>
-        <ion-select-option value="m">Potato</ion-select-option>
+      <ion-select interface="popover" [(ngModel)]="crop"  >
+        <ion-select-option >paddy</ion-select-option>
+        <ion-select-option >Big Onion</ion-select-option>
+        <ion-select-option >Maize</ion-select-option>
+        <ion-select-option >Potato</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+    
+      <ion-label>Start Date</ion-label>
+      <ion-datetime displayFormat="YYYY-M-D" min="2020" max="2030" [(ngModel)]="Start_date"></ion-datetime>
+  </ion-item>
+  <ion-item>
+      <ion-label>End Date</ion-label>
+      <ion-datetime displayFormat="YYYY-M-D" min="2020" max="2030" [(ngModel)]="End_date" ></ion-datetime>
+  </ion-item>
+  <div *ngIf="hideMe">
+  <ion-item>
+    <ion-label>optional policy</ion-label>
+    <ion-select interface="popover" [(ngModel)]="risk" >
+      <ion-select-option >fire</ion-select-option>
+      <ion-select-option >pest</ion-select-option>
+      <ion-select-option >insect effect</ion-select-option>
+      <ion-select-option >other wild animal damage</ion-select-option>
+    </ion-select>
+  </ion-item>
+</div>
+<!----<div *ngIf="hideMe">-->
+  <strong>Land details</strong>
+    <ion-item>
+      <ion-input type="text" placeholder="Land Name/plot Number" [(ngModel)]="land_num"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" placeholder="Address" [(ngModel)]="address"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input type="text" placeholder="District" [(ngModel)]="district"></ion-input>
+  </ion-item>
+  <ion-item>
+      <ion-input type="text" placeholder="Gramasewa Division" [(ngModel)]="gramasewa_division"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input type="text" placeholder="Agrarian Service Centre" [(ngModel)]="aib"></ion-input>
+      </ion-item>
+    <ion-item>
+      <ion-label>Owership</ion-label>
+      <ion-select interface="popover" [(ngModel)]="owership"  >
+        <ion-select-option >own</ion-select-option>
+        <ion-select-option >Rented</ion-select-option>
+        <ion-select-option >Leased</ion-select-option>
+        
       </ion-select>
     </ion-item>
     <ion-item>
-      <ion-input type="text" placeholder="Land Name/plot Number" ></ion-input>
+        <ion-input type="text" placeholder="Land Size(Acres)" [(ngModel)]="size"></ion-input>
   </ion-item>
-  <ion-item>
-    <ion-input type="text" placeholder="Address" ></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input type="text" placeholder="District" ></ion-input>
-  </ion-item>
-  <ion-item>
-      <ion-input type="text" placeholder="Gramasewa Division" ></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input type="text" placeholder="Agrarian Service Centre" ></ion-input>
-      </ion-item>
-    <ion-item>
-          <ion-input type="text" placeholder="Ownership" ></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input type="text" placeholder="Land Size" ></ion-input>
-  </ion-item>
-  <ion-item>
-      <ion-input type="text" placeholder="Ownership" ></ion-input>
- </ion-item>
- <ion-item>
-    
-    <ion-label>Start Date</ion-label>
-    <ion-datetime displayFormat="DDDD MMM D, YYYY" min="2020" max="2030" ></ion-datetime>
-</ion-item>
-<ion-item>
-    <ion-label>End Date</ion-label>
-    <ion-datetime displayFormat="DDDD MMM D, YYYY" min="2020" max="2030" ></ion-datetime>
-</ion-item>
+  
+ 
 
 <ion-item>
   <ion-label fixed>Add Required Documents 
@@ -73,5 +92,6 @@
 </div> -->
 <div>
     <ion-button expand="full" color='success'  (click)="submit()">Submit</ion-button>
-  </div>
+</div>
+
 </ion-content>

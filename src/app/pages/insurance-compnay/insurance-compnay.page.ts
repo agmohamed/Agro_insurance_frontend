@@ -8,18 +8,21 @@ import {NavController} from '@ionic/angular';
   styleUrls: ['./insurance-compnay.page.scss'],
 })
 export class InsuranceCompnayPage implements OnInit {
-
+  va:string="";
   constructor( private router:Router,private storage:Storage, public navCtrl:NavController,) { }
 
   ngOnInit() {
   }
-  tryLogin1(){
+  tryLogin1(event){
     this.storage.get("storage_XXX").then((res)=>{
       if(res==null){
           this.navCtrl.navigateRoot('/login');
       }
     });
     this.router.navigate(['/home']);
+    //console.log(event.target.id);
+    this.va=event.target.id;
+    this.storage.set('storage_co',this.va);
   }
   back(){
     this.router.navigate(['/types']);

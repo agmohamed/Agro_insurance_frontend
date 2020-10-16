@@ -63,6 +63,22 @@ export class AccessProviders{
             
             
         }
+        postPolicy(body){
+          let headers=new HttpHeaders({
+              'Content-Type':'applicationJson,charset-UTF-8'
+          });
+          let options={
+              headers:headers
+          }
+          
+          return this.http.post(this.server+'/policy',JSON.stringify(body),{
+              headers: new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8'),
+            })
+          . map(res=>res
+          );
+          
+          
+      }
         public checkLogged() {
             return this.isLogged; 
           }

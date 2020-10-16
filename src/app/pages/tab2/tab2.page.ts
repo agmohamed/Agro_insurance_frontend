@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ActionSheetController } from '@ionic/angular';
 import { Router,ActivatedRoute } from '@angular/router';
+import {Storage} from '@ionic/storage';
 //import { mobiscroll, MbscPopupOptions } from '@mobiscroll/angular';
 
 
@@ -13,10 +14,22 @@ import { Router,ActivatedRoute } from '@angular/router';
 export class Tab2Page implements OnInit {
 cameradata:string;
 base64Image:string
+datastorage: any;
+  constructor(private camera: Camera,public actionSheetController: ActionSheetController,private router:Router,private storage:Storage) {
 
-  constructor(private camera: Camera,public actionSheetController: ActionSheetController,private router:Router) { }
+    this.ionViewDidEditor();
+   }
 
   ngOnInit() {
+  }
+
+  ionViewDidEditor(){
+    this.storage.get('storage_co').then((res)=>{
+      console.log(res);
+      this.datastorage=res;
+      //this.name=this.datastorage.Name;
+      //console.log(this.datastorage);
+    });
   }
 openCamera(){
   const options: CameraOptions = {
