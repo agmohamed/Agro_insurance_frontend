@@ -15,16 +15,23 @@
 </ion-content> -->
 
 <ion-content>
-    <ion-card color="light" (click)="active()">     
-        <ion-item  class="ion-activated">
-           <ion-card-title>Policy Number-1</ion-card-title>
-        </ion-item>
-          <ion-card-content >
-          crop insurance for Paddy
-          </ion-card-content>
-          <ion-button shape="round" color="success">Actived</ion-button>
-      </ion-card>
-      <ion-card color="light" (click)="go()">  
+    
+            <ion-card color="light" *ngFor="let v of val" (click)="active()">     
+                <ion-item  class="ion-activated">
+                   <ion-card-title>Policy Number-{{v.id}}</ion-card-title>
+                </ion-item>
+                  <ion-card-content >
+                    {{v.Name}}
+                  </ion-card-content>
+                  <ion-button shape="round" color="tertiary">{{v.status}}</ion-button>
+              </ion-card>
+                <div>
+                  <ion-button expand="full" color='success'  (click)="go()">Add Policy</ion-button>
+                </div>
+              
+        
+    </ion-content>
+      <!----<ion-card color="light" (click)="go()">  
         <ion-item  class="ion-activated">
            <ion-card-title>Policy Number-2</ion-card-title>
         </ion-item>
@@ -42,11 +49,9 @@
             crop insurance for big onion
          </ion-card-content>
          <ion-button shape="round" color="warning">Rejected</ion-button>
-       </ion-card>
+       </ion-card>-->
       
-       <div>
-        <ion-button expand="full" color='success'  (click)="go()">Add Policy</ion-button>
-      </div>
+       
 
     <!-- <div class='modal fade' id='modalLoginForm' tabindex='-1' role='dialog' aria-labelledby='myModalLabel'
       aria-hidden='true'>
@@ -81,7 +86,7 @@
       
     </div> -->
 
-    </ion-content>
+    
     <!-- <mbsc-form>
       <mbsc-form-group>
           <div class="mbsc-btn-group-block">

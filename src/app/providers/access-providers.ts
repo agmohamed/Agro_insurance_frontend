@@ -79,6 +79,10 @@ export class AccessProviders{
           
           
       }
+      getPolicy(){
+        return this.http.get(this.server+'/detail')
+
+       }
         public checkLogged() {
             return this.isLogged; 
           }

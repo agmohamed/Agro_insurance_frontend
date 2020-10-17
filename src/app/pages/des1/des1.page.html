@@ -1,13 +1,13 @@
 <ion-header>
   <ion-toolbar color="success">
       <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
-    <ion-title>Indemnity based comprehensive <br>
-      crop insurance</ion-title>
+    <ion-title>{{datastorage3}}
+     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <h2>That crop insurance cover against total or partial crop loss due to</h2>
+  <!----<h2>That crop insurance cover against total or partial crop loss due to</h2>
   <ul>
     <li>Flood</li>
     <li>Drought</li>
@@ -19,5 +19,9 @@
   </ul>
   <p>The coverage starts on the date of planting until getting harvest of the crop</p>
   <p>The insurance coverage and the premiums in crop insurance depend on the risk level</p>
-  <p>Claims wii be decided n field assessment by claim committee</p>
+  <p>Claims wii be decided n field assessment by claim committee</p>-->
+  <h2>{{datastorage1}}</h2>
+  <ul *ngFor="let r of nameArr">
+    <li>{{r}}</li>
+  </ul>
 </ion-content>

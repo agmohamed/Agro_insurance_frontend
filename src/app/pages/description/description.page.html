@@ -6,11 +6,11 @@
 </ion-header>
 
 <ion-content>
-    <ion-card (click)="go1()">
-        <ion-item>
+    <ion-card *ngFor="let d of data" (click)="go1(d,2)" >
+        <ion-item >
             <ion-img src="/assets/icon/crop.png"  style="height: 50px;width: 100px;" slot="start"></ion-img>
-          <ion-card-title><strong>Indemnity based comprehensive
-                          Crop Insurance</strong>
+          <ion-card-title><strong>{{d.Name}}
+                          </strong>
           </ion-card-title>
         </ion-item>
       
@@ -18,7 +18,7 @@
           Tap To view the Description
         </ion-card-content>
       </ion-card>
-      <ion-card (click)="go2()">
+      <!----<ion-card (click)="go2()">
           <ion-item>
               <ion-img src="/assets/icon/weather.png"  style="height: 50px;width: 100px;" slot="start"></ion-img>
             <ion-card-title><strong>Index base Insurance</strong> </ion-card-title>
@@ -27,7 +27,7 @@
           <ion-card-content>
               Tap To view the Description
           </ion-card-content>
-        </ion-card>
+        </ion-card>-->
         <!-- <ion-card (click)="go3()">
             <ion-item>
                 <ion-img src="/assets/icon/cow.png"  style="height: 50px;width: 100px;" slot="start"></ion-img>

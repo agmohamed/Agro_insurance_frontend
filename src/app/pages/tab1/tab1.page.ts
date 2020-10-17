@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Storage} from '@ionic/storage';
 import { Router,ActivatedRoute } from '@angular/router';
+import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
 import { ToastController,LoadingController,AlertController,NavController } from '@ionic/angular';
 import {User, AccessProviders } from '../../providers/access-providers';
 @Component({
@@ -9,12 +10,16 @@ import {User, AccessProviders } from '../../providers/access-providers';
   styleUrls: ['./tab1.page.scss'],
 })
 export class Tab1Page implements OnInit {
-  datastorage: any;
+ datastorage: any;
+  datastorage1: any;
   // email: string;
   name: string;
+
   //info: User;
+  
   constructor(private router:Router,
     private storage:Storage,
+    public http:HttpClient,
     private toastCtrl:ToastController,
     private loadingCtrl:LoadingController,
     private alertCtrl:AlertController,
@@ -32,7 +37,9 @@ export class Tab1Page implements OnInit {
     }
 
   ngOnInit() {
+    
   }
+  
   ionViewDidEditor(){
       this.storage.get('storage_XXX').then((res)=>{
         console.log(res);

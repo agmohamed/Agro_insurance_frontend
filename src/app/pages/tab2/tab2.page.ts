@@ -3,6 +3,9 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ActionSheetController } from '@ionic/angular';
 import { Router,ActivatedRoute } from '@angular/router';
 import {Storage} from '@ionic/storage';
+import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
+
+
 //import { mobiscroll, MbscPopupOptions } from '@mobiscroll/angular';
 
 
@@ -15,22 +18,53 @@ export class Tab2Page implements OnInit {
 cameradata:string;
 base64Image:string
 datastorage: any;
-  constructor(private camera: Camera,public actionSheetController: ActionSheetController,private router:Router,private storage:Storage) {
+datastorage1: any;
+server:string='http://localhost:8000';
+i:any="";
+val:any;
 
-    this.ionViewDidEditor();
+  constructor(private camera: Camera,public actionSheetController: ActionSheetController,
+    public http:HttpClient,private router:Router,private storage:Storage) {
+
+   // this.ionViewDidEditor();
+  
    }
-
+   
   ngOnInit() {
+    
+    this.storage.get('storage_XXX').then((res)=>{
+       console.log(res);
+        this.datastorage=res.NIC;
+      this.storage.get('storage_co').then((res)=>{
+        console.log(res);
+        this.datastorage1=res;
+        //this.name=this.datastorage.Name;
+        console.log(this.datastorage1);
+        return this.http.get(this.server+'/de/'+this.datastorage+'/'+this.datastorage1).subscribe((res:any)=>{ 
+          for(this.i in res.message){this.val=res.message; console.log(res.message)}},
+            err=>{
+              console.log(err);
+            }
+            
+      )
+      
+      });
+      //this.name=this.datastorage.Name;
+     
+     
+    });
   }
-
-  ionViewDidEditor(){
+ 
+  /*ionViewDidEditor(){
     this.storage.get('storage_co').then((res)=>{
       console.log(res);
       this.datastorage=res;
       //this.name=this.datastorage.Name;
       //console.log(this.datastorage);
     });
-  }
+  }*/
+
+  
 openCamera(){
   const options: CameraOptions = {
     quality: 100,

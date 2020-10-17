@@ -41,12 +41,23 @@
   </ion-item>
   <div *ngIf="hideMe">
   <ion-item>
-    <ion-label>optional policy</ion-label>
+    <ion-label>optional policy for</ion-label>
     <ion-select interface="popover" [(ngModel)]="risk" >
-      <ion-select-option >fire</ion-select-option>
-      <ion-select-option >pest</ion-select-option>
+      <ion-select-option >emergency fire</ion-select-option>
+      <ion-select-option >pest damage</ion-select-option>
       <ion-select-option >insect effect</ion-select-option>
-      <ion-select-option >other wild animal damage</ion-select-option>
+      <ion-select-option >damage by other wild animal </ion-select-option>
+    </ion-select>
+  </ion-item>
+</div>
+<div *ngIf="hide">
+  <ion-item>
+    <ion-label>policy type</ion-label>
+    <ion-select interface="popover" [(ngModel)]="type" >
+   
+      <ion-select-option >Indemnity based comprehensive Crop Insurance</ion-select-option>
+      <ion-select-option >Weather Index based Insurance</ion-select-option>
+     
     </ion-select>
   </ion-item>
 </div>
