@@ -2,18 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { ActionSheetController } from '@ionic/angular';
 import { Router,ActivatedRoute } from '@angular/router';
-
+import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.page.html',
   styleUrls: ['./welcome.page.scss'],
 })
 export class WelcomePage implements OnInit {
-
+  server1:string='http://localhost:8080';
+  server2:string="http://dummy.restapiexample.com/api/v1/employees";
   cameradata:string;
 base64Image:string
 
-  constructor(private camera: Camera,public actionSheetController: ActionSheetController, private router:Router,) { }
+  constructor(private camera: Camera,public actionSheetController: ActionSheetController, public http:HttpClient,
+     private router:Router,) { //this.gets();
+    }
 
   ngOnInit() {
   }
@@ -86,4 +89,15 @@ openLogin(){
  details(){
   this.router.navigate(['/types']);
  }
+ //data:any;
+ //i:any;
+ /*gets(){
+  return this.http.get(this.server2).subscribe((res:any)=>{ for(this.i in res.data){this.data=res.data; console.log(res)}},
+  err=>{
+    console.log(err);
+  }
+  
+)
+
+ }*/
 }

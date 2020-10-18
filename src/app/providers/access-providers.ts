@@ -19,6 +19,7 @@ export class User {
 @Injectable()
 export class AccessProviders{
  server:string='http://localhost:8000';
+ 
   //   //server:string='http://192.168.8.188:8080';
   //   token: string;
     currentUser: User;
@@ -79,6 +80,7 @@ export class AccessProviders{
           
           
       }
+     
       getPolicy(){
         return this.http.get(this.server+'/detail')
 

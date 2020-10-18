@@ -25,36 +25,38 @@ val:any;
 
   constructor(private camera: Camera,public actionSheetController: ActionSheetController,
     public http:HttpClient,private router:Router,private storage:Storage) {
-
+      this.doRefresh(0);
    // this.ionViewDidEditor();
   
    }
    
   ngOnInit() {
     
-    this.storage.get('storage_XXX').then((res)=>{
+    
+  }
+  doRefresh(event) {
+      this.storage.get('storage_XXX').then((res)=>{
        console.log(res);
-        this.datastorage=res.NIC;
+       this.datastorage=res.NIC;
       this.storage.get('storage_co').then((res)=>{
         console.log(res);
         this.datastorage1=res;
-        //this.name=this.datastorage.Name;
+       //this.name=this.datastorage.Name;
         console.log(this.datastorage1);
-        return this.http.get(this.server+'/de/'+this.datastorage+'/'+this.datastorage1).subscribe((res:any)=>{ 
-          for(this.i in res.message){this.val=res.message; console.log(res.message)}},
+         return this.http.get(this.server+'/de/'+this.datastorage+'/'+this.datastorage1).subscribe((res:any)=>{ 
+           for(this.i in res.message){this.val=res.message; console.log(res.message)}},
             err=>{
-              console.log(err);
-            }
-            
-      )
-      
+               console.log(err);
+              }
+           )
       });
-      //this.name=this.datastorage.Name;
-     
-     
-    });
+     });
+   setTimeout(() => {
+    console.log('Async operation has ended');
+    event.target.complete();
+   }, 2000);
   }
- 
+
   /*ionViewDidEditor(){
     this.storage.get('storage_co').then((res)=>{
       console.log(res);
@@ -129,9 +131,9 @@ add(){
 }
 go(){
   this.router.navigate(['/policies']);
-}
+  }
 active(){
   this.router.navigate(['/active-policy']);
-}
+  }
 
 }
