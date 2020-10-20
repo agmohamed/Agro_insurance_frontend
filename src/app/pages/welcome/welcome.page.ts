@@ -9,7 +9,7 @@ import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
   styleUrls: ['./welcome.page.scss'],
 })
 export class WelcomePage implements OnInit {
-  server1:string='http://localhost:8080';
+  server1:string='http://192.168.8.188:8080/products';
   server2:string="http://dummy.restapiexample.com/api/v1/employees";
   cameradata:string;
 base64Image:string
@@ -89,10 +89,10 @@ openLogin(){
  details(){
   this.router.navigate(['/types']);
  }
- //data:any;
- //i:any;
- /*gets(){
-  return this.http.get(this.server2).subscribe((res:any)=>{ for(this.i in res.data){this.data=res.data; console.log(res)}},
+ data:any;
+i:any;
+/*gets(){
+  return this.http.get(this.server1).subscribe((res:any)=>{ for(this.i in res){this.data=res; console.log(res)}},
   err=>{
     console.log(err);
   }

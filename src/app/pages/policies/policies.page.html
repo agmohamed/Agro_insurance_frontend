@@ -19,11 +19,13 @@
      
     </ion-select>
   </ion-item>-->
-
+  
+  <ion-card>
    <ion-item>
+
       <ion-label>Crop type</ion-label>
       <ion-select interface="popover" [(ngModel)]="crop"  >
-        <ion-select-option >paddy</ion-select-option>
+        <ion-select-option >Paddy</ion-select-option>
         <ion-select-option >Big Onion</ion-select-option>
         <ion-select-option >Maize</ion-select-option>
         <ion-select-option >Potato</ion-select-option>
@@ -61,32 +63,49 @@
     </ion-select>
   </ion-item>
 </div>
+</ion-card>
 <!----<div *ngIf="hideMe">-->
-  <strong>Land details</strong>
-    <ion-item>
-      <ion-input type="text" placeholder="Land Name/plot Number" [(ngModel)]="land_num"></ion-input>
-  </ion-item>
+  <div><strong><u>Land details</u></strong></div>
   <ion-item>
-    <ion-input type="text" placeholder="Address" [(ngModel)]="address"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input type="text" placeholder="District" [(ngModel)]="district"></ion-input>
-  </ion-item>
-  <ion-item>
-      <ion-input type="text" placeholder="Gramasewa Division" [(ngModel)]="gramasewa_division"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input type="text" placeholder="Agrarian Service Centre" [(ngModel)]="aib"></ion-input>
-      </ion-item>
-    <ion-item>
-      <ion-label>Owership</ion-label>
-      <ion-select interface="popover" [(ngModel)]="owership"  >
-        <ion-select-option >own</ion-select-option>
-        <ion-select-option >Rented</ion-select-option>
-        <ion-select-option >Leased</ion-select-option>
-        
+      <ion-label>If land is already registered select one</ion-label>
+      <ion-select  [(ngModel)]="selectland">
+          <ion-select-option  *ngFor="let item of data;" value="{{item.land_number}}">{{item.land_number}} </ion-select-option>
       </ion-select>
-    </ion-item>
+      <button ion-button full (click)="onClick()">Save</button>
+  </ion-item>
+    <ion-label>If not enter details</ion-label>
+    <ion-card>
+      <ion-title></ion-title>
+      <div *ngIf="hid">
+        <ion-item>
+          <ion-input type="text" placeholder="Land Name/plot Number" [(ngModel)]="land_num"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="Address" [(ngModel)]="address"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" placeholder="District" [(ngModel)]="district"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-input type="text" placeholder="Gramasewa Division" [(ngModel)]="gramasewa_division"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input type="text" placeholder="Agrarian Service Centre" [(ngModel)]="aib"></ion-input>
+          </ion-item>
+        <ion-item>
+          <ion-label>Owership</ion-label>
+          <ion-select interface="popover" [(ngModel)]="owership"  >
+            <ion-select-option >own</ion-select-option>
+            <ion-select-option >Rented</ion-select-option>
+            <ion-select-option >Leased</ion-select-option>
+            
+          </ion-select>
+        </ion-item>
+      </div>
+
+    </ion-card>
+    
+  
     <ion-item>
         <ion-input type="text" placeholder="Land Size(Acres)" [(ngModel)]="size"></ion-input>
   </ion-item>

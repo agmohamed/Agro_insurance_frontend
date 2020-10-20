@@ -71,7 +71,7 @@ export class LoginPage implements OnInit {
                 this.presentToast('Login sucessfully');
                 this.storage.set('storage_XXX',res.data);
                 
-                this.navCtrl.navigateRoot(['/insurance-compnay']);
+                this.navCtrl.navigateRoot(['/types']);
                console.log(res.data);
               }else{
                 loader.dismiss();

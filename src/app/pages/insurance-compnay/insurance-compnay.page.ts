@@ -13,6 +13,16 @@ export class InsuranceCompnayPage implements OnInit {
 
   ngOnInit() {
   }
+  doRefresh(event) {
+    
+     //this.name=this.datastorage.Name;
+     
+ setTimeout(() => {
+  console.log('Async operation has ended');
+  event.target.complete();
+ }, 2000);
+}
+
   tryLogin1(event){
     this.storage.get("storage_XXX").then((res)=>{
       if(res==null){
@@ -23,6 +33,7 @@ export class InsuranceCompnayPage implements OnInit {
     //console.log(event.target.id);
     this.va=event.target.id;
     this.storage.set('storage_co',this.va);
+    this.doRefresh(0);
   }
   back(){
     this.router.navigate(['/types']);

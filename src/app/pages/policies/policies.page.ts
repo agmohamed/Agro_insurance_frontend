@@ -20,15 +20,19 @@ export class PoliciesPage implements OnInit {
   datastorage1:any;
   hideMe=false;
   hide=false;
+  hid=true;
   size:number;
   district:string;
   land_num:string;
+  selectland:string="";
   gramasewa_division:string;
   crop:string;
   owership:string;
   NIC:string;
   risk:string;
   type:string;
+  data:any;
+  selectone:string;
   server:string='http://localhost:8000';
 i:any="";
 values:any;
@@ -69,11 +73,22 @@ arr2:any=[];
         this.datastorage=res;
         this.NIC=this.datastorage.NIC;
         console.log(this.NIC);
+       
+        return this.http.get(this.server+'/land/'+this.NIC).subscribe((res:any)=>{ 
+          for(this.i in res.message){this.data=res.message; console.log(res.message);}},
+              
+          err=>{
+            console.log(err);
+           }
+        )
       });
-      
+     
 
   }
+  onClick(){
+    this.hid=false;
 
+  }
   ngOnInit() {
     
   }
@@ -85,9 +100,16 @@ arr2:any=[];
     this.http.get(this.server+'/detail/'+this.datastorage1).subscribe((res:any)=>{ 
       for(this.i in res.message){this.arr1.push(res.message[this.i].id); this.arr2.push(res.message[this.i].Name);console.log(this.arr1[this.i]+this.arr2[this.i]);}},
           
-         
-    )
+         )
    
+  }
+  getland(){
+   
+
+    
+     
+    
+
   }
   submit(){
     console.log(this.type);
@@ -123,6 +145,7 @@ arr2:any=[];
         let body={
           
           land_num:this.land_num,
+          selectland:this.selectland,
           gramasewa_division:this.gramasewa_division,
           district:this.district,
           crop:this.crop,
