@@ -1,6 +1,5 @@
 <ion-header>
   <ion-toolbar color="success">
-    
     <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
     <ion-title>Hi {{name}}</ion-title>
      <ion-buttons slot="end">
@@ -12,52 +11,40 @@
 </ion-header>
 
 <ion-content>
-  <ion-card color="light" (click)="go()">
-          
-    <ion-item  class="ion-activated">
+  <ion-card color="light" (click)="go()" >
+      <ion-item  class="ion-activated">
         <ion-img src="/assets/icon/doc1.png"  style="height: 50px;width: 100px;" slot="start"></ion-img>
-      <ion-card-title>Insurances Details</ion-card-title>
-    </ion-item>
-      <ion-card-content class="si">
+        <ion-card-title>Insurances Details</ion-card-title>
+      </ion-item>
+        <ion-card-content class="si">
         Know more details about your insuraces policies
-      </ion-card-content>
-   
-    </ion-card>
-    <ion-card color="light" (click)="forum()">
-          
-        <ion-item  class="ion-activated">
-            <ion-img src="/assets/icon/forum.png"  style="height: 50px;width: 100px;" slot="start"></ion-img>
-          <ion-card-title>Discussion Forum</ion-card-title>
-        </ion-item>
-          <ion-card-content class="si">
-           discussions your issues
-          </ion-card-content>
-       
-        </ion-card>
+        </ion-card-content>
+  </ion-card>
 
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-                <ion-card class="card">
-                    <h1>Policy1</h1>
-                    <ion-img src="/assets/icon/cal.png"  style="height: 50px;width: 100px;"></ion-img>
+  <ion-card color="light" (click)="forum()">
+     <ion-item  class="ion-activated">
+        <ion-img src="/assets/icon/forum.png"  style="height: 50px;width: 100px;" slot="start"></ion-img>
+        <ion-card-title>Discussion Forum</ion-card-title>
+     </ion-item>
+        <ion-card-content class="si">
+           discussions your issues
+        </ion-card-content>
+  </ion-card>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+            <ion-card class="card" *ngFor=" let d of arr" >
+                <h1  >Policy Number-{{d.floor}}</h1>
+                <ion-img src="/assets/icon/cal.png"  style="height: 50px;width: 100px;"></ion-img>
                     <!----<p>Next Payment : <strong class="te">January 20 2021 </strong>
                       <strong class="am"> Total amount to pay:4000</strong>
                     
                     </p>-->
-                    <strong>Total permium : 3600</strong>
-                </ion-card>
-             
-            </ion-col>
-            <ion-col>
-            <ion-card class="card">
-                <h1>Policy2 </h1>
-                <ion-img src="/assets/icon/cal.png"  style="height: 50px;width: 100px;"></ion-img>
-                <!----<p>Next Payment : <strong class="te">January 18 2021 </strong>
-                  <strong class="am">  Total amount to pay:2000</strong> </p>-->
-                  <strong>Total permium : 4000</strong>
+                <strong >Total permium : {{d.name}}</strong>
             </ion-card>
-          </ion-col>
-          </ion-row> 
-        </ion-grid> 
+               
+        </ion-col>
+      </ion-row> 
+    </ion-grid> 
 </ion-content>

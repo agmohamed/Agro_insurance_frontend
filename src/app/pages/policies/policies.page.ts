@@ -36,7 +36,7 @@ export class PoliciesPage implements OnInit {
   server:string='http://localhost:8000';
 i:any="";
 values:any;
-arr1:any=[];
+arr1:any[]=[];
 arr2:any=[];
   constructor(private router:Router,private camera: Camera,public actionSheetController: ActionSheetController,
     private toastCtrl:ToastController, private acessPr:AccessProviders, public http:HttpClient,
@@ -98,7 +98,7 @@ arr2:any=[];
   va(){
 
     this.http.get(this.server+'/detail/'+this.datastorage1).subscribe((res:any)=>{ 
-      for(this.i in res.message){this.arr1.push(res.message[this.i].id); this.arr2.push(res.message[this.i].Name);console.log(this.arr1[this.i]+this.arr2[this.i]);}},
+      for(this.i in res.message){this.arr1.push({'id':res.message[this.i].id,'name':res.message[this.i].Name}); this.arr2.push(res.message[this.i].Name);console.log(this.arr1[this.i]+this.arr2[this.i]);}},
           
          )
    
@@ -114,11 +114,11 @@ arr2:any=[];
   submit(){
     console.log(this.type);
     for(let j=0;j<this.arr1.length;j++)
-    if(this.type==this.arr2[j]){
-        this.values=this.arr1[j];
+    if(this.type==this.arr1[j].name){
+        this.values=this.arr1[j].id;
     }
     else{
-      this.values=this.arr1[j];
+      //this.values=this.arr1[j].id;
     }
     console.log(this.values);
     if(this.land_num==""){

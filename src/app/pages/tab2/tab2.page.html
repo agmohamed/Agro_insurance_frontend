@@ -23,21 +23,20 @@
       refreshingText="Refreshing...">
     </ion-refresher-content>
   </ion-refresher>
-            <ion-card color="light" *ngFor="let v of val" (click)="active()">     
-                <ion-item  class="ion-activated">
-                   <ion-card-title>Policy Number-{{v.id}}</ion-card-title>
-                </ion-item>
-                  <ion-card-content >
-                    {{v.Name}}
-                  </ion-card-content>
-                  <ion-button shape="round" color="tertiary">{{v.status}}</ion-button>
-              </ion-card>
-                <div>
-                  <ion-button expand="full" color='success'  (click)="go()">Add Policy</ion-button>
-                </div>
+            
+    <ion-card color="light" *ngFor="let v of val" (click)="active()">     
+          <ion-item  class="ion-activated">
+              <ion-card-title>Policy Number-{{v.id}}</ion-card-title>
+          </ion-item>
+          <ion-card-content> {{v.Name}} </ion-card-content>
+          <ion-button shape="round" color="tertiary">{{v.status}}</ion-button>
+    </ion-card>
+    
+    <div>
+        <ion-button expand="full" color='success'  (click)="go()">Add Policy</ion-button>
+    </div>
               
-        
-    </ion-content>
+</ion-content>
       <!----<ion-card color="light" (click)="go()">  
         <ion-item  class="ion-activated">
            <ion-card-title>Policy Number-2</ion-card-title>
@@ -60,81 +59,4 @@
       
        
 
-    <!-- <div class='modal fade' id='modalLoginForm' tabindex='-1' role='dialog' aria-labelledby='myModalLabel'
-      aria-hidden='true'>
-     <div class='modal-dialog'role='document'>
-       <div class='modal-content'>
-         <div class='modal-header text-center'>
-           <h4 class='modal-title w-100 font-weight-bold'>Enter details</h4>
-                 <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
-                    <span aria-hidden='true'>&times;</span>
-                </button>
-         </div>;
-    
-        <div class='modal-body mx-3'>
-         <div class='md-form mb-5'>
-             <i class='fas fa-envelope prefix grey-text'></i>
-              <input type='text' name='year' id='defaultForm-email' class='form-control validate'>
-             <label data-error='wrong' data-success='right' for='defaultForm-email'>Year</label>
-          </div>
-    
-           <div class='md-form mb-4'>
-             <i class='fas fa-lock prefix grey-text'></i>
-              <input type='text' name='sem' id='defaultForm-pass' class='form-control validate'>
-             <label data-error='wrong' data-success='right' for='defaultForm-pass'>Semester</label>
-          </div>
-        </div>
-        </div>
-       </div>
-          <div class='modal-footer d-flex justify-content-center'>
-           <button type='submit' name='sub' class='btn btn-default'>Submit</button>
-        </div>
-      </div>
-      
-    </div> -->
-
-    
-    <!-- <mbsc-form>
-      <mbsc-form-group>
-          <div class="mbsc-btn-group-block">
-              <mbsc-button (click)="register.instance.show()">Show register form</mbsc-button>
-              <mbsc-button (click)="login.instance.show()">Show login form</mbsc-button>
-          </div>
-      </mbsc-form-group>
-  </mbsc-form>
-  
-  <mbsc-popup [options]="settings" #register="mobiscroll">
-      <mbsc-form>
-          <mbsc-form-group inset>
-              <mbsc-input type="text" name="name" placeholder="Name"></mbsc-input>
-              <mbsc-input type="text" name="email" placeholder="Email"></mbsc-input>
-              <label>
-                  <input name="password" type="text" placeholder="Password" data-password-toggle="true" data-icon-show="eye" data-icon-hide="eye-blocked" />
-              </label>
-          </mbsc-form-group>
-      </mbsc-form>
-  </mbsc-popup>
-  
-  <mbsc-popup [options]="listSettings" #login="mobiscroll">
-      <mbsc-form>
-          <mbsc-form-group inset>
-              <mbsc-input type="text" name="email" placeholder="Email"></mbsc-input>
-              <mbsc-input name="password" type="text" placeholder="Password" data-password-toggle="true" data-icon-show="eye" data-icon-hide="eye-blocked"></mbsc-input>
-          </mbsc-form-group>
-          <div class="mbsc-align-center">or log in with one of your existing accounts</div>
-          <mbsc-form-group inset>
-              <button class="md-social-btn mbsc-btn-block" (click)="login.instance.hide()" style="background:#3c5c9a;color:#fff;">
-                  <span class="mbsc-ic mbsc-ic-ion-social-facebook mbsc-pull-left"></span>
-                  Log in with Facebook
-              </button>
-              <button class="md-social-btn mbsc-btn-block" (click)="login.instance.hide()" style="background:#28aae1;color:#fff;">
-                  <span class="mbsc-ic mbsc-ic-fa-twitter mbsc-pull-left"></span>
-                  Log in with Twitter
-              </button>
-              <button class="md-social-btn mbsc-btn-block" (click)="login.instance.hide()" style="background:#d34230;color:#fff;">
-                  <span class="mbsc-ic mbsc-ic-fa-google mbsc-pull-left"></span>
-                  Log in with Google
-              </button>
-          </mbsc-form-group>
-      </mbsc-form> -->
-  <!-- </mbsc-popup> -->
+   
