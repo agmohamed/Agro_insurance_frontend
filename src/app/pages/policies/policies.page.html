@@ -68,10 +68,10 @@
   <div><strong><u>Land details</u></strong></div>
   <ion-item>
       <ion-label>If land is already registered select one</ion-label>
-      <ion-select  [(ngModel)]="selectland">
+      <ion-select (ionChange)="onClick()" [(ngModel)]="selectland">
           <ion-select-option  *ngFor="let item of data;" value="{{item.land_number}}">{{item.land_number}} </ion-select-option>
       </ion-select>
-      <button ion-button full (click)="onClick()">Save</button>
+      <!----<button ion-button full (click)="onClick()">Save</button>-->
   </ion-item>
     <ion-label>If not enter details</ion-label>
     <ion-card>

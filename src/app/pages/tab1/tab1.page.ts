@@ -13,12 +13,18 @@ export class Tab1Page implements OnInit {
  datastorage: any;
  datastorage1: any;
  name: string;
+ id:any;
+ premium:any;
  nic:any;
  i:any;
  m:any;
  va:any;
+ va1:any;
  values:any;
+ 
+
  arr: any[] = [] 
+ arr1: any= [] 
  server:string='http://localhost:8000';
   //info: User;
   
@@ -36,14 +42,45 @@ export class Tab1Page implements OnInit {
          this.datastorage1=res;
          console.log(this.datastorage1);
          this.init();
-         
+        // this.val();
         });
       }); 
       this.ionViewDidEditor();
+      
     }
 
   ngOnInit() {
     
+  }
+
+  val(v1, v2){
+   
+    return new Promise(resoler=>{
+    
+      let body={
+        
+       premium:v1
+
+      }
+      
+      this.acessPr.postPremium(body,v2).subscribe((res:any)=>{
+          if(res.status==true){
+            //loader.dismiss();
+           // this.disableButton=false;
+            //this.presentToast(res.message);
+            //this.router.navigate(['/home/tab2']);
+              console.log('true');
+          }else{
+            //loader.dismiss();
+            //this.disableButton=false;
+           // this.presentToast(res.message);
+          }
+      },(err=>{
+        //loader.dismiss();
+       // this.disableButton=false;
+       // this.presentAlert('Timeout');
+      }));
+    });
   }
   init(){
     if(this.datastorage1==0){
@@ -51,14 +88,20 @@ export class Tab1Page implements OnInit {
         this.http.get(this.server+'/risk1/'+this.nic+'/'+this.datastorage1).subscribe((res:any)=>{ 
            for (this.i in res.me){
              this.arr.push({ 'name': res.me[this.i], 'floor':res.message[this.i].id  }); 
-             console.log(this.arr[this.i]);  
-      }})
+             //console.log(this.arr[this.i]);this.va1=res; 
+             this.val(this.arr[this.i].name,this.arr[this.i].floor);
+             
+            
+      }       })
       
         this.http.get(this.server+'/wrisk/'+this.nic+'/'+this.datastorage1).
             subscribe((res:any)=>{ 
               for (this.i in res.me){
               this.arr.push({ 'name': res.me[this.i], 'floor':res.message[this.i].id  }); 
-              console.log(this.arr[this.i]);  
+              console.log(this.arr[this.i]);
+              this.val(this.arr[this.i].name,this.arr[this.i].floor);
+             
+              
       }}) 
     }
     
@@ -66,11 +109,14 @@ export class Tab1Page implements OnInit {
         this.http.get(this.server+'/risk2/'+this.nic+'/'+this.datastorage1).subscribe((res:any)=>{ 
             for (this.i in res.me){
               this.arr.push({ 'name': res.me[this.i], 'floor':res.message[this.i].id  }); 
-              console.log(this.arr[this.i]);  
+              console.log(this.arr[this.i]);
+              this.val(this.arr[this.i].name,this.arr[this.i].floor);  
       }})
+     
              
     }
-       
+   
+   
 }
 
   ionViewDidEditor(){
@@ -80,6 +126,8 @@ export class Tab1Page implements OnInit {
         this.name=this.datastorage.Name;
         //console.log(this.datastorage);
       });
+      //for(let i=0;i<this.arr.length;i++)
+     
   }
     async processLogout(){
       this.storage.clear();

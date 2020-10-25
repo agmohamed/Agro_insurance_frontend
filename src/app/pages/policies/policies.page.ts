@@ -98,7 +98,9 @@ arr2:any=[];
   va(){
 
     this.http.get(this.server+'/detail/'+this.datastorage1).subscribe((res:any)=>{ 
-      for(this.i in res.message){this.arr1.push({'id':res.message[this.i].id,'name':res.message[this.i].Name}); this.arr2.push(res.message[this.i].Name);console.log(this.arr1[this.i]+this.arr2[this.i]);}},
+      for(this.i in res.message){
+        this.arr1.push({'id':res.message[this.i].id,'name':res.message[this.i].Name}); 
+        console.log(this.arr1[this.i]);}},
           
          )
    
@@ -113,13 +115,15 @@ arr2:any=[];
   }
   submit(){
     console.log(this.type);
-    for(let j=0;j<this.arr1.length;j++)
-    if(this.type==this.arr1[j].name){
+    for(let j=0;j<this.arr1.length;j++){
+      if(this.type==this.arr1[j].name){
         this.values=this.arr1[j].id;
     }
-    else{
-      //this.values=this.arr1[j].id;
+    else if(this.type== undefined){
+      this.values=this.arr1[j].id;
     }
+    }
+    
     console.log(this.values);
     if(this.land_num==""){
       this.presentToast("land_num is required");

@@ -13,6 +13,7 @@ export class LoginPage implements OnInit {
   Password:string="";
   disableButton;
   selected_value:string;
+  company:any;
   constructor(
     private router:Router,
     private storage:Storage,
@@ -38,9 +39,15 @@ export class LoginPage implements OnInit {
     /*if(this.NIC=="farmer1" && this.Password=="farmer1" ){
       this.navCtrl.navigateRoot(['/types']);
     }*/
-    if(this.NIC=="agent" && this.Password=="agent" ){
+    if(this.NIC=="agent1" && this.Password=="agent1" ){
       this.navCtrl.navigateRoot(['/agent']);
+      this.company=0;
     }
+    if(this.NIC=="agent2" && this.Password=="agent2" ){
+      this.navCtrl.navigateRoot(['/agent']);
+      this.company=1;
+    }
+    this.storage.set('storage_comid',this.company);
     if(this.NIC=="org" && this.Password=="org" ){
       this.navCtrl.navigateRoot(['/organization']);
     }
@@ -65,6 +72,15 @@ export class LoginPage implements OnInit {
             Password:this.Password
           }
           this.acessPr.postLogin(body).subscribe((res:any)=>{
+            if(res.message=='Success loginCompany' ){
+              loader.dismiss();
+              this.disableButton=false;
+              this.presentToast('Login sucessfully');
+              this.storage.set('storage_XXX',res.data);
+              
+              this.navCtrl.navigateRoot(['/aaib']);
+             console.log(res.data1);
+            }
               if(res.status==true ){
                 loader.dismiss();
                 this.disableButton=false;

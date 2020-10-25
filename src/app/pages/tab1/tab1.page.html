@@ -11,6 +11,15 @@
 </ion-header>
 
 <ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+            
   <ion-card color="light" (click)="go()" >
       <ion-item  class="ion-activated">
         <ion-img src="/assets/icon/doc1.png"  style="height: 50px;width: 100px;" slot="start"></ion-img>
@@ -41,7 +50,7 @@
                       <strong class="am"> Total amount to pay:4000</strong>
                     
                     </p>-->
-                <strong >Total permium : {{d.name}}</strong>
+                <strong >Total premium : {{d.name}}</strong>
             </ion-card>
                
         </ion-col>

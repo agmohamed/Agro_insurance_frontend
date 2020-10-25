@@ -15,7 +15,7 @@ export class WelcomePage implements OnInit {
 base64Image:string
 
   constructor(private camera: Camera,public actionSheetController: ActionSheetController, public http:HttpClient,
-     private router:Router,) { //this.gets();
+     private router:Router,) { this.gets();
     }
 
   ngOnInit() {
@@ -91,7 +91,7 @@ openLogin(){
  }
  data:any;
 i:any;
-/*gets(){
+gets(){
   return this.http.get(this.server1).subscribe((res:any)=>{ for(this.i in res){this.data=res; console.log(res)}},
   err=>{
     console.log(err);
@@ -99,5 +99,5 @@ i:any;
   
 )
 
- }*/
+ }
 }

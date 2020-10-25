@@ -24,4 +24,11 @@
   <ul *ngFor="let r of nameArr">
     <li>{{r}}</li>
   </ul>
+  <div *ngIf="hide">
+      <h3>In optional insurances we cover</h3>
+      <ul *ngFor="let i of data">
+          <li>{{i.risk_type}}</li>
+
+      </ul>
+  </div> 
 </ion-content>

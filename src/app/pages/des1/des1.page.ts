@@ -15,6 +15,8 @@ export class Des1Page implements OnInit {
   me:any;
   i:any="";
   nameArr:any;
+  company:any;
+  hide=false;
   server:string='http://localhost:8000';
   constructor(private router:Router,public http:HttpClient,private storage:Storage) {
 
@@ -22,7 +24,7 @@ export class Des1Page implements OnInit {
       //this.name=this.datastorage.Name;
      
       this.storage.get('storage_getde').then((res)=>{
-        //console.log(res);
+        console.log(res);
         this.datastorage1=res[0];
         this.datastorage2=res[1];
         this.datastorage3=res[2];
@@ -37,7 +39,23 @@ export class Des1Page implements OnInit {
       });
      
     
-    
+      this.storage.get('storage_co').then((res)=>{
+        console.log(res);
+        this.company=res;
+        if(res==0){
+          this.hide=true;
+         
+       }
+        //this.name=this.datastorage.Name;
+        console.log(this.company);
+        return this.http.get(this.server+'/risktypes/'+this.company).subscribe((res:any)=>{ 
+          this.data=res.message; console.log(this.data)},
+            err=>{
+              console.log(err);
+            }
+            
+      )
+      });
    
    }
 

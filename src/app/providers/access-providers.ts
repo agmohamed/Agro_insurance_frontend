@@ -79,8 +79,24 @@ export class AccessProviders{
           );
           
           
-      }
+        }
      
+        postPremium(body,$id){
+          let headers=new HttpHeaders({
+              'Content-Type':'applicationJson,charset-UTF-8'
+          });
+          let options={
+              headers:headers
+          }
+          
+          return this.http.post(this.server+'/premium/'+$id,JSON.stringify(body),{
+              headers: new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8'),
+            })
+          . map(res=>res
+          );
+          
+          
+       }
       getPolicy(){
         return this.http.get(this.server+'/detail')
 
