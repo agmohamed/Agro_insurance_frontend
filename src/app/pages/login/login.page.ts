@@ -81,14 +81,23 @@ export class LoginPage implements OnInit {
               this.navCtrl.navigateRoot(['/aaib']);
              console.log(res.data1);
             }
-              if(res.status==true ){
-                loader.dismiss();
-                this.disableButton=false;
-                this.presentToast('Login sucessfully');
-                this.storage.set('storage_XXX',res.data);
+            if(res.message=='Success login Agent' ){
+              loader.dismiss();
+              this.disableButton=false;
+              this.presentToast('Login sucessfully');
+              this.storage.set('storage_agent',res.data2);
+              
+              this.navCtrl.navigateRoot(['/agent']);
+             console.log(res.data2);
+            }
+            if(res.status==true ){
+              loader.dismiss();
+              this.disableButton=false;
+              this.presentToast('Login sucessfully');
+              this.storage.set('storage_XXX',res.data);
                 
-                this.navCtrl.navigateRoot(['/types']);
-               console.log(res.data);
+              this.navCtrl.navigateRoot(['/types']);
+              console.log(res.data);
               }else{
                 loader.dismiss();
                 this.disableButton=false;

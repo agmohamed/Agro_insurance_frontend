@@ -1,30 +1,21 @@
 <ion-header>
   <ion-toolbar color="success">
       <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
-    <ion-title>Agriculture Officer</ion-title>
+    <ion-title>Welcome</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-card color="light" (click)="go()">
+    <ion-card color="light" (click)="go()" *ngFor="let d of data">
           
    
-        <ion-card-title>PolicyRequest-1</ion-card-title>
+        <ion-card-title>PolicyRequest-{{d.id}}</ion-card-title>
       
         <ion-card-content class="si">
          tap to more information
         </ion-card-content>
-     
+        <ion-button shape="round"  class="no-padding" (click)="view($event)" id="{{d.id}}" color="secondary">click</ion-button>
       </ion-card>
   
-      <ion-card color="light" (click)="go()">
-            
-     
-        <ion-card-title>PolicyRequest-2</ion-card-title>
-     
-        <ion-card-content class="si">
-         tap to more information
-        </ion-card-content>
-     
-      </ion-card>
+      
 </ion-content>

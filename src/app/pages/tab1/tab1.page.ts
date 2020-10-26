@@ -90,9 +90,8 @@ export class Tab1Page implements OnInit {
              this.arr.push({ 'name': res.me[this.i], 'floor':res.message[this.i].id  }); 
              //console.log(this.arr[this.i]);this.va1=res; 
              this.val(this.arr[this.i].name,this.arr[this.i].floor);
-             
-            
-      }       })
+             }
+            })
       
         this.http.get(this.server+'/wrisk/'+this.nic+'/'+this.datastorage1).
             subscribe((res:any)=>{ 

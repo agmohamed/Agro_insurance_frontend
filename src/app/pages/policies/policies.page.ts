@@ -33,8 +33,11 @@ export class PoliciesPage implements OnInit {
   type:string;
   data:any;
   selectone:string;
+  id:any;
   server:string='http://localhost:8000';
 i:any="";
+di:any;
+gr:any;
 values:any;
 arr1:any[]=[];
 arr2:any=[];
@@ -75,7 +78,12 @@ arr2:any=[];
         console.log(this.NIC);
        
         return this.http.get(this.server+'/land/'+this.NIC).subscribe((res:any)=>{ 
-          for(this.i in res.message){this.data=res.message; console.log(res.message);}},
+          for(this.i in res.message){this.data=res.message; 
+            console.log(res.message);
+            this.arr2.push({'land':res.message[this.i]. land_number,'dis':res.message[this.i].District,'gra':res.message[this.i]. Gramaseva_division}); 
+          console.log(this.arr2[this.i]);
+            //this.di=res.message[i]. District;
+          }},
               
           err=>{
             console.log(err);
@@ -115,6 +123,8 @@ arr2:any=[];
   }
   submit(){
     console.log(this.type);
+    
+
     for(let j=0;j<this.arr1.length;j++){
       if(this.type==this.arr1[j].name){
         this.values=this.arr1[j].id;
@@ -125,6 +135,20 @@ arr2:any=[];
     }
     
     console.log(this.values);
+    if(this.selectland!=""){
+      for(let j=0;j<this.arr2.length;j++){
+        if(this.selectland==this.arr2[j].land){
+          this.district=this.arr2[j].dis;
+          this.gramasewa_division=this.arr2[j].gra;
+        }
+       }
+    }
+    
+  console.log(this.district);
+          
+      
+    
+    //console.log(this.arr2[0].id);
     if(this.land_num==""){
       this.presentToast("land_num is required");
     }else if(this.gramasewa_division==""){
@@ -139,13 +163,17 @@ arr2:any=[];
     {
       this.presentToast("size is required");
     }
-    else{
+    else if((this.gramasewa_division!="") && (this.district!="")){
     //this.disableButton=true;
     // const loader=await this.loadingCtrl.create({
     //     message:'Please wait......',
     // });
     //loader.present();
-      return new Promise(resoler=>{
+    this.http.get(this.server+'/agentId/'+this.district+'/'+this.gramasewa_division+'/'+this.datastorage1).subscribe((res:any)=>{ 
+      for(this.i in res.message){this.id=res.message[this.i].id;
+         //this.arr2.push({'id':res.message[this.i].id}); 
+         console.log( this.id);
+         return new Promise(resoler=>{
         let body={
           
           land_num:this.land_num,
@@ -159,10 +187,11 @@ arr2:any=[];
           End_date:this.End_date,
           Start_date:this.Start_date,
           risk:this.risk,
-          type:this.values
+          type:this.values,
+          id:this.id
 
         }
-        this.acessPr.postPolicy(body).subscribe((res:any)=>{
+        this.acessPr.postPolicy(body,this.NIC).subscribe((res:any)=>{
             if(res.status==true){
               //loader.dismiss();
              // this.disableButton=false;
@@ -178,11 +207,15 @@ arr2:any=[];
           //loader.dismiss();
          // this.disableButton=false;
          // this.presentAlert('Timeout');
-        }));
-      });
+          }));
+        });
 
+       }}
+       )
+      
     
-  }
+     }
+     
   
   }
   async presentToast(a) {
