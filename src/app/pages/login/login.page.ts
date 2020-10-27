@@ -81,7 +81,7 @@ export class LoginPage implements OnInit {
               this.navCtrl.navigateRoot(['/aaib']);
              console.log(res.data1);
             }
-            if(res.message=='Success login Agent' ){
+            else if(res.message=='Success login Agent' ){
               loader.dismiss();
               this.disableButton=false;
               this.presentToast('Login sucessfully');
@@ -90,7 +90,7 @@ export class LoginPage implements OnInit {
               this.navCtrl.navigateRoot(['/agent']);
              console.log(res.data2);
             }
-            if(res.status==true ){
+           else if(res.status==true ){
               loader.dismiss();
               this.disableButton=false;
               this.presentToast('Login sucessfully');

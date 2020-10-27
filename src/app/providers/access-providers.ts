@@ -97,6 +97,22 @@ export class AccessProviders{
           
           
        }
+      postagentVerify(body,$id){
+        let headers=new HttpHeaders({
+            'Content-Type':'applicationJson,charset-UTF-8'
+        });
+        let options={
+            headers:headers
+        }
+        
+        return this.http.post(this.server+'/agentverify/'+$id,JSON.stringify(body),{
+            headers: new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8'),
+          })
+        . map(res=>res
+        );
+        
+        
+     }
       getPolicy(){
         return this.http.get(this.server+'/detail')
 
@@ -106,5 +122,5 @@ export class AccessProviders{
           }
           public getUserInfo() : User {
             return this.currentUser;
-          }
+        }
 }

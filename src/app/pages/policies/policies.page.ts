@@ -163,7 +163,7 @@ arr2:any=[];
     {
       this.presentToast("size is required");
     }
-    else if((this.gramasewa_division!="") && (this.district!="")){
+    else {
     //this.disableButton=true;
     // const loader=await this.loadingCtrl.create({
     //     message:'Please wait......',

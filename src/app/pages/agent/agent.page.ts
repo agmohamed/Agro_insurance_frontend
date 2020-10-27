@@ -28,6 +28,7 @@ server:string='http://localhost:8000';
   view(event){
     this.va=event.target.id;
     this.storage.set('storage_info',this.va);
+    console.log(this.va);
     this.router.navigate(['/agent-verification']);
   }
   getpolicy(){

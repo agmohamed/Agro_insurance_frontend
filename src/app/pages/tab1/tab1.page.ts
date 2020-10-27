@@ -3,7 +3,7 @@ import {Storage} from '@ionic/storage';
 import { Router,ActivatedRoute } from '@angular/router';
 import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
 import { ToastController,LoadingController,AlertController,NavController } from '@ionic/angular';
-import {User, AccessProviders } from '../../providers/access-providers';
+import { AccessProviders } from '../../providers/access-providers';
 @Component({
   selector: 'app-tab1',
   templateUrl: './tab1.page.html',
@@ -21,7 +21,7 @@ export class Tab1Page implements OnInit {
  va:any;
  va1:any;
  values:any;
- 
+ k:any;
 
  arr: any[] = [] 
  arr1: any= [] 
@@ -82,14 +82,18 @@ export class Tab1Page implements OnInit {
       }));
     });
   }
+  j:any=0;
   init(){
     if(this.datastorage1==0){
 
         this.http.get(this.server+'/risk1/'+this.nic+'/'+this.datastorage1).subscribe((res:any)=>{ 
            for (this.i in res.me){
+           
              this.arr.push({ 'name': res.me[this.i], 'floor':res.message[this.i].id  }); 
-             //console.log(this.arr[this.i]);this.va1=res; 
+             console.log(this.arr[this.i]);this.va1=res; 
              this.val(this.arr[this.i].name,this.arr[this.i].floor);
+             this.j++;
+             console.log(this.j);
              }
             })
       
@@ -97,11 +101,17 @@ export class Tab1Page implements OnInit {
             subscribe((res:any)=>{ 
               for (this.i in res.me){
               this.arr.push({ 'name': res.me[this.i], 'floor':res.message[this.i].id  }); 
-              console.log(this.arr[this.i]);
-              this.val(this.arr[this.i].name,this.arr[this.i].floor);
-             
-              
-      }}) 
+              //console.log(this.arr[this.i]);
+              //this.val(this.arr[this.j].name,this.arr[this.j].floor);
+              this.j++;
+              console.log(this.j);
+      }
+        for(this.k=0;this.k<this.j;this.k++){
+          this.val(this.arr[this.k].name,this.arr[this.k].floor);
+          console.log(this.arr[this.k]);
+        }
+    }) 
+     
     }
     
     else if(this.datastorage1==1){
