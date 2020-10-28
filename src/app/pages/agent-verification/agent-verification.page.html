@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="success">
       <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
-    <ion-title>Welcome</ion-title>
+    <ion-title>Policy Information</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,11 +16,11 @@
     <ion-input></ion-input>
   </ion-item>
   <ion-item >
-    <ion-label><strong>Start Date :</strong>{{d.start_date}}</ion-label>
+    <ion-label><strong>Start Date :</strong>{{d.start_date| date: 'yyyy/MM/dd'}}</ion-label>
     <ion-input></ion-input>
   </ion-item>
   <ion-item >
-    <ion-label ><strong>End Date :</strong>{{d.end_date}}</ion-label>
+    <ion-label ><strong>End Date :</strong>{{d.end_date| date: 'yyyy/MM/dd'}}</ion-label>
     <ion-input></ion-input>
   </ion-item>
   <ion-item >
