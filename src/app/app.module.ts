@@ -1,5 +1,5 @@
 //import { MbscModule } from '@mobiscroll/angular';
-import { MbscModule } from '@mobiscroll/angular-lite';
+//import { MbscModule } from '@mobiscroll/angular-lite';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,20 +15,29 @@ import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { AccessProviders } from './providers/access-providers';
 import { Camera} from '@ionic-native/camera/ngx';
+//import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+import { FilePath } from '@ionic-native/file-path/ngx';
 import { IonicRatingModule } from 'ionic-rating';
-
-
+  
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [ 
-    MbscModule,  
+    //MbscModule,  
     FormsModule,  
 BrowserModule, IonicRatingModule ,IonicModule.forRoot(), AppRoutingModule,HttpClientModule,IonicStorageModule.forRoot()],
   providers: [
     StatusBar,
     SplashScreen,
+    //FileTransfer,
+    //FileUploadOptions,
+   // FileTransferObject,
+   
     Camera,
+    WebView,
+    FilePath,
     AccessProviders,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],

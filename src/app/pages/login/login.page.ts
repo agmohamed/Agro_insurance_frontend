@@ -30,8 +30,8 @@ export class LoginPage implements OnInit {
     this.disableButton=false;
   }
   async tryLogin(){
-    if(this.NIC=="ABC" && this.Password=="abc" ){
-      this.navCtrl.navigateRoot(['/aaib']);
+    if(this.NIC=="123" && this.Password=="123" ){
+      this.navCtrl.navigateRoot(['/types']);
     }
     if(this.NIC=="CompanyB" && this.Password=="B123" ){
       this.navCtrl.navigateRoot(['/sanasa']);

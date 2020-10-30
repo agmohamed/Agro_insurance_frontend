@@ -4,6 +4,8 @@ import { Router,ActivatedRoute } from '@angular/router';
 import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
 import { ToastController,LoadingController,AlertController,NavController } from '@ionic/angular';
 import { AccessProviders } from '../../providers/access-providers';
+//import * as Constants from '../../providers/access-providers';
+
 @Component({
   selector: 'app-tab1',
   templateUrl: './tab1.page.html',
@@ -25,7 +27,8 @@ export class Tab1Page implements OnInit {
 
  arr: any[] = [] 
  arr1: any= [] 
- server:string='http://localhost:8000';
+ //server:string='http://localhost:8000';
+ server:string='http://192.168.8.188:8080';
   //info: User;
   
   constructor(private router:Router,

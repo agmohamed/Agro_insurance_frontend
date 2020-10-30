@@ -4,7 +4,7 @@ import { ActionSheetController } from '@ionic/angular';
 import { Router,ActivatedRoute } from '@angular/router';
 import {Storage} from '@ionic/storage';
 import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
-
+import { AccessProviders } from '../../providers/access-providers';
 
 //import { mobiscroll, MbscPopupOptions } from '@mobiscroll/angular';
 
@@ -19,7 +19,7 @@ cameradata:string;
 base64Image:string
 datastorage: any;
 datastorage1: any;
-server:string='http://localhost:8000';
+
 i:any="";
 val:any;
 
@@ -42,7 +42,7 @@ val:any;
             console.log(res);
             this.datastorage1=res;
             console.log(this.datastorage1);
-         return this.http.get(this.server+'/de/'+this.datastorage+'/'+this.datastorage1).subscribe((res:any)=>{ 
+         return this.http.get(AccessProviders.server+'/de/'+this.datastorage+'/'+this.datastorage1).subscribe((res:any)=>{ 
               for(this.i in res.message){this.val=res.message; console.log(res.message)}},
                  err=>{
                    console.log(err);

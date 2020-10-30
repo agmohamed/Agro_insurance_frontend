@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
 import {Storage} from '@ionic/storage';
-
+import { AccessProviders } from '../../providers/access-providers';
 @Component({
   selector: 'app-description',
   templateUrl: './description.page.html',
@@ -16,7 +16,7 @@ va1:string="";
 va2:string="";
 va3:string="";
 arr:any=[];
-server:string='http://localhost:8000';
+
   constructor(private router:Router,public http:HttpClient,private storage:Storage) { 
     
     
@@ -29,7 +29,7 @@ server:string='http://localhost:8000';
       this.datastorage=res;
       //this.name=this.datastorage.Name;
       console.log(this.datastorage);
-      return this.http.get(this.server+'/detail/'+this.datastorage).subscribe((res:any)=>{ for(this.i in res.message){this.data=res.message; console.log(res.message)}},
+      return this.http.get(AccessProviders.server+'/detail/'+this.datastorage).subscribe((res:any)=>{ for(this.i in res.message){this.data=res.message; console.log(res.message)}},
           err=>{
             console.log(err);
           }

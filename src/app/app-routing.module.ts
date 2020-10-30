@@ -48,7 +48,8 @@ const routes: Routes = [
   {
     path: 'forum',
     loadChildren: () => import('./pages/forum/forum.module').then( m => m.ForumPageModule)
-  },  {
+  },
+  {
     path: 'des1',
     loadChildren: () => import('./pages/des1/des1.module').then( m => m.Des1PageModule)
   },
@@ -96,7 +97,7 @@ const routes: Routes = [
     path: 'agent-verification',
     loadChildren: () => import('./pages/agent-verification/agent-verification.module').then( m => m.AgentVerificationPageModule)
   },
-
+  
   // {
   //   path: 'aaibtab1',
   //   loadChildren: () => import('./pages/aaibtab1/aaibtab1.module').then( m => m.Aaibtab1PageModule)

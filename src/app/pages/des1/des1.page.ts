@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
 import {Storage} from '@ionic/storage';
+import { AccessProviders } from '../../providers/access-providers';
 @Component({
   selector: 'app-des1',
   templateUrl: './des1.page.html',
@@ -17,7 +18,7 @@ export class Des1Page implements OnInit {
   nameArr:any;
   company:any;
   hide=false;
-  server:string='http://localhost:8000';
+ 
   constructor(private router:Router,public http:HttpClient,private storage:Storage) {
 
     
@@ -48,7 +49,7 @@ export class Des1Page implements OnInit {
        }
         //this.name=this.datastorage.Name;
         console.log(this.company);
-        return this.http.get(this.server+'/risktypes/'+this.company).subscribe((res:any)=>{ 
+        return this.http.get(AccessProviders.server+'/risktypes/'+this.company).subscribe((res:any)=>{ 
           this.data=res.message; console.log(this.data)},
             err=>{
               console.log(err);

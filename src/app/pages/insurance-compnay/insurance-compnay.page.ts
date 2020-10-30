@@ -3,6 +3,8 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import {NavController} from '@ionic/angular';
 import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
+import { AccessProviders } from '../../providers/access-providers';
+
 @Component({
   selector: 'app-insurance-compnay',
   templateUrl: './insurance-compnay.page.html',
@@ -10,7 +12,8 @@ import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
 })
 export class InsuranceCompnayPage implements OnInit {
   va:string="";
-  server:string='http://localhost:8000';
+ // server:string='http://localhost:8000';
+// server:string='http://192.168.8.188:8080';
   i:any;
   datastorage:any;
   data:any;
@@ -41,7 +44,7 @@ export class InsuranceCompnayPage implements OnInit {
 }
 
   show(){
-    this.http.get(this.server+'/company').subscribe((res:any)=>{
+    this.http.get(AccessProviders.server+'/company').subscribe((res:any)=>{
       
         for(this.i in res.message)
         this.data=res.message; console.log(res.message.types);

@@ -114,14 +114,24 @@
 
 <ion-item>
   <ion-label fixed>Add Required Documents 
-    (loan details,Bank Account number)</ion-label>
+    (copy of applied loan details-[Bank Account details])</ion-label>
   <ion-button color="primary"  (click)="presentActionSheet()">Take picture</ion-button>
 </ion-item>
 <!-- <div>
   <ion-button expand="small" color='success'  (click)="add()">Submit</ion-button>
 </div> -->
+<ion-grid>
+    <ion-row>
+      <ion-col col-6 *ngFor="let p of photos">
+        <img [src]="p"/>
+      </ion-col>
+    
+    </ion-row>
+</ion-grid>
 <div>
-    <ion-button expand="full" color='success'  (click)="submit()">Submit</ion-button>
+    <ion-button expand="full" color='success'  (click)="submit()">Submi</ion-button>
 </div>
+  
+
 
 </ion-content>

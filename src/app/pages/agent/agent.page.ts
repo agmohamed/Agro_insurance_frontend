@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import {Storage} from '@ionic/storage';
 import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
+import { AccessProviders } from '../../providers/access-providers';
+
 @Component({
   selector: 'app-agent',
   templateUrl: './agent.page.html',
@@ -12,7 +14,7 @@ datastorage:any;
 id:any;
 data:any;
 va:any;
-server:string='http://localhost:8000';
+
   constructor(private router:Router, private storage:Storage,public http:HttpClient,) {
     this.storage.get('storage_agent').then((res)=>{
       console.log(res);
@@ -32,7 +34,7 @@ server:string='http://localhost:8000';
     this.router.navigate(['/agent-verification']);
   }
   getpolicy(){
-    this.http.get(this.server+'/agent/'+this.id).subscribe((res:any)=>{ 
+    this.http.get(AccessProviders.server+'/agent/'+this.id).subscribe((res:any)=>{ 
           this.data=res.message;
        })
       

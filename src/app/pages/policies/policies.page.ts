@@ -6,12 +6,15 @@ import {Storage} from '@ionic/storage';
 import { ToastController,LoadingController,AlertController } from '@ionic/angular';
 import { AccessProviders } from '../../providers/access-providers';
 import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+
 @Component({
   selector: 'app-policies',
   templateUrl: './policies.page.html',
   styleUrls: ['./policies.page.scss'],
 })
 export class PoliciesPage implements OnInit {
+ public photos:any;
   cameradata:string;
   base64Image:string
   Start_date:string;
@@ -34,7 +37,7 @@ export class PoliciesPage implements OnInit {
   data:any;
   selectone:string;
   id:any;
-  server:string='http://localhost:8000';
+ 
 i:any="";
 di:any;
 gr:any;
@@ -77,7 +80,7 @@ arr2:any=[];
         this.NIC=this.datastorage.NIC;
         console.log(this.NIC);
        
-        return this.http.get(this.server+'/land/'+this.NIC).subscribe((res:any)=>{ 
+        return this.http.get(AccessProviders.server+'/land/'+this.NIC).subscribe((res:any)=>{ 
           for(this.i in res.message){this.data=res.message; 
             console.log(res.message);
             this.arr2.push({'land':res.message[this.i]. land_number,'dis':res.message[this.i].District,'gra':res.message[this.i]. Gramaseva_division}); 
@@ -98,14 +101,14 @@ arr2:any=[];
 
   }
   ngOnInit() {
-    
+    this.photos=[];
   }
  back(){
     this.router.navigate(['/home/tab2']);
   }
   va(){
 
-    this.http.get(this.server+'/detail/'+this.datastorage1).subscribe((res:any)=>{ 
+    this.http.get(AccessProviders.server+'/detail/'+this.datastorage1).subscribe((res:any)=>{ 
       for(this.i in res.message){
         this.arr1.push({'id':res.message[this.i].id,'name':res.message[this.i].Name}); 
         console.log(this.arr1[this.i]);}},
@@ -123,7 +126,7 @@ arr2:any=[];
   }
   submit(){
     console.log(this.type);
-    
+    console.log(this.base64Image);
 
     for(let j=0;j<this.arr1.length;j++){
       if(this.type==this.arr1[j].name){
@@ -169,7 +172,7 @@ arr2:any=[];
     //     message:'Please wait......',
     // });
     //loader.present();
-    this.http.get(this.server+'/agentId/'+this.district+'/'+this.gramasewa_division+'/'+this.datastorage1).subscribe((res:any)=>{ 
+    this.http.get(AccessProviders.server+'/agentId/'+this.district+'/'+this.gramasewa_division+'/'+this.datastorage1).subscribe((res:any)=>{ 
       for(this.i in res.message){this.id=res.message[this.i].id;
          //this.arr2.push({'id':res.message[this.i].id}); 
          console.log( this.id);
@@ -188,7 +191,9 @@ arr2:any=[];
           Start_date:this.Start_date,
           risk:this.risk,
           type:this.values,
-          id:this.id
+          id:this.id,
+          img:this.base64Image,
+         
 
         }
         this.acessPr.postPolicy(body,this.NIC).subscribe((res:any)=>{
@@ -228,7 +233,7 @@ arr2:any=[];
   }
   openCamera(){
     const options: CameraOptions = {
-      quality: 100,
+      quality: 20,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
@@ -237,13 +242,15 @@ arr2:any=[];
     this.camera.getPicture(options).then((imageData) => {
       this.cameradata=imageData;
      this.base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.photos.push(this.base64Image);
+      this.photos.reverse();
     }, (err) => {
      // Handle error
     });
   }
   openGallery(){
     const options: CameraOptions = {
-      quality: 100,
+      quality: 20,
       sourceType:this.camera.PictureSourceType.PHOTOLIBRARY,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
@@ -253,6 +260,8 @@ arr2:any=[];
     this.camera.getPicture(options).then((imageData) => {
      this.cameradata=imageData;
    this.base64Image = 'data:image/jpeg;base64,' + imageData;
+   this.photos.push(this.base64Image);
+   this.photos.reverse();
     }, (err) => {
      // Handle error
     });

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
       <network-security-config>
-        <domain-config cleartextTrafficPermitted="false">
+        <domain-config cleartextTrafficPermitted="true">
       </domain-config>
+      
+        <domain >http://192.168.8.188</domain>
     </network-security-config>

@@ -11,7 +11,7 @@ import { AccessProviders } from '../../providers/access-providers';
 })
 export class AgentVerificationPage implements OnInit {
 id:any;
-server:string='http://localhost:8000';
+
 data:any;
 verifi:any;
 va:any;
@@ -20,7 +20,7 @@ va:any;
     this.storage.get('storage_info').then((res)=>{
       this.id=res;
       console.log( res);
-      this.http.get(this.server+'/getpolicy/'+this.id).subscribe((res:any)=>{ 
+      this.http.get(AccessProviders.server+'/getpolicy/'+this.id).subscribe((res:any)=>{ 
         this.data=res.message;
         console.log( this.data);
        
