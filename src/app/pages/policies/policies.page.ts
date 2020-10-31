@@ -37,7 +37,11 @@ export class PoliciesPage implements OnInit {
   data:any;
   selectone:string;
   id:any;
- 
+  l1:any;
+  l2:any;
+  addr:any;
+  risktype:any;
+  policy:any;
 i:any="";
 di:any;
 gr:any;
@@ -59,6 +63,8 @@ arr2:any=[];
        if(res==1){
         this.hide=true;
        }
+       this.showrisks();
+       this.showpolicy();
        this.va();
       });
      /* this.storage.get('storage_co').then((res)=>{
@@ -102,9 +108,24 @@ arr2:any=[];
   }
   ngOnInit() {
     this.photos=[];
+    
+  }
+  location(){
+    this.router.navigate(['/location']);
   }
  back(){
     this.router.navigate(['/home/tab2']);
+  }
+  addlocation(){
+
+    this.storage.get('storage_location').then((res)=>{
+      console.log(res);
+      this.l1=res.t1;
+      this.l2=res.t2;
+      this.addr=res.t3;
+      //this.name=this.datastorage.Name;
+      console.log(this.l1);
+    });
   }
   va(){
 
@@ -116,13 +137,18 @@ arr2:any=[];
          )
    
   }
-  getland(){
+  showrisks(){
    
-
-    
-     
-    
-
+  this.http.get(AccessProviders.server+'/risktypes/'+this.datastorage1).subscribe((res:any)=>{ 
+            this.risktype=res.message;
+            console.log(this.risktype);
+        })
+  }
+  showpolicy(){
+    this.http.get(AccessProviders.server+'/detail/'+this.datastorage1).subscribe((res:any)=>{ 
+      this.policy=res.message;
+      console.log(this.policy);
+  })
   }
   submit(){
     console.log(this.type);
@@ -193,6 +219,9 @@ arr2:any=[];
           type:this.values,
           id:this.id,
           img:this.base64Image,
+          address:this.addr,
+          latitude:this.l1,
+          longitude:this.l2
          
 
         }

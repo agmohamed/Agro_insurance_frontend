@@ -96,7 +96,11 @@ const routes: Routes = [
   {
     path: 'agent-verification',
     loadChildren: () => import('./pages/agent-verification/agent-verification.module').then( m => m.AgentVerificationPageModule)
+  },  {
+    path: 'location',
+    loadChildren: () => import('./pages/location/location.module').then( m => m.LocationPageModule)
   },
+
   
   // {
   //   path: 'aaibtab1',

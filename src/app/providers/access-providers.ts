@@ -15,14 +15,14 @@ export class User {
       this.NIC = NIC;
     }
   }
-//const server= 'http://192.168.8.188:8080'
+
 @Injectable()
 export class AccessProviders{
- //server:string='http://localhost:8000';
-// server:string='http://192.168.8.188:8080';
+ 
 public static server= 'http://192.168.8.188:8080';
+//public static server= 'http://localhost:8000';
   //   token: string;
-  //server= 'http://192.168.8.188:8080';
+ 
     currentUser: User;
   isLogged: Boolean = false;
    constructor(

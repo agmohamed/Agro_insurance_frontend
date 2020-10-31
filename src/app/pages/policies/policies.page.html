@@ -45,10 +45,8 @@
   <ion-item>
     <ion-label>optional policy for</ion-label>
     <ion-select interface="popover" [(ngModel)]="risk" >
-      <ion-select-option >emergency fire</ion-select-option>
-      <ion-select-option >pest damage</ion-select-option>
-      <ion-select-option >insect effect</ion-select-option>
-      <ion-select-option >damage by other wild animal </ion-select-option>
+      <ion-select-option  *ngFor="let r of risktype">{{r.risk_type}}</ion-select-option>
+      
     </ion-select>
   </ion-item>
 </div>
@@ -57,8 +55,8 @@
     <ion-label>policy type</ion-label>
     <ion-select interface="popover" [(ngModel)]="type" >
    
-      <ion-select-option >Indemnity based comprehensive Crop Insurance</ion-select-option>
-      <ion-select-option >Weather Index based Insurance</ion-select-option>
+      <ion-select-option *ngFor="let p of policy">{{p.Name}}</ion-select-option>
+   
      
     </ion-select>
   </ion-item>
@@ -80,9 +78,7 @@
         <ion-item>
           <ion-input type="text" placeholder="Land Name/plot Number" [(ngModel)]="land_num"></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-input type="text" placeholder="Address" [(ngModel)]="address"></ion-input>
-      </ion-item>
+     
       <ion-item>
         <ion-input type="text" placeholder="District" [(ngModel)]="district"></ion-input>
       </ion-item>
@@ -101,6 +97,19 @@
             
           </ion-select>
         </ion-item>
+        <ion-button color="primary"  (click)="location()">Mark the land</ion-button>
+        <ion-row>
+            <ion-col col-4>
+                <ion-button color="primary"  (click)="addlocation()">Add</ion-button>
+            </ion-col>
+           <ion-col col-4>
+              Latitude :<strong>{{l1}}</strong>
+           </ion-col>
+           <ion-col col-4>
+            longitude :<strong>{{l2}}</strong>
+          </ion-col >
+        </ion-row>
+        Address:<ion-input type="text" placeholder="Address"  [(ngModel)]="addr"></ion-input>
       </div>
 
     </ion-card>
@@ -109,13 +118,14 @@
     <ion-item>
         <ion-input type="text" placeholder="Land Size(Acres)" [(ngModel)]="size"></ion-input>
   </ion-item>
-  
+ 
  
 
 <ion-item>
   <ion-label fixed>Add Required Documents 
     (copy of applied loan details-[Bank Account details])</ion-label>
   <ion-button color="primary"  (click)="presentActionSheet()">Take picture</ion-button>
+  
 </ion-item>
 <!-- <div>
   <ion-button expand="small" color='success'  (click)="add()">Submit</ion-button>
@@ -129,7 +139,7 @@
     </ion-row>
 </ion-grid>
 <div>
-    <ion-button expand="full" color='success'  (click)="submit()">Submi</ion-button>
+    <ion-button expand="full" color='success'  (click)="submit()">Submit</ion-button>
 </div>
   
 

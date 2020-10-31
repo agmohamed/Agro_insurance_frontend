@@ -66,8 +66,7 @@ export class LoginPage implements OnInit {
       loader.present();
         return new Promise(resoler=>{
           let body={
-            aksi:'process_login',
-           
+
             NIC:this.NIC,
             Password:this.Password
           }

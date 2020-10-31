@@ -20,7 +20,8 @@ import { File } from '@ionic-native/file';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
 import { IonicRatingModule } from 'ionic-rating';
-  
+ import {Geolocation} from  '@ionic-native/geolocation/ngx';
+ import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -39,6 +40,8 @@ BrowserModule, IonicRatingModule ,IonicModule.forRoot(), AppRoutingModule,HttpCl
     WebView,
     FilePath,
     AccessProviders,
+    Geolocation,
+    NativeGeocoder,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

@@ -27,9 +27,7 @@ export class Tab1Page implements OnInit {
 
  arr: any[] = [] 
  arr1: any= [] 
- //server:string='http://localhost:8000';
- server:string='http://192.168.8.188:8080';
-  //info: User;
+ 
   
   constructor(private router:Router,
     private storage:Storage, public http:HttpClient,
@@ -89,7 +87,7 @@ export class Tab1Page implements OnInit {
   init(){
     if(this.datastorage1==0){
 
-        this.http.get(this.server+'/risk1/'+this.nic+'/'+this.datastorage1).subscribe((res:any)=>{ 
+        this.http.get(AccessProviders.server+'/risk1/'+this.nic+'/'+this.datastorage1).subscribe((res:any)=>{ 
            for (this.i in res.me){
            
              this.arr.push({ 'name': res.me[this.i], 'floor':res.message[this.i].id  }); 
@@ -100,7 +98,7 @@ export class Tab1Page implements OnInit {
              }
             })
       
-        this.http.get(this.server+'/wrisk/'+this.nic+'/'+this.datastorage1).
+        this.http.get(AccessProviders.server+'/wrisk/'+this.nic+'/'+this.datastorage1).
             subscribe((res:any)=>{ 
               for (this.i in res.me){
               this.arr.push({ 'name': res.me[this.i], 'floor':res.message[this.i].id  }); 
@@ -118,7 +116,7 @@ export class Tab1Page implements OnInit {
     }
     
     else if(this.datastorage1==1){
-        this.http.get(this.server+'/risk2/'+this.nic+'/'+this.datastorage1).subscribe((res:any)=>{ 
+        this.http.get(AccessProviders.server+'/risk2/'+this.nic+'/'+this.datastorage1).subscribe((res:any)=>{ 
             for (this.i in res.me){
               this.arr.push({ 'name': res.me[this.i], 'floor':res.message[this.i].id  }); 
               console.log(this.arr[this.i]);
