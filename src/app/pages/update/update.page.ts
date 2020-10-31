@@ -12,6 +12,6 @@ export class UpdatePage implements OnInit {
   ngOnInit() {
   }
   back(){
-    this.router.navigate(['/aaib/aaibtab2']);
+    this.router.navigate(['/company/companytab2']);
   }
 }
