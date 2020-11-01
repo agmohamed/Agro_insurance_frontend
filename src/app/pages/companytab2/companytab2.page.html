@@ -16,7 +16,7 @@
             </ion-item> -->
             <ion-item></ion-item>
            
-            <table style="width:100%" border="1">
+            <table style="width:100%" border="1"  *ngFor="let d of data">
                 
                 <tr>
                     <th>Policy name</th>
@@ -24,15 +24,11 @@
                     <th></th>
                   </tr>
               <tr>
-                  <td>Policy-1</td>
+                  <td>{{d.Name}}</td>
                   <td> <ion-button expand="small" class="no-padding" (click)="update()"  color="success">Update</ion-button></td>
                   <td> <ion-button expand="small" class="no-padding"  color="success">Delete</ion-button></td>
                 </tr>
-                <tr>
-                  <td>Policy-2</td>
-                  <td> <ion-button expand="small" class="no-padding" (click)="update()" color="success">Update</ion-button></td>
-                  <td> <ion-button expand="small" class="no-padding"  color="success">Delete</ion-button></td>
-                </tr>
+                
                
               </table>
               <ion-button expand="small" class="no-padding"  color="success">Add Policy</ion-button>

@@ -15,8 +15,11 @@ data2:any;
 data3:any;
 id:any;
 com:any;
+policyid:any;
 hide=false;
-  constructor(private router:Router, private storage:Storage,public http:HttpClient) {
+amount:any;
+  constructor(private router:Router, private storage:Storage,public http:HttpClient,
+    private acessPr:AccessProviders) {
     this.storage.get('storage_afarmer').then((res)=>{
       this.id=res;
       
@@ -33,8 +36,11 @@ hide=false;
         this.storage.get('storage_company').then((res)=>{
           this.com=res.id;
           this.http.get(AccessProviders.server+'/activepolicy/'+this.id+"/"+this.com).subscribe((res:any)=>{ 
-            this.data2=res.message; 
+            this.data2=res.message;
+            this.amount=res.message[0].PaidAmount;
                 console.log(res.message);
+                console.log( res.message[0].PaidAmount);
+               
                
               })
 
@@ -52,5 +58,36 @@ hide=false;
   }
   show(){
     this.hide=true;
+  }
+  update(event){
+    console.log(this.amount);
+    this.policyid=event.target.id;
+    console.log(this.policyid);
+    return new Promise(resoler=>{
+      let body={
+        amount:this.amount
+        
+       
+
+      }
+      this.acessPr.updateAmount(body,this.policyid).subscribe((res:any)=>{
+          if(res.status==true){
+            //loader.dismiss();
+           // this.disableButton=false;
+            //this.presentToast(res.message);
+            //this.router.navigate(['/home/tab2']);
+              console.log('true');
+          }else{
+            //loader.dismiss();
+            //this.disableButton=false;
+           // this.presentToast(res.message);
+          }
+      },(err=>{
+        //loader.dismiss();
+       // this.disableButton=false;
+       // this.presentAlert('Timeout');
+        }));
+      });
+    
   }
 }

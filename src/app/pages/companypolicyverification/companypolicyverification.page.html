@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="success">
+      <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+    <ion-title>Policy Information</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngFor="let d of data">
+
+  <ion-item >
+    <ion-label ><strong>NIC :</strong>{{d.NIC}}</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item >
+    <ion-label ><strong>Land Number :</strong>{{d.land_number}}</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item >
+    <ion-label><strong>Start Date :</strong>{{d.start_date| date: 'yyyy/MM/dd'}}</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item >
+    <ion-label ><strong>End Date :</strong>{{d.end_date| date: 'yyyy/MM/dd'}}</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item >
+    <ion-label ><strong>Crop:</strong>{{d.Crop}}</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item >
+    <ion-label ><strong>Document:</strong>{{d.image}}</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item >
+    <ion-label ><strong>Agent Verification:</strong>{{verifi}}</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item >
+  <ion-label>Verification</ion-label>
+  <ion-select  [(ngModel)]="verification">
+      <ion-select-option>True</ion-select-option>
+      <ion-select-option>False</ion-select-option>
+  </ion-select>
+</ion-item>
+<ion-button (click)="verify()">confirm</ion-button>
+</ion-content>

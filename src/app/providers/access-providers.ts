@@ -126,6 +126,34 @@ public static server= 'http://localhost:8000';
         . map(res=>res
         );
       }
+      updateAmount(body,$policyid){
+        let headers=new HttpHeaders({
+            'Content-Type':'applicationJson,charset-UTF-8'
+        });
+        let options={
+            headers:headers
+        }
+        
+        return this.http.post(AccessProviders.server+'/updateamount/'+$policyid,JSON.stringify(body),{
+            headers: new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8'),
+          })
+        . map(res=>res
+        );
+      }
+      postcompanyverification(body,$id){
+        let headers=new HttpHeaders({
+            'Content-Type':'applicationJson,charset-UTF-8'
+        });
+        let options={
+            headers:headers
+        }
+        
+        return this.http.post(AccessProviders.server+'/companypolicyverification/'+$id,JSON.stringify(body),{
+            headers: new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8'),
+          })
+        . map(res=>res
+        );
+      }
       getPolicy(){
         return this.http.get(AccessProviders.server+'/detail')
 

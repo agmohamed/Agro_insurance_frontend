@@ -6,28 +6,18 @@
   
   <ion-content>
       <ion-label color="primary">Policy Requests</ion-label>
-      <ion-card color="light" (click)="go()">
+      <ion-card color="light" (click)="go()" *ngFor="let d of data">
               
         <ion-item  class="ion-activated">
           <ion-icon name="document" slot="start"></ion-icon>
-          <ion-card-title>Requset1</ion-card-title>
+          <ion-card-title>Policy Number:{{d.id}}</ion-card-title>
         </ion-item>
           <ion-card-content>
-              Description about requested insurances
+             {{d.Name}}
           </ion-card-content>
-       
+          <ion-button shape="round"  class="no-padding" (click)="view($event)" id="{{d.id}}" color="secondary">click</ion-button>
         </ion-card>
-        <ion-card color="light" (click)="go()">
-              
-            <ion-item  class="ion-activated">
-              <ion-icon name="document" slot="start"></ion-icon>
-              <ion-card-title>Requset2</ion-card-title>
-            </ion-item>
-              <ion-card-content>
-                  Description about requested insurances
-              </ion-card-content>
-           
-            </ion-card>
+        
         <ion-label color="primary">Claims Requests</ion-label>
         <ion-card color="light" (click)="forum()">
               

@@ -104,7 +104,11 @@ const routes: Routes = [
   {
     path: 'company',
     loadChildren: () => import('./pages/company/company.module').then( m => m.CompanyPageModule)
+  },  {
+    path: 'companypolicyverification',
+    loadChildren: () => import('./pages/companypolicyverification/companypolicyverification.module').then( m => m.CompanypolicyverificationPageModule)
   },
+
   // {
   //   path: 'companytab1',
   //   loadChildren: () => import('./pages/companytab1/companytab1.module').then( m => m.Companytab1PageModule)

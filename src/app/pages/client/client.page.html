@@ -67,9 +67,9 @@
             
          </ion-row>
          <ion-row>
-          <ion-label>Status :</ion-label><strong>Not paid</strong>
-            <!----<ion-input type="text" placeholder="Paid Amount" ></ion-input>-->
-            <ion-button  class="no-padding" size="small"  color="success">Change Status</ion-button>
+          <ion-label>Total Paid Amount</ion-label>
+          <ion-input type="text"  [(ngModel)]="amount"></ion-input>
+          <ion-button  class="no-padding" size="small" (click)="update($event)" id="{{d2.id}}" color="success">Update</ion-button>
               
          </ion-row>
          <!----<ion-row>
