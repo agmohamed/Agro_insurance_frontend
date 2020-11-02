@@ -19,8 +19,8 @@ export class User {
 @Injectable()
 export class AccessProviders{
  
-//public static server= 'http://192.168.8.188:8080';
-public static server= 'http://localhost:8000';
+public static server= 'http://192.168.8.188:8080';
+//public static server= 'http://localhost:8000';
   //   token: string;
  
     currentUser: User;

@@ -48,7 +48,7 @@ val:any;
           if(res.status==true){
             //loader.dismiss();
            // this.disableButton=false;
-            //this.presentToast(res.message);
+            this.presentToast('Update sucessfully');
             //this.router.navigate(['/home/tab2']);
               console.log('true');
           }else{
@@ -56,13 +56,17 @@ val:any;
             //this.disableButton=false;
            // this.presentToast(res.message);
           }
-      },(err=>{
-        //loader.dismiss();
-       // this.disableButton=false;
-       // this.presentAlert('Timeout');
-      }));
+      });
     });
    }
+   async presentToast(a) {
+    let toast = await this.toastCtrl.create({
+      message: a,
+      duration: 3000,
+      position: 'top'
+    });
+  toast.present();
+  }
   ngOnInit() {
   }
   getpolicy(){

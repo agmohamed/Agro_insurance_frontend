@@ -11,6 +11,7 @@ import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
 export class Companytab2Page implements OnInit {
 data:any;
 id:any;
+va:any;
   constructor(private router:Router,public http:HttpClient,private storage:Storage) { 
     
     this.storage.get('storage_company').then((res)=>{
@@ -20,7 +21,7 @@ id:any;
       //this.name=this.datastorage.Name;
       //console.log(this.l1);
       this.http.get(AccessProviders.server+'/getcompanypolicies/'+this.id).subscribe((res:any)=>{ 
-        this.data=res.message; 
+          this.data=res.message; 
           console.log(res.message);
          
         })
@@ -30,7 +31,11 @@ id:any;
 
   ngOnInit() {
   }
-  update(){
+ 
+  update(event){
+    this.va=event.target.id;
+    this.storage.set('storage_cropdetails',this.va);
+    console.log(this.va);
     this.router.navigate(['/update']);
   }
 }

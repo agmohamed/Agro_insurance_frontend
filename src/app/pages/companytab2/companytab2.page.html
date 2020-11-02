@@ -15,7 +15,7 @@
             <ion-button expand="full" class="no-padding"   color="success">Delete Policy</ion-button>
             </ion-item> -->
             <ion-item></ion-item>
-           
+<!--            
             <table style="width:100%" border="1"  *ngFor="let d of data">
                 
                 <tr>
@@ -30,6 +30,13 @@
                 </tr>
                 
                
-              </table>
+              </table> -->
+              <ion-card  *ngFor="let d of data"> 
+                {{d.Name}}
+                <ion-row>
+                    <ion-col><ion-button expand="small" class="no-padding"  id="{{d.id}}" (click)="update($event)"  color="success">Update</ion-button></ion-col>
+                    <ion-col><ion-button expand="small" class="no-padding"  color="success">Delete</ion-button></ion-col>
+                </ion-row>
+              </ion-card>
               <ion-button expand="small" class="no-padding"  color="success">Add Policy</ion-button>
   </ion-content>
