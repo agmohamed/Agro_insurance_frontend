@@ -33,10 +33,7 @@ const routes: Routes = [
     path: 'aaib',
     loadChildren: () => import('./pages/aaib/aaib.module').then( m => m.AaibPageModule)
   },
-  {
-    path: 'sanasa',
-    loadChildren: () => import('./pages/sanasa/sanasa.module').then( m => m.SanasaPageModule)
-  },
+  
   {
     path: 'tab4',
     loadChildren: () => import('./pages/tab4/tab4.module').then( m => m.Tab4PageModule)
@@ -96,7 +93,8 @@ const routes: Routes = [
   {
     path: 'agent-verification',
     loadChildren: () => import('./pages/agent-verification/agent-verification.module').then( m => m.AgentVerificationPageModule)
-  },  {
+  },
+  {
     path: 'location',
     loadChildren: () => import('./pages/location/location.module').then( m => m.LocationPageModule)
   },
