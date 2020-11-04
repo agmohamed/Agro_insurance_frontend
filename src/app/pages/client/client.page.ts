@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicRatingModule } from 'ionic-rating';
+import { IonicRatingModule } from 'ionic4-rating';
 import { Router,ActivatedRoute } from '@angular/router';
 import {Storage} from '@ionic/storage';
 import { AccessProviders } from '../../providers/access-providers';
 import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
+
+
 @Component({
   selector: 'app-client',
   templateUrl: './client.page.html',

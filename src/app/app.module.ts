@@ -19,14 +19,17 @@ import { Camera} from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/file';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
-import { IonicRatingModule } from 'ionic-rating';
+import { IonicRatingModule } from 'ionic4-rating';
  import {Geolocation} from  '@ionic-native/geolocation/ngx';
  import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+ 
+// import { StarRatingModule } from 'ionic3-star-rating';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [ 
     //MbscModule,  
+   
     FormsModule,  
 BrowserModule, IonicRatingModule ,IonicModule.forRoot(), AppRoutingModule,HttpClientModule,IonicStorageModule.forRoot()],
   providers: [

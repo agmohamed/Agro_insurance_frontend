@@ -39,6 +39,11 @@
     <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
     <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
   </ion-row>
+  <rating  [rate]="rate"
+                            readonly="false" 
+                            size="default"
+                            (rateChange)="onRateChange($event)">
+                      </rating>
   <div *ngFor="let d1 of data1">
 <ion-row>
   <ion-label><strong>Name  :</strong>    </ion-label>
