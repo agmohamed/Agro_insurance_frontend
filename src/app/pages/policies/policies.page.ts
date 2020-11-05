@@ -202,7 +202,7 @@ arr2:any=[];
       for(this.i in res.message){this.id=res.message[this.i].id;
          //this.arr2.push({'id':res.message[this.i].id}); 
          console.log( this.id);
-         return new Promise(resoler=>{
+        return new Promise(resoler=>{
         let body={
           
           land_num:this.land_num,
