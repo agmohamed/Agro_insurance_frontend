@@ -1,7 +1,7 @@
 //import { MbscModule } from '@mobiscroll/angular';
 //import { MbscModule } from '@mobiscroll/angular-lite';
 import { FormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
+import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -19,7 +19,7 @@ import { Camera} from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/file';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
 import { FilePath } from '@ionic-native/file-path/ngx';
-import { IonicRatingModule } from 'ionic4-rating';
+import { IonicRatingModule } from 'ionic-rating';
  import {Geolocation} from  '@ionic-native/geolocation/ngx';
  import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
  
@@ -47,6 +47,7 @@ BrowserModule, IonicRatingModule ,IonicModule.forRoot(), AppRoutingModule,HttpCl
     NativeGeocoder,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

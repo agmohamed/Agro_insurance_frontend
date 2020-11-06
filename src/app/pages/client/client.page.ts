@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IonicRatingModule } from 'ionic4-rating';
+import { IonicRatingModule } from 'ionic-rating';
 import { Router,ActivatedRoute } from '@angular/router';
 import {Storage} from '@ionic/storage';
 import { AccessProviders } from '../../providers/access-providers';
@@ -91,5 +91,8 @@ amount:any;
         }));
       });
     
+  }
+  rate(){
+    this.router.navigate(['/rateuser']);
   }
 }

@@ -5,7 +5,14 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
+  <ion-card>
+
+  </ion-card>
+  
+     
+  
   <ion-card>
     <ion-row>   
     <div class="vertical-center"> 
@@ -13,37 +20,36 @@
         <ion-img src="/assets/icon/man.png" style="height: 100px;width: 100px;" class="ion-align-self-end"></ion-img> 
     </div> 
   </div>
-    <ion-card>
-      <ion-item>
-          <ion-label>Add rate</ion-label>
+    
+     
+        <!-- <ion-label>Add rate</ion-label>
           <ion-select interface="popover" [(ngModel)]="selected_value"  >
             <ion-select-option value="a">1</ion-select-option>
             <ion-select-option value="b">2</ion-select-option>
             <ion-select-option value="c">3</ion-select-option>
             <ion-select-option value="d">4</ion-select-option>
             <ion-select-option value="e">5</ion-select-option>
-          </ion-select>
-      </ion-item>   
+          </ion-select> -->
+         
+          
+       
           <ion-item>
-            <ion-button expand="full" class="no-padding"   color="success">Submit</ion-button>
+            <ion-button expand="full" class="no-padding"  (click)="rate()" color="success">Rate User</ion-button>
             </ion-item>
-          </ion-card>  
+           
     </ion-row>
     
 
 <ion-card-content color="light">
-  <ion-row>
-    <ion-img src="/assets/icon/star1.png"  style="height: 40px;width: 40px;" ></ion-img>
+  
+    <!-- <ion-img src="/assets/icon/star1.png"  style="height: 40px;width: 40px;" ></ion-img>
     <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
     <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
     <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
-    <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
-  </ion-row>
-  <rating  [rate]="rate"
-                            readonly="false" 
-                            size="default"
-                            (rateChange)="onRateChange($event)">
-                      </rating>
+    <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img> -->
+   
+ 
+  
   <div *ngFor="let d1 of data1">
 <ion-row>
   <ion-label><strong>Name  :</strong>    </ion-label>
@@ -60,6 +66,8 @@
   </div>
 </ion-card-content>
 </ion-card>
+
+
 <ion-card *ngFor="let d2 of data2">
     <ion-header-bar class="bar-stable">
         <h1 class="title"><strong>{{d2.Name}}</strong></h1>

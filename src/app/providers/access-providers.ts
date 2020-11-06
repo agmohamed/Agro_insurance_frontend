@@ -168,6 +168,20 @@ public static server= 'http://192.168.8.188:8080';
         . map(res=>res
         );
       }
+      updateratingvalue(body,$nic){
+        let headers=new HttpHeaders({
+            'Content-Type':'applicationJson,charset-UTF-8'
+        });
+        let options={
+            headers:headers
+        }
+        
+        return this.http.post(AccessProviders.server+'/updaterating/'+$nic,JSON.stringify(body),{
+            headers: new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8'),
+          })
+        . map(res=>res
+        );
+      }
       getPolicy(){
         return this.http.get(AccessProviders.server+'/detail')
 

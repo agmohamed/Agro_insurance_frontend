@@ -104,9 +104,14 @@ const routes: Routes = [
   {
     path: 'company',
     loadChildren: () => import('./pages/company/company.module').then( m => m.CompanyPageModule)
-  },  {
+  },
+  {
     path: 'companypolicyverification',
     loadChildren: () => import('./pages/companypolicyverification/companypolicyverification.module').then( m => m.CompanypolicyverificationPageModule)
+  },
+  {
+    path: 'rateuser',
+    loadChildren: () => import('./pages/rateuser/rateuser.module').then( m => m.RateuserPageModule)
   },
 
   // {
