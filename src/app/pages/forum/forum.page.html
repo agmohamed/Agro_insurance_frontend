@@ -6,40 +6,39 @@
 </ion-header>
 
 <ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="chevron-down-circle-outline"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
   <ion-card >
   <ion-title>Discussions</ion-title>
     <ion-item>
-        <ion-input type="text" placeholder="Issues" ></ion-input>
+        <ion-input type="text" placeholder="Issues"  [(ngModel)]="Issues" ></ion-input>
     </ion-item>
   
     <ion-item>
-        <ion-input type="text" placeholder="Suggestions" ></ion-input>
+        <ion-input type="text" placeholder="Suggestions" [(ngModel)]="Suggestions" ></ion-input>
     </ion-item>
-    <ion-button expand="full" class="no-padding"   color="success">Submit</ion-button>
+    <ion-button expand="full" class="no-padding"  (click)="submit()" color="success">Submit</ion-button>
   </ion-card> 
-    <ion-card color="light" (click)="go()">  
+
+  
+  
+    <ion-card color="light" (click)="go()" *ngFor="let d of data">  
         <ion-item  class="ion-activated">
-           <ion-card-title>forum-1</ion-card-title>
+           <ion-card-title>forum-{{d.id}}</ion-card-title>
         </ion-item>
           <ion-card-content >
-             <p>Issue:- about the crop</p> 
-              <p>Answer:-</p> 
+             <p>Issue:- {{d.issues}}</p> 
+              <p>Answer:-{{d.answers}}</p> 
             
           </ion-card-content>
-          <ion-button shape="round" color="medium">Replied</ion-button>
+          <ion-button shape="round" color="medium">{{d.status}}</ion-button>
         </ion-card>
-        <ion-card color="light" (click)="go()">  
-            <ion-item  class="ion-activated">
-               <ion-card-title>forum-2</ion-card-title>
-            </ion-item>
-              <ion-card-content >
-                  <p>Issue:- about the crop</p> 
-                  <p>Answer:-not yet</p> 
-                
-              
-             
-              </ion-card-content>
-              <ion-button shape="round" color="medium">pending</ion-button>
-          </ion-card>  
+        
    
 </ion-content>

@@ -80,10 +80,18 @@
       </ion-item>
      
       <ion-item>
-        <ion-input type="text" placeholder="District" [(ngModel)]="district"></ion-input>
+        <!-- <ion-input type="text" placeholder="District" [(ngModel)]="district"></ion-input> -->
+        <ion-label>District</ion-label>
+          <ion-select interface="popover" [(ngModel)]="district"  >
+            <ion-select-option >Kegalle</ion-select-option>
+          </ion-select>
       </ion-item>
       <ion-item>
-          <ion-input type="text" placeholder="Gramasewa Division" [(ngModel)]="gramasewa_division"></ion-input>
+          <!-- <ion-input type="text" placeholder="Gramasewa Division" [(ngModel)]="gramasewa_division"></ion-input> -->
+          <ion-label>Gramasewa Division</ion-label>
+          <ion-select interface="popover" [(ngModel)]="gramasewa_division" >
+            <ion-select-option >Dehiowita</ion-select-option>
+          </ion-select>
         </ion-item>
         <!-- <ion-item>
             <ion-input type="text" placeholder="Agrarian Service Centre" [(ngModel)]="aib"></ion-input>
