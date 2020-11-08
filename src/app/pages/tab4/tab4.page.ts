@@ -18,6 +18,7 @@ id:any;
 
 i:any="";
 val:any;
+pic:any;
   constructor(private router:Router,
     private storage:Storage, public http:HttpClient,
     private toastCtrl:ToastController,private loadingCtrl:LoadingController,
@@ -27,6 +28,25 @@ val:any;
     this.storage.get('storage_XXX').then((res)=>{
       this.data=res;
       this.id=res.NIC;
+      console.log(Math.round(res.rating_number));
+      if(Math.round(res.rating_number)==0){
+        this.pic="/assets/icon/nostar.jpg"
+      }
+      if(Math.round(res.rating_number)==1 ){
+        this.pic="/assets/icon/onestar.jpg"
+      }
+      if(Math.round(res.rating_number)==2 ){
+        this.pic="/assets/icon/twostar.jpg"
+      }
+      if(Math.round(res.rating_number)==3 ){
+        this.pic="/assets/icon/threestar.jpg"
+      }
+      if(Math.round(res.rating_number)==4 ){
+        this.pic="/assets/icon/fourstar.jpg"
+      }
+      if(Math.round(res.rating_number)==5){
+        this.pic="/assets/icon/fivestar.jpg"
+      }
       console.log(this.id);
      this.getpolicy();
     }); 
@@ -48,7 +68,7 @@ val:any;
           if(res.status==true){
             //loader.dismiss();
            // this.disableButton=false;
-            //this.presentToast(res.message);
+            this.presentToast('Update sucessfully');
             //this.router.navigate(['/home/tab2']);
               console.log('true');
           }else{
@@ -56,13 +76,17 @@ val:any;
             //this.disableButton=false;
            // this.presentToast(res.message);
           }
-      },(err=>{
-        //loader.dismiss();
-       // this.disableButton=false;
-       // this.presentAlert('Timeout');
-      }));
+      });
     });
    }
+   async presentToast(a) {
+    let toast = await this.toastCtrl.create({
+      message: a,
+      duration: 3000,
+      position: 'top'
+    });
+  toast.present();
+  }
   ngOnInit() {
   }
   getpolicy(){

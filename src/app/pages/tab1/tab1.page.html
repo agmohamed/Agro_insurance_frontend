@@ -43,14 +43,14 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-            <ion-card class="card" *ngFor=" let d of arr" >
-                <h1  >Policy Number-{{d.floor}}</h1>
+            <ion-card class="card" *ngFor=" let d of data" >
+                <h1  >Policy Number-{{d.id}}</h1>
                 <ion-img src="/assets/icon/cal.png"  style="height: 50px;width: 100px;"></ion-img>
                     <!----<p>Next Payment : <strong class="te">January 20 2021 </strong>
                       <strong class="am"> Total amount to pay:4000</strong>
                     
                     </p>-->
-                <strong >Total premium : {{d.name}}</strong>
+                <strong >Total premium : {{d.premium}}</strong>
             </ion-card>
                
         </ion-col>

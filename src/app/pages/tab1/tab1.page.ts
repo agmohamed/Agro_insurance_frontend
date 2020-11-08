@@ -24,7 +24,7 @@ export class Tab1Page implements OnInit {
  va1:any;
  values:any;
  k:any;
-
+data:any;
  arr: any[] = [] 
  arr1: any= [] 
  
@@ -42,8 +42,12 @@ export class Tab1Page implements OnInit {
        this.storage.get('storage_co').then((res)=>{
          this.datastorage1=res;
          console.log(this.datastorage1);
-         this.init();
+         //this.init();
         // this.val();
+        this.http.get(AccessProviders.server+'/getactivePremium/'+this.nic+'/'+this.datastorage1).subscribe((res:any)=>{ 
+           this.data=res.message;
+             
+        })
         });
       }); 
       this.ionViewDidEditor();
@@ -54,7 +58,7 @@ export class Tab1Page implements OnInit {
     
   }
 
-  val(v1, v2){
+ /* val(v1, v2){
    
     return new Promise(resoler=>{
     
@@ -127,7 +131,7 @@ export class Tab1Page implements OnInit {
     }
    
    
-}
+}*/
 
   ionViewDidEditor(){
       this.storage.get('storage_XXX').then((res)=>{

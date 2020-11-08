@@ -6,29 +6,16 @@
 </ion-header>
 
 <ion-content>
-    <ion-item>
-      <ion-label>Policy Name</ion-label>
-        <ion-input type="text" placeholder="Policy-1" ></ion-input>
+    
+    <ion-item *ngFor="let d of data">
+        <ion-label>Value of acre({{d.name}})</ion-label>
+      <ion-input type="text" [(ngModel)]="d.claim_value_for_Acre" ></ion-input>
     </ion-item>
-    <ion-item>
-        <ion-label>Crops</ion-label>
-      <ion-input type="text" placeholder="Paddy,BigOnion,Mazie,Patato" ></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label>Value of acre(Paddy)</ion-label>
-      <ion-input type="text" placeholder="50000" ></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label>Value of acre(BigOnion)</ion-label>
-      <ion-input type="text" placeholder="50000" ></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label>Value of acre(Mazie)</ion-label>
-      <ion-input type="text" placeholder="100000" ></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label>Value of acre(Patato)</ion-label>
-      <ion-input type="text" placeholder="100000" ></ion-input>
-    </ion-item>
-    <ion-button expand="small" class="no-padding"  color="success">Update</ion-button>
+    <div *ngIf="hide">
+    <ion-item *ngFor="let d1 of data">
+      <ion-label>Premium Rate({{d1.name}})</ion-label>
+    <ion-input type="text" [(ngModel)]="d1.rate" ></ion-input>
+  </ion-item>
+</div>
+    <ion-button expand="small" class="no-padding"  (click)="update()" color="success">Update</ion-button>
 </ion-content>

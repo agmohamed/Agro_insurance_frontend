@@ -53,7 +53,7 @@ export class LoginPage implements OnInit {
     }
     //this.storage.set('storage_XXX',this.NIC);
  
-     if(this.NIC==""){
+    if(this.NIC==""){
       this.presentToast("YourUsername is required");
     }else if(this.Password=="")
     {
@@ -75,10 +75,10 @@ export class LoginPage implements OnInit {
               loader.dismiss();
               this.disableButton=false;
               this.presentToast('Login sucessfully');
-              this.storage.set('storage_XXX',res.data);
+              this.storage.set('storage_company',res.data1);
               
-              this.navCtrl.navigateRoot(['/aaib']);
-             console.log(res.data1);
+              this.navCtrl.navigateRoot(['/company']);
+              console.log(res.data1);
             }
             else if(res.message=='Success login Agent' ){
               loader.dismiss();

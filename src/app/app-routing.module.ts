@@ -98,6 +98,35 @@ const routes: Routes = [
     path: 'location',
     loadChildren: () => import('./pages/location/location.module').then( m => m.LocationPageModule)
   },
+  {
+    path: 'company',
+    loadChildren: () => import('./pages/company/company.module').then( m => m.CompanyPageModule)
+  },
+  {
+    path: 'companypolicyverification',
+    loadChildren: () => import('./pages/companypolicyverification/companypolicyverification.module').then( m => m.CompanypolicyverificationPageModule)
+  },
+  {
+    path: 'rateuser',
+    loadChildren: () => import('./pages/rateuser/rateuser.module').then( m => m.RateuserPageModule)
+  },
+
+  // {
+  //   path: 'companytab1',
+  //   loadChildren: () => import('./pages/companytab1/companytab1.module').then( m => m.Companytab1PageModule)
+  // },
+  // {
+  //   path: 'companytab2',
+  //   loadChildren: () => import('./pages/companytab2/companytab2.module').then( m => m.Companytab2PageModule)
+  // },
+  // {
+  //   path: 'companytab3',
+  //   loadChildren: () => import('./pages/companytab3/companytab3.module').then( m => m.Companytab3PageModule)
+  // },
+  // {
+  //   path: 'companytab4',
+  //   loadChildren: () => import('./pages/companytab4/companytab4.module').then( m => m.Companytab4PageModule)
+  // },
 
   
   // {
@@ -135,6 +164,8 @@ const routes: Routes = [
   // },
   
 ];
+
+  
 
 @NgModule({
   imports: [

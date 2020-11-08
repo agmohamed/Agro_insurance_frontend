@@ -5,7 +5,14 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
+  <ion-card>
+
+  </ion-card>
+  
+     
+  
   <ion-card>
     <ion-row>   
     <div class="vertical-center"> 
@@ -13,78 +20,69 @@
         <ion-img src="/assets/icon/man.png" style="height: 100px;width: 100px;" class="ion-align-self-end"></ion-img> 
     </div> 
   </div>
-    <ion-card>
-      <ion-item>
-          <ion-label>Add rate</ion-label>
+    
+     
+        <!-- <ion-label>Add rate</ion-label>
           <ion-select interface="popover" [(ngModel)]="selected_value"  >
             <ion-select-option value="a">1</ion-select-option>
             <ion-select-option value="b">2</ion-select-option>
             <ion-select-option value="c">3</ion-select-option>
             <ion-select-option value="d">4</ion-select-option>
             <ion-select-option value="e">5</ion-select-option>
-          </ion-select>
-      </ion-item>   
+          </ion-select> -->
+         
+          
+       
           <ion-item>
-            <ion-button expand="full" class="no-padding"   color="success">Submit</ion-button>
+            <ion-button expand="full" class="no-padding"  (click)="rate()" color="success">Rate User</ion-button>
             </ion-item>
-          </ion-card>  
+           
     </ion-row>
     
 
 <ion-card-content color="light">
-  <ion-row>
-    <ion-img src="/assets/icon/star1.png"  style="height: 40px;width: 40px;" ></ion-img>
+  
+    <!-- <ion-img src="/assets/icon/star1.png"  style="height: 40px;width: 40px;" ></ion-img>
     <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
     <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
     <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
-    <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
-  </ion-row>
+    <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img> -->
+   
+ 
+  
+  <div *ngFor="let d1 of data1">
 <ion-row>
   <ion-label><strong>Name  :</strong>    </ion-label>
-  <ion-label><strong>Kamal Perera</strong> </ion-label>
+  <ion-label><strong>{{d1.Name}}</strong> </ion-label>
 </ion-row>
 <ion-row>
   <ion-label><strong>Telephone:</strong> </ion-label>
-    <ion-label><strong>077825690</strong></ion-label>
+    <ion-label><strong>{{d1.Phone}}</strong></ion-label>
   </ion-row>
   <ion-row>
       <ion-label><strong>Address:</strong> </ion-label>
-      <ion-label><strong>araliaya mawatha,Kandy</strong></ion-label>
+      <ion-label><strong>{{d1.Address}}</strong></ion-label>
     </ion-row> 
+  </div>
 </ion-card-content>
 </ion-card>
-<ion-card>
+
+
+<ion-card *ngFor="let d2 of data2">
     <ion-header-bar class="bar-stable">
-        <h1 class="title"><strong>Crop Insurance</strong></h1>
+        <h1 class="title"><strong>{{d2.Name}}</strong></h1>
     </ion-header-bar>
     <ion-label>Payment details</ion-label>
-    <!----<table border="1">
-      <tr>
-          <td>January</td>
-          <td>February</td>
-          <td>March</td>
-          <td>April</td>
-      </tr>
-      <tr>
-          <td>Completed</td>
-          <td>-</td>
-          <td>-</td>
-          <td>-</td>
-      </tr>
-    </table>-->
-
-
-
-
-      <ion-card>
+    
+   <ion-card>
          <ion-row>
-            <ion-label><strong>Total Premium  : 4000</strong></ion-label>
+            <ion-label><strong>Total Premium  : {{d2.premium}}</strong></ion-label>
             
          </ion-row>
          <ion-row>
-          <ion-label>Status :</ion-label><strong>Not paid</strong>
-            <!----<ion-input type="text" placeholder="Paid Amount" ></ion-input>-->
-            <ion-button  class="no-padding" size="small"  color="success">Change Status</ion-button>
+          <ion-label>Total Paid Amount</ion-label>
+          <ion-input type="text"  [(ngModel)]="amount"></ion-input>
+          <ion-button  class="no-padding" size="small" (click)="update($event)" id="{{d2.id}}" color="success">Update</ion-button>
               
          </ion-row>
          <!----<ion-row>
@@ -95,5 +93,22 @@
         </ion-card>
    
       </ion-card>
-
+      <ion-button (click)='show()'>View History</ion-button>
+      <div *ngIf="hide">
+          <ion-card *ngFor="let i of data3">
+            <ion-title>{{i.Name}}({{i.name}})</ion-title>
+              <ion-row>
+                  <strong>Crop type:{{i.Crop}} </strong>
+              </ion-row>
+             
+              <ion-row>
+                  <strong>Land Number:{{i.land_number}} </strong>
+              </ion-row>
+             
+              <ion-row>
+                  <strong>status:{{i.status}} </strong>
+              </ion-row>
+              
+          </ion-card>
+       </div> 
 </ion-content>
