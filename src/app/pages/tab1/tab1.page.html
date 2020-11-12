@@ -2,11 +2,11 @@
   <ion-toolbar color="success">
     <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
     <ion-title>Hi {{name}}</ion-title>
-     <ion-buttons slot="end">
+     <!-- <ion-buttons slot="end">
       <ion-button color="light" (click)="processLogout()">
         <ion-icon slot="icon-only" name="exit"></ion-icon>
       </ion-button>
-    </ion-buttons> 
+    </ion-buttons>  -->
   </ion-toolbar>
 </ion-header>
 
@@ -26,7 +26,7 @@
         <ion-card-title>Insurances Details</ion-card-title>
       </ion-item>
         <ion-card-content class="si">
-        Know more details about your insuraces policies
+        Know more details about insurances 
         </ion-card-content>
   </ion-card>
 
@@ -36,21 +36,22 @@
         <ion-card-title>Discussion Forum</ion-card-title>
      </ion-item>
         <ion-card-content class="si">
-           discussions your issues
+            discuss your issues
         </ion-card-content>
   </ion-card>
 
     <ion-grid>
       <ion-row>
         <ion-col>
-            <ion-card class="card" *ngFor=" let d of data" >
+            <ion-card class="card" *ngFor=" let d of data; let i=index" >
                 <h1  >Policy Number-{{d.id}}</h1>
                 <ion-img src="/assets/icon/cal.png"  style="height: 50px;width: 100px;"></ion-img>
                     <!----<p>Next Payment : <strong class="te">January 20 2021 </strong>
                       <strong class="am"> Total amount to pay:4000</strong>
                     
                     </p>-->
-                <strong >Total premium : {{d.premium}}</strong>
+                <strong >Total premium : {{d.premium}}</strong><br>
+                <strong >Amount to paid: {{amount[i]}}</strong>
             </ion-card>
                
         </ion-col>

@@ -109,7 +109,15 @@ const routes: Routes = [
   {
     path: 'rateuser',
     loadChildren: () => import('./pages/rateuser/rateuser.module').then( m => m.RateuserPageModule)
+  },  {
+    path: 'discussion',
+    loadChildren: () => import('./pages/discussion/discussion.module').then( m => m.DiscussionPageModule)
   },
+  {
+    path: 'viewlocation',
+    loadChildren: () => import('./pages/viewlocation/viewlocation.module').then( m => m.ViewlocationPageModule)
+  },
+
 
   // {
   //   path: 'companytab1',

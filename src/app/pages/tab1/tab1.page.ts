@@ -27,7 +27,7 @@ export class Tab1Page implements OnInit {
 data:any;
  arr: any[] = [] 
  arr1: any= [] 
- 
+ amount:any=[];
   
   constructor(private router:Router,
     private storage:Storage, public http:HttpClient,
@@ -45,8 +45,12 @@ data:any;
          //this.init();
         // this.val();
         this.http.get(AccessProviders.server+'/getactivePremium/'+this.nic+'/'+this.datastorage1).subscribe((res:any)=>{ 
-           this.data=res.message;
-             
+           
+          this.data=res.message;
+          for (this.i in res.amount){
+             this.amount[this.i]=res.amount[this.i];
+          } 
+          console.log(this.amount);
         })
         });
       }); 

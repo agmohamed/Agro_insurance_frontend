@@ -29,7 +29,7 @@ import { IonicRatingModule } from 'ionic-rating';
   entryComponents: [],
   imports: [ 
     //MbscModule,  
-   
+  
     FormsModule,  
 BrowserModule, IonicRatingModule ,IonicModule.forRoot(), AppRoutingModule,HttpClientModule,IonicStorageModule.forRoot()],
   providers: [

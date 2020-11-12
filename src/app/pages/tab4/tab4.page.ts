@@ -97,4 +97,14 @@ pic:any;
   })
 
   }
+  async processLogout(){
+    this.storage.clear();
+    this.navCtrl.navigateRoot('/welcome');
+    const toast = await this.toastCtrl.create({
+      message: 'logout successfully',
+      duration: 3000,
+      position: 'top'
+    });
+  toast.present();
+  }
 }

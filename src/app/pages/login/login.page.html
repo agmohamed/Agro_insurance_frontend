@@ -6,16 +6,19 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
+    
+  <ion-card class="card">
       <div class="vertical-center"> <div class="center"> <ion-img src="/assets/icon/person.png" style="height: 100px;width: 100px;" class="ion-align-self-end"></ion-img> </div> </div>
   <ion-list>
     <div >
       <ion-item>
-          <ion-input type="text" placeholder="Username/NIC" [(ngModel)]="NIC"></ion-input>
+          <ion-icon name="person" color="success"></ion-icon>
+          <ion-input type="text" placeholder=" Username/NIC" [(ngModel)]="NIC"></ion-input>
       </ion-item>
 
       <ion-item>
-          <ion-input type="password" placeholder="Password" [(ngModel)]="Password"></ion-input>
+          <ion-icon name="lock-closed" color="success"></ion-icon>
+          <ion-input type="password" placeholder=" Password" [(ngModel)]="Password"></ion-input>
       </ion-item>
       <!-- <ion-item>
         <ion-label>Position</ion-label>
@@ -27,7 +30,7 @@
     
       <ion-button expand="full" class="no-padding" (click)="tryLogin()" color="success">Login</ion-button>
     </div>
-      <p class="ion-padding info-1">
+      <p *ngIf="hide" class="ion-padding info-1">
   
         If you do not have an account,click <span (click)="Register()">Register now</span>
         </p>
@@ -35,4 +38,5 @@
         If you do not have an account,click <span (click)="ge()">get</span> -->
     </ion-list>
   </ion-card>
+
 </ion-content>

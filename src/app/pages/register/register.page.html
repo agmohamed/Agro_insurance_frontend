@@ -8,25 +8,30 @@
 </ion-header>
 
 <ion-content>
+  <ion-card  class="card">  
     <ion-list>
       <div >
         <ion-item>
-            <ion-input type="text" placeholder="Name" [(ngModel)]="Name"></ion-input>
+            <ion-icon  name="person" color="success"></ion-icon>
+            <ion-input type="text" placeholder=" Name" [(ngModel)]="Name"></ion-input>
         </ion-item>
         
         <ion-item>
-          <ion-input type="text" placeholder="Phone" [(ngModel)]="Phone" ></ion-input>
+            <ion-icon  name="call" color="success"></ion-icon>
+          <ion-input type="text" placeholder=" Phone" [(ngModel)]="Phone" ></ion-input>
         </ion-item>
         <ion-item>
-            <ion-input type="text" placeholder="NIC" [(ngModel)]="NIC"></ion-input>
+            <ion-icon name="person-circle" color="success"></ion-icon>
+            <ion-input type="text" placeholder=" NIC" [(ngModel)]="NIC"></ion-input>
           </ion-item>
         
         <ion-item>
-            <ion-input type="text" placeholder="Password" [(ngModel)]="Password"></ion-input>
+            <ion-icon name="lock-closed" color="success"></ion-icon>
+            <ion-input type="text" placeholder=" Password" [(ngModel)]="Password"></ion-input>
         </ion-item>
         <ion-button expand="full" class="no-padding" (click)="tryRegister()" [disabled]="disableButton" color="success">Register</ion-button>
       </div>
        
       </ion-list>
-  
+    </ion-card>
   </ion-content>

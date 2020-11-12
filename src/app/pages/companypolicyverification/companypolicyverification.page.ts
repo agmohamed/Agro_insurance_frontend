@@ -42,7 +42,7 @@ risk:any;
             this.verifi=false;
         console.log(res.message[0].agent_verification);
         console.log(this.nic);
-     
+        this.storage.set('storage_landnumber',res.message[0].land_number);
       })
     })
   }); 
@@ -142,5 +142,8 @@ risk:any;
     }
    
    
+  }
+  location(){
+    this.router.navigate(['/viewlocation']);
   }
 }

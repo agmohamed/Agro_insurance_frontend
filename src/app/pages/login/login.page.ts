@@ -14,6 +14,8 @@ export class LoginPage implements OnInit {
   disableButton;
   selected_value:string;
   company:any;
+  id:any;
+  hide=true;
   constructor(
     private router:Router,
     private storage:Storage,
@@ -22,7 +24,19 @@ export class LoginPage implements OnInit {
     private alertCtrl:AlertController,
     private acessPr:AccessProviders,
     private navCtrl:NavController,
-  ) { }
+  ) {
+    
+      this.storage.get('storage_login').then((res)=>{
+        this.id=res;
+        console.log(this.id);
+         if(this.id=="id2" ){
+           this.hide=false;
+         }
+         
+     });
+    
+   
+  }
 
   ngOnInit() {
   }
@@ -115,7 +129,7 @@ export class LoginPage implements OnInit {
   async presentToast(a) {
     let toast = await this.toastCtrl.create({
       message: a,
-      duration: 3000,
+      duration: 1000,
       position: 'top'
     });
   toast.present();
@@ -125,6 +139,7 @@ export class LoginPage implements OnInit {
     this.router.navigate(['/register']);
   }
   back(){
+    this.storage.clear();
     this.router.navigate(['/welcome']);
   }
 //   image(){

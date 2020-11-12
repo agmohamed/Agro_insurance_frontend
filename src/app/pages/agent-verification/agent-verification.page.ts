@@ -23,6 +23,8 @@ va:any;
       this.http.get(AccessProviders.server+'/getpolicy/'+this.id).subscribe((res:any)=>{ 
         this.data=res.message;
         console.log( this.data);
+      
+        this.storage.set('storage_landnumber',res.message[0].land_number);
        
      })
     });
@@ -63,5 +65,8 @@ va:any;
   back(){
 
     this.router.navigate(['/agent']);
+  }
+  location(){
+    this.router.navigate(['/viewlocation']);
   }
 }

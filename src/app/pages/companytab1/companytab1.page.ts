@@ -30,4 +30,7 @@ de2:any;
   back(){
     this.router.navigate(['/login']);
   }
+  forum(){
+    this.router.navigate(['/discussion']);
+  }
 }

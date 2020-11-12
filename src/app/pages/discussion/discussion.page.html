@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar color="success">
+        <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+      <ion-title>Discussion</ion-title>
+    </ion-toolbar>
+  </ion-header>
+<ion-content>
+
+    <ion-card color="light" (click)="go()" *ngFor="let d of data">  
+        <ion-item  class="ion-activated">
+           <ion-card-title>forum-{{d.id}}</ion-card-title>
+        </ion-item>
+          <ion-card-content >
+             <p>Issue:- {{d.issues}}</p> 
+              <p>Suggestions:-{{d.suggestions}}</p> 
+             
+          </ion-card-content>
+          <ion-button shape="round" (click)="Click($event)" id="{{d.id}}" color="medium">Click</ion-button>
+        </ion-card>
+        <div *ngIf="hide">
+          <ion-card>
+              <strong>Reply section</strong> 
+              <ion-input placeholder="Reply" [(ngModel)]="answer"></ion-input>
+            <ion-button shape="round" (click)="submit()" color="medium">submit</ion-button>
+          </ion-card>
+            
+        </div>
+</ion-content>
