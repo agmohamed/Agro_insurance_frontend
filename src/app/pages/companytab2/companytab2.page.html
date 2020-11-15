@@ -5,6 +5,14 @@
   </ion-header>
   
   <ion-content>
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content
+            pullingIcon="chevron-down-circle-outline"
+            pullingText="Pull to refresh"
+            refreshingSpinner="circles"
+            refreshingText="Refreshing...">
+          </ion-refresher-content>
+        </ion-refresher>
       <!-- <ion-item>
         <ion-button expand="full" class="no-padding"   color="success">Update Policy</ion-button>
         </ion-item>
@@ -36,8 +44,8 @@
                 {{d.Name}}
                 <ion-row>
                     <ion-col><ion-button expand="small" class="no-padding"  id="{{d.id}}" (click)="update($event)"  color="success">Update</ion-button></ion-col>
-                    <ion-col><ion-button expand="small" class="no-padding"  color="success">Delete</ion-button></ion-col>
+                    <ion-col><ion-button expand="small" class="no-padding"  id="{{d.id}}" (click)="delete($event)" color="success">Delete</ion-button></ion-col>
                 </ion-row>
               </ion-card>
-              <ion-button expand="small" class="no-padding"  color="success">Add Policy</ion-button>
+              <ion-button expand="small" class="no-padding" (click)="add()" color="success">Add Policy</ion-button>
   </ion-content>

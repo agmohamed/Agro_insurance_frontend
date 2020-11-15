@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-toolbar color="success">
+        <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+      <ion-title>Add new Policy Type</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content >
+  
+    <ion-item >
+      <ion-label ><strong>Name :</strong></ion-label>
+      <ion-input type="text" placeholder="" [(ngModel)]="Name"></ion-input>
+    </ion-item>
+    <ion-item >
+      <ion-label ><strong>Description :</strong></ion-label>
+      <ion-input type="text" placeholder="" [(ngModel)]="Description"></ion-input>
+    </ion-item>
+    <ion-item >
+        <ion-label ><strong>Benefits :</strong></ion-label>
+        <ion-input type="text" placeholder="" [(ngModel)]="Benefits"></ion-input>
+    </ion-item>
+    <ion-button (click)="add()">Add</ion-button>
+    <div *ngIf="hide">
+    <ion-item >
+        <ion-label ><strong>Value for Acre(Paddy) :</strong></ion-label>
+        <ion-input type="text" placeholder="" [(ngModel)]="val[0]"></ion-input>
+    </ion-item>
+   
+   
+    <ion-item >
+        <ion-label ><strong>Value for Acre(Bigonion) :</strong></ion-label>
+        <ion-input type="text" placeholder="" [(ngModel)]="val[1]"></ion-input>
+  </ion-item>
+  <ion-item >
+    <ion-label ><strong>Value for Acre(Maize) :</strong></ion-label>
+    <ion-input type="text" placeholder="" [(ngModel)]="val[2]"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label ><strong>Value for Acre(Potato) :</strong></ion-label>
+  <ion-input type="text" placeholder="" [(ngModel)]="val[3]"></ion-input>
+</ion-item>
+  <ion-item >
+    <ion-label ><strong>Rate(Paddy) :</strong></ion-label>
+    <ion-input type="text" placeholder="" [(ngModel)]="val1[0]"></ion-input>
+</ion-item>
+
+<ion-item >
+    <ion-label ><strong>Rate(Bigonion) :</strong></ion-label>
+    <ion-input type="text" placeholder="" [(ngModel)]="val1[1]"></ion-input>
+</ion-item>
+<ion-item >
+  <ion-label ><strong>Rate(Maize) :</strong></ion-label>
+  <ion-input type="text" placeholder="" [(ngModel)]="val1[2]"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label ><strong>Rate(Potato) :</strong></ion-label>
+  <ion-input type="text" placeholder="" [(ngModel)]="val1[3]"></ion-input>
+</ion-item>
+  <ion-button (click)="submit()">confirm</ion-button>
+</div>
+  </ion-content>
+  

@@ -19,7 +19,10 @@ id:any;
 com:any;
 policyid:any;
 hide=false;
+hid=false;
 amount:any;
+am:any;
+policy:any;
   constructor(private router:Router, private storage:Storage,public http:HttpClient,
     private acessPr:AccessProviders) {
     this.storage.get('storage_afarmer').then((res)=>{
@@ -39,7 +42,7 @@ amount:any;
           this.com=res.id;
           this.http.get(AccessProviders.server+'/activepolicy/'+this.id+"/"+this.com).subscribe((res:any)=>{ 
             this.data2=res.message;
-            this.amount=res.message[0].PaidAmount;
+            this.am=res.message[0].PaidAmount;
                 console.log(res.message);
                 console.log( res.message[0].PaidAmount);
                
@@ -61,9 +64,13 @@ amount:any;
   show(){
     this.hide=true;
   }
-  update(event){
-    console.log(this.amount);
+  Click(event){
     this.policyid=event.target.id;
+    this.hid=true;
+    
+  }
+  update(){
+    
     console.log(this.policyid);
     return new Promise(resoler=>{
       let body={

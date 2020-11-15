@@ -2,10 +2,16 @@
   <ion-toolbar color="success">
       <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
     <ion-title>Welcome</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="processLogout()">
+        <ion-icon slot="icon-only" name="exit"></ion-icon>
+      </ion-button>
+    </ion-buttons>  
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
     <ion-card color="light" (click)="go()" *ngFor="let d of data">
           
    

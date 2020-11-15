@@ -80,9 +80,9 @@
             
          </ion-row>
          <ion-row>
-          <ion-label>Total Paid Amount</ion-label>
-          <ion-input type="text"  [(ngModel)]="amount"></ion-input>
-          <ion-button  class="no-padding" size="small" (click)="update($event)" id="{{d2.id}}" color="success">Update</ion-button>
+          <ion-label>Total Paid Amount:{{d2.PaidAmount}}</ion-label>
+          <!-- <ion-input type="text"  [(ngModel)]="amount"></ion-input> -->
+          <ion-button  class="no-padding" size="small" (click)="Click($event)" id="{{d2.id}}" color="success">Click to update</ion-button>
               
          </ion-row>
          <!----<ion-row>
@@ -93,6 +93,15 @@
         </ion-card>
    
       </ion-card>
+      <div *ngIf="hid">
+        <ion-card>
+            <strong>Policyid:{{policyid}}</strong><br> 
+            <strong>Paid Amount:</strong>
+            <ion-input placeholder="" [(ngModel)]="amount"></ion-input>
+          <ion-button shape="round" (click)="update()" color="medium">submit</ion-button>
+        </ion-card>
+          
+      </div>
       <ion-button (click)='show()'>View History</ion-button>
       <div *ngIf="hide">
           <ion-card *ngFor="let i of data3">

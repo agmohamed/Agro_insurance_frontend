@@ -117,6 +117,10 @@ const routes: Routes = [
     path: 'viewlocation',
     loadChildren: () => import('./pages/viewlocation/viewlocation.module').then( m => m.ViewlocationPageModule)
   },
+  {
+    path: 'add-policy-type',
+    loadChildren: () => import('./pages/add-policy-type/add-policy-type.module').then( m => m.AddPolicyTypePageModule)
+  },
 
 
   // {

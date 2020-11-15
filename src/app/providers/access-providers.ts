@@ -20,6 +20,7 @@ export class User {
 export class AccessProviders{
  
 public static server= 'http://192.168.8.188:8080';
+//public static server= 'http://192.168.43.44:8080';
 //public static server= 'http://localhost:8000';
   //   token: string;
  
@@ -120,7 +121,7 @@ public static server= 'http://192.168.8.188:8080';
             headers:headers
         }
         
-        return this.http.post(AccessProviders.server+'/update/'+$id,JSON.stringify(body),{
+        return this.http.put(AccessProviders.server+'/update/'+$id,JSON.stringify(body),{
             headers: new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8'),
           })
         . map(res=>res
@@ -148,7 +149,7 @@ public static server= 'http://192.168.8.188:8080';
         }
         
       
-        return this.http.post(AccessProviders.server+'/updateamount/'+$policyid,JSON.stringify(body),{
+        return this.http.put(AccessProviders.server+'/updateamount/'+$policyid,JSON.stringify(body),{
             headers: new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8'),
           })
         . map(res=>res
@@ -176,7 +177,7 @@ public static server= 'http://192.168.8.188:8080';
             headers:headers
         }
         
-        return this.http.post(AccessProviders.server+'/updatepolicycrops/'+$id,JSON.stringify(body),{
+        return this.http.put(AccessProviders.server+'/updatepolicycrops/'+$id,JSON.stringify(body),{
             headers: new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8'),
           })
         . map(res=>res
@@ -190,7 +191,7 @@ public static server= 'http://192.168.8.188:8080';
             headers:headers
         }
         
-        return this.http.post(AccessProviders.server+'/updaterating/'+$nic,JSON.stringify(body),{
+        return this.http.put(AccessProviders.server+'/updaterating/'+$nic,JSON.stringify(body),{
             headers: new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8'),
           })
         . map(res=>res
@@ -206,6 +207,50 @@ public static server= 'http://192.168.8.188:8080';
         }
         
         return this.http.post(AccessProviders.server+'/companyreply',JSON.stringify(body),{
+            headers: new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8'),
+          })
+        . map(res=>res
+        );
+      }
+      
+      addnewpolicyType(body){
+        let headers=new HttpHeaders({
+            'Content-Type':'applicationJson,charset-UTF-8'
+        });
+        let options={
+            headers:headers
+        }
+        
+        return this.http.post(AccessProviders.server+'/addnewpolicytype',JSON.stringify(body),{
+            headers: new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8'),
+          })
+        . map(res=>res
+        );
+      }
+      addnewpolicyTypeDetails(body){
+        let headers=new HttpHeaders({
+            'Content-Type':'applicationJson,charset-UTF-8'
+        });
+        let options={
+            headers:headers
+        }
+        
+        return this.http.post(AccessProviders.server+'/addnewpolicytypedetails',JSON.stringify(body),{
+            headers: new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8'),
+          })
+        . map(res=>res
+        );
+      }
+
+      deletePolicy($insurance_id){
+        let headers=new HttpHeaders({
+            'Content-Type':'applicationJson,charset-UTF-8'
+        });
+        let options={
+            headers:headers
+        }
+        
+        return this.http.delete(AccessProviders.server+'/deletepolicy/'+$insurance_id,{
             headers: new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8'),
           })
         . map(res=>res

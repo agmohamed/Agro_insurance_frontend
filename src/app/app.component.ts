@@ -16,6 +16,9 @@ export class AppComponent {
   formSettings = {
     theme: 'mobiscroll'
 };
+storage1:any;
+storage2:any;
+storage3:any;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -34,12 +37,26 @@ export class AppComponent {
       this.splashScreen.hide();
     });
     this.storage.get("storage_XXX").then((res)=>{
+        
       if(res==null){
           this.navCtrl.navigateRoot('/welcome');
       }else{
         this.navCtrl.navigateRoot('/insurance-compnay');
       }
     });
+  
+    // if(  this.storage1!=null){
+    //   this.navCtrl.navigateRoot('/insurance-compnay');
+    // }
+    // else if( this.storage2!=null){
+    //   this.navCtrl.navigateRoot('/company');
+    // }
+    // else if( this.storage3!=null){
+    //   this.navCtrl.navigateRoot('/agent');
+    // }
+    // else{
+    //   this.navCtrl.navigateRoot('/welcome');
+    // }
   }
   // check(){
   //   if( this.acessPr.checkLogged()) {
@@ -48,4 +65,5 @@ export class AppComponent {
   //     this.navCtrl.navigateRoot('/login');
   //   }
   // }
+  
 }
