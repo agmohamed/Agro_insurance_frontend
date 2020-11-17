@@ -23,6 +23,7 @@ hid=false;
 amount:any;
 am:any;
 policy:any;
+pic:any;
   constructor(private router:Router, private storage:Storage,public http:HttpClient,
     private acessPr:AccessProviders) {
     this.storage.get('storage_afarmer').then((res)=>{
@@ -31,6 +32,25 @@ policy:any;
       this.http.get(AccessProviders.server+'/onefarmer/'+this.id).subscribe((res:any)=>{ 
       this.data1=res.message; 
           console.log(res.message);
+          console.log(Math.round(res.message[0].rating_number));
+          if(Math.round(res.message[0].rating_number)==0){
+            this.pic="/assets/icon/nostar.jpg"
+          }
+          if(Math.round(res.message[0].rating_number)==1 ){
+            this.pic="/assets/icon/onestar.jpg"
+          }
+          if(Math.round(res.message[0].rating_number)==2 ){
+            this.pic="/assets/icon/twostar.jpg"
+          }
+          if(Math.round(res.message[0].rating_number)==3 ){
+            this.pic="/assets/icon/threestar.jpg"
+          }
+          if(Math.round(res.message[0].rating_number)==4 ){
+            this.pic="/assets/icon/fourstar.jpg"
+          }
+          if(Math.round(res.message[0].rating_number)==5){
+            this.pic="/assets/icon/fivestar.jpg"
+          }
          
         })
         this.http.get(AccessProviders.server+'/farmerspolicy/'+this.id+"/").subscribe((res:any)=>{ 

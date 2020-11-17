@@ -13,6 +13,7 @@ export class Companytab3Page implements OnInit {
 id:any;
 data:any;
 va:any;
+request: string = "policy";
   constructor(private router:Router,public http:HttpClient,private storage:Storage) { 
     
     this.storage.get('storage_company').then((res)=>{

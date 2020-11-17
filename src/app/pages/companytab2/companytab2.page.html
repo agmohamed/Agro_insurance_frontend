@@ -41,11 +41,13 @@
                
               </table> -->
               <ion-card  *ngFor="let d of data"> 
-                {{d.Name}}
+                <strong>{{d.Name}}</strong>
                 <ion-row>
-                    <ion-col><ion-button expand="small" class="no-padding"  id="{{d.id}}" (click)="update($event)"  color="success">Update</ion-button></ion-col>
-                    <ion-col><ion-button expand="small" class="no-padding"  id="{{d.id}}" (click)="delete($event)" color="success">Delete</ion-button></ion-col>
+                    <ion-col><ion-button expand="small" class="no-padding"  id="{{d.id}}" (click)="update($event)"  color="success" fill="clear">Update<ion-icon size="large"  name="sync-circle" color="success"></ion-icon></ion-button></ion-col> 
+                    <ion-col><ion-button expand="small" class="no-padding"  id="{{d.id}}" (click)="delete($event)"  color="success" fill="clear"><ion-icon size="large" name="trash" color="success"></ion-icon></ion-button></ion-col> 
+                   
                 </ion-row>
               </ion-card>
-              <ion-button expand="small" class="no-padding" (click)="add()" color="success">Add Policy</ion-button>
+              <ion-button expand="small" class="no-padding" (click)="add()" color="success" fill="clear">Add Policy<ion-icon size="large" name="add-circle" color="success"></ion-icon>
+              </ion-button>
   </ion-content>

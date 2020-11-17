@@ -7,23 +7,26 @@
 
 <ion-content>
 
+ 
   <ion-item>
-    <ion-label>Crop Type</ion-label>
-    <ion-select interface="popover" [(ngModel)]="selected_value"  >
-        <ion-select-option value="p">paddy</ion-select-option>
-        <ion-select-option value="b">Big Onion</ion-select-option>
-        <ion-select-option value="m">Maize</ion-select-option>
-        <ion-select-option value="m">Potato</ion-select-option>
-    </ion-select>
-  </ion-item>
-  <ion-item>
-    <ion-input type="text" placeholder="Tag Number" ></ion-input>
+    <ion-input type="text" placeholder="Policy Number" ></ion-input>
 </ion-item>
 <ion-item>
-  <ion-input type="text" placeholder="Incident Date" ></ion-input>
+  <ion-label>Incident Date</ion-label>
+  <ion-datetime displayFormat="YYYY-MM-DD" min="2020" max="2030" [(ngModel)]="date" ></ion-datetime>
 </ion-item>
 <ion-item>
-  <ion-input type="text" placeholder="Location" ></ion-input>
+  <ion-label>Type of loss</ion-label>
+  <ion-select  [(ngModel)]="selected_value"  >
+      <ion-select-option value="p">flood</ion-select-option>
+      <ion-select-option value="b">pest damage</ion-select-option>
+      <ion-select-option value="m">Drought</ion-select-option>
+      <ion-select-option value="m">damaged by elephants</ion-select-option>
+      <ion-select-option value="m">emergency fire</ion-select-option>
+      <ion-select-option value="m">insect effect</ion-select-option>
+      <ion-select-option value="m">damage by wild animals</ion-select-option>
+      <ion-select-option value="m">other natural perils</ion-select-option>
+  </ion-select>
 </ion-item>
 <ion-item>
   <ion-input type="text" placeholder="Contact number" ></ion-input>
@@ -47,7 +50,7 @@
   <ion-button color="primary"  (click)="presentActionSheet()">Take picture</ion-button>
 </ion-item>
 <div>
-  <ion-button expand="full" color='danger'  (click)="add()">Submit</ion-button>
+  <ion-button expand="full" color='success'  (click)="add()">Submit</ion-button>
 </div>
 
 </ion-content>

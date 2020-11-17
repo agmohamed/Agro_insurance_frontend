@@ -24,7 +24,7 @@
    <ion-item>
 
       <ion-label>Crop type</ion-label>
-      <ion-select interface="popover" [(ngModel)]="crop"  >
+      <ion-select  [(ngModel)]="crop"  >
         <ion-select-option >Paddy</ion-select-option>
         <ion-select-option >Big Onion</ion-select-option>
         <ion-select-option >Maize</ion-select-option>
@@ -44,7 +44,7 @@
   <div *ngIf="hideMe">
   <ion-item>
     <ion-label>optional policy for</ion-label>
-    <ion-select interface="popover" [(ngModel)]="risk" >
+    <ion-select  [(ngModel)]="risk" >
       <ion-select-option  *ngFor="let r of risktype">{{r.risk_type}}</ion-select-option>
       
     </ion-select>
@@ -53,7 +53,7 @@
 <div *ngIf="hide">
   <ion-item>
     <ion-label>policy type</ion-label>
-    <ion-select interface="popover" [(ngModel)]="type" >
+    <ion-select  [(ngModel)]="type" >
    
       <ion-select-option *ngFor="let p of policy">{{p.Name}}</ion-select-option>
    
@@ -82,14 +82,14 @@
       <ion-item>
         <!-- <ion-input type="text" placeholder="District" [(ngModel)]="district"></ion-input> -->
         <ion-label>District</ion-label>
-          <ion-select interface="popover" [(ngModel)]="district"  >
+          <ion-select  [(ngModel)]="district"  >
             <ion-select-option >Kegalle</ion-select-option>
           </ion-select>
       </ion-item>
       <ion-item>
           <!-- <ion-input type="text" placeholder="Gramasewa Division" [(ngModel)]="gramasewa_division"></ion-input> -->
           <ion-label>Gramasewa Division</ion-label>
-          <ion-select interface="popover" [(ngModel)]="gramasewa_division" >
+          <ion-select  [(ngModel)]="gramasewa_division" >
             <ion-select-option >Dehiowita</ion-select-option>
             <ion-select-option >ruwanwella</ion-select-option>
           </ion-select>
@@ -100,7 +100,7 @@
           
         <ion-item>
           <ion-label>Owership</ion-label>
-          <ion-select interface="popover" [(ngModel)]="owership"  >
+          <ion-select  [(ngModel)]="owership"  >
             <ion-select-option >own</ion-select-option>
             <ion-select-option >Rented</ion-select-option>
             <ion-select-option >Leased</ion-select-option>
