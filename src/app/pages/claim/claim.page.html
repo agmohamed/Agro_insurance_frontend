@@ -35,3 +35,18 @@
   <ion-item>
   <ion-input type="text" placeholder="Bank Name " ></ion-input>
 </ion-item>
+<ion-item>
+  <ion-input type="text" placeholder="Branch" ></ion-input>
+</ion-item>
+<ion-item>
+  <ion-input type="text" placeholder="Account Number" ></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label fixed>Add Image</ion-label>
+  <ion-button color="primary"  (click)="presentActionSheet()">Take picture</ion-button>
+</ion-item>
+<div>
+  <ion-button expand="full" color='danger'  (click)="add()">Submit</ion-button>
+</div>
+
+</ion-content>
