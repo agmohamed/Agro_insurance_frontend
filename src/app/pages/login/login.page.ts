@@ -47,10 +47,10 @@ export class LoginPage implements OnInit {
       this.navCtrl.navigateRoot(['/agent']);
       this.company=1;
     }
-    this.storage.set('storage_comid',this.company);
+    /*this.storage.set('storage_comid',this.company);
     if(this.NIC=="org" && this.Password=="org" ){
       this.navCtrl.navigateRoot(['/organization']);
-    }
+    }*/
     //this.storage.set('storage_XXX',this.NIC);
  
      if(this.NIC==""){
@@ -75,7 +75,7 @@ export class LoginPage implements OnInit {
               loader.dismiss();
               this.disableButton=false;
               this.presentToast('Login sucessfully');
-              this.storage.set('storage_XXX',res.data);
+              this.storage.set('storage_Company',res.data);
               
               this.navCtrl.navigateRoot(['/aaib']);
              console.log(res.data1);
@@ -95,7 +95,8 @@ export class LoginPage implements OnInit {
               this.presentToast('Login sucessfully');
               this.storage.set('storage_XXX',res.data);
                 
-              this.navCtrl.navigateRoot(['/types']);
+              this.navCtrl.navigateRoot(['/home']);
+              //this.navCtrl.navigateRoot(['/types']);
               console.log(res.data);
               }else{
                 loader.dismiss();
