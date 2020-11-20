@@ -2,29 +2,29 @@
   <ion-toolbar color="success">
       <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
     <ion-title>Farmer organization</ion-title>
+    <ion-buttons slot="end">
+        <ion-button color="light" (click)="processLogout()">
+          <ion-icon slot="icon-only" name="exit"></ion-icon>
+        </ion-button>
+      </ion-buttons>  
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card color="light" (click)="go()">
-          
-   
-      <ion-card-title>ClaimRequest-1</ion-card-title>
-    
-      <ion-card-content class="si">
-       tap to more information
-      </ion-card-content>
-   
-    </ion-card>
-
-    <ion-card color="light" (click)="go()">
-          
-   
-      <ion-card-title>ClaimRequest-2</ion-card-title>
-   
-      <ion-card-content class="si">
-       tap to more information
-      </ion-card-content>
-   
-    </ion-card>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="chevron-down-circle-outline"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
+  <ion-card color="light" (click)="go()" *ngFor="let d of data">
+    <ion-card-title>ClaimRequest -{{d.id}}</ion-card-title>
+  
+    <ion-card-content class="si">
+     tap to more information
+    </ion-card-content>
+    <ion-button shape="round"  class="no-padding" (click)="view($event)" id="{{d.id}}" color="secondary">click</ion-button>
+  </ion-card>
 </ion-content>

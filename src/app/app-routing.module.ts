@@ -109,7 +109,8 @@ const routes: Routes = [
   {
     path: 'rateuser',
     loadChildren: () => import('./pages/rateuser/rateuser.module').then( m => m.RateuserPageModule)
-  },  {
+  },
+  {
     path: 'discussion',
     loadChildren: () => import('./pages/discussion/discussion.module').then( m => m.DiscussionPageModule)
   },
@@ -120,6 +121,15 @@ const routes: Routes = [
   {
     path: 'add-policy-type',
     loadChildren: () => import('./pages/add-policy-type/add-policy-type.module').then( m => m.AddPolicyTypePageModule)
+  },
+  {
+    path: 'organization-verification',
+    loadChildren: () => import('./pages/organization-verification/organization-verification.module').then( m => m.OrganizationVerificationPageModule)
+  },
+  
+  {
+    path: 'companyclaimverification',
+    loadChildren: () => import('./pages/companyclaimverification/companyclaimverification.module').then( m => m.CompanyclaimverificationPageModule)
   },
 
 

@@ -9,7 +9,7 @@
 
  
   <ion-item>
-    <ion-input type="text" placeholder="Policy Number" ></ion-input>
+    <ion-input type="text" placeholder="Policy Number"  [(ngModel)]="policy_number"></ion-input>
 </ion-item>
 <ion-item>
   <ion-label>Incident Date</ion-label>
@@ -17,40 +17,57 @@
 </ion-item>
 <ion-item>
   <ion-label>Type of loss</ion-label>
-  <ion-select  [(ngModel)]="selected_value"  >
-      <ion-select-option value="p">flood</ion-select-option>
-      <ion-select-option value="b">pest damage</ion-select-option>
-      <ion-select-option value="m">Drought</ion-select-option>
-      <ion-select-option value="m">damaged by elephants</ion-select-option>
-      <ion-select-option value="m">emergency fire</ion-select-option>
-      <ion-select-option value="m">insect effect</ion-select-option>
-      <ion-select-option value="m">damage by wild animals</ion-select-option>
-      <ion-select-option value="m">other natural perils</ion-select-option>
+  <ion-select  [(ngModel)]="loss"  >
+      <ion-select-option >pest damage</ion-select-option>
+      <ion-select-option >Drought</ion-select-option>
+      <ion-select-option>damaged by elephants</ion-select-option>
+      <ion-select-option >emergency fire</ion-select-option>
+      <ion-select-option >insect effect</ion-select-option>
+      <ion-select-option >damage by wild animals</ion-select-option>
+      <ion-select-option >other natural perils</ion-select-option>
   </ion-select>
 </ion-item>
 <ion-item>
-  <ion-input type="text" placeholder="Contact number" ></ion-input>
+  <ion-input type="text" [(ngModel)]="phone" placeholder="Contact number" ></ion-input>
 </ion-item>
 <ion-item>
-  <ion-input type="text" placeholder="Expected Loss Amount" ></ion-input>
+  <ion-input type="text" [(ngModel)]="amount" placeholder="Expected Loss Amount" ></ion-input>
 </ion-item>
 
   <h3>Loan details</h3>
   <ion-item>
-  <ion-input type="text" placeholder="Bank Name " ></ion-input>
+    <ion-label>Bank name</ion-label>
+    <ion-select  [(ngModel)]="bank"  >
+        <ion-select-option >People's</ion-select-option>
+        <ion-select-option >BOC</ion-select-option>
+        <ion-select-option >Sanasa</ion-select-option>
+        <ion-select-option >Sampath</ion-select-option>
+        
+    </ion-select>
 </ion-item>
 <ion-item>
-  <ion-input type="text" placeholder="Branch" ></ion-input>
+  <ion-input type="text" [(ngModel)]="branch" placeholder="Branch" ></ion-input>
 </ion-item>
 <ion-item>
-  <ion-input type="text" placeholder="Account Number" ></ion-input>
+  <ion-input type="text" [(ngModel)]="account" placeholder="Account Number" ></ion-input>
+</ion-item>
+<ion-item>
+  <ion-input type="text" [(ngModel)]="loan" placeholder="loan Number" ></ion-input>
 </ion-item>
 <ion-item>
   <ion-label fixed>Add Image</ion-label>
   <ion-button color="primary"  (click)="presentActionSheet()">Take picture</ion-button>
 </ion-item>
+<ion-grid>
+    <ion-row>
+      <ion-col col-6 *ngFor="let p of photos">
+        <img [src]="p"/>
+      </ion-col>
+    
+    </ion-row>
+</ion-grid>
 <div>
-  <ion-button expand="full" color='success'  (click)="add()">Submit</ion-button>
+  <ion-button expand="full" color='success'  (click)="submit()">Submit</ion-button>
 </div>
 
 </ion-content>
