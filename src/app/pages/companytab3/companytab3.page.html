@@ -15,6 +15,15 @@
 </ion-header>
   
   <ion-content>
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content
+            pullingIcon="chevron-down-circle-outline"
+            pullingText="Pull to refresh"
+            refreshingSpinner="circles"
+            refreshingText="Refreshing...">
+          </ion-refresher-content>
+        </ion-refresher>
+        
       <div [ngSwitch]="request">
         <ion-list *ngSwitchCase="'policy'">
           <ion-label color="primary">Policy Requests</ion-label>
@@ -32,16 +41,16 @@
       </div>
       <div [ngSwitch]="request">
           <ion-list *ngSwitchCase="'claim'">
-            <ion-label color="primary">Claims Requests</ion-label>
-            <ion-card color="light" (click)="forum()">
-              <ion-item  class="ion-activated">
-                <ion-icon name="card" slot="start"></ion-icon>
-                <ion-card-title>Requset1</ion-card-title>
-              </ion-item>
-              <ion-card-content>
-                  Description about requested insurances
-              </ion-card-content>
-            </ion-card>
+              <ion-card color="light" (click)="go()" *ngFor="let d1 of data1">
+                  <ion-item  class="ion-activated">
+                    <ion-icon name="document" slot="start"></ion-icon>
+                    <ion-card-title>Claim Number:{{d1.id}}</ion-card-title>
+                  </ion-item>
+                <ion-card-content>
+                  {{d1.type_of_loss}}
+                </ion-card-content>
+            <ion-button shape="round"  class="no-padding" (click)="view1($event)" id="{{d1.id}}" color="secondary">click</ion-button>
+                </ion-card>
           </ion-list>
       </div>
     </ion-content>

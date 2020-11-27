@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="success">
+      <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+    <ion-title>Company claim verification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngFor="let d of data">
+
+    <ion-item >
+      <ion-label ><strong>NIC :</strong>{{d.NIC}}</ion-label>
+    </ion-item>
+    <ion-item >
+      <ion-label ><strong>Policy Number :</strong>{{d.policy_number}}</ion-label>
+  
+    </ion-item>
+    <ion-item >
+      <ion-label><strong>Incident Date :</strong>{{d.incident_date| date: 'yyyy/MM/dd'}}</ion-label>
+  
+    </ion-item>
+    <ion-item >
+      <ion-label ><strong>Type of Loss :</strong>{{d.type_of_loss}}</ion-label>
+  
+    </ion-item>
+    <ion-item >
+      <ion-label ><strong>Loss Amount:</strong>{{d.loss_amount}}</ion-label>
+    </ion-item>
+    <ion-item >
+        <ion-label ><strong>Phone:</strong>{{d.phone}}</ion-label>
+      </ion-item>
+      <ion-item >
+          <ion-label ><strong>Bank name:</strong>{{d.bank_name}}</ion-label>
+        </ion-item>
+      <ion-item >
+            <ion-label ><strong>Branch:</strong>{{d.branch}}</ion-label>
+      </ion-item>
+      <ion-item >
+              <ion-label ><strong>Loan Number:</strong>{{d.loan_number}}</ion-label>
+      </ion-item>  
+    <ion-item >
+      <ion-label ><strong>Image:</strong><ion-img src="{{d.image}}"></ion-img></ion-label>
+      
+    </ion-item>
+    <ion-item>
+      <ion-button (click)="location()">Viewland</ion-button>
+    </ion-item>
+    <ion-item >
+      <ion-label ><strong>Agent Verification:</strong>{{verifi}}</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item >
+    <ion-label>Verification</ion-label>
+    <ion-select  [(ngModel)]="verification">
+        <ion-select-option>True</ion-select-option>
+        <ion-select-option>False</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-button (click)="submit()">confirm</ion-button>
+  </ion-content>
+  

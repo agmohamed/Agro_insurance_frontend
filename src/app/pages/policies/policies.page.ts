@@ -287,10 +287,10 @@ arr2:any=[];
     }
     
     this.camera.getPicture(options).then((imageData) => {
-     this.cameradata=imageData;
-   this.base64Image = 'data:image/jpeg;base64,' + imageData;
-   this.photos.push(this.base64Image);
-   this.photos.reverse();
+    this.cameradata=imageData;
+    this.base64Image = 'data:image/jpeg;base64,' + imageData;
+    this.photos.push(this.base64Image);
+    this.photos.reverse();
     }, (err) => {
      // Handle error
     });

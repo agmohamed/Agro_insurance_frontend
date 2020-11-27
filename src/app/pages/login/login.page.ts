@@ -44,28 +44,8 @@ export class LoginPage implements OnInit {
     this.disableButton=false;
   }
   async tryLogin(){
-    if(this.NIC=="123" && this.Password=="123" ){
-      this.navCtrl.navigateRoot(['/types']);
-    }
-    if(this.NIC=="CompanyB" && this.Password=="B123" ){
-      this.navCtrl.navigateRoot(['/sanasa']);
-    }
-    /*if(this.NIC=="farmer1" && this.Password=="farmer1" ){
-      this.navCtrl.navigateRoot(['/types']);
-    }*/
-    if(this.NIC=="agent1" && this.Password=="agent1" ){
-      this.navCtrl.navigateRoot(['/agent']);
-      this.company=0;
-    }
-    if(this.NIC=="agent2" && this.Password=="agent2" ){
-      this.navCtrl.navigateRoot(['/agent']);
-      this.company=1;
-    }
-    this.storage.set('storage_comid',this.company);
-    if(this.NIC=="org" && this.Password=="org" ){
-      this.navCtrl.navigateRoot(['/organization']);
-    }
-    //this.storage.set('storage_XXX',this.NIC);
+    
+    
  
     if(this.NIC==""){
       this.presentToast("YourUsername is required");
@@ -102,6 +82,15 @@ export class LoginPage implements OnInit {
               
               this.navCtrl.navigateRoot(['/agent']);
              console.log(res.data2);
+            }
+            else if(res.message=='Success login Organization' ){
+              loader.dismiss();
+              this.disableButton=false;
+              this.presentToast('Login sucessfully');
+              this.storage.set('storage_org',res.data3);
+              
+              this.navCtrl.navigateRoot(['/organization']);
+             console.log(res.data3);
             }
            else if(res.status==true ){
               loader.dismiss();

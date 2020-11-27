@@ -1,19 +1,66 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
+import {Storage} from '@ionic/storage';
+import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
+import { AccessProviders } from '../../providers/access-providers';
+import { ToastController,LoadingController,AlertController,NavController } from '@ionic/angular';
 @Component({
   selector: 'app-organization',
   templateUrl: './organization.page.html',
   styleUrls: ['./organization.page.scss'],
 })
 export class OrganizationPage implements OnInit {
+  datastorage:any;
+  id:any;
+  data:any;
+  va:any;
+  constructor(private router:Router,private storage:Storage,public http:HttpClient,
+    private toastCtrl:ToastController, private navCtrl:NavController) { 
 
-  constructor(private router:Router) { }
+    this.storage.get('storage_org').then((res)=>{
+      console.log(res);
+      this.datastorage=res;
+      this.id=this.datastorage.id;
 
+      console.log(this.id);
+      this.doRefresh(0);
+     
+    });
+  }
+
+  getclaim(){
+    this.http.get(AccessProviders.server+'/claimOrg/'+this.id).subscribe((res:any)=>{ 
+          this.data=res.message;
+       })
+      
+  }
   ngOnInit() {
   }
 
+  view(event){
+    this.va=event.target.id;
+    this.storage.set('storage_info1',this.va);
+    console.log(this.va);
+    this.router.navigate(['/organization-verification']);
+  }
   back(){
     this.router.navigate(['/login']);
   }
- 
+  async processLogout(){
+    this.storage.clear();
+    this.navCtrl.navigateRoot('/welcome');
+    const toast = await this.toastCtrl.create({
+      message: 'logout successfully',
+      duration: 3000,
+      position: 'top'
+    });
+  toast.present();
+  }
+  doRefresh(event) {
+    this.getclaim();
+    setTimeout(() => {
+        console.log('Async operation has ended');
+        event.target.complete();
+        }, 2000);
+  }
 }

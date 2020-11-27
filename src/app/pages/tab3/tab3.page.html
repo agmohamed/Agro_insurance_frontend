@@ -8,36 +8,29 @@
   
 
 
-<ion-card color="light" (click)="go()">     
-  <ion-item  class="ion-activated">
-     <ion-card-title>Claim Number-1</ion-card-title>
-  </ion-item>
-    <ion-card-content >
-     Claim for land
-    </ion-card-content>
-    <ion-button shape="round" color="success">Actived</ion-button>
-</ion-card>
-<ion-card color="light" (click)="go()">  
-  <ion-item  class="ion-activated">
-     <ion-card-title>Claim Number-2</ion-card-title>
-  </ion-item>
-    <ion-card-content >
-     Claim for Livestock
-    </ion-card-content>
-    <ion-button shape="round" color="tertiary">pending</ion-button>
-  </ion-card>
-
-  <ion-card color="light" (click)="go()">  
-  <ion-item  class="ion-activated">
-    <ion-card-title>Claim Number-3</ion-card-title>
- </ion-item>
-   <ion-card-content >
-    Claim for Livestock
-   </ion-card-content>
-   <ion-button shape="round" color="warning">Rejected</ion-button>
- </ion-card>
-
- <div>
-  <ion-button expand="full" color='success'  (click)="add()">Add Claim</ion-button>
-</div>
+ 
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content
+        pullingIcon="chevron-down-circle-outline"
+        pullingText="Pull to refresh"
+        refreshingSpinner="circles"
+        refreshingText="Refreshing...">
+      </ion-refresher-content>
+    </ion-refresher>
+              
+      <ion-card color="light" *ngFor="let v of val" (click)="active()">     
+            <ion-item  class="ion-activated">
+                <ion-card-title>Claim Number-{{v.id}}</ion-card-title>
+            </ion-item>
+            <ion-card-content> Claim for:{{v.type_of_loss}} <br>
+                              Policy number:{{v.policy_number}}
+            </ion-card-content>
+            <ion-button shape="round" color="tertiary">{{v.status}}</ion-button>
+      </ion-card>
+      
+      <div>
+          <ion-button expand="full" color='success'  (click)="add()">Add Claim</ion-button>
+      </div>
+                
+  
 </ion-content>
