@@ -18,6 +18,7 @@ nic:any;
 companyid:any;
 i:any;
 risk:any;
+n:any;
   constructor(private router:Router,private storage:Storage, public http:HttpClient,
     private acessPr:AccessProviders) {
 
@@ -36,12 +37,14 @@ risk:any;
         this.data=res.message;
         this.nic=res.message[0].id;
         this.risk=res.message[0].risk_type;
+        this.n=res.message[0].NIC;
         if(res.message[0].agent_verification==1)
             this.verifi=true;
         else if (res.message[0].agent_verification==0)
             this.verifi=false;
         console.log(res.message[0].agent_verification);
         console.log(this.nic);
+        this.storage.set('storage_afarmer',this.n);
         this.storage.set('storage_landnumber',res.message[0].land_number);
       })
     })
@@ -145,5 +148,10 @@ risk:any;
   }
   location(){
     this.router.navigate(['/viewlocation']);
+  }
+  farmerProfile(){
+    //this.storage.remove('storage_afarmer');
+    this.router.navigate(['/client']);
+
   }
 }

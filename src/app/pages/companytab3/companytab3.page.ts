@@ -3,7 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import { AccessProviders } from '../../providers/access-providers';
 import {Storage} from '@ionic/storage';
 import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
-import { identifierModuleUrl } from '@angular/compiler';
+// import { identifierModuleUrl } from '@angular/compiler';
 @Component({
   selector: 'app-companytab3',
   templateUrl: './companytab3.page.html',

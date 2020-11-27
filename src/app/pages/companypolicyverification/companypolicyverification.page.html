@@ -6,7 +6,10 @@
 </ion-header>
 
 <ion-content *ngFor="let d of data">
-
+  <ion-item>
+   
+     <ion-button (click)="farmerProfile()">View farmer Profile</ion-button> 
+  </ion-item>
   <ion-item >
     <ion-label ><strong>NIC :</strong>{{d.NIC}}</ion-label>
     <ion-input></ion-input>
