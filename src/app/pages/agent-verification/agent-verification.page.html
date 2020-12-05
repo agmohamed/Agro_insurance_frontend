@@ -27,6 +27,14 @@
     <ion-label ><strong>Crop:</strong>{{d.Crop}}</ion-label>
     <ion-input></ion-input>
   </ion-item>
+  <ion-item >
+    <ion-label ><strong>Size of Land:</strong>{{d.Size}}</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item >
+    <ion-label ><strong>Risk_type:</strong>{{d.risk_type}}</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
   <ion-item>
     <ion-button (click)="location()">Viewland</ion-button>
   </ion-item>
@@ -36,6 +44,14 @@
       <ion-select-option>True</ion-select-option>
       <ion-select-option>False</ion-select-option>
   </ion-select>
+  <ion-button (click)="submit()">submit</ion-button>
 </ion-item>
+<div *ngIf="hide">
+  <ion-item>
+      <ion-label >Enter issue</ion-label>
+    <ion-input type="text" [(ngModel)]="issue" ></ion-input>
+  </ion-item>
+</div>
+
 <ion-button (click)="onClick()">confirm</ion-button>
 </ion-content>

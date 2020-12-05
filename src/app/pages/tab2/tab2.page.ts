@@ -22,7 +22,7 @@ datastorage1: any;
 
 i:any="";
 val:any;
-
+value:any;
   constructor(private camera: Camera,public actionSheetController: ActionSheetController,
     public http:HttpClient,private router:Router,private storage:Storage) {
         this.doRefresh(0);
@@ -130,8 +130,12 @@ add(){
 go(){
   this.router.navigate(['/policies']);
   }
-active(){
-  this.router.navigate(['/active-policy']);
+view(event){
+  this.value=event.target.id;
+  console.log('hello');
+  console.log(this.value);
+  this.storage.set('storage_appliedPolicy',this.value);
+  this.router.navigate(['/apply-policy']);
   }
 
 }

@@ -99,7 +99,7 @@ public static server= 'http://192.168.8.188:8080';
           
           
        }
-      postagentVerify(body,$id){
+    postagentVerify(body,$id){
         let headers=new HttpHeaders({
             'Content-Type':'applicationJson,charset-UTF-8'
         });
@@ -113,7 +113,8 @@ public static server= 'http://192.168.8.188:8080';
         . map(res=>res
         );
       }
-      updatefarmer(body,$id){
+      
+    updatefarmer(body,$id){
         let headers=new HttpHeaders({
             'Content-Type':'applicationJson,charset-UTF-8'
         });
@@ -127,7 +128,7 @@ public static server= 'http://192.168.8.188:8080';
         . map(res=>res
         );
       }
-      postfarmerIssuse(body){
+    postfarmerIssuse(body){
         let headers=new HttpHeaders({
           'Content-Type':'applicationJson,charset-UTF-8'
       });

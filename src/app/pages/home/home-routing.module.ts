@@ -9,7 +9,7 @@ const routes: Routes = [
     component: HomePage,
     children:[
       {
-        path: 'tab1',
+        path: 'tab1', 
         children:[
           {
             path:'',

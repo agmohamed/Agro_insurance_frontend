@@ -51,6 +51,17 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'companyhistory',
+        children:[
+          {
+            path:'',
+            loadChildren: () => import('../companyhistory/companyhistory.module').then( m => m.CompanyhistoryPageModule)
+          },
+          
+        ]
+      },
+     
+      {
         path:'',
         redirectTo:'/company/companytab1',
         pathMatch:'full'

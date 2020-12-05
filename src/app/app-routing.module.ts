@@ -74,10 +74,10 @@ const routes: Routes = [
     path: 'types',
     loadChildren: () => import('./pages/types/types.module').then( m => m.TypesPageModule)
   },
-  {
-    path: 'agent',
-    loadChildren: () => import('./pages/agent/agent.module').then( m => m.AgentPageModule)
-  },
+  // {
+  //   path: 'agent',
+  //   loadChildren: () => import('./pages/agent/agent.module').then( m => m.AgentPageModule)
+  // },
   {
     path: 'organization',
     loadChildren: () => import('./pages/organization/organization.module').then( m => m.OrganizationPageModule)
@@ -131,6 +131,26 @@ const routes: Routes = [
     path: 'companyclaimverification',
     loadChildren: () => import('./pages/companyclaimverification/companyclaimverification.module').then( m => m.CompanyclaimverificationPageModule)
   },
+  {
+    path: 'agent-home',
+    loadChildren: () => import('./pages/agent-home/agent-home.module').then( m => m.AgentHomePageModule)
+  },
+  {
+    path: 'apply-policy',
+    loadChildren: () => import('./pages/apply-policy/apply-policy.module').then( m => m.ApplyPolicyPageModule)
+  },
+  
+
+  // {
+  //   path: 'agenttab1',
+  //   loadChildren: () => import('./pages/agenttab1/agenttab1.module').then( m => m.Agenttab1PageModule)
+  // },
+  // {
+  //   path: 'agenttab2',
+  //   loadChildren: () => import('./pages/agenttab2/agenttab2.module').then( m => m.Agenttab2PageModule)
+  // },
+
+
 
 
   // {

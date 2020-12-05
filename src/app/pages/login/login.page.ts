@@ -80,7 +80,7 @@ export class LoginPage implements OnInit {
               this.presentToast('Login sucessfully');
               this.storage.set('storage_agent',res.data2);
               
-              this.navCtrl.navigateRoot(['/agent']);
+              this.navCtrl.navigateRoot(['/agent-home']);
              console.log(res.data2);
             }
             else if(res.message=='Success login Organization' ){

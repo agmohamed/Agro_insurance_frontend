@@ -19,6 +19,8 @@ companyid:any;
 i:any;
 risk:any;
 n:any;
+issue:any;
+hide=false;
   constructor(private router:Router,private storage:Storage, public http:HttpClient,
     private acessPr:AccessProviders) {
 
@@ -42,6 +44,8 @@ n:any;
             this.verifi=true;
         else if (res.message[0].agent_verification==0)
             this.verifi=false;
+
+       // if(res.message[0].agent_verification==1)    
         console.log(res.message[0].agent_verification);
         console.log(this.nic);
         this.storage.set('storage_afarmer',this.n);
@@ -69,6 +73,7 @@ n:any;
     
         let body={
           ver:this.send,
+          issue:this.issue
         }
          this.acessPr.postcompanyverification(body,this.id).subscribe((res:any)=>{
             if(res.status==true){
@@ -87,6 +92,14 @@ n:any;
   back(){
 
     this.router.navigate(['/company/companytab3']);
+  }
+  view(){
+    if(this.verification=='False'){
+      this.hide=true;
+    }
+    else{
+      this.hide=false;
+    }
   }
   val(v1){
    

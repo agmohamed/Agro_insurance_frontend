@@ -24,12 +24,12 @@
     </ion-refresher-content>
   </ion-refresher>
             
-    <ion-card color="light" *ngFor="let v of val" (click)="active()">     
+    <ion-card color="light" *ngFor="let v of val" >     
           <ion-item  class="ion-activated">
               <ion-card-title>Policy Number-{{v.id}}</ion-card-title>
           </ion-item>
           <ion-card-content> {{v.Name}} </ion-card-content>
-          <ion-button shape="round" color="tertiary">{{v.status}}</ion-button>
+          <ion-button shape="round" color="tertiary" (click)="view($event)" id="{{v.id}}">{{v.status}}</ion-button>
     </ion-card>
     
     <div>

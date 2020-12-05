@@ -15,6 +15,8 @@ data:any; land:any;
 policy_num:any;
 send:any; verification:any;
 verifi:any;
+hide=false;
+issue:any;
   constructor(private router:Router,private storage:Storage, public http:HttpClient,
     private acessPr:AccessProviders) { 
       this.storage.get('storage_company').then((res)=>{
@@ -24,7 +26,7 @@ verifi:any;
         //this.name=this.datastorage.Name;
         //console.log(this.l1);
     
-    this.storage.get('storage_companyclaim').then((res)=>{
+  this.storage.get('storage_companyclaim').then((res)=>{
       this.id=res;
       console.log( res);
       this.http.get(AccessProviders.server+'/getclaim/'+this.id).subscribe((res:any)=>{ 
@@ -37,10 +39,10 @@ verifi:any;
            this.http.get(AccessProviders.server+'/getlandforclaim/'+this.id+'/'+ this.policy_num).subscribe((res:any)=>{ 
         
         this.storage.set('storage_landnumber',res.message[0].land_number);
-      })
-    })
-    })
-  }); 
+          })
+        })
+       })
+      }); 
     }
 
   ngOnInit() {
@@ -59,7 +61,8 @@ verifi:any;
     return new Promise(resoler=>{
     
       let body={
-        verify:this.send
+        verify:this.send,
+        issue:this.issue
       }
       
       this.acessPr.postcompanyclaimverification(body,this.id).subscribe((res:any)=>{
@@ -84,5 +87,18 @@ verifi:any;
   back(){
 
     this.router.navigate(['/company/companytab3']);
+  }
+  farmerProfile(){
+    //this.storage.remove('storage_afarmer');
+    this.router.navigate(['/client']);
+
+  }
+  view(){
+    if(this.verification=='False'){
+      this.hide=true;
+    }
+    else{
+      this.hide=false;
+    }
   }
 }

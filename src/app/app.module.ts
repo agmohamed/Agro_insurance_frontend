@@ -23,6 +23,7 @@ import { IonicRatingModule } from 'ionic-rating';
  import {Geolocation} from  '@ionic-native/geolocation/ngx';
  import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
  
+ import 'chartjs-plugin-zoom';
 // import { StarRatingModule } from 'ionic3-star-rating';
 @NgModule({
   declarations: [AppComponent],

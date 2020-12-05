@@ -6,7 +6,9 @@
 </ion-header>
 
 <ion-content *ngFor="let d of data">
-
+    <ion-item>
+        <ion-button (click)="farmerProfile()">View farmer Profile</ion-button> 
+     </ion-item>
     <ion-item >
       <ion-label ><strong>NIC :</strong>{{d.NIC}}</ion-label>
     </ion-item>
@@ -55,6 +57,13 @@
         <ion-select-option>False</ion-select-option>
     </ion-select>
   </ion-item>
+  <div *ngIf="hide">
+      <ion-item>
+          <ion-label ><strong>Enter Reason:</strong></ion-label>
+        <ion-input type="text" [(ngModel)]="issue" ></ion-input>
+      </ion-item>
+    </div>
+    
   <ion-button (click)="submit()">confirm</ion-button>
   </ion-content>
   

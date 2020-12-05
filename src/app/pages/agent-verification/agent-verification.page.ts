@@ -14,7 +14,10 @@ id:any;
 
 data:any;
 verifi:any;
+issue:any;
 va:any;
+hide=false;
+status:any;
   constructor(private router:Router, private storage:Storage,public http:HttpClient,private acessPr:AccessProviders,) 
   { 
     this.storage.get('storage_info').then((res)=>{
@@ -39,19 +42,28 @@ va:any;
   verify(){
     console.log(this.verifi);
     console.log(this.id);
-    if(this.verifi=='True')
-        this.va=1;
-    else if(this.verifi=='False')
-        this.va=0;
+    if(this.verifi=='True'){
+      this.va=1;
+      this.status='pending';
+    }
+       
+    else if(this.verifi=='False'){
+       this.va=0;
+       this.status='reject';
+    }
+
+       
         
     return new Promise(resoler=>{
     
         let body={
           verify:this.va,
+          issue:this.issue,
+          status:this.status
         }
           this.acessPr.postagentVerify(body,this.id).subscribe((res:any)=>{
             if(res.status==true){
-                  this.router.navigate(['/agent']);
+                  this.router.navigate(['/agent-home/agent']);
                   console.log('true');
             }else{
                   //loader.dismiss();
@@ -64,9 +76,17 @@ va:any;
 
   back(){
 
-    this.router.navigate(['/agent']);
+    this.router.navigate(['/agent-home/agent']);
   }
   location(){
     this.router.navigate(['/viewlocation']);
+  }
+  submit(){
+    console.log(this.verifi);
+    if(this.verifi=="False"){
+    this.hide=true;
+
+    }
+
   }
 }

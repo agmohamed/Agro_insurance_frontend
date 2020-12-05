@@ -1,15 +1,21 @@
 <ion-header>
-  <ion-toolbar color="success">
-      <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
-    <ion-title>Policy Information</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="success">
+        <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+        <ion-title>Applied Policy Details</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content *ngFor="let d of data">
-  <ion-item>
-   
-     <ion-button (click)="farmerProfile()">View farmer Profile</ion-button> 
-  </ion-item>
+  <div *ngIf="hide1">
+    <ion-item >
+      <ion-label ><strong>Reason for reject(Agent):</strong>{{d.agent_reply}}</ion-label>
+    </ion-item>
+  </div>
+  <div *ngIf="hide2">
+    <ion-item >
+      <ion-label ><strong>Reason for reject(Company):</strong>{{d.company_reply}}</ion-label>
+    </ion-item>
+  </div>
   <ion-item >
     <ion-label ><strong>NIC :</strong>{{d.NIC}}</ion-label>
   </ion-item>
@@ -33,29 +39,13 @@
     <ion-label ><strong>Document:</strong><ion-img src="{{d.documents}}"></ion-img></ion-label>
     
   </ion-item>
-  <ion-item>
-    <ion-button (click)="location()">Viewland</ion-button>
-  </ion-item>
+  
   <ion-item >
     <ion-label ><strong>Agent Verification:</strong>{{verifi}}</ion-label>
     <ion-input></ion-input>
   </ion-item>
   <ion-item >
-  <ion-label>Verification</ion-label>
-  <ion-select  [(ngModel)]="verification">
-      <ion-select-option>True</ion-select-option>
-      <ion-select-option>False</ion-select-option>
-  </ion-select>
-  <ion-button>
-    <ion-button (click)="view()">Submit</ion-button>
-  </ion-button>
+  <ion-label><strong>Risk Type:</strong>{{d.risk_type}}</ion-label>
+ 
 </ion-item>
-<div *ngIf="hide">
-  <ion-item>
-      <ion-label ><strong>Enter Reason:</strong></ion-label>
-    <ion-input type="text" [(ngModel)]="issue" ></ion-input>
-  </ion-item>
-</div>
-
-<ion-button (click)="verify()">confirm</ion-button>
 </ion-content>
