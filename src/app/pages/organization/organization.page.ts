@@ -13,7 +13,9 @@ export class OrganizationPage implements OnInit {
   datastorage:any;
   id:any;
   data:any;
+  data1:any;
   va:any;
+  request: string = "summary";
   constructor(private router:Router,private storage:Storage,public http:HttpClient,
     private toastCtrl:ToastController, private navCtrl:NavController) { 
 
@@ -31,6 +33,12 @@ export class OrganizationPage implements OnInit {
   getclaim(){
     this.http.get(AccessProviders.server+'/claimOrg/'+this.id).subscribe((res:any)=>{ 
           this.data=res.message;
+       })
+      
+  }
+  getAllclaim(){
+    this.http.get(AccessProviders.server+'/allclaimsforOrg/'+this.id).subscribe((res:any)=>{ 
+          this.data1=res.message;
        })
       
   }

@@ -89,7 +89,7 @@ export class LoginPage implements OnInit {
               this.presentToast('Login sucessfully');
               this.storage.set('storage_org',res.data3);
               
-              this.navCtrl.navigateRoot(['/organization']);
+              this.navCtrl.navigateRoot(['/organization-home']);
              console.log(res.data3);
             }
            else if(res.status==true ){

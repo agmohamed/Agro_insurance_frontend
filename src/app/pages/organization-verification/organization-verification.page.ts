@@ -16,6 +16,9 @@ verifi:any;
 va:any;
 policy_num:any;
 loss:any;
+hide:any;
+issue:any;
+status:any;
   constructor(private router:Router,private storage:Storage,public http:HttpClient,
     private acessPr:AccessProviders,) {
 
@@ -45,19 +48,27 @@ loss:any;
   verify(){
     console.log(this.verifi);
     console.log(this.id);
-    if(this.verifi=='True')
-        this.va=1;
-    else if(this.verifi=='False')
-        this.va=0;
+    if(this.verifi=='True'){
+      this.va=1;
+      this.status="pending";
+    }
+       
+    else if(this.verifi=='False'){
+       this.va=0;
+       this.status="reject";
+    }
+      
         
     return new Promise(resoler=>{
     
         let body={
           verify:this.va,
+          issue:this.issue,
+          status: this.status
         }
           this.acessPr.postorgVerify(body,this.id).subscribe((res:any)=>{
             if(res.status==true){
-                  this.router.navigate(['/organization']);
+                  this.router.navigate(['/organization-home/organization']);
                   console.log('true');
             }else{
                   //loader.dismiss();
@@ -66,6 +77,12 @@ loss:any;
             }
         });
       });
+  }
+  submit(){
+    if(this.verifi=='False')
+      this.hide=true;
+  else 
+    this.hide=false;
   }
   location(){
     this.router.navigate(['/viewlocation']);

@@ -39,6 +39,14 @@
         <ion-select-option>True</ion-select-option>
         <ion-select-option>False</ion-select-option>
     </ion-select>
+    <ion-button (click)="submit()">submit</ion-button>
+    
   </ion-item>
+  <div *ngIf="hide">
+      <ion-item>
+          <ion-label >Enter issue</ion-label>
+        <ion-input type="text" [(ngModel)]="issue" ></ion-input>
+      </ion-item>
+  </div>
   <ion-button (click)="onClick()">confirm</ion-button>
 </ion-content>

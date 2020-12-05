@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="success">
       <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
-    <ion-title>{{datastorage3}}
+    <ion-title size="small">{{datastorage3}}
      </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -20,7 +20,8 @@
   <p>The coverage starts on the date of planting until getting harvest of the crop</p>
   <p>The insurance coverage and the premiums in crop insurance depend on the risk level</p>
   <p>Claims wii be decided n field assessment by claim committee</p>-->
-  <h2>{{datastorage1}}</h2>
+  <div class="cl1">
+      <h2>{{datastorage1}}</h2>
   <ul *ngFor="let r of nameArr">
     <li>{{r}}</li>
   </ul>
@@ -31,4 +32,6 @@
 
       </ul>
   </div> 
+  </div>
+  
 </ion-content>

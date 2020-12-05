@@ -12,16 +12,23 @@ export class ApplyPolicyPage implements OnInit {
 data:any;
 id:any;
 verifi:any;
+company_id:any;
 hide1=false;
 hide2=false;
+hide3=false;
   constructor(private router:Router,
     private acessPr:AccessProviders,public http:HttpClient,private storage:Storage) 
     {
       this.storage.get('storage_appliedPolicy').then((res)=>{
         console.log(res);
+        this.id=res;
+        this.storage.get('storage_co').then((res)=>{
+          console.log(res);
+          this.company_id=res;
+          this.getpolicy();
+        })
        
-       this.id=res;
-      this.getpolicy();
+     
       });
      }
      
@@ -38,7 +45,13 @@ hide2=false;
              } 
              if(res.message[0].company_reply!=null){
               this.hide2=true;
-            }         
+            } 
+            if(this.company_id==0){
+              this.hide3=true;
+            }  
+            else{
+              this.hide3=false;
+            }      
          })
         
     }

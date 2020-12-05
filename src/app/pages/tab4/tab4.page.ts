@@ -107,4 +107,6 @@ pic:any;
     });
   toast.present();
   }
+
+ 
 }

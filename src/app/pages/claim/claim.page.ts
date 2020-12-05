@@ -170,4 +170,5 @@ export class ClaimPage implements OnInit {
   back(){
     this.router.navigate(['/home/tab3']);
   }
+  
 }

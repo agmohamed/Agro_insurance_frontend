@@ -44,8 +44,10 @@
     <ion-label ><strong>Agent Verification:</strong>{{verifi}}</ion-label>
     <ion-input></ion-input>
   </ion-item>
-  <ion-item >
-  <ion-label><strong>Risk Type:</strong>{{d.risk_type}}</ion-label>
- 
-</ion-item>
+  <div *ngIf="hide3">
+      <ion-item >
+          <ion-label><strong>Risk Type:</strong>{{d.risk_type}}</ion-label>
+        </ion-item>
+  </div>
+  
 </ion-content>

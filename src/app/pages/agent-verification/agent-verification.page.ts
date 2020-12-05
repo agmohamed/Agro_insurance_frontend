@@ -84,8 +84,11 @@ status:any;
   submit(){
     console.log(this.verifi);
     if(this.verifi=="False"){
-    this.hide=true;
+      this.hide=true;
 
+    }
+    else{
+      this.hide=false;
     }
 
   }

@@ -78,10 +78,10 @@ const routes: Routes = [
   //   path: 'agent',
   //   loadChildren: () => import('./pages/agent/agent.module').then( m => m.AgentPageModule)
   // },
-  {
-    path: 'organization',
-    loadChildren: () => import('./pages/organization/organization.module').then( m => m.OrganizationPageModule)
-  },
+  // {
+  //   path: 'organization',
+  //   loadChildren: () => import('./pages/organization/organization.module').then( m => m.OrganizationPageModule)
+  // },
   {
     path: 'active-policy',
     loadChildren: () => import('./pages/active-policy/active-policy.module').then( m => m.ActivePolicyPageModule)
@@ -139,6 +139,23 @@ const routes: Routes = [
     path: 'apply-policy',
     loadChildren: () => import('./pages/apply-policy/apply-policy.module').then( m => m.ApplyPolicyPageModule)
   },
+  {
+    path: 'apply-claim',
+    loadChildren: () => import('./pages/apply-claim/apply-claim.module').then( m => m.ApplyClaimPageModule)
+  },
+  {
+    path: 'organization-home',
+    loadChildren: () => import('./pages/organization-home/organization-home.module').then( m => m.OrganizationHomePageModule)
+  },
+  // {
+  //   path: 'organizationtab1',
+  //   loadChildren: () => import('./pages/organizationtab1/organizationtab1.module').then( m => m.Organizationtab1PageModule)
+  // },
+  // {
+  //   path: 'organizationtab2',
+  //   loadChildren: () => import('./pages/organizationtab2/organizationtab2.module').then( m => m.Organizationtab2PageModule)
+  // },
+
   
 
   // {

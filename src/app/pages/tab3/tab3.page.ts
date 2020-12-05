@@ -13,6 +13,7 @@ NIC:any;
 datastorage1:any;
 val:any;
 i:any;
+value:any;
   constructor(private router:Router, private acessPr:AccessProviders,
     public http:HttpClient,private storage:Storage) {
       this.doRefresh(0);
@@ -43,5 +44,11 @@ i:any;
   add(){
     this.router.navigate(['/claim']);
   }
-
+  view(event){
+    this.value=event.target.id;
+    console.log('hello');
+    console.log(this.value);
+    this.storage.set('storage_appliedClaim',this.value);
+    this.router.navigate(['/apply-claim']);
+    }
 }
