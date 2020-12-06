@@ -44,13 +44,25 @@ export class ApplyClaimPage implements OnInit {
               this.hide3=true;
             if(res.message[0].organization_verification==1)
             this.verifi=true;
-           else if (res.message[0].agent_verification==0)
+           else if (res.message[0].organization_verification==0)
              this.verifi=false;
+             console.log( this.verifi);
           }
           else{
             this.hide3=false;
           }
-          
+          if(res.message[0].organization_reply!=null){
+            this.hide1=true;
+          }
+          else{
+            this.hide1=false;
+          }
+          if(res.message[0].company_reply!=null){
+            this.hide2=true;
+          }
+          else{
+            this.hide2=false;
+          }
           //  if(res.message[0].agent_reply!=null){
           //    this.hide1=true;
           //  } 
@@ -65,5 +77,8 @@ export class ApplyClaimPage implements OnInit {
           // }      
        })
       
+  }
+  back(){
+    this.router.navigate(['/home/tab3']);
   }
 }

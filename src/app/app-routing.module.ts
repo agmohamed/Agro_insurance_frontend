@@ -146,7 +146,11 @@ const routes: Routes = [
   {
     path: 'organization-home',
     loadChildren: () => import('./pages/organization-home/organization-home.module').then( m => m.OrganizationHomePageModule)
+  },  {
+    path: 'officer-login',
+    loadChildren: () => import('./pages/officer-login/officer-login.module').then( m => m.OfficerLoginPageModule)
   },
+
   // {
   //   path: 'organizationtab1',
   //   loadChildren: () => import('./pages/organizationtab1/organizationtab1.module').then( m => m.Organizationtab1PageModule)

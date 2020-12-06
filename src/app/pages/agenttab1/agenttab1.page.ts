@@ -5,7 +5,6 @@ import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
 import { AccessProviders } from '../../providers/access-providers';
 import { ToastController,LoadingController,AlertController,NavController } from '@ionic/angular';
 
-
 import { Chart } from 'chart.js';
 @Component({
   selector: 'app-agenttab1',
@@ -24,7 +23,7 @@ export class Agenttab1Page implements OnInit {
   arr4:any;
   @ViewChild("barCanvas",{ static: true }) barCanvas: ElementRef;
   @ViewChild("barCanvas2",{ static: true }) barCanvas2: ElementRef;
- @ViewChild("lineCanvas") lineCanvas: ElementRef;
+  @ViewChild("lineCanvas") lineCanvas: ElementRef;
   request: string = "history";
   private barChart: Chart;
   private lineChart: Chart;

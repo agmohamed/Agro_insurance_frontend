@@ -1,38 +1,19 @@
 <ion-header no-border>
   <ion-toolbar color="success">
       <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
-    <ion-title>login</ion-title>
+    <ion-title>Login for Officer</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-slides [options]="slideOptions" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
-    <ion-slide >
-      <ion-card class="c1">
-        <ion-title>
-            <strong>Agriculture & Agrarian Board</strong>
-        </ion-title>
-        We cover all over the srilanka<br>
-        We are the largest farmer insurance providers
-      </ion-card>
-    </ion-slide>
-    <ion-slide >
-      <ion-card class="c2">
-          <ion-title>
-             <strong>SANASA</strong> 
-          </ion-title>
-        We cover more risk effects<br>
-        We offer more insurance types
-      </ion-card>
-    </ion-slide>
-  </ion-slides>
+    
   <ion-card class="card">
       <div class="vertical-center"> <div class="center"> <ion-img src="/assets/icon/person.png" style="height: 100px;width: 100px;" class="ion-align-self-end"></ion-img> </div> </div>
   <ion-list>
     <div >
       <ion-item>
           <ion-icon name="person" color="success"></ion-icon>
-          <ion-input type="text" placeholder=" NIC Number" [(ngModel)]="NIC"></ion-input>
+          <ion-input type="text" placeholder=" Username" [(ngModel)]="username"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -49,12 +30,7 @@
     
       <ion-button expand="full" class="no-padding" (click)="tryLogin()" color="success">Login</ion-button>
     </div>
-      <p *ngIf="hide" class="ion-padding info-1">
-  
-        If you do not have an account,click <span (click)="Register()">Register now</span>
-        </p>
-        <!-- If you do not have an account,click <span (click)="image()">Register now</span>
-        If you do not have an account,click <span (click)="ge()">get</span> -->
+      
     </ion-list>
   </ion-card>
 

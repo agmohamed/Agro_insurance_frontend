@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import {Storage} from '@ionic/storage';
 import { ToastController,LoadingController,AlertController,NavController } from '@ionic/angular';
 import { AccessProviders } from '../../providers/access-providers';
+import { IonSlides } from '@ionic/angular';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -16,6 +17,10 @@ export class LoginPage implements OnInit {
   company:any;
   id:any;
   hide=true;
+  slideOptions = {
+    initialSlide: 1,
+    speed: 300,
+  };
   constructor(
     private router:Router,
     private storage:Storage,
@@ -38,6 +43,9 @@ export class LoginPage implements OnInit {
    
   }
 
+  slidesDidLoad(slides: IonSlides) {
+    slides.startAutoplay();
+  }
   ngOnInit() {
   }
   ionViewDidEditor(){
@@ -65,34 +73,34 @@ export class LoginPage implements OnInit {
             Password:this.Password
           }
           this.acessPr.postLogin(body).subscribe((res:any)=>{
-            if(res.message=='Success loginCompany' ){
-              loader.dismiss();
-              this.disableButton=false;
-              this.presentToast('Login sucessfully');
-              this.storage.set('storage_company',res.data1);
+            // if(res.message=='Success loginCompany' ){
+            //   loader.dismiss();
+            //   this.disableButton=false;
+            //   this.presentToast('Login sucessfully');
+            //   this.storage.set('storage_company',res.data1);
               
-              this.navCtrl.navigateRoot(['/company']);
-              console.log(res.data1);
-            }
-            else if(res.message=='Success login Agent' ){
-              loader.dismiss();
-              this.disableButton=false;
-              this.presentToast('Login sucessfully');
-              this.storage.set('storage_agent',res.data2);
+            //   this.navCtrl.navigateRoot(['/company']);
+            //   console.log(res.data1);
+            // }
+            // else if(res.message=='Success login Agent' ){
+            //   loader.dismiss();
+            //   this.disableButton=false;
+            //   this.presentToast('Login sucessfully');
+            //   this.storage.set('storage_agent',res.data2);
               
-              this.navCtrl.navigateRoot(['/agent-home']);
-             console.log(res.data2);
-            }
-            else if(res.message=='Success login Organization' ){
-              loader.dismiss();
-              this.disableButton=false;
-              this.presentToast('Login sucessfully');
-              this.storage.set('storage_org',res.data3);
+            //   this.navCtrl.navigateRoot(['/agent-home']);
+            //  console.log(res.data2);
+            // }
+            // else if(res.message=='Success login Organization' ){
+            //   loader.dismiss();
+            //   this.disableButton=false;
+            //   this.presentToast('Login sucessfully');
+            //   this.storage.set('storage_org',res.data3);
               
-              this.navCtrl.navigateRoot(['/organization-home']);
-             console.log(res.data3);
-            }
-           else if(res.status==true ){
+            //   this.navCtrl.navigateRoot(['/organization-home']);
+            //  console.log(res.data3);
+            // }
+           if(res.status==true ){
               loader.dismiss();
               this.disableButton=false;
               this.presentToast('Login sucessfully');

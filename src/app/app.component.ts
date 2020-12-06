@@ -13,9 +13,9 @@ import { AccessProviders } from './providers/access-providers';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
-  formSettings = {
-    theme: 'mobiscroll'
-};
+//   formSettings = {
+//     theme: 'mobiscroll'
+// };
 storage1:any;
 storage2:any;
 storage3:any;

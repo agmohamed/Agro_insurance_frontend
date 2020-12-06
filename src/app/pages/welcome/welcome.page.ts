@@ -21,10 +21,15 @@ export class WelcomePage implements OnInit {
   ngOnInit() {
   }
 
-openLogin(event){
+openLogin1(event){
   this.va=event.target.id;
   this.storage.set('storage_login',this.va);
   this.router.navigate(['/login']);
+ }
+ openLogin2(event){
+  this.va=event.target.id;
+  this.storage.set('storage_login',this.va);
+  this.router.navigate(['/officer-login']);
  }
 
  details(){

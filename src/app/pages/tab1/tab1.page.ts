@@ -6,6 +6,7 @@ import { ToastController,LoadingController,AlertController,NavController } from 
 import { AccessProviders } from '../../providers/access-providers';
 //import * as Constants from '../../providers/access-providers';
 
+
 @Component({
   selector: 'app-tab1',
   templateUrl: './tab1.page.html',
@@ -28,7 +29,7 @@ data:any;
  arr: any[] = [] 
  arr1: any= [] 
  amount:any=[];
-  
+ 
   constructor(private router:Router,
     private storage:Storage, public http:HttpClient,
     private toastCtrl:ToastController,private loadingCtrl:LoadingController,
@@ -57,7 +58,7 @@ data:any;
       this.ionViewDidEditor();
       
     }
-
+   
   ngOnInit() {
     
   }

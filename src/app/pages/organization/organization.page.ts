@@ -37,7 +37,7 @@ export class OrganizationPage implements OnInit {
       
   }
   getAllclaim(){
-    this.http.get(AccessProviders.server+'/allclaimsforOrg/'+this.id).subscribe((res:any)=>{ 
+    this.http.get(AccessProviders.server+'/getclaimhistory/'+this.id).subscribe((res:any)=>{ 
           this.data1=res.message;
        })
       
@@ -66,6 +66,7 @@ export class OrganizationPage implements OnInit {
   }
   doRefresh(event) {
     this.getclaim();
+    this. getAllclaim();
     setTimeout(() => {
         console.log('Async operation has ended');
         event.target.complete();

@@ -1,9 +1,42 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>organizationtab1</ion-title>
-  </ion-toolbar>
+    <ion-toolbar color="success">
+        <ion-icon name="arrow-back-outline" ></ion-icon>
+      <ion-title>Claim History</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+    <div class="ion-padding">
+    <ion-card>
+      <ion-card-header>
+       Applied All Claims
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #barCanvas ></canvas>
+      </ion-card-content>
+    </ion-card>
+    <!-- <ion-card>
+      <ion-card-header>
+        Line Chart
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+    </ion-card> -->
+    <ion-card>
+      <ion-card-header>
+          Active Claims
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #barCanvas2 ></canvas>
+      </ion-card-content>
+    </ion-card>
+   </div> 
+  
+   
+    
+        
+  
 </ion-content>
+

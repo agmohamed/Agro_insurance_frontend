@@ -34,14 +34,11 @@ export class InsuranceCompnayPage implements OnInit {
   ngOnInit() {
   }
   doRefresh(event) {
-    
-     //this.name=this.datastorage.Name;
-     
- setTimeout(() => {
-  console.log('Async operation has ended');
-  event.target.complete();
- }, 2000);
-}
+    setTimeout(() => {
+     console.log('Async operation has ended');
+      event.target.complete();
+    }, 2000);
+  }
 
   show(){
     this.http.get(AccessProviders.server+'/company').subscribe((res:any)=>{
