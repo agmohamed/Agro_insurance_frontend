@@ -16,6 +16,8 @@ export class OrganizationPage implements OnInit {
   data1:any;
   va:any;
   request: string = "summary";
+  verify:any;
+  i:any;
   constructor(private router:Router,private storage:Storage,public http:HttpClient,
     private toastCtrl:ToastController, private navCtrl:NavController) { 
 
@@ -39,6 +41,16 @@ export class OrganizationPage implements OnInit {
   getAllclaim(){
     this.http.get(AccessProviders.server+'/getclaimhistory/'+this.id).subscribe((res:any)=>{ 
           this.data1=res.message;
+          console.log( this.data1);
+          for(this.i in res.message){
+            if(res.message[this.i].organization_verification==0){
+              this.verify=false;
+            }
+            else{
+              this.verify=true;
+            }
+          }
+          
        })
       
   }

@@ -17,6 +17,8 @@ va:any;
 agent_id:any;
 Name:any;
 data1:any;
+verify:any;
+i:any;
 request: string = "summary";
   constructor(private router:Router, private storage:Storage,public http:HttpClient,
     private toastCtrl:ToastController, private navCtrl:NavController) {
@@ -58,6 +60,14 @@ request: string = "summary";
   getpolicydetails(){
     this.http.get(AccessProviders.server+'/policyapplyhistory/'+this.agent_id+'/'+this.id).subscribe((res:any)=>{ 
           this.data1=res.message;
+          for(this.i in res.message){
+            if(res.message[this.i].agent_verification==0){
+              this.verify=false;
+            }
+            else
+            this.verify=true;
+          }
+         
        })
       
   }

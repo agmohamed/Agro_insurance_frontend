@@ -32,14 +32,14 @@ data:any;
         });
       }); 
     }
-    doRefresh(event) {
+  doRefresh(event) {
       
       setTimeout(() => {
         console.log('Async operation has ended');
         event.target.complete();
         }, 2000);
-      return this.http.get(AccessProviders.server+'/getrequestissues/'+this.nic+'/'+this.company)
-        .subscribe((res:any)=>{ 
+        return this.http.get(AccessProviders.server+'/getrequestissues/'+this.nic+'/'+this.company)
+          .subscribe((res:any)=>{ 
            this.data=res.message; console.log(res.message)},
                  err=>{
                    console.log(err);
@@ -65,15 +65,13 @@ data:any;
       
       this.acessPr.postfarmerIssuse(body).subscribe((res:any)=>{
           if(res.status==true){
-            //loader.dismiss();
-           // this.disableButton=false;
-            //this.presentToast(res.message);
+            this.presentToast("submit successfully");
             //this.router.navigate(['/home/tab2']);
               console.log('true');
           }else{
             //loader.dismiss();
             //this.disableButton=false;
-           // this.presentToast(res.message);
+            this.presentToast("error in submission");
           }
       },(err=>{
         //loader.dismiss();
@@ -82,4 +80,13 @@ data:any;
       }));
     });
   }
+  async presentToast(a) {
+    let toast = await this.toastCtrl.create({
+      message: a,
+      duration: 1000,
+      position: 'top'
+    });
+  toast.present();
+  }
+
 }

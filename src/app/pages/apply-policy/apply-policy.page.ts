@@ -57,7 +57,5 @@ hide3=false;
     }
   ngOnInit() {
   }
-  back(){
-    this.router.navigate(['/home/tab2']);
-  }
+  
 }

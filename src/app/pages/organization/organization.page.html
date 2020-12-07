@@ -1,12 +1,12 @@
 <ion-header>
   <ion-toolbar color="success">
-      <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+      <!-- <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon> -->
     <ion-title>Farmer organization</ion-title>
-    <ion-buttons slot="end">
+    <!-- <ion-buttons slot="end">
         <ion-button color="light" (click)="processLogout()">
           <ion-icon slot="icon-only" name="exit"></ion-icon>
         </ion-button>
-      </ion-buttons>  
+      </ion-buttons>   -->
   </ion-toolbar>
   <div padding>
       <ion-segment [(ngModel)]="request">
@@ -14,7 +14,7 @@
                Requests
           </ion-segment-button>
           <ion-segment-button value="history">
-              Details
+              History
           </ion-segment-button>
         </ion-segment>
     </div>
@@ -51,7 +51,7 @@
             <ion-label>Loan Number:{{d.loan_number}}</ion-label> 
         </ion-item>
         <ion-item>
-            <ion-label>Agent Verification:{{d.organization_verification}}</ion-label> 
+            <ion-label>Organization Verification:{{verify}}</ion-label> 
         </ion-item>
         <ion-item>
             <ion-label>Policy Number:{{d.policy_number}}</ion-label> 
@@ -60,7 +60,7 @@
             <ion-label>Claim Status:{{d.status}}</ion-label> 
         </ion-item>
         <ion-item>
-            <ion-label>Damage type:{{d. type_of_loss}}</ion-label> 
+            <ion-label>Damage type:{{d.type_of_loss}}</ion-label> 
         </ion-item>
        
       </ion-card>

@@ -99,7 +99,7 @@ export class Agenttab1Page implements OnInit {
         labels:this.arr4,
         datasets: [
           {
-            label: "# of Applied Insurances",
+            label: "Amount for active Insurances",
             data:this.arr3,
             backgroundColor: [
               "rgba(255, 99, 132, 0.2)",

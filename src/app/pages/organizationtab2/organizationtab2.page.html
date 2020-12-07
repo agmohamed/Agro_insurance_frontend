@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar color="success">
-        <ion-icon name="arrow-back-outline" ></ion-icon>
+        <!-- <ion-icon name="arrow-back-outline" ></ion-icon> -->
       <ion-title>Profile</ion-title>
     </ion-toolbar>
 </ion-header>
@@ -25,4 +25,7 @@
           <ion-label><strong>Gramaseva division:</strong>{{data.Gramaseva_division}}</ion-label>
       </ion-item>
     </ion-card>
+    <div class="div1">
+        <ion-button (click)="processLogout()">SignOut</ion-button>
+    </div>
 </ion-content>

@@ -19,6 +19,7 @@ id:any;
 i:any="";
 val:any;
 pic:any;
+value:any;
   constructor(private router:Router,
     private storage:Storage, public http:HttpClient,
     private toastCtrl:ToastController,private loadingCtrl:LoadingController,
@@ -108,5 +109,13 @@ pic:any;
   toast.present();
   }
 
- 
+  view(event){
+    this.value=event.target.id;
+    console.log('hello');
+    console.log(this.value);
+    this.storage.set('storage_appliedPolicy',this.value);
+    this.router.navigate(['/apply-policy']);
+    }
+  
+  
 }

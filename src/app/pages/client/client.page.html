@@ -105,7 +105,7 @@
       <ion-button (click)='show()'>View History</ion-button>
       <div *ngIf="hide">
           <ion-card *ngFor="let i of data3">
-            <ion-title>{{i.Name}}({{i.name}})</ion-title>
+            <ion-title class="c1" size="small"><strong>{{i.Name}}<br>({{i.name}})</strong></ion-title>
               <ion-row>
                   <strong>Crop type:{{i.Crop}} </strong>
               </ion-row>

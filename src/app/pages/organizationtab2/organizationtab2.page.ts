@@ -18,12 +18,19 @@ data:any;
     this.storage.get('storage_org').then((res)=>{
       console.log(res);
       this.data=res;
-    
-     
     });
   }
 
   ngOnInit() {
   }
-
+  async processLogout(){
+    this.storage.clear();
+    this.navCtrl.navigateRoot('/welcome');
+    const toast = await this.toastCtrl.create({
+      message: 'logout successfully',
+      duration: 3000,
+      position: 'top'
+    });
+  toast.present();
+  }
 }

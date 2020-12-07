@@ -158,9 +158,9 @@ arr2:any=[];
       if(this.type==this.arr1[j].name){
         this.values=this.arr1[j].id;
     }
-    else if(this.type== undefined){
-      this.values=this.arr1[j].id;
-    }
+    // else if(this.type== undefined){
+    //   this.values=this.arr1[j].id;
+    // }
     }
     
     console.log(this.values);

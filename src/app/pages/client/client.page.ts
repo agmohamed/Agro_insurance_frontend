@@ -4,7 +4,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import {Storage} from '@ionic/storage';
 import { AccessProviders } from '../../providers/access-providers';
 import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
-
+import { ToastController,LoadingController,AlertController,NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-client',
@@ -24,10 +24,15 @@ amount:any;
 am:any;
 policy:any;
 pic:any;
-  constructor(private router:Router, private storage:Storage,public http:HttpClient,
-    private acessPr:AccessProviders) {
+  constructor(
+    private router:Router, 
+    private storage:Storage,
+    public http:HttpClient,
+    private acessPr:AccessProviders,
+    private toastCtrl:ToastController) 
+  {
     this.storage.get('storage_afarmer').then((res)=>{
-      this.id=res;
+        this.id=res;
       
       this.http.get(AccessProviders.server+'/onefarmer/'+this.id).subscribe((res:any)=>{ 
       this.data1=res.message; 
@@ -66,12 +71,9 @@ pic:any;
                 console.log(res.message);
                 console.log( res.message[0].PaidAmount);
                
-               
               })
-
         })  
-      //this.name=this.datastorage.Name;
-      //console.log(this.l1);
+      
     });
   }
 
@@ -103,9 +105,10 @@ pic:any;
           if(res.status==true){
             //loader.dismiss();
            // this.disableButton=false;
-            //this.presentToast(res.message);
+            this.presentToast("update successfully");
             //this.router.navigate(['/home/tab2']);
               console.log('true');
+              this.hid=false;
           }else{
             //loader.dismiss();
             //this.disableButton=false;
@@ -119,6 +122,15 @@ pic:any;
       });
     
   }
+  async presentToast(a) {
+    let toast = await this.toastCtrl.create({
+      message: a,
+      duration: 1000,
+      position: 'top'
+    });
+  toast.present();
+  }
+
   rate(){
     this.router.navigate(['/rateuser']);
   }
