@@ -67,13 +67,13 @@
 </ion-card-content>
 </ion-card>
 
-
-<ion-card *ngFor="let d2 of data2">
+<div id="header"><h1>Payment details</h1></div>
+<ion-card class="card2" *ngFor="let d2 of data2">
     <ion-header-bar class="bar-stable">
         <h1 class="title"><strong>{{d2.Name}}</strong></h1>
     </ion-header-bar>
-    <ion-label>Payment details</ion-label>
-    
+    <ion-title>Policy Number :{{d2.id}}</ion-title>
+  
    <ion-card>
          <ion-row>
             <ion-label><strong>Total Premium  : {{d2.premium}}</strong></ion-label>
@@ -102,20 +102,38 @@
         </ion-card>
           
       </div>
-      <ion-button (click)='show()'>View History</ion-button>
+      <div class="center">
+        <ion-button shape="round" (click)='show()'>View History</ion-button>
+      </div>
       <div *ngIf="hide">
-          <ion-card *ngFor="let i of data3">
+          <ion-card class="card1" *ngFor="let i of data3">
             <ion-title class="c1" size="small"><strong>{{i.Name}}<br>({{i.name}})</strong></ion-title>
               <ion-row>
-                  <strong>Crop type:{{i.Crop}} </strong>
+                <ion-col>
+                    <strong>Crop type </strong>
+                </ion-col>
+                <ion-col>
+                    {{i.Crop}}
+                </ion-col>
+                 
               </ion-row>
              
               <ion-row>
-                  <strong>Land Number:{{i.land_number}} </strong>
+                  <ion-col>
+                      <strong>Land Number</strong>
+                  </ion-col>
+                  <ion-col>
+                      {{i.land_number}}
+                  </ion-col>
               </ion-row>
              
               <ion-row>
-                  <strong>status:{{i.status}} </strong>
+                  <ion-col>
+                      <strong>status</strong>
+                  </ion-col>
+                  <ion-col>
+                      {{i.status}}
+                  </ion-col>
               </ion-row>
               
           </ion-card>

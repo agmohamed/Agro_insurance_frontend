@@ -27,34 +27,37 @@
         <ion-row>
           <ion-item class="pla">
           <ion-label><strong>Name  :</strong>    </ion-label>
-          <ion-input   [(ngModel)]="data.Name"></ion-input>
+          <ion-input   [(ngModel)]="name"></ion-input>
         </ion-item>
         </ion-row>
         <ion-row>
             <ion-item>
           <ion-label><strong>Telephone :</strong> </ion-label>
-          <ion-input type="text"  [(ngModel)]="data.Phone"></ion-input>
+          <ion-input type="text"  [(ngModel)]="phone"></ion-input>
             </ion-item>
           </ion-row>
           <ion-row>
               <ion-item>
               <ion-label><strong>Address  : </strong> </ion-label>
-              <ion-input type="text"  [(ngModel)]="data.Address"></ion-input>
+              <ion-input type="text"  [(ngModel)]="address"></ion-input>
               </ion-item>
             </ion-row>
             <ion-row>
-                <ion-button   class="no-padding" (click)="update()"  color="secondary">
+                <ion-button   class="no-padding" (click)="update()" shape="round" color="secondary">
                     Update</ion-button>
     
-                <ion-button class="no-padding" (click)="processLogout()"  color="light">
+                <ion-button class="no-padding"  shape="round" (click)="processLogout()"  color="light">
                         SignOut</ion-button> 
             </ion-row>
             
         </ion-card-content>
       </ion-card>
-      
-  
-         
+      <div class="center">
+      <ion-button class="btn1"  shape="round" (click)="viewhistory()">
+        View History
+      </ion-button>
+    </div>
+      <div *ngIf="hide1">
       <ion-card *ngFor="let d of val">
           <ion-item>
             <ion-icon name="albums" slot="start"></ion-icon>
@@ -67,7 +70,7 @@
           <img [src]="d.documents" />
           <ion-button shape="round" color="tertiary" (click)="view($event)" id="{{d.id}}">{{d.status}}</ion-button>
         </ion-card>
-       
+      </div>
         <!-- <ion-card>
             <ion-item>
               <ion-icon name="star-half" slot="start"></ion-icon>

@@ -1,12 +1,15 @@
 <ion-header>
   <ion-toolbar color="success">
-      <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+      <!-- <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon> -->
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+      </ion-buttons>
       <ion-row>
           <!-- <ion-button shape="round" size="small" >crop</ion-button>
           <ion-button shape="round" size="small" >livestock</ion-button> -->
          
       </ion-row>
-      <ion-title>Add Policy</ion-title>
+      <ion-title>Policy Form</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -19,7 +22,7 @@
      
     </ion-select>
   </ion-item>-->
-  
+  <div id="header"><h1>Policy Details</h1></div>
   <ion-card>
    <ion-item>
 
@@ -63,15 +66,17 @@
 <!-- </div> -->
 </ion-card>
 <!----<div *ngIf="hideMe">-->
-  <div><strong><u>Land details</u></strong></div>
-  <ion-item>
+  <div id="header"><h1>Land Details</h1></div>
+
+  <ion-item class="it1">
       <ion-label>If land is already registered select one</ion-label>
       <ion-select (ionChange)="onClick()" [(ngModel)]="selectland">
           <ion-select-option  *ngFor="let item of data;" value="{{item.land_number}}">{{item.land_number}} </ion-select-option>
       </ion-select>
       <!----<button ion-button full (click)="onClick()">Save</button>-->
   </ion-item>
-    <ion-label>If not enter details</ion-label>
+
+    <div  class="d2"><ion-label>If not enter details</ion-label></div>
     <ion-card>
       <ion-title></ion-title>
       <div *ngIf="hid">
@@ -107,10 +112,10 @@
             
           </ion-select>
         </ion-item>
-        <ion-button color="primary"  (click)="location()">Mark the land</ion-button>
+        <ion-button color="primary" size="small" (click)="location()">Mark the land</ion-button>
         <ion-row>
             <ion-col col-4>
-                <ion-button color="primary"  (click)="addlocation()">Add</ion-button>
+                <ion-button color="primary" size="small" (click)="addlocation()">Add</ion-button>
             </ion-col>
            <ion-col col-4>
               Latitude :<strong>{{l1}}</strong>
@@ -123,18 +128,16 @@
       </div>
 
     </ion-card>
-    
+    <ion-card>
   
     <ion-item>
         <ion-input type="text" placeholder="Land Size(Acres)" [(ngModel)]="size"></ion-input>
   </ion-item>
- 
- 
 
 <ion-item>
   <ion-label fixed>Add Required Documents <br>
-    (copy of Bank Account <br>Which use to get loan for <br>this land )</ion-label>
-  <ion-button color="primary"  (click)="presentActionSheet()">Take picture</ion-button>
+    <p>(copy of Bank Account <br>Which use to get loan for <br>this land )</p></ion-label>
+  <ion-button color="primary" size="small" (click)="presentActionSheet()">Take picture</ion-button>
   
 </ion-item>
 <!-- <div>
@@ -148,10 +151,9 @@
     
     </ion-row>
 </ion-grid>
+</ion-card>
 <div>
-    <ion-button expand="full" color='success'  (click)="submit()">Submit</ion-button>
+    <ion-button expand="block" shape="round" color='success' class="bt1"  (click)="submit()">Submit</ion-button>
 </div>
   
-
-
 </ion-content>

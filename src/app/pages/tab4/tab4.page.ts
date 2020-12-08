@@ -15,7 +15,7 @@ name:any;
 phone:any;
 address:any;
 id:any;
-
+hide1=false;
 i:any="";
 val:any;
 pic:any;
@@ -28,7 +28,11 @@ value:any;
 
     this.storage.get('storage_XXX').then((res)=>{
       this.data=res;
+      this.name=res.Name;
+      this.phone=res.Phone;
+      this.address=res.Address;
       this.id=res.NIC;
+      console.log(res);
       console.log(Math.round(res.rating_number));
       if(Math.round(res.rating_number)==0){
         this.pic="/assets/icon/nostar.jpg"
@@ -53,15 +57,15 @@ value:any;
     }); 
    }
    update(){
-    console.log(this.data.Name);
-    console.log(this.data.Phone);
+    console.log(this.name);
+    console.log(this.phone);
     return new Promise(resoler=>{
     
       let body={
         
-      name:this.data.Name,
-      phone:this.data.Phone,
-      address:this.data.Address
+      name:this.name,
+      phone:this.phone,
+      address:this.address
 
       }
       
@@ -117,5 +121,7 @@ value:any;
     this.router.navigate(['/apply-policy']);
     }
   
-  
+  viewhistory(){
+      this.hide1=true;
+  }
 }

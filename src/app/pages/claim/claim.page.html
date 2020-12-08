@@ -1,13 +1,16 @@
 <ion-header>
   <ion-toolbar color="success">
-      <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
-    <ion-title>claim</ion-title>
+      <!-- <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon> -->
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+      </ion-buttons>
+    <ion-title>claim Form</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
- 
+    <div id="header"><h1>Claim Details</h1></div>
+ <ion-card>
   <ion-item>
     <ion-input type="text" placeholder="Policy Number"  [(ngModel)]="policy_number"></ion-input>
 </ion-item>
@@ -33,8 +36,9 @@
 <ion-item>
   <ion-input type="text" [(ngModel)]="amount" placeholder="Expected Loss Amount" ></ion-input>
 </ion-item>
-
-  <h3>Loan details</h3>
+</ion-card>
+  <div id="header"><h1>Loan Details</h1></div>
+  <ion-card>
   <ion-item>
     <ion-label>Bank name</ion-label>
     <ion-select  [(ngModel)]="bank"  >
@@ -54,7 +58,8 @@
 <ion-item>
   <ion-input type="text" [(ngModel)]="loan" placeholder="loan Number" ></ion-input>
 </ion-item>
-<ion-item>
+</ion-card>
+<ion-item class="it1">
   <ion-label fixed>Add Image</ion-label>
   <ion-button color="primary"  (click)="presentActionSheet()">Take picture</ion-button>
 </ion-item>
@@ -67,7 +72,7 @@
     </ion-row>
 </ion-grid>
 <div>
-  <ion-button expand="full" color='success'  (click)="submit()">Submit</ion-button>
+  <ion-button expand="block" shape="round"  color='success'  (click)="submit()">Submit</ion-button>
 </div>
 
 </ion-content>

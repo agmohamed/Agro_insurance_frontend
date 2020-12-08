@@ -5,57 +5,129 @@
     </ion-toolbar>
 </ion-header>
 
+
+  
 <ion-content *ngFor="let d of data">
+    <div id="header"><h1>Claim details</h1></div>
+  <ion-card class="d1">
     <div *ngIf="hide1">
-      <ion-item >
-        <ion-label ><strong>Reason for reject(Organization):</strong>{{d.organization_reply}}</ion-label>
-      </ion-item>
+      <ion-row>
+          <ion-col>
+            <strong>Reason for reject(Organization)</strong>
+          </ion-col>
+            <ion-col>
+                {{d.organization_reply}}
+          </ion-col>
+      </ion-row>
     </div>
+  
     <div *ngIf="hide2">
-      <ion-item >
-        <ion-label ><strong>Reason for reject(Company):</strong>{{d.company_reply}}</ion-label>
-      </ion-item>
+      <ion-row>
+          <ion-col>
+            <strong>Reason for reject(Company)</strong>
+          </ion-col>
+          <ion-col>
+              {{d.company_reply}}
+          </ion-col>
+      </ion-row>
     </div>
-    <ion-item >
-      <ion-label ><strong>NIC :</strong>{{d.NIC}}</ion-label>
-    </ion-item>
-    <ion-item >
-      <ion-label ><strong>Policy Number :</strong>{{d.policy_number}}</ion-label>
-  
-    </ion-item>
-    <ion-item >
-      <ion-label><strong>Incident Date :</strong>{{d.incident_date| date: 'yyyy/MM/dd'}}</ion-label>
-  
-    </ion-item>
+
+      <ion-row>
+          <ion-col>
+            <strong>NIC </strong>
+         </ion-col>
+          <ion-col>
+            {{d.NIC}}
+            </ion-col>
+      </ion-row>
     
-    <ion-item >
-      <ion-label ><strong>Damage by:</strong>{{d.type_of_loss}}</ion-label>
+      <ion-row>
+        <ion-col>
+            <strong>Policy Number </strong>
+        </ion-col>
+        <ion-col>
+            {{d.policy_number}}
+        </ion-col>
+      </ion-row>
+ 
+    <ion-row>
+        <ion-col>
+            <strong>Incident Date</strong>
+        </ion-col>
+        <ion-col>
+            {{d.incident_date| date: 'yyyy/MM/dd'}}
+        </ion-col>
+    </ion-row> 
+
+    <ion-row>
+        <ion-col>
+            <strong>Damage by</strong>
+        </ion-col>
+        <ion-col>
+            {{d.type_of_loss}}
+        </ion-col>
+    </ion-row> 
+    <ion-row>
+        <ion-col>
+            <strong>Bank</strong>
+        </ion-col>
+        <ion-col>
+            {{d.bank_name}}
+    </ion-col>
+    </ion-row> 
+    <ion-row>
+        <ion-col>
+            <strong>Branch</strong>
+    </ion-col>
+    <ion-col>
+        {{d.branch}}
+    </ion-col>
+</ion-row> 
+<ion-row>
+    <ion-col>
+        <strong>Account Number</strong>
+    </ion-col>
+    <ion-col>
+        {{d.account_number}}
+</ion-col>
+</ion-row> 
+<ion-row>
+    <ion-col>
+        <strong>Loan Number</strong>
+    </ion-col>
+    <ion-col>
+        {{d.loan_number}}
+</ion-col>
+</ion-row> 
+<ion-row>
+    <ion-col>
+        <strong>Account Number</strong>
+    </ion-col>
+    <ion-col>
+        {{d.account_number}}
+</ion-col>
+</ion-row> 
   
+<div *ngIf="hide3">
+    <ion-row>
+        <ion-col>
+            <strong>Organization Verification</strong>
+        </ion-col>
+        <ion-col>
+            {{verifi}}
+        </ion-col>
+    </ion-row> 
+</div> 
+  </ion-card>
+
+  <ion-item class="it1">
+      <ion-label>
+        Upload photos
+      </ion-label>
+     <ion-button (click)="show()">View</ion-button>
     </ion-item>
-    <ion-item >
-        <ion-label ><strong>Bank:</strong>{{d.bank_name}}</ion-label>
-    </ion-item>
-   
-    <ion-item >
-            <ion-label ><strong>Branch:</strong>{{d.branch}}</ion-label>
-    </ion-item>
-   
-    <ion-item >
-            <ion-label ><strong>Account Number:</strong>{{d.account_number}}</ion-label>
-    </ion-item>
-    <ion-item >
-        <ion-label ><strong>Loan Number:</strong>{{d.loan_number}}</ion-label>
-    </ion-item>
-    <ion-item >
-      <ion-label ><strong>Document:</strong><ion-img src="{{d.image}}"></ion-img></ion-label>
-      
-    </ion-item>
-   
-    <div *ngIf="hide3">
-        <ion-item >
-            <ion-label ><strong>Organization Verification:</strong>{{verifi}}</ion-label>
-          </ion-item>
-    </div>
-    
-  </ion-content>
-  
+     
+  <div *ngIf="hide4">
+      <ion-img src="{{d.image}}"></ion-img>
+  </div>
+</ion-content>

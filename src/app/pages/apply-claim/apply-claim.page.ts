@@ -17,6 +17,7 @@ export class ApplyClaimPage implements OnInit {
   hide1=false;
   hide2=false;
   hide3=false;
+  hide4=false;
   constructor(private router:Router,
     private acessPr:AccessProviders,public http:HttpClient,private storage:Storage) 
     {
@@ -80,5 +81,8 @@ export class ApplyClaimPage implements OnInit {
   }
   back(){
     this.router.navigate(['/home/tab3']);
+  }
+  show(){
+    this.hide4=true;
   }
 }

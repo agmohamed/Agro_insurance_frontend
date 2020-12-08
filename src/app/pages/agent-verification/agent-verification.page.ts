@@ -18,6 +18,7 @@ issue:any;
 va:any;
 hide=false;
 status:any;
+hide1=false;
   constructor(private router:Router, private storage:Storage,public http:HttpClient,private acessPr:AccessProviders,) 
   { 
     this.storage.get('storage_info').then((res)=>{
@@ -42,12 +43,12 @@ status:any;
   verify(){
     console.log(this.verifi);
     console.log(this.id);
-    if(this.verifi=='True'){
+    if(this.verifi=='Accept'){
       this.va=1;
       this.status='pending';
     }
        
-    else if(this.verifi=='False'){
+    else if(this.verifi=='Reject'){
        this.va=0;
        this.status='reject';
     }
@@ -83,7 +84,7 @@ status:any;
   }
   submit(){
     console.log(this.verifi);
-    if(this.verifi=="False"){
+    if(this.verifi=="Reject"){
       this.hide=true;
 
     }
@@ -91,5 +92,8 @@ status:any;
       this.hide=false;
     }
 
+  }
+  viewimage(){
+    this.hide1=true;
   }
 }

@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar color="success">
-      <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+      <!-- <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon> -->
+      <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+      </ion-buttons>
     <ion-title>forum</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -23,7 +26,7 @@
     <ion-item>
         <ion-input type="text" placeholder="Suggestions" [(ngModel)]="Suggestions" ></ion-input>
     </ion-item>
-    <ion-button expand="full" class="no-padding"  (click)="submit()" color="success">Submit</ion-button>
+    <ion-button expand="block" shape="round" class="no-padding"  (click)="submit()" color="success">Submit</ion-button>
   </ion-card> 
 
   

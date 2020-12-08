@@ -1,10 +1,16 @@
 <ion-header no-border>
   <ion-toolbar color="success">
+      <ion-buttons slot="start" >
+          <ion-icon name="arrow-back" slot="icon-only" ></ion-icon>
+        </ion-buttons>
       <!-- <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon> -->
-    <ion-title>Login as Farmer</ion-title>
-    <ion-buttons slot="start" >
+    <!-- <ion-title>Login as Farmer</ion-title> -->
+    <!-- <ion-buttons slot="start" >
         <ion-back-button></ion-back-button>
-      </ion-buttons>
+      </ion-buttons> -->
+      <ion-buttons slot="end" >
+         <ion-button>Log in</ion-button>
+        </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -13,8 +19,8 @@
     <ion-slide >
       <ion-card class="c1">
         <ion-title>
-            <strong>Agriculture & Agrarian Board</strong>
-        </ion-title>
+            <strong>Agriculture & Agrarian <br>Board</strong>
+        </ion-title><br>
         We cover all over the srilanka<br>
         We are the largest farmer insurance providers
       </ion-card>
@@ -23,22 +29,28 @@
       <ion-card class="c2">
           <ion-title>
              <strong>SANASA</strong> 
-          </ion-title>
+          </ion-title><br>
         We cover more risk effects<br>
         We offer more insurance types
       </ion-card>
     </ion-slide>
   </ion-slides>
-  <ion-card class="card">
-      <div class="vertical-center"> <div class="center"> <ion-img src="/assets/icon/person.png" style="height: 100px;width: 100px;" class="ion-align-self-end"></ion-img> </div> </div>
-  <ion-list>
-    <div >
-      <ion-item>
+  <div id="header">
+      <h1>Login</h1>
+  
+      <div class="vertical-center"> <div class="center"> 
+        <ion-img src="/assets/icon/per.jpg"  style="height: 100px;width: 100px;" class="ion-align-self-end"></ion-img> </div> </div>
+      </div>
+        <!-- <ion-img src="/assets/icon/person.png">
+        </ion-img> -->
+
+    <div class="card">
+      <ion-item class="ion-margin-bottom">
           <ion-icon name="person" color="success"></ion-icon>
           <ion-input type="text" placeholder=" NIC Number" [(ngModel)]="NIC"></ion-input>
       </ion-item>
 
-      <ion-item>
+      <ion-item class="ion-margin-bottom">
           <ion-icon name="lock-closed" color="success"></ion-icon>
           <ion-input type="password" placeholder=" Password" [(ngModel)]="Password"></ion-input>
       </ion-item>
@@ -50,7 +62,7 @@
         </ion-select>
       </ion-item> -->
     
-      <ion-button expand="full" class="no-padding" (click)="tryLogin()" color="success">Login</ion-button>
+      <ion-button expand="block"  shape="round" class="no-padding" (click)="tryLogin()" color="success">Login</ion-button>
     </div>
       <p *ngIf="hide" class="ion-padding info-1">
   
@@ -58,7 +70,7 @@
         </p>
         <!-- If you do not have an account,click <span (click)="image()">Register now</span>
         If you do not have an account,click <span (click)="ge()">get</span> -->
-    </ion-list>
-  </ion-card>
+
+  
 
 </ion-content>

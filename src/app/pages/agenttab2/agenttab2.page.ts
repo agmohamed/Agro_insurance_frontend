@@ -12,12 +12,20 @@ import { ToastController,LoadingController,AlertController,NavController } from 
 })
 export class Agenttab2Page implements OnInit {
  data:any;
+ name:any;
+ nic:any;
+ phone:any;
+ district:any;
+ gramasewa_division:any;
   constructor(private router:Router, private storage:Storage,public http:HttpClient,
     private toastCtrl:ToastController, private navCtrl:NavController) { 
     this.storage.get('storage_agent').then((res)=>{
       console.log(res);
       this.data=res;
-     
+     this.name=res.Name;
+     this.nic=res.NIC;
+     this.district=res.District;
+     this.gramasewa_division=res.Gramaseva_division;
     });
    }
 

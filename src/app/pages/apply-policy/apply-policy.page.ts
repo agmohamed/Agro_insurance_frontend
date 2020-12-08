@@ -16,6 +16,7 @@ company_id:any;
 hide1=false;
 hide2=false;
 hide3=false;
+hide4=false;
   constructor(private router:Router,
     private acessPr:AccessProviders,public http:HttpClient,private storage:Storage) 
     {
@@ -40,6 +41,8 @@ hide3=false;
                  this.verifi=true;
             else if (res.message[0].agent_verification==0)
                   this.verifi=false;
+            else
+            this.verifi=null;
              if(res.message[0].agent_reply!=null){
                this.hide1=true;
              } 
@@ -57,5 +60,7 @@ hide3=false;
     }
   ngOnInit() {
   }
-  
+  show(){
+    this.hide4=true;
+  }
 }

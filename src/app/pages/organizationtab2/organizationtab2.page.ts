@@ -11,6 +11,10 @@ import { ToastController,LoadingController,AlertController,NavController } from 
 })
 export class Organizationtab2Page implements OnInit {
 data:any;
+name:any;
+nic:any;
+district:any;
+gramasewa_division:any;
   constructor(
     private router:Router,private storage:Storage,public http:HttpClient,
     private toastCtrl:ToastController, private navCtrl:NavController
@@ -18,6 +22,10 @@ data:any;
     this.storage.get('storage_org').then((res)=>{
       console.log(res);
       this.data=res;
+      this.name=res.Name;
+      this.nic=res.NIC;
+      this.district=res.District;
+      this.gramasewa_division=res.Gramaseva_division;
     });
   }
 
