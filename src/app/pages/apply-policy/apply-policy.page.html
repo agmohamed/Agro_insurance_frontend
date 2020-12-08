@@ -8,76 +8,74 @@
 <ion-content *ngFor="let d of data">
     <div id="header"><h1>Policy details</h1></div>
   <ion-card class="d1">
-  <div *ngIf="hide1">
-    <ion-row>
-    <ion-item >
-      <ion-col>
-     <strong>Reason for reject(Agent):</strong>
-    </ion-col>
-    <ion-col>
-        {{d.agent_reply}}
-    </ion-col>
-    </ion-item>
-  </ion-row>
-  </div>
-  <div *ngIf="hide2">
-    <ion-row>
-      <ion-col>
-     <strong>Reason for reject(Company):</strong>
-     </ion-col>
-     <ion-col>
-        {{d.company_reply}}
-     </ion-col>
-  </ion-row>
-  </div>
-  <ion-row>
-    
-  <ion-col>
-    <strong>NIC :</strong>
-  </ion-col>
-  <ion-col>
-     {{d.NIC}}
-    </ion-col>
-</ion-row>
-    
-<ion-row>
-  <ion-col>
-      <strong>Land Number :</strong>
-  </ion-col>
-  <ion-col>
-      {{d.land_number}}
-  </ion-col>
-   
-</ion-row>
- 
-<ion-row>
-    <ion-col>
-        <strong>Start Date :</strong>
-    </ion-col>
-    <ion-col>
-        {{d.start_date| date: 'yyyy/MM/dd'}}
-    </ion-col>
-</ion-row> 
-<ion-row>
-    <ion-col>
-        <strong>End Date :</strong>
-    </ion-col>
-    <ion-col>
-        {{d.end_date| date: 'yyyy/MM/dd'}}
-    </ion-col>
-</ion-row> 
-<ion-row>
-    <ion-col>
-        <strong>Crop:</strong>
-    </ion-col>
-    <ion-col>
-        {{d.Crop}}
+    <div *ngIf="hide1">
+      <ion-row>
+          <ion-col>
+            <strong>Reason for reject(Agent):</strong>
+          </ion-col>
+            <ion-col>
+              {{d.agent_reply}}
+          </ion-col>
+      </ion-row>
+    </div>
+  
+    <div *ngIf="hide2">
+      <ion-row>
+          <ion-col>
+            <strong>Reason for reject(Company):</strong>
+          </ion-col>
+          <ion-col>
+                {{d.company_reply}}
+          </ion-col>
+      </ion-row>
+    </div>
 
+      <ion-row>
+          <ion-col>
+            <strong>NIC :</strong>
+         </ion-col>
+          <ion-col>
+            {{d.NIC}}
+            </ion-col>
+      </ion-row>
+    
+      <ion-row>
+        <ion-col>
+            <strong>Land Number :</strong>
+        </ion-col>
+        <ion-col>
+            {{d.land_number}}
+        </ion-col>
+      </ion-row>
+ 
+    <ion-row>
+        <ion-col>
+            <strong>Start Date :</strong>
+        </ion-col>
+        <ion-col>
+            {{d.start_date| date: 'yyyy/MM/dd'}}
+        </ion-col>
+    </ion-row> 
+
+    <ion-row>
+        <ion-col>
+            <strong>End Date :</strong>
+        </ion-col>
+        <ion-col>
+            {{d.end_date| date: 'yyyy/MM/dd'}}
+        </ion-col>
+    </ion-row> 
+    <ion-row>
+        <ion-col>
+            <strong>Crop:</strong>
+        </ion-col>
+        <ion-col>
+        {{d.Crop}}
     </ion-col>
-</ion-row> 
-<ion-row>
-    <ion-col>
-        <strong>Agent Verification:</strong>
+    </ion-row> 
+    <ion-row>
+        <ion-col>
+            <strong>Agent Verification:</strong>
     </ion-col>
     <ion-col>
         {{verifi}}

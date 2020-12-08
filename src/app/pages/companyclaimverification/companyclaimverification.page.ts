@@ -17,6 +17,7 @@ send:any; verification:any;
 verifi:any;
 hide=false;
 issue:any;
+hide1:any;
   constructor(private router:Router,private storage:Storage, public http:HttpClient,
     private acessPr:AccessProviders) { 
       this.storage.get('storage_company').then((res)=>{
@@ -52,7 +53,7 @@ issue:any;
   }
   submit(){
 
-    if(this.verification=='True'){
+    if(this.verification=='Accept'){
       this.send='Active';
       //this.init();
     }
@@ -94,11 +95,14 @@ issue:any;
 
   }
   view(){
-    if(this.verification=='False'){
+    if(this.verification=='Reject'){
       this.hide=true;
     }
     else{
       this.hide=false;
     }
+  }
+  viewPhoto(){
+    this.hide1=true;
   }
 }

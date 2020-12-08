@@ -1,0 +1,40 @@
+ion-item{
+    
+    border-radius:50px;
+    height:55px;
+    box-shadow:1px 8px 8px 0px rgba(0,0,0,0.08);
+    --highlight-height:0px;
+  
+
+
+ion-input{
+    font-size:18px;
+    --padding-top:20px;
+    --padding-bottom:15px;
+    --padding-start:5px
+}
+}
+#header{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    h1{
+        font-weight:700;
+        font-size:26px;
+        color:#010100;
+        margin-bottom:6%
+
+    }
+}
+.d1{
+  
+   margin-top:16px;
+   padding-left:30px;
+   padding-right:30px;
+   --background:#f5f5f3;
+}
+ion-col{
+    color:black;
+    font-size: 16px;
+}

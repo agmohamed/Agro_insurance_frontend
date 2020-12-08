@@ -21,6 +21,7 @@ risk:any;
 n:any;
 issue:any;
 hide=false;
+hide1=false;
   constructor(private router:Router,private storage:Storage, public http:HttpClient,
     private acessPr:AccessProviders) {
 
@@ -60,7 +61,7 @@ hide=false;
 
   verify(){
       console.log(this.verification);
-    if(this.verification=='True'){
+    if(this.verification=='Accept'){
       this.send='Active';
       //this.init();
     }
@@ -94,7 +95,7 @@ hide=false;
     this.router.navigate(['/company/companytab3']);
   }
   view(){
-    if(this.verification=='False'){
+    if(this.verification=='Reject'){
       this.hide=true;
     }
     else{
@@ -166,5 +167,8 @@ hide=false;
     //this.storage.remove('storage_afarmer');
     this.router.navigate(['/client']);
 
+  }
+  viewPhoto(){
+    this.hide1=true;
   }
 }
