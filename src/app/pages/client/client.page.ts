@@ -31,54 +31,58 @@ pic:any;
     private acessPr:AccessProviders,
     private toastCtrl:ToastController) 
   {
-    this.storage.get('storage_afarmer').then((res)=>{
-        this.id=res;
-      
-      this.http.get(AccessProviders.server+'/onefarmer/'+this.id).subscribe((res:any)=>{ 
-      this.data1=res.message; 
-          console.log(res.message);
-          console.log(Math.round(res.message[0].rating_number));
-          if(Math.round(res.message[0].rating_number)==0){
-            this.pic="/assets/icon/nostar.jpg"
-          }
-          if(Math.round(res.message[0].rating_number)==1 ){
-            this.pic="/assets/icon/onestar.jpg"
-          }
-          if(Math.round(res.message[0].rating_number)==2 ){
-            this.pic="/assets/icon/twostar.jpg"
-          }
-          if(Math.round(res.message[0].rating_number)==3 ){
-            this.pic="/assets/icon/threestar.jpg"
-          }
-          if(Math.round(res.message[0].rating_number)==4 ){
-            this.pic="/assets/icon/fourstar.jpg"
-          }
-          if(Math.round(res.message[0].rating_number)==5){
-            this.pic="/assets/icon/fivestar.jpg"
-          }
-         
-        })
-        this.http.get(AccessProviders.server+'/farmerspolicy/'+this.id+"/").subscribe((res:any)=>{ 
-          this.data3=res.message; 
-              console.log(res.message);
-             
-            })
-        this.storage.get('storage_company').then((res)=>{
-          this.com=res.id;
-          this.http.get(AccessProviders.server+'/activepolicy/'+this.id+"/"+this.com).subscribe((res:any)=>{ 
-            this.data2=res.message;
-            this.am=res.message[0].PaidAmount;
-                console.log(res.message);
-                console.log( res.message[0].PaidAmount);
-               
-              })
-        })  
-      
-    });
+    
   }
 
   ngOnInit() {
+    this.storage.get('storage_afarmer').then((res)=>{
+      this.id=res;
+    
+    this.http.get(AccessProviders.server+'/onefarmer/'+this.id).subscribe((res:any)=>{ 
+    this.data1=res.message; 
+        console.log(res.message);
+        console.log(Math.round(res.message[0].rating_number));
+        if(Math.round(res.message[0].rating_number)==0){
+          this.pic="/assets/icon/nostar.jpg"
+        }
+        if(Math.round(res.message[0].rating_number)==1 ){
+          this.pic="/assets/icon/onestar.jpg"
+        }
+        if(Math.round(res.message[0].rating_number)==2 ){
+          this.pic="/assets/icon/twostar.jpg"
+        }
+        if(Math.round(res.message[0].rating_number)==3 ){
+          this.pic="/assets/icon/threestar.jpg"
+        }
+        if(Math.round(res.message[0].rating_number)==4 ){
+          this.pic="/assets/icon/fourstar.jpg"
+        }
+        if(Math.round(res.message[0].rating_number)==5){
+          this.pic="/assets/icon/fivestar.jpg"
+        }
+       
+      })
+      this.http.get(AccessProviders.server+'/farmerspolicy/'+this.id+"/").subscribe((res:any)=>{ 
+        this.data3=res.message; 
+            console.log(res.message);
+           
+          })
+      this.storage.get('storage_company').then((res)=>{
+        this.com=res.id;
+        this.http.get(AccessProviders.server+'/activepolicy/'+this.id+"/"+this.com).subscribe((res:any)=>{ 
+          this.data2=res.message;
+          this.am=res.message[0].PaidAmount;
+              console.log(res.message);
+              console.log( res.message[0].PaidAmount);
+             
+            })
+      })  
+    
+  });
   }
+   call(){
+   
+   }
   back(){
     this.router.navigate(['/company/companytab4']);
   

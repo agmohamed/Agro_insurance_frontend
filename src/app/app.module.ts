@@ -1,6 +1,7 @@
 //import { MbscModule } from '@mobiscroll/angular';
 //import { MbscModule } from '@mobiscroll/angular-lite';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -30,8 +31,8 @@ import { IonicRatingModule } from 'ionic-rating';
   entryComponents: [],
   imports: [ 
     //MbscModule,  
-  
-    FormsModule,  
+    ReactiveFormsModule , 
+    FormsModule, 
 BrowserModule, IonicRatingModule ,IonicModule.forRoot(), AppRoutingModule,HttpClientModule,IonicStorageModule.forRoot()],
   providers: [
     StatusBar,

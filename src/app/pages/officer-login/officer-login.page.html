@@ -13,22 +13,37 @@
 
 <ion-content>
    <div id="header">
-      <h1>Login</h1>
+      <h1>Login As Officer</h1>
   
   
       <div class="vertical-center"> <div class="center"> <ion-img src="/assets/icon/per.jpg" style="height: 100px;width: 100px;" class="ion-align-self-end"></ion-img> </div> </div>
  
     </div> 
     <div class="card">
-      <ion-item class="ion-margin-bottom">
-          <ion-icon name="person" color="success"></ion-icon>
-          <ion-input type="text" placeholder=" Username" [(ngModel)]="username"></ion-input>
-      </ion-item>
+        <!-- <form [formGroup]="validation_form" (ngSubmit)="tryLogin()" novalidate> -->
 
       <ion-item class="ion-margin-bottom">
-          <ion-icon name="lock-closed" color="success"></ion-icon>
-          <ion-input type="password" placeholder=" Password" [(ngModel)]="Password"></ion-input>
+          <ion-icon name="person" color="success"></ion-icon>
+          <ion-input type="text"   placeholder=" Username" [(ngModel)]="username"></ion-input>
       </ion-item>
+<!-- 
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.username.errors?.required">
+            Username is required
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.username.errors?.pattern">
+            Please provide valid Username
+         </span> -->
+      <ion-item class="ion-margin-bottom">
+          <ion-icon name="lock-closed" color="success"></ion-icon>
+          <ion-input type="password"  placeholder=" Password" [(ngModel)]="Password"></ion-input>
+      </ion-item>
+<!-- 
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.required">
+          Password is required.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.pattern">
+            Please provide valid Password
+        </span> -->
       <!-- <ion-item>
         <ion-label>Position</ion-label>
         <ion-select interface="popover" [(ngModel)]="selected_value" (ionChange)="Getselected(selected_value)" >
@@ -36,10 +51,10 @@
           <ion-select-option value="m">Insurance Company</ion-select-option>
         </ion-select>
       </ion-item> -->
-    
-      <ion-button expand="block"  shape="round" class="no-padding" (click)="tryLogin()" color="success">Login</ion-button>
+     
+      <ion-button expand="block" (click)="tryLogin()" shape="round" class="no-padding"  color="success">Login</ion-button>
   
-      
+    <!-- </form> -->
     
   </div>
 

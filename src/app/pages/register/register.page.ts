@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import { ToastController,LoadingController,AlertController } from '@ionic/angular';
 import { AccessProviders } from '../../providers/access-providers';
-
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -14,42 +14,56 @@ export class RegisterPage implements OnInit {
   Password:string="";
   Phone:string="";
   disableButton;
+  isSubmitted = false;
+  validations_form: FormGroup;
   constructor(private router:Router,
           private toastCtrl:ToastController,
           private loadingCtrl:LoadingController,
           private alertCtrl:AlertController,
           private acessPr:AccessProviders,
-    ) { }
+          private formBuilder:FormBuilder
+    ) { 
+      this.validations_form = this.formBuilder.group({
+        Name: ['', [Validators.required, Validators.pattern('^([A-Za-z ])+$')]],
+        Phone: ['', [Validators.required, Validators.pattern('^0[1-9]{9}$')]],
+        NIC: ['', [Validators.required, Validators.pattern('^[0-9]{9}[A-Za-z]$')]],
+        Password: ['', [Validators.required, Validators.pattern('^[A-Za-z0-9]+$')]],
+      
+       
+      });
+    }
 
   ngOnInit() {
+  
   }
   ionViewDidEditor(){
     this.disableButton=false;
   }
   async tryRegister(){
     //this.router.navigate(['/login']);
-
+    this.isSubmitted = true;
   
-    if(this.Name==""){
-        this.presentToast("Yourname is required");
-    }else if(this.NIC==""){
-      this.presentToast("YourNIC is required");
-    }else if(this.Password=="")
-    {
-      this.presentToast("YourPassword is required");
-    }else if(this.Phone=="")
-      {
-        this.presentToast("YourPhone is required");
-      }
-    else{
+    // if(this.Name==""){
+    //     this.presentToast("Yourname is required");
+    // }else if(this.NIC==""){
+    //   this.presentToast("YourNIC is required");
+    // }else if(this.Password=="")
+    // {
+    //   this.presentToast("YourPassword is required");
+    // }else if(this.Phone=="")
+    //   {
+    //     this.presentToast("YourPhone is required");
+    //   }
+   // else{
       this.disableButton=true;
-      const loader=await this.loadingCtrl.create({
+     
+      if (this.validations_form.valid){
+        const loader=await this.loadingCtrl.create({
           message:'Please wait......',
       });
       loader.present();
         return new Promise(resoler=>{
           let body={
-            aksi:'process_register',
             Name:this.Name,
             NIC:this.NIC,
             Phone:this.Phone,
@@ -58,7 +72,7 @@ export class RegisterPage implements OnInit {
           this.acessPr.postData(body).subscribe((res:any)=>{
               if(res.status==true){
                 loader.dismiss();
-                this.disableButton=false;
+               // this.disableButton=false;
                 this.presentToast(res.message);
                 this.router.navigate(['/login']);
 
@@ -74,8 +88,8 @@ export class RegisterPage implements OnInit {
           }));
         });
 
-      
-    }
+      }
+   // }
   }
   async presentToast(a) {
     let toast = await this.toastCtrl.create({
@@ -107,5 +121,8 @@ export class RegisterPage implements OnInit {
     });
 
     await alert.present();
+  }
+  get errorControl() {
+    return this.validations_form.controls;
   }
 }

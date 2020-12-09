@@ -15,28 +15,51 @@
         <h1>Create your Account</h1>
      </div> 
   <div  class="card">  
-
+      <form [formGroup]="validations_form" (ngSubmit)="tryRegister()" novalidate>
       <div >
         <ion-item class="ion-margin-bottom">
+           
             <ion-icon  name="person" color="success"></ion-icon>
-            <ion-input type="text" placeholder=" Name" [(ngModel)]="Name"></ion-input>
+            <ion-input type="text" formControlName="Name" placeholder=" Name" [(ngModel)]="Name"></ion-input>
         </ion-item>
-        
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Name.errors?.required">
+            Name is required.
+          </span>
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Name.errors?.pattern">
+              Please provide valid Name.
+            </span>
         <ion-item class="ion-margin-bottom">
             <ion-icon  name="call" color="success"></ion-icon>
-          <ion-input type="text" placeholder=" Phone" [(ngModel)]="Phone" ></ion-input>
+          <ion-input type="text" formControlName="Phone" placeholder=" Phone" [(ngModel)]="Phone" ></ion-input>
         </ion-item>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Phone.errors?.required">
+            Phone is required.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Phone.errors?.pattern">
+              Please provide valid Phone number.
+        </span>
         <ion-item class="ion-margin-bottom">
             <ion-icon name="person-circle" color="success"></ion-icon>
-            <ion-input type="text" placeholder=" NIC" [(ngModel)]="NIC"></ion-input>
+            <ion-input type="text"  formControlName="NIC" placeholder=" NIC" [(ngModel)]="NIC"></ion-input>
           </ion-item>
-        
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.NIC.errors?.required">
+              NIC is required.
+          </span>
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.NIC.errors?.pattern">
+                Please provide valid NIC.
+          </span>
         <ion-item class="ion-margin-bottom">
             <ion-icon name="lock-closed" color="success"></ion-icon>
-            <ion-input type="text" placeholder=" Password" [(ngModel)]="Password"></ion-input>
+            <ion-input type="text"  formControlName="Password" placeholder=" Password" [(ngModel)]="Password"></ion-input>
         </ion-item >
-        <ion-button expand="block" shape="round" class="no-padding" (click)="tryRegister()" [disabled]="disableButton" color="success">Register</ion-button>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.required">
+            Password is required.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.pattern">
+              Please provide valid Password including letters,numbers and at least one symbols
+        </span>
+        <ion-button expand="block" shape="round" class="no-padding" type="submit" color="success">Register</ion-button>
       </div>
-  
+  </form>
     </div>
   </ion-content>

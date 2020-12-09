@@ -7,6 +7,7 @@ import { ToastController,LoadingController,AlertController } from '@ionic/angula
 import { AccessProviders } from '../../providers/access-providers';
 import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { FormGroup, FormControl,Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-policies',
@@ -48,9 +49,21 @@ gr:any;
 values:any;
 arr1:any[]=[];
 arr2:any=[];
+  myform:FormGroup;
   constructor(private router:Router,private camera: Camera,public actionSheetController: ActionSheetController,
     private toastCtrl:ToastController, private acessPr:AccessProviders, public http:HttpClient,
     private storage:Storage) { 
+      this.myform=new FormGroup({
+        userdetails:new FormControl({
+          crop:new FormControl('',Validators.required),
+          SDate:new FormControl('',Validators.required),
+          EDate:new FormControl('',Validators.required),
+          optional:new FormControl('',Validators.required),
+          type:new FormControl('',Validators.required),
+          // landD:new FormControl('',Validators.required),
+          // land:new FormControl('',Validators.required),
+        })
+      })
       this.storage.get('storage_co').then((res)=>{
         console.log(res);
         this.datastorage1=res;
@@ -60,9 +73,9 @@ arr2:any=[];
           this.hideMe=true;
          
        }
-       if(res==1){
-        this.hide=true;
-       }
+      //  if(res==1){
+      //   this.hide=true;
+      //  }
        this.showrisks();
        this.showpolicy();
        this.va();
@@ -174,24 +187,62 @@ arr2:any=[];
     }
     
   console.log(this.district);
-          
-      
     
     //console.log(this.arr2[0].id);
-    if(this.land_num==""){
-      this.presentToast("land_num is required");
-    }else if(this.gramasewa_division==""){
-    this.presentToast("gramasewa_division is required");
-    }else if(this.district=="")
-    {
-    this.presentToast("district is required");
-   }else if(this.crop=="")
-    {
-      this.presentToast("crop is required");
-    }else if(this.size==null)
+    if(this.crop==null){
+      this.presentToast("Crop is required");
+    }
+    else if(this.Start_date==null){
+      this.presentToast("Start date is required");
+    }
+    else if(this.End_date==null){
+      this.presentToast("End date is required");
+    }
+    
+    // else if(this.hideMe==true){
+    //   if(this.risk==null){
+    //     this.presentToast("Risk type is required");
+    //   }
+    // }
+    else if(this.type==null){
+      this.presentToast("Policy type is required");
+    }
+    else if(this.hid==true){
+      if(this.land_num==null){
+        this.presentToast("land_num is required");
+       }else if(this.district==null)
+        {
+      this.presentToast("district is required");
+        }else if(this.gramasewa_division==null){
+          this.presentToast("gramasewa_division is required");
+            }
+        else if(this.gramasewa_division==null){
+      this.presentToast("gramasewa_division is required");
+        }
+        else if(this.owership==null)
+        {
+      this.presentToast("Owership is required");
+        }
+        else if(this.addr==null)
+        {
+      this.presentToast("Address is required");
+        }
+        else if(this.l1==null)
+        {
+      this.presentToast("latitude is required");
+        }
+        else if(this.l2==null)
+        {
+      this.presentToast("longitude is required");
+        }
+    } else if(this.size==null)
     {
       this.presentToast("size is required");
+    }else if(this.base64Image==null)
+    {
+      this.presentToast("Photo is required");
     }
+    
     else {
     //this.disableButton=true;
     // const loader=await this.loadingCtrl.create({

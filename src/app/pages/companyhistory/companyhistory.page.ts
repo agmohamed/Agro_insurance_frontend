@@ -24,15 +24,24 @@ export class CompanyhistoryPage implements OnInit {
   id:any;
   constructor(private router:Router, private storage:Storage,public http:HttpClient,
     private toastCtrl:ToastController, private navCtrl:NavController) {
-      this.storage.get('storage_company').then((res)=>{
-        this.id=res.id;
-        this.getAllActivepolicy();
-        this.getAllActiveclaims();
-      })
+     
     }
     
   ngOnInit() {
+    this.storage.get('storage_company').then((res)=>{
+      this.id=res.id;
+      this.doRefresh(0);
+    })
   }
+  doRefresh(event){
+    this.getAllActivepolicy();
+      this.getAllActiveclaims();
+   setTimeout(() => {
+      console.log('Async operation has ended');
+     event.target.complete();
+    }, 2000);
+}   
+
 
 
   barChartMethod1() {

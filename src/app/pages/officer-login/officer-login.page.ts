@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import {Storage} from '@ionic/storage';
 import { ToastController,LoadingController,AlertController,NavController } from '@ionic/angular';
 import { AccessProviders } from '../../providers/access-providers';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-officer-login',
@@ -12,29 +13,46 @@ import { AccessProviders } from '../../providers/access-providers';
 export class OfficerLoginPage implements OnInit {
 username:any;
 Password:any;
+isSubmitted = false;
+  validation_form:FormGroup;
+  
   constructor(
     private router:Router,
     private storage:Storage,
     private toastCtrl:ToastController,
     private loadingCtrl:LoadingController,
-    private alertCtrl:AlertController,
     private acessPr:AccessProviders,
     private navCtrl:NavController,
-  ) { }
+    private formBuilder:FormBuilder,
+  ) {
+    
+   }
 
   ngOnInit() {
+   
+     
+      this.validation_form = new FormGroup({
+     
+        username: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{9}[A-Za-z]$')]),
+        Password: new FormControl('', [Validators.required, Validators.pattern('^[A-Za-z0-9]+$')]),
+      
+       
+      });
+    
+     
+  
   }
 
   async tryLogin(){
     
- 
+    this.isSubmitted = true;
     if(this.username==""){
       this.presentToast("YourUsername is required");
     }else if(this.Password=="")
     {
       this.presentToast("YourPassword is required");
     }else{
-     
+  
       const loader=await this.loadingCtrl.create({
           message:'Please wait......',
       });
@@ -81,8 +99,7 @@ Password:any;
           }));
         });
 
-      
-    }
+      }
   }
   async presentToast(a) {
     let toast = await this.toastCtrl.create({
@@ -99,4 +116,8 @@ Password:any;
     this.storage.clear();
     this.router.navigate(['/welcome']);
   }
+
+  get errorControl() {
+    return this.validation_form.controls;
+    }
 }

@@ -103,6 +103,9 @@ hide1:any;
     }
   }
   viewPhoto(){
+    if(this.hide1==false)
     this.hide1=true;
+    else
+    this.hide1=false;
   }
 }

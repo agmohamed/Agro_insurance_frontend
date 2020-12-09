@@ -28,28 +28,29 @@
         <ion-list *ngSwitchCase="'policy'">
           <ion-label color="primary">Policy Requests</ion-label>
               <ion-card color="light" (click)="go()" *ngFor="let d of data">
-                <ion-item  class="ion-activated">
+                <!-- <ion-item  class="ion-activated"> -->
                   <ion-icon name="document" slot="start"></ion-icon>
                   <ion-card-title>Policy Number:{{d.id}}</ion-card-title>
-                </ion-item>
+                <!-- </ion-item> -->
               <ion-card-content>
                 {{d.Name}}
               </ion-card-content>
-          <ion-button shape="round"  class="no-padding" (click)="view($event)" id="{{d.id}}" color="secondary">View</ion-button>
+          <ion-button class="btn" shape="round"  class="no-padding" (click)="view($event)" id="{{d.id}}" >View</ion-button>
               </ion-card>
         </ion-list>
       </div>
       <div [ngSwitch]="request">
           <ion-list *ngSwitchCase="'claim'">
+              <ion-label color="primary">Claim Requests</ion-label>
               <ion-card color="light" (click)="go()" *ngFor="let d1 of data1">
-                  <ion-item  class="ion-activated">
+                  <!-- <ion-item  class="ion-activated"> -->
                     <ion-icon name="document" slot="start"></ion-icon>
                     <ion-card-title>Claim Number:{{d1.id}}</ion-card-title>
-                  </ion-item>
+                  <!-- </ion-item> -->
                 <ion-card-content>
                  Damage type: {{d1.type_of_loss}}
                 </ion-card-content>
-            <ion-button shape="round"  class="no-padding" (click)="view1($event)" id="{{d1.id}}" color="secondary">View</ion-button>
+            <ion-button class="btn" shape="round"  class="no-padding" (click)="view1($event)" id="{{d1.id}}" >View</ion-button>
                 </ion-card>
           </ion-list>
       </div>

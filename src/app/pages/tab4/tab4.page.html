@@ -43,7 +43,7 @@
               </ion-item>
             </ion-row>
             <ion-row>
-                <ion-button   class="no-padding" (click)="update()" shape="round" color="secondary">
+                <ion-button   class="no-padding" (click)="update()" shape="round" >
                     Update</ion-button>
     
                 <ion-button class="no-padding"  shape="round" (click)="processLogout()"  color="light">
@@ -53,12 +53,13 @@
         </ion-card-content>
       </ion-card>
       <div class="center">
-      <ion-button class="btn1"  shape="round" (click)="viewhistory()">
-        View History
-      </ion-button>
+     <ion-button class="btn1"  shape="round" (click)="viewhistory()"> 
+        
+      View History
+      </ion-button> 
     </div>
       <div *ngIf="hide1">
-      <ion-card *ngFor="let d of val">
+      <ion-card class="card1" *ngFor="let d of val">
           <ion-item>
             <ion-icon name="albums" slot="start"></ion-icon>
             <ion-card-title>Policy Number-{{d.id}}</ion-card-title>
@@ -68,7 +69,7 @@
             {{d.Name}}({{d.name}})
           </ion-card-content>
           <img [src]="d.documents" />
-          <ion-button shape="round" color="tertiary" (click)="view($event)" id="{{d.id}}">{{d.status}}</ion-button>
+          <ion-button class="btn2" shape="round"  (click)="view($event)" id="{{d.id}}">{{d.status}}</ion-button>
         </ion-card>
       </div>
         <!-- <ion-card>

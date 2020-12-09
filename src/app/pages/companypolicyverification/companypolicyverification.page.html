@@ -29,10 +29,10 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        Land Number
+        Land Size
       </ion-col>
       <ion-col>
-        {{d.land_number}}
+        {{d.Size}}
       </ion-col>
     </ion-row>
     <ion-row>
@@ -59,6 +59,16 @@
         {{d.Crop}}
       </ion-col>
     </ion-row>
+    <div *ngIf="hid1">
+    <ion-row>
+        <ion-col>
+         Risk Type
+        </ion-col>
+        <ion-col>
+          {{d.risk_type}}
+        </ion-col>
+      </ion-row>
+    </div>
     <ion-row>
         <ion-col>
             Agent Verification
@@ -71,7 +81,7 @@
   </ion-card>
   <ion-item class="ion-margin-bottom">
    <ion-label>Farmer Profile</ion-label>
-    <ion-button (click)="farmerProfile()">View </ion-button> 
+    <ion-button class="btn1" (click)="farmerProfile()">View </ion-button> 
  </ion-item>
  
   <ion-item class="ion-margin-bottom">

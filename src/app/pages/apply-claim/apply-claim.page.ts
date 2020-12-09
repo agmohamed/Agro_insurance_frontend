@@ -83,6 +83,9 @@ export class ApplyClaimPage implements OnInit {
     this.router.navigate(['/home/tab3']);
   }
   show(){
-    this.hide4=true;
+    if(this.hide4==false)
+      this.hide4=true;
+    else
+    this.hide4=false;
   }
 }

@@ -61,6 +61,9 @@ hide4=false;
   ngOnInit() {
   }
   show(){
-    this.hide4=true;
+    if(this.hide4==false)
+      this.hide4=true;
+    else
+    this.hide4=false;
   }
 }

@@ -22,6 +22,7 @@ n:any;
 issue:any;
 hide=false;
 hide1=false;
+hid1=false;
   constructor(private router:Router,private storage:Storage, public http:HttpClient,
     private acessPr:AccessProviders) {
 
@@ -38,6 +39,7 @@ hide1=false;
       console.log( res);
       this.http.get(AccessProviders.server+'/getpolicy/'+this.id).subscribe((res:any)=>{ 
         this.data=res.message;
+        console.log(res);
         this.nic=res.message[0].id;
         this.risk=res.message[0].risk_type;
         this.n=res.message[0].NIC;
@@ -45,7 +47,9 @@ hide1=false;
             this.verifi=true;
         else if (res.message[0].agent_verification==0)
             this.verifi=false;
-
+        if(res.message[0].risk_type!=""){
+          this.hid1=true;
+        }
        // if(res.message[0].agent_verification==1)    
         console.log(res.message[0].agent_verification);
         console.log(this.nic);
@@ -113,7 +117,6 @@ hide1=false;
       this.acessPr.postPremium(body,this.id).subscribe((res:any)=>{
           if(res.status==true){
             //loader.dismiss();
-           // this.disableButton=false;
             //this.presentToast(res.message);
             //this.router.navigate(['/home/tab2']);
               console.log('true');
@@ -169,6 +172,9 @@ hide1=false;
 
   }
   viewPhoto(){
+    if(this.hide1==false)
     this.hide1=true;
+    else
+    this.hide1=false;
   }
 }

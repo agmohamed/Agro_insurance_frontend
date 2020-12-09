@@ -94,6 +94,9 @@ hide1=false;
 
   }
   viewimage(){
-    this.hide1=true;
+    if(this.hide1==false)
+      this.hide1=true;
+    else
+    this.hide1=false;
   }
 }

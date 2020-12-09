@@ -22,7 +22,24 @@ request: string = "policy";
        this.doRefresh(0);
        //this.name=this.datastorage.Name;
        //console.log(this.l1);
-      
+       this.http.get(AccessProviders.server+'/getrequestpolicy/'+this.id).subscribe((res:any)=>{ 
+        this.data=res.message; 
+            console.log(res.message);
+           
+          })
+          if(this.id==0){
+            this.http.get(AccessProviders.server+'/getclaimAAIB/'+this.id).subscribe((res:any)=>{ 
+             this.data1=res.message; 
+                console.log(res.message);
+              }) 
+             }
+             else{
+            this.http.get(AccessProviders.server+'/getclaimSANASA/'+this.id).subscribe((res:any)=>{ 
+                  this.data1=res.message; 
+                  console.log(res.message);
+                   
+                  }) 
+             }   
        
      });
      

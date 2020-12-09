@@ -9,7 +9,7 @@
           <ion-button shape="round" size="small" >livestock</ion-button> -->
          
       </ion-row>
-      <ion-title>Policy Form</ion-title>
+      <ion-title>Policy Application</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -24,9 +24,10 @@
   </ion-item>-->
   <div id="header"><h1>Policy Details</h1></div>
   <ion-card>
+   
    <ion-item>
 
-      <ion-label>Crop type</ion-label>
+      <ion-label floating>Crop type</ion-label>
       <ion-select  [(ngModel)]="crop"  >
         <ion-select-option >Paddy</ion-select-option>
         <ion-select-option >Big Onion</ion-select-option>
@@ -37,39 +38,38 @@
 
     <ion-item>
     
-      <ion-label>Start Date</ion-label>
-      <ion-datetime displayFormat="YYYY-MM-DD" min="2020" max="2030" [(ngModel)]="Start_date"></ion-datetime>
+      <ion-label >Start Date</ion-label>
+      <ion-datetime  displayFormat="YYYY-MM-DD" min="2020" max="2030" [(ngModel)]="Start_date"></ion-datetime>
   </ion-item>
   <ion-item>
-      <ion-label>End Date</ion-label>
+      <ion-label >End Date</ion-label>
       <ion-datetime displayFormat="YYYY-MM-DD" min="2020" max="2030" [(ngModel)]="End_date" ></ion-datetime>
   </ion-item>
   <div *ngIf="hideMe">
   <ion-item>
-    <ion-label>optional policy for</ion-label>
-    <ion-select  [(ngModel)]="risk" >
-      <ion-select-option  *ngFor="let r of risktype">{{r.risk_type}}</ion-select-option>
-      
+    <ion-label >optional policy for</ion-label>
+    <ion-select   interface="action-sheet"  [(ngModel)]="risk" >
+      <ion-select-option  *ngFor="let r of risktype"><ion-label size="small">{{r.risk_type}}</ion-label></ion-select-option>
     </ion-select>
   </ion-item>
 </div>
 <!-- <div *ngIf="hide"> -->
   <ion-item>
-    <ion-label>policy type</ion-label>
-    <ion-select  [(ngModel)]="type" >
-   
+    <ion-label> policy type</ion-label>
+    <ion-select  interface="action-sheet"  [(ngModel)]="type" >
       <ion-select-option *ngFor="let p of policy">{{p.Name}}</ion-select-option>
-   
-     
     </ion-select>
   </ion-item>
+
+
 <!-- </div> -->
 </ion-card>
+
 <!----<div *ngIf="hideMe">-->
   <div id="header"><h1>Land Details</h1></div>
 
   <ion-item class="it1">
-      <ion-label>If land is already registered select one</ion-label>
+      <ion-label floating>If land is already registered select one</ion-label>
       <ion-select (ionChange)="onClick()" [(ngModel)]="selectland">
           <ion-select-option  *ngFor="let item of data;" value="{{item.land_number}}">{{item.land_number}} </ion-select-option>
       </ion-select>
@@ -81,6 +81,7 @@
       <ion-title></ion-title>
       <div *ngIf="hid">
         <ion-item>
+            <ion-label floating>Land:</ion-label>
           <ion-input type="text" placeholder="Land Name/plot Number" [(ngModel)]="land_num"></ion-input>
       </ion-item>
      

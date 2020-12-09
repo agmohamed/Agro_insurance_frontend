@@ -1,7 +1,10 @@
 <ion-header no-border>
   <ion-toolbar color="success">
-      <ion-buttons slot="start" >
+      <!-- <ion-buttons slot="start" >
           <ion-icon name="arrow-back" slot="icon-only" ></ion-icon>
+        </ion-buttons> -->
+        <ion-buttons slot="start" >
+            <ion-back-button></ion-back-button>
         </ion-buttons>
       <!-- <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon> -->
     <!-- <ion-title>Login as Farmer</ion-title> -->
@@ -15,28 +18,29 @@
 </ion-header>
 
 <ion-content>
-  <ion-slides [options]="slideOptions" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
-    <ion-slide >
-      <ion-card class="c1">
-        <ion-title>
-            <strong>Agriculture & Agrarian <br>Board</strong>
-        </ion-title><br>
-        We cover all over the srilanka<br>
-        We are the largest farmer insurance providers
-      </ion-card>
-    </ion-slide>
-    <ion-slide >
-      <ion-card class="c2">
-          <ion-title>
-             <strong>SANASA</strong> 
-          </ion-title><br>
-        We cover more risk effects<br>
-        We offer more insurance types
-      </ion-card>
-    </ion-slide>
-  </ion-slides>
+  
+    <ion-slides [options]="slideOptions" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
+        <ion-slide >
+          <ion-card class="c1">
+            <ion-title>
+                <strong>Agriculture & Agrarian <br>Board</strong>
+            </ion-title><br>
+            We cover all over the srilanka<br>
+            We are the largest farmer insurance providers
+          </ion-card>
+        </ion-slide>
+        <ion-slide >
+          <ion-card class="c2">
+              <ion-title>
+                 <strong>SANASA</strong> 
+              </ion-title><br>
+            We cover more risk effects<br>
+            We offer more insurance types
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
   <div id="header">
-      <h1>Login</h1>
+      <h1>Login As Farmer</h1>
   
       <div class="vertical-center"> <div class="center"> 
         <ion-img src="/assets/icon/per.jpg"  style="height: 100px;width: 100px;" class="ion-align-self-end"></ion-img> </div> </div>
@@ -45,15 +49,28 @@
         </ion-img> -->
 
     <div class="card">
-      <ion-item class="ion-margin-bottom">
-          <ion-icon name="person" color="success"></ion-icon>
-          <ion-input type="text" placeholder=" NIC Number" [(ngModel)]="NIC"></ion-input>
-      </ion-item>
+        <form [formGroup]="validations_form" (ngSubmit)="tryLogin()" novalidate>
 
       <ion-item class="ion-margin-bottom">
-          <ion-icon name="lock-closed" color="success"></ion-icon>
-          <ion-input type="password" placeholder=" Password" [(ngModel)]="Password"></ion-input>
+          <ion-icon name="person" color="success"></ion-icon>
+          <ion-input type="text"  formControlName="NIC" placeholder=" NIC Number" [(ngModel)]="NIC"></ion-input>
       </ion-item>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.NIC.errors?.required">
+          NIC is required.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.NIC.errors?.pattern">
+            Please provide valid NIC
+         </span>
+      <ion-item class="ion-margin-bottom">
+          <ion-icon name="lock-closed" color="success"></ion-icon>
+          <ion-input type="password"  formControlName="Password" placeholder=" Password" [(ngModel)]="Password"></ion-input>
+      </ion-item>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.required">
+          Password is required
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.Password.errors?.pattern">
+            Please provide valid Password
+        </span>
       <!-- <ion-item>
         <ion-label>Position</ion-label>
         <ion-select interface="popover" [(ngModel)]="selected_value" (ionChange)="Getselected(selected_value)" >
@@ -62,8 +79,10 @@
         </ion-select>
       </ion-item> -->
     
-      <ion-button expand="block"  shape="round" class="no-padding" (click)="tryLogin()" color="success">Login</ion-button>
+      <ion-button expand="block"  type="submit" shape="round" class="no-padding"  color="success">Login</ion-button>
+    </form>
     </div>
+   
       <p *ngIf="hide" class="ion-padding info-1">
   
         If you do not have an account,click <span (click)="Register()">Register now</span>
@@ -71,6 +90,5 @@
         <!-- If you do not have an account,click <span (click)="image()">Register now</span>
         If you do not have an account,click <span (click)="ge()">get</span> -->
 
-  
 
 </ion-content>

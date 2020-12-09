@@ -32,7 +32,7 @@ table {
 //     --padding-start:5px
 // }
 .card1{
-    margin-top:10px;
+    margin-top:20px;
     padding-left:30px;
     padding-right:30px;
     --background:#f5f5f3;
@@ -57,3 +57,16 @@ ion-col{
     color:black;
     font-size: 16px;
 }
+.btn1{
+    margin-top:35px;
+    height:35px;
+    font-size:18px;
+    text-transform:initial;
+    border-radius:50px;
+    box-shadow:1px 8px 8px 8px 0px rgba(0,0,0,0.05);
+    --box-shadow:none;
+    --background:rgb(235, 229, 229);
+    --border-radius: 20px;
+    color:black;
+   
+ }

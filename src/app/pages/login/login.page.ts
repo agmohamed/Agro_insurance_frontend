@@ -4,6 +4,8 @@ import {Storage} from '@ionic/storage';
 import { ToastController,LoadingController,AlertController,NavController } from '@ionic/angular';
 import { AccessProviders } from '../../providers/access-providers';
 import { IonSlides } from '@ionic/angular';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -16,6 +18,8 @@ export class LoginPage implements OnInit {
   selected_value:string;
   company:any;
   id:any;
+  isSubmitted = false;
+  validations_form: FormGroup;
   hide=true;
   slideOptions = {
     initialSlide: 1,
@@ -29,6 +33,7 @@ export class LoginPage implements OnInit {
     private alertCtrl:AlertController,
     private acessPr:AccessProviders,
     private navCtrl:NavController,
+    private formBuilder:FormBuilder
   ) {
     
       this.storage.get('storage_login').then((res)=>{
@@ -47,6 +52,13 @@ export class LoginPage implements OnInit {
     slides.startAutoplay();
   }
   ngOnInit() {
+    this.validations_form = this.formBuilder.group({
+     
+      NIC: ['', [Validators.required, Validators.pattern('^[0-9]{9}[A-Za-z]$')]],
+      Password: ['', [Validators.required, Validators.pattern('^[A-Za-z0-9]+$')]],
+    
+     
+    });
   }
   ionViewDidEditor(){
     this.disableButton=false;
@@ -54,15 +66,17 @@ export class LoginPage implements OnInit {
   async tryLogin(){
     
     
- 
-    if(this.NIC==""){
-      this.presentToast("YourUsername is required");
-    }else if(this.Password=="")
-    {
-      this.presentToast("YourPassword is required");
-    }else{
+    this.isSubmitted = true;
+    // if(this.NIC==""){
+    //   this.presentToast("YourUsername is required");
+    // }else if(this.Password=="")
+    // {
+    //   this.presentToast("YourPassword is required");
+    // }else{
       this.disableButton=true;
-      const loader=await this.loadingCtrl.create({
+      
+    if (this.validations_form.valid){
+        const loader=await this.loadingCtrl.create({
           message:'Please wait......',
       });
       loader.present();
@@ -113,15 +127,17 @@ export class LoginPage implements OnInit {
                 this.disableButton=false;
                 this.presentToast('Email or password or status is wrong');
               }
-          },(err=>{
-            loader.dismiss();
-            this.disableButton=false;
-            this.presentToast('Timeout');
-          }));
+          }
+          // ,(err=>{
+          //   loader.dismiss();
+          //   this.disableButton=false;
+          //   this.presentToast('Timeout');
+          // })
+          );
         });
 
-      
-    }
+      }
+    
   }
   async presentToast(a) {
     let toast = await this.toastCtrl.create({
@@ -146,4 +162,7 @@ export class LoginPage implements OnInit {
 // {
 // console.log("selector: ", selected_value );
 // }
+  get errorControl() {
+  return this.validations_form.controls;
+  }
 }
