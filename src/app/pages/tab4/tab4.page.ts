@@ -16,10 +16,11 @@ phone:any;
 address:any;
 id:any;
 hide1=false;
+hide2=false;
 i:any="";
-val:any;
+val:any; val1:any;
 pic:any;
-value:any;
+value:any;  value1:any;
   constructor(private router:Router,
     private storage:Storage, public http:HttpClient,
     private toastCtrl:ToastController,private loadingCtrl:LoadingController,
@@ -54,6 +55,7 @@ value:any;
       }
       console.log(this.id);
      this.getpolicy();
+     this.getclaim();
     }); 
    }
    update(){
@@ -100,8 +102,16 @@ value:any;
          err=>{
            console.log(err);
   })
+  
 
   }
+  getclaim(){
+    return this.http.get(AccessProviders.server+'/getclaimforafarmer/'+this.id).subscribe((res:any)=>{ 
+    this.val1=res.message; console.log(res.message)},
+         err=>{
+           console.log(err);
+  })
+}
   async processLogout(){
     this.storage.clear();
     this.navCtrl.navigateRoot('/welcome');
@@ -120,11 +130,24 @@ value:any;
     this.storage.set('storage_appliedPolicy',this.value);
     this.router.navigate(['/apply-policy']);
     }
+    view1(event){
+      this.value1=event.target.id;
+      console.log('hello');
+      console.log(this.value1);
+      this.storage.set('storage_appliedClaim',this.value1);
+      this.router.navigate(['/apply-claim']);
+      }
   
-  viewhistory(){
+  viewhistory1(){
     if(this.hide1==false)
        this.hide1=true;
     else
      this.hide1=false;
+  }
+  viewhistory2(){
+    if(this.hide2==false)
+       this.hide2=true;
+    else
+     this.hide2=false;
   }
 }

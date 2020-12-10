@@ -16,20 +16,12 @@ export class OrganizationPage implements OnInit {
   data1:any;
   va:any;
   request: string = "summary";
-  verify:any;
+  verify:any=[];
   i:any;
   constructor(private router:Router,private storage:Storage,public http:HttpClient,
     private toastCtrl:ToastController, private navCtrl:NavController) { 
 
-    this.storage.get('storage_org').then((res)=>{
-      console.log(res);
-      this.datastorage=res;
-      this.id=this.datastorage.id;
-
-      console.log(this.id);
-      this.doRefresh(0);
-     
-    });
+   
   }
 
   getclaim(){
@@ -43,18 +35,28 @@ export class OrganizationPage implements OnInit {
           this.data1=res.message;
           console.log( this.data1);
           for(this.i in res.message){
-            if(res.message[this.i].organization_verification==0){
-              this.verify=false;
+            if(res.message[this.i].organization_verification==1){
+              this.verify[this.i]="Accept";
             }
-            else{
-              this.verify=true;
+            else if(res.message[this.i].organization_verification==0){
+              this.verify[this.i]="Reject";
             }
+            console.log( this.verify);
           }
           
        })
       
   }
   ngOnInit() {
+    this.storage.get('storage_org').then((res)=>{
+      console.log(res);
+      this.datastorage=res;
+      this.id=this.datastorage.id;
+
+      console.log(this.id);
+      this.doRefresh(0);
+     
+    });
   }
 
   view(event){
@@ -78,7 +80,7 @@ export class OrganizationPage implements OnInit {
   }
   doRefresh(event) {
     this.getclaim();
-    this. getAllclaim();
+    this.getAllclaim();
     setTimeout(() => {
         console.log('Async operation has ended');
         event.target.complete();

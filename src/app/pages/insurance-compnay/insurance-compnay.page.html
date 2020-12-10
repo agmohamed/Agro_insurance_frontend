@@ -10,11 +10,11 @@
 
 <ion-content>
   
-  <ion-card color="light" *ngFor="let i of data" (click)="go()">
+  <ion-card color="light" *ngFor="let i of data">
           
     <ion-item  class="ion-activated">
         <div class="vertical-center"> <div class="center"> <ion-img src="/assets/icon/{{i.image}}" style="height: 100px;width: 100px;"> </ion-img> </div> </div>
-      <ion-card-title >{{i.name}}</ion-card-title>
+      <ion-card-title ><strong>{{i.name}}</strong></ion-card-title>
     </ion-item>
       <ion-card-content >
         

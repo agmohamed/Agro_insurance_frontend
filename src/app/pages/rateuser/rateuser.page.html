@@ -1,13 +1,17 @@
 <ion-header>
     <ion-toolbar color="success">
-        <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+            <ion-buttons slot="start">
+                    <ion-back-button></ion-back-button>
+                </ion-buttons>
       <ion-title>RateUser</ion-title>
     </ion-toolbar>
 </ion-header>
 
 
 <body>
-    <button color="secondary" shape="round" (click)="submit()" >Submit</button>
+    <div class="d1">
+        <button  expand="block" color="secondary" shape="round" (click)="submit()" >Submit</button>
+    </div>
     <div class="rating">
     
         <input type="radio" (click)="Onclick()" name="star" id="star1"><label for="star1"></label>

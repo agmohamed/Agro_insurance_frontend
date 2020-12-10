@@ -19,7 +19,7 @@ export class Agenttab1Page implements OnInit {
   data:any;
   arr1:any;
   arr2:any;
-  arr3:any;
+  arr3:any=[];
   arr4:any;
   @ViewChild("barCanvas",{ static: true }) barCanvas: ElementRef;
   @ViewChild("barCanvas2",{ static: true }) barCanvas2: ElementRef;
@@ -28,9 +28,17 @@ export class Agenttab1Page implements OnInit {
   private barChart: Chart;
   private lineChart: Chart;
   private barChart2: Chart;
+  i:any;
   constructor(private router:Router, private storage:Storage,public http:HttpClient,
     private toastCtrl:ToastController, private navCtrl:NavController) {
 
+   
+   }
+
+
+
+
+  ngOnInit() {
     this.storage.get('storage_agent').then((res)=>{
       console.log(res);
       this.datastorage=res;
@@ -42,13 +50,6 @@ export class Agenttab1Page implements OnInit {
      this.getAllpolicy();
      this.getAllActivepolicy();
     });
-   }
-
-
-
-
-  ngOnInit() {
-    
   }
   barChartMethod1() {
     this.barChart= new Chart(this.barCanvas.nativeElement, {
@@ -188,7 +189,8 @@ export class Agenttab1Page implements OnInit {
   getAllActivepolicy(){
     this.http.get(AccessProviders.server+'/activeAll/'+this.agent_id+'/'+this.id).subscribe((res:any)=>{ 
       console.log( res);
-          this.arr3=res.data;
+        for(this.i in res.data)
+          this.arr3[this.i]=res.data[this.i];
           this.arr4=res.label;
           console.log( this.arr3+ this.arr4);
           //this.barChartMethod2();

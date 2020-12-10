@@ -48,12 +48,12 @@ status:any;
   verify(){
     console.log(this.verifi);
     console.log(this.id);
-    if(this.verifi=='True'){
+    if(this.verifi=='Accept'){
       this.va=1;
       this.status="pending";
     }
        
-    else if(this.verifi=='False'){
+    else if(this.verifi=='Reject'){
        this.va=0;
        this.status="reject";
     }

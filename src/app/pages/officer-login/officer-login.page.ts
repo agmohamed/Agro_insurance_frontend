@@ -33,8 +33,8 @@ isSubmitted = false;
      
       this.validation_form = new FormGroup({
      
-        username: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{9}[A-Za-z]$')]),
-        Password: new FormControl('', [Validators.required, Validators.pattern('^[A-Za-z0-9]+$')]),
+        username: new FormControl('', [Validators.required, Validators.pattern('^[A-Za-z0-9]+$')]),
+        Password: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9!@#$%^&*]+$')]),
       
        
       });
@@ -46,17 +46,18 @@ isSubmitted = false;
   async tryLogin(){
     
     this.isSubmitted = true;
-    if(this.username==""){
-      this.presentToast("YourUsername is required");
-    }else if(this.Password=="")
-    {
-      this.presentToast("YourPassword is required");
-    }else{
+    // if(this.username==""){
+    //   this.presentToast("YourUsername is required");
+    // }else if(this.Password=="")
+    // {
+    //   this.presentToast("YourPassword is required");
+    // }else{
   
+    if (this.validation_form.valid){
       const loader=await this.loadingCtrl.create({
           message:'Please wait......',
       });
-      loader.present();
+     // loader.present();
         return new Promise(resoler=>{
           let body={
 
@@ -64,6 +65,9 @@ isSubmitted = false;
             Password:this.Password
           }
           this.acessPr.postOfficerLogin(body).subscribe((res:any)=>{
+            // if(res.message=='error'){
+            //   this.presentToast('Timeout');
+            // }
             if(res.message=='Success loginCompany' ){
               loader.dismiss();
               
@@ -93,13 +97,14 @@ isSubmitted = false;
             }
           
            } ,(err=>{
-            loader.dismiss();
+           // loader.dismiss();
            
             this.presentToast('Timeout');
           }));
         });
-
+      
       }
+    
   }
   async presentToast(a) {
     let toast = await this.toastCtrl.create({

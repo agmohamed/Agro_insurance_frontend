@@ -7,7 +7,7 @@ import { ToastController,LoadingController,AlertController } from '@ionic/angula
 import { AccessProviders } from '../../providers/access-providers';
 import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
-import { FormGroup, FormControl,Validators } from '@angular/forms';
+import { FormGroup, FormControl,Validators,FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-policies',
@@ -52,7 +52,16 @@ arr2:any=[];
   myform:FormGroup;
   constructor(private router:Router,private camera: Camera,public actionSheetController: ActionSheetController,
     private toastCtrl:ToastController, private acessPr:AccessProviders, public http:HttpClient,
-    private storage:Storage) { 
+    private storage:Storage,
+    private formBuilder:FormBuilder) { 
+      // this.myform = this.formBuilder.group({
+      //   crop: ['', [Validators.required]],
+      //   SDate: ['', [Validators.required, Validators.pattern('^0[1-9]{9}$')]],
+      //   EDate: ['', [Validators.required, Validators.pattern('^[0-9]{9}[A-Za-z]$')]],
+      //   Password: ['', [Validators.required, Validators.pattern('^[A-Za-z0-9]+$')]],
+      //   type: ['', [Validators.required]],
+       
+      // });
       this.myform=new FormGroup({
         userdetails:new FormControl({
           crop:new FormControl('',Validators.required),
@@ -207,15 +216,20 @@ arr2:any=[];
     else if(this.type==null){
       this.presentToast("Policy type is required");
     }
+    else if(this.size==null)
+    {
+      this.presentToast("size is required");
+    }else if(this.base64Image==null)
+    {
+      this.presentToast("Photo is required");
+    }
     else if(this.hid==true){
       if(this.land_num==null){
         this.presentToast("land_num is required");
        }else if(this.district==null)
         {
       this.presentToast("district is required");
-        }else if(this.gramasewa_division==null){
-          this.presentToast("gramasewa_division is required");
-            }
+        }
         else if(this.gramasewa_division==null){
       this.presentToast("gramasewa_division is required");
         }
@@ -235,15 +249,10 @@ arr2:any=[];
         {
       this.presentToast("longitude is required");
         }
-    } else if(this.size==null)
-    {
-      this.presentToast("size is required");
-    }else if(this.base64Image==null)
-    {
-      this.presentToast("Photo is required");
-    }
+    } 
+   
     
-    else {
+    
     //this.disableButton=true;
     // const loader=await this.loadingCtrl.create({
     //     message:'Please wait......',
@@ -299,7 +308,7 @@ arr2:any=[];
        )
       
     
-     }
+     
      
   
   }

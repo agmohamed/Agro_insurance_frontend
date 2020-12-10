@@ -14,12 +14,13 @@ import { ToastController,LoadingController,AlertController,NavController } from 
 export class ClientPage implements OnInit {
 data1:any;
 data2:any;
-data3:any;
+data3:any; data4:any;
 id:any;
 com:any;
 policyid:any;
 hide=false;
 hid=false;
+hide2=false;
 amount:any;
 am:any;
 policy:any;
@@ -67,6 +68,10 @@ pic:any;
             console.log(res.message);
            
           })
+        this.http.get(AccessProviders.server+'/getclaimforafarmer/'+this.id).subscribe((res:any)=>{ 
+            this.data4=res.message;
+               
+              })       
       this.storage.get('storage_company').then((res)=>{
         this.com=res.id;
         this.http.get(AccessProviders.server+'/activepolicy/'+this.id+"/"+this.com).subscribe((res:any)=>{ 
@@ -76,8 +81,10 @@ pic:any;
               console.log( res.message[0].PaidAmount);
              
             })
+            this.com=res.id;
+            
       })  
-    
+      
   });
   }
    call(){
@@ -88,7 +95,16 @@ pic:any;
   
   }
   show(){
-    this.hide=true;
+    if(this.hide==false)
+      this.hide=true;
+    else
+     this.hide=false;
+  }
+  show1(){
+    if(this.hide2==false)
+      this.hide2=true;
+    else
+     this.hide2=false;
   }
   Click(event){
     this.policyid=event.target.id;

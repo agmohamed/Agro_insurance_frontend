@@ -34,9 +34,9 @@ hide1:any;
         this.data=res.message;
         this.policy_num=res.message[0].policy_number;
         if(res.message[0].organization_verification==1)
-             this.verifi=true;
+             this.verifi="Accept";
         else if (res.message[0].organization_verification==0)
-        this.verifi=false;
+        this.verifi="Reject";
            this.http.get(AccessProviders.server+'/getlandforclaim/'+this.id+'/'+ this.policy_num).subscribe((res:any)=>{ 
         
         this.storage.set('storage_landnumber',res.message[0].land_number);

@@ -47,7 +47,7 @@
   <ion-list *ngSwitchCase="'history'"> 
     
    
-    <ion-card color="light" (click)="go()" *ngFor="let d of data1">
+    <ion-card color="light" (click)="go()" *ngFor="let d of data1;let i=index">
       
     <ion-card-title><strong>PolicyRequest -{{d.id}}</strong></ion-card-title>
       <ion-row>
@@ -63,7 +63,7 @@
               Agent Verification
           </ion-col>
           <ion-col>
-              {{verify}}
+              {{verify[i]}}
           </ion-col>
         </ion-row>
         <ion-row>

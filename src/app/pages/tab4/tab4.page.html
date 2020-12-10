@@ -53,11 +53,17 @@
         </ion-card-content>
       </ion-card>
       <div class="center">
-     <ion-button class="btn1"  shape="round" (click)="viewhistory()"> 
+     <ion-button class="btn1"  shape="round" (click)="viewhistory1()"> 
         
-      View History
+      View Policy History
       </ion-button> 
     </div>
+    <div class="center">
+        <ion-button class="btn1"  shape="round" (click)="viewhistory2()"> 
+           
+         View Claim History
+         </ion-button> 
+       </div>
       <div *ngIf="hide1">
       <ion-card class="card1" *ngFor="let d of val">
           <ion-item>
@@ -72,6 +78,21 @@
           <ion-button class="btn2" shape="round"  (click)="view($event)" id="{{d.id}}">{{d.status}}</ion-button>
         </ion-card>
       </div>
+      <div *ngIf="hide2">
+          <ion-card class="card1" *ngFor="let d of val1">
+              <ion-item>
+                <ion-icon name="albums" slot="start"></ion-icon>
+                <ion-card-title>Claim Number-{{d.id}}</ion-card-title>
+              </ion-item>
+            
+              <ion-card-content>
+               Policy Number: {{d.policy_number}}<br>
+               Claim for:{{d.type_of_loss}}
+              </ion-card-content>
+              <img [src]="d.documents" />
+              <ion-button class="btn2" shape="round"  (click)="view1($event)" id="{{d.id}}">{{d.status}}</ion-button>
+            </ion-card>
+          </div>
         <!-- <ion-card>
             <ion-item>
               <ion-icon name="star-half" slot="start"></ion-icon>

@@ -17,7 +17,7 @@ va:any;
 agent_id:any;
 Name:any;
 data1:any;
-verify:any;
+verify:any=[];
 i:any;
 request: string = "summary";
   constructor(private router:Router, private storage:Storage,public http:HttpClient,
@@ -62,10 +62,10 @@ request: string = "summary";
           this.data1=res.message;
           for(this.i in res.message){
             if(res.message[this.i].agent_verification==0){
-              this.verify=false;
+              this.verify[this.i]="Reject";
             }
-            else
-            this.verify=true;
+            else if(res.message[this.i].agent_verification==1)
+            this.verify[this.i]="Accept";
           }
          
        })

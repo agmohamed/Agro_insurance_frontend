@@ -6,6 +6,8 @@ import { AccessProviders } from '../../providers/access-providers';
 import { ToastController,LoadingController,AlertController } from '@ionic/angular';
 import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
 import {Storage} from '@ionic/storage';
+import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+
 @Component({
   selector: 'app-claim',
   templateUrl: './claim.page.html',
@@ -21,9 +23,12 @@ export class ClaimPage implements OnInit {
   policy_number:any;company:any; 
   land:any; amount:any;date:any;loss:any;phone:any;bank:any;branch:any;
   account:any;loan:any;
+  isSubmitted = false;
+  myform: FormGroup;
   constructor(private router:Router,private camera: Camera,public actionSheetController: ActionSheetController,
     private acessPr:AccessProviders,public http:HttpClient,private storage:Storage,
-    private toastCtrl:ToastController) { 
+    private toastCtrl:ToastController,
+    private formBuilder:FormBuilder) { 
       this.storage.get('storage_co').then((res)=>{
         console.log(res);
         this.company=res;
@@ -32,38 +37,53 @@ export class ClaimPage implements OnInit {
 
   ngOnInit() {
     this.photos=[];
+    this.myform = this.formBuilder.group({
+      policy_number: ['', [Validators.required,Validators.pattern('^[0-9]+$')]],
+      date: ['', [Validators.required]],
+      loss: ['', [Validators.required]],
+      phone: ['', [Validators.required,Validators.pattern('^0[1-9]{9}$') ]],
+      amount: ['', [Validators.required,Validators.pattern('^[0-9]+$')]],
+      bank: ['', [Validators.required]],
+      branch: ['', [Validators.required]],
+      loan: ['', [Validators.required,Validators.pattern('^[A-Za-z0-9]+$')]],
+      account: ['', [Validators.required,Validators.pattern('^[0-9]+$')]],
+      // base64Image: ['', [Validators.required]],
+      });
   }
   submit(){
-    if(this.policy_number==null){
-      this.presentToast("policy number is required");
-    }
-    else if(this.date==null){
-      this.presentToast("Incident date is required");
-    }
-    else if(this.loss==null){
-      this.presentToast("Type of loss is required");
-    }
-    else if(this.phone==null){
-      this.presentToast("Phone number is required");
-    }
-    else if(this.amount==null){
-      this.presentToast("Expect amount is required");
-    }
-    else if(this.bank==null){
-      this.presentToast("Bank name is required");
-    }
-    else if(this.branch==null){
-      this.presentToast("Branch name is required");
-    }
-    else if(this.account==null){
-      this.presentToast("Account number is required");
-    }
-    else if(this.loan==null){
-      this.presentToast("Loan number number is required");
-    }
-    else if(this.base64Image==null){
-      this.presentToast("Photo is required");
-    }
+    // if(this.policy_number==null){
+    //   this.presentToast("policy number is required");
+    // }
+    // else if(this.date==null){
+    //   this.presentToast("Incident date is required");
+    // }
+    // else if(this.loss==null){
+    //   this.presentToast("Type of loss is required");
+    // }
+    // else if(this.phone==null){
+    //   this.presentToast("Phone number is required");
+    // }
+    // else if(this.amount==null){
+    //   this.presentToast("Expect amount is required");
+    // }
+    // else if(this.bank==null){
+    //   this.presentToast("Bank name is required");
+    // }
+    // else if(this.branch==null){
+    //   this.presentToast("Branch name is required");
+    // }
+    // else if(this.account==null){
+    //   this.presentToast("Account number is required");
+    // }
+    // else if(this.loan==null){
+    //   this.presentToast("Loan number number is required");
+    // }
+    // else if(this.base64Image==null){
+    //   this.presentToast("Photo is required");
+    // }
+    console.log(this.company);
+    this.isSubmitted = true;
+    if (this.myform.valid){
     this.http.get(AccessProviders.server+'/getpolicy/'+this.policy_number).subscribe((res:any)=>{ 
         this.land=res.message[0].land_number;
         this.NIC=res.message[0].NIC;
@@ -104,6 +124,7 @@ export class ClaimPage implements OnInit {
           });
       });
     }
+    
     else{
          return new Promise(resoler=>{
          let body={
@@ -132,6 +153,10 @@ export class ClaimPage implements OnInit {
      }
     });
   }
+  }
+  get errorControl() {
+    return this.myform.controls;
+    }
   openCamera(){
     const options: CameraOptions = {
       quality: 20,

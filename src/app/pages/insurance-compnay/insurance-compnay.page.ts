@@ -28,17 +28,18 @@ export class InsuranceCompnayPage implements OnInit {
   constructor( private router:Router,private storage:Storage, public navCtrl:NavController,
                 public http:HttpClient,) {
 
-                    this.show();
+                   
                  }
 
   ngOnInit() {
+    this.show();
   }
-  doRefresh(event) {
-    setTimeout(() => {
-     console.log('Async operation has ended');
-      event.target.complete();
-    }, 2000);
-  }
+  // doRefresh(event) {
+  //   setTimeout(() => {
+  //    console.log('Async operation has ended');
+  //     event.target.complete();
+  //   }, 2000);
+  // }
 
   show(){
     this.http.get(AccessProviders.server+'/company').subscribe((res:any)=>{
@@ -63,7 +64,7 @@ export class InsuranceCompnayPage implements OnInit {
     //console.log(event.target.id);
     this.va=event.target.id;
     this.storage.set('storage_co',this.va);
-    this.doRefresh(0);
+    //this.doRefresh(0);
   }
   back(){
     this.router.navigate(['/types']);

@@ -1,5 +1,4 @@
-//import { MbscModule } from '@mobiscroll/angular';
-//import { MbscModule } from '@mobiscroll/angular-lite';
+
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { NgModule ,CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';

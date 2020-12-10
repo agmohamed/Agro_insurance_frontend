@@ -103,8 +103,11 @@
           
       </div>
       <div class="center">
-        <ion-button class="btn1" shape="round" (click)='show()'>View History</ion-button>
+        <ion-button class="btn1" shape="round" (click)='show()'>View Policy History</ion-button>
       </div>
+      <div class="center">
+          <ion-button class="btn1" shape="round" (click)='show1()'>View Claim History</ion-button>
+        </div>
       <div *ngIf="hide">
           <ion-card class="card1" *ngFor="let i of data3">
             <ion-item>
@@ -141,4 +144,38 @@
               
           </ion-card>
        </div> 
+       <div *ngIf="hide2">
+          <ion-card class="card1" *ngFor="let d of data4">
+              <ion-item>
+                <ion-icon name="albums" slot="start"></ion-icon>
+                <ion-card-title>Claim Number-{{d.id}}</ion-card-title>
+              </ion-item>
+              <ion-row>
+                  <ion-col>
+                      <strong>Policy Number </strong>
+                  </ion-col>
+                  <ion-col>
+                      {{d.policy_number}}
+                  </ion-col>
+                   
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <strong> Claim for </strong>
+                    </ion-col>
+                    <ion-col>
+                        {{d.type_of_loss}}
+                    </ion-col>
+                     
+                  </ion-row>
+                  <ion-row>
+                      <ion-col>
+                          <strong>Status </strong>
+                      </ion-col>
+                      <ion-col>
+                         Active
+                      </ion-col>
+                    </ion-row>   
+            </ion-card>
+          </div>
 </ion-content>

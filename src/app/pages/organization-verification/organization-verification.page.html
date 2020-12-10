@@ -29,14 +29,7 @@
                 {{d.policy_number}}
             </ion-col>
           </ion-row>
-          <ion-row>
-              <ion-col>
-                  Policy Number
-              </ion-col>
-              <ion-col>
-                  {{d.policy_number}}
-              </ion-col>
-            </ion-row>
+        
             <ion-row>
                 <ion-col>
                     Type Of Loss
@@ -61,6 +54,38 @@
                         {{d.incident_date| date: 'yyyy/MM/dd'}}
                     </ion-col>
                   </ion-row>
+                  <ion-row>
+                        <ion-col>
+                           Loan Number
+                        </ion-col>
+                        <ion-col>
+                            {{d.loan_number}}
+                        </ion-col>
+                  </ion-row>
+                  <ion-row>
+                        <ion-col>
+                          Bank Name
+                        </ion-col>
+                        <ion-col>
+                            {{d.bank_name}}
+                        </ion-col>
+                  </ion-row>
+                  <ion-row>
+                        <ion-col>
+                         Branch Name
+                        </ion-col>
+                        <ion-col>
+                            {{d.branch}}
+                        </ion-col>
+                  </ion-row>
+                 <ion-row>
+                        <ion-col>
+                        Loan Number
+                        </ion-col>
+                        <ion-col>
+                            {{d.loan_number}}
+                        </ion-col>
+                  </ion-row>
   </ion-card>
    
    
@@ -80,5 +105,5 @@
         <ion-input type="text" [(ngModel)]="issue" ></ion-input>
       </ion-item>
   </div>
-  <ion-button shape="round" (click)="onClick()">confirm</ion-button>
+  <ion-button expand="block" shape="round" (click)="onClick()">confirm</ion-button>
 </ion-content>

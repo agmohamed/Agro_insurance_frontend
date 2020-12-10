@@ -18,10 +18,12 @@ export class CompanyhistoryPage implements OnInit {
   private barChart1: Chart;
   private lineChart: Chart;
   private barChart2: Chart;
-  arr1:any;
+  arr1:any=[];
   arr2:any;
   arr3:any; arr4:any;
   id:any;
+  i:any;
+
   constructor(private router:Router, private storage:Storage,public http:HttpClient,
     private toastCtrl:ToastController, private navCtrl:NavController) {
      
@@ -132,7 +134,8 @@ export class CompanyhistoryPage implements OnInit {
   getAllActivepolicy(){
     this.http.get(AccessProviders.server+'/getactivePolicydetails/'+this.id).subscribe((res:any)=>{ 
       console.log( res);
-          this.arr1=res.data;
+      for(this.i in res.data)
+          this.arr1[this.i]=res.data[this.i];
           this.arr2=res.label;
           console.log( this.arr1+ this.arr2);
           this.barChartMethod1();
