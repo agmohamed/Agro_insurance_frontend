@@ -11,9 +11,9 @@ import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms'
   styleUrls: ['./officer-login.page.scss'],
 })
 export class OfficerLoginPage implements OnInit {
-username:any;
-Password:any;
-isSubmitted = false;
+  username:any;
+  Password:any;
+  isSubmitted = false;
   validation_form:FormGroup;
   
   constructor(
@@ -26,7 +26,7 @@ isSubmitted = false;
     private formBuilder:FormBuilder,
   ) {
     
-   }
+    }
 
   ngOnInit() {
    
@@ -34,7 +34,7 @@ isSubmitted = false;
       this.validation_form = new FormGroup({
      
         username: new FormControl('', [Validators.required, Validators.pattern('^[A-Za-z0-9]+$')]),
-        Password: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9!@#$%^&*]+$')]),
+        Password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{4,}$')]),
       
        
       });
@@ -95,7 +95,9 @@ isSubmitted = false;
               this.navCtrl.navigateRoot(['/organization-home']);
              console.log(res.data3);
             }
-          
+          // else{
+          //   this.presentToast('Timeout');
+          // }
            } ,(err=>{
            // loader.dismiss();
            

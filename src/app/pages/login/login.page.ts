@@ -5,6 +5,7 @@ import { ToastController,LoadingController,AlertController,NavController } from 
 import { AccessProviders } from '../../providers/access-providers';
 import { IonSlides } from '@ionic/angular';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { error } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-login',
@@ -55,7 +56,7 @@ export class LoginPage implements OnInit {
     this.validations_form = this.formBuilder.group({
      
       NIC: ['', [Validators.required, Validators.pattern('^[0-9]{9}[A-Za-z]$')]],
-      Password: ['', [Validators.required, Validators.pattern('^[A-Za-z0-9]+$')]],
+      Password: ['', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d^a-zA-Z0-9].{4,12}$')]],
     
      
     });
@@ -79,7 +80,7 @@ export class LoginPage implements OnInit {
         const loader=await this.loadingCtrl.create({
           message:'Please wait......',
       });
-      loader.present();
+     // loader.present();
         return new Promise(resoler=>{
           let body={
 
@@ -123,16 +124,17 @@ export class LoginPage implements OnInit {
               this.navCtrl.navigateRoot(['/types']);
               console.log(res.data);
               }else{
-                loader.dismiss();
+               // loader.dismiss();
                 this.disableButton=false;
                 this.presentToast('Email or password or status is wrong');
               }
           }
-          // ,(err=>{
-          //   loader.dismiss();
-          //   this.disableButton=false;
-          //   this.presentToast('Timeout');
-          // })
+          ,(err=>{
+            loader.dismiss();
+           // console.log(err.message);
+            this.disableButton=false;
+            this.presentToast("Enter valid NIC/password");
+          })
           );
         });
 

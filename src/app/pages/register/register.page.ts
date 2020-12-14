@@ -27,7 +27,7 @@ export class RegisterPage implements OnInit {
         Name: ['', [Validators.required, Validators.pattern('^([A-Za-z ])+$')]],
         Phone: ['', [Validators.required, Validators.pattern('^0[1-9]{9}$')]],
         NIC: ['', [Validators.required, Validators.pattern('^[0-9]{9}[A-Za-z]$')]],
-        Password: ['', [Validators.required, Validators.pattern('^[A-Za-z0-9]+$')]],
+        Password: ['', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d^a-zA-Z0-9].{4,12}$')]],
       
        
       });
