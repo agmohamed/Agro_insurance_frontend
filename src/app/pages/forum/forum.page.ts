@@ -15,41 +15,46 @@ company:any;
 Issues:any;
 Suggestions:any;
 data:any;
-  constructor(private router:Router,
-    private storage:Storage, public http:HttpClient,
-    private toastCtrl:ToastController,private loadingCtrl:LoadingController,
-    private alertCtrl:AlertController,private acessPr:AccessProviders,
+  constructor(
+    private router:Router,
+    private storage:Storage, 
+    public http:HttpClient,
+    private toastCtrl:ToastController,
+    private loadingCtrl:LoadingController,
+    private alertCtrl:AlertController,
+    private acessPr:AccessProviders,
     private navCtrl:NavController) { 
 
-      this.storage.get('storage_XXX').then((res)=>{
-        this.nic=res.NIC;
-        console.log( this.nic);
-       this.storage.get('storage_co').then((res)=>{
-         this.company=res;
-         console.log(this.company);
-        // this.init();
-         this.doRefresh(0);
-        });
-      }); 
+     
     }
   doRefresh(event) {
-      
       setTimeout(() => {
         console.log('Async operation has ended');
         event.target.complete();
         }, 2000);
+        //get submit discussion forms details
         return this.http.get(AccessProviders.server+'/getrequestissues/'+this.nic+'/'+this.company)
           .subscribe((res:any)=>{ 
-           this.data=res.message; console.log(res.message)},
-                 err=>{
-                   console.log(err);
-      })
-    }
+              this.data=res.message; console.log(res.message)},
+              err=>{
+                  console.log(err);
+        })
+  }
   ngOnInit() {
+    this.storage.get('storage_XXX').then((res)=>{
+      this.nic=res.NIC;
+      console.log( this.nic);
+     this.storage.get('storage_co').then((res)=>{
+       this.company=res;
+       console.log(this.company);
+       this.doRefresh(0);
+      });
+    }); 
   }
   back(){
     this.router.navigate(['/home/tab1']);
   }
+  //post the discussion form data
   submit(){
 
     return new Promise(resoler=>{
@@ -69,15 +74,10 @@ data:any;
             //this.router.navigate(['/home/tab2']);
               console.log('true');
           }else{
-            //loader.dismiss();
-            //this.disableButton=false;
+            
             this.presentToast("error in submission");
           }
-      },(err=>{
-        //loader.dismiss();
-       // this.disableButton=false;
-       // this.presentAlert('Timeout');
-      }));
+      });
     });
   }
   async presentToast(a) {

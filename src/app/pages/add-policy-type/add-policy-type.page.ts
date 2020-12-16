@@ -23,27 +23,27 @@ arr2:any=[];
 val:any=[];
 val1:any=[];
 arr3:any=[];
-  constructor(private router:Router,public actionSheetController: ActionSheetController,
-    private toastCtrl:ToastController, private acessPr:AccessProviders, public http:HttpClient,
+  constructor(
+    private router:Router,
+    public actionSheetController: ActionSheetController,
+    private toastCtrl:ToastController, 
+    private acessPr:AccessProviders, 
+    public http:HttpClient,
     private storage:Storage) {
-      this.storage.get('storage_company').then((res)=>{
-        this.id=res.id;
-        console.log(this.id);
-         
-         //this.name=this.datastorage.Name;
-         //console.log(this.l1);
-        //  this.http.get(AccessProviders.server+'/getcompanypolicies/'+this.id).subscribe((res:any)=>{ 
-        //      //this.data=res.message; 
-        //      console.log(res.message);
-            
-        //    })
-       });
+      
      }
 
   ngOnInit() {
+    this.storage.get('storage_company').then((res)=>{
+      this.id=res.id;
+      console.log(this.id);
+      
+     });
   }
 
+//add new policy type
   add(){
+    console.log(this.id);
     return new Promise(resoler=>{
       let body={
         company_id:this.id,
@@ -55,16 +55,11 @@ arr3:any=[];
       }
       this.acessPr.addnewpolicyType(body).subscribe((res:any)=>{
           if(res.status==true){
-            //loader.dismiss();
-           // this.disableButton=false;
-            //this.presentToast(res.message);
             this.insurance_id=res.id;
           console.log("sucessful");
           this.show();
           
           }else{
-            //loader.dismiss();
-            //this.disableButton=false;
            // this.presentToast(res.message);
           }
       });
@@ -75,6 +70,7 @@ arr3:any=[];
     this.hide=true;
   
   }
+  //post details after enter all details
   submit(){
     for(let i=0;i<4;i++){
       this.arr1[i]=this.val[i];
@@ -92,14 +88,11 @@ arr3:any=[];
      }
      this.acessPr.addnewpolicyTypeDetails(body).subscribe((res:any)=>{
          if(res.status==true){
-           //loader.dismiss();
-          // this.disableButton=false;
           // this.presentToast('update successfully');
            this.router.navigate(['/company/companytab2']);
  
          }else{
-           //loader.dismiss();
-           //this.disableButton=false;
+           
           // this.presentToast(res.message);
          }
        })

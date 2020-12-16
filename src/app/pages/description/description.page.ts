@@ -17,11 +17,9 @@ va2:string="";
 va3:string="";
 arr:any=[];
 
-  constructor(private router:Router,public http:HttpClient,private storage:Storage) { 
-    
-    
-    
-  }
+  constructor(private router:Router,
+              public http:HttpClient,
+              private storage:Storage) { }
 
   ngOnInit() {
     this.storage.get('storage_co').then((res)=>{
@@ -32,9 +30,7 @@ arr:any=[];
       return this.http.get(AccessProviders.server+'/detail/'+this.datastorage).subscribe((res:any)=>{ for(this.i in res.message){this.data=res.message; console.log(res.message)}},
           err=>{
             console.log(err);
-          }
-          
-    )
+          })
     });
    
   }

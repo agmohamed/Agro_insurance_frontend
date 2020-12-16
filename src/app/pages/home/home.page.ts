@@ -20,12 +20,7 @@ export class HomePage implements OnInit {
     private alertCtrl:AlertController,
     private acessPr:AccessProviders,
     private navCtrl:NavController) { 
-      // if( this.acessPr.checkLogged() ) {
-      //   this.info = this.acessPr.getUserInfo(); 
-      // } else {
-      //   console.log('not logged');
-      //   this.router.navigateByUrl('/login');
-      // }
+     
     }
 
   ngOnInit() {

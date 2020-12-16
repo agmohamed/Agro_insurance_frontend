@@ -43,7 +43,6 @@ export class OrganizationPage implements OnInit {
             }
             console.log( this.verify);
           }
-          
        })
       
   }
@@ -78,6 +77,7 @@ export class OrganizationPage implements OnInit {
     });
   toast.present();
   }
+
   doRefresh(event) {
     this.getclaim();
     this.getAllclaim();

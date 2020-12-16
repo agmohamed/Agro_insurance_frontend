@@ -11,7 +11,6 @@ import { AccessProviders } from '../../providers/access-providers';
 })
 export class AgentVerificationPage implements OnInit {
 id:any;
-
 data:any;
 verifi:any;
 issue:any;
@@ -19,27 +18,29 @@ va:any;
 hide=false;
 status:any;
 hide1=false;
-  constructor(private router:Router, private storage:Storage,public http:HttpClient,private acessPr:AccessProviders,) 
-  { 
+  constructor(
+    private router:Router, 
+    private storage:Storage,
+    public http:HttpClient,
+    private acessPr:AccessProviders) 
+    { }
+
+  ngOnInit() {
     this.storage.get('storage_info').then((res)=>{
       this.id=res;
       console.log( res);
       this.http.get(AccessProviders.server+'/getpolicy/'+this.id).subscribe((res:any)=>{ 
         this.data=res.message;
         console.log( this.data);
-      
-        this.storage.set('storage_landnumber',res.message[0].land_number);
-       
+        this.storage.set('storage_landnumber',res.message[0].land_number); 
      })
     });
-  }
-
-  ngOnInit() {
   }
   onClick(){
     this.verify();
     
   }
+  //post agent verification
   verify(){
     console.log(this.verifi);
     console.log(this.id);
@@ -51,10 +52,7 @@ hide1=false;
     else if(this.verifi=='Reject'){
        this.va=0;
        this.status='reject';
-    }
-
-       
-        
+    } 
     return new Promise(resoler=>{
     
         let body={
@@ -93,6 +91,7 @@ hide1=false;
     }
 
   }
+  //view uploded photos
   viewimage(){
     if(this.hide1==false)
       this.hide1=true;

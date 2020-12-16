@@ -54,73 +54,7 @@ arr2:any=[];
     private toastCtrl:ToastController, private acessPr:AccessProviders, public http:HttpClient,
     private storage:Storage,
     private formBuilder:FormBuilder) { 
-      // this.myform = this.formBuilder.group({
-      //   crop: ['', [Validators.required]],
-      //   SDate: ['', [Validators.required, Validators.pattern('^0[1-9]{9}$')]],
-      //   EDate: ['', [Validators.required, Validators.pattern('^[0-9]{9}[A-Za-z]$')]],
-      //   Password: ['', [Validators.required, Validators.pattern('^[A-Za-z0-9]+$')]],
-      //   type: ['', [Validators.required]],
-       
-      // });
-      this.myform=new FormGroup({
-        userdetails:new FormControl({
-          crop:new FormControl('',Validators.required),
-          SDate:new FormControl('',Validators.required),
-          EDate:new FormControl('',Validators.required),
-          optional:new FormControl('',Validators.required),
-          type:new FormControl('',Validators.required),
-          // landD:new FormControl('',Validators.required),
-          // land:new FormControl('',Validators.required),
-        })
-      })
-      this.storage.get('storage_co').then((res)=>{
-        console.log(res);
-        this.datastorage1=res;
-        //this.name=this.datastorage.Name;
-        console.log(this.datastorage1);
-        if(res==0){
-          this.hideMe=true;
-         
-       }
-      //  if(res==1){
-      //   this.hide=true;
-      //  }
-       this.showrisks();
-       this.showpolicy();
-       this.va();
-      });
-     /* this.storage.get('storage_co').then((res)=>{
-        console.log(res);
-        this.datastorage=res;
-        if(res==0){
-          this.hideMe=true;
-         
-       }
-       if(res==1){
-        this.hide=true;
-       }
-        //this.name=this.datastorage.Name;
-       // console.log(this.datastorage);
-      });*/
-      this.storage.get('storage_XXX').then((res)=>{
-        console.log(res);
-        this.datastorage=res;
-        this.NIC=this.datastorage.NIC;
-        console.log(this.NIC);
-       
-        return this.http.get(AccessProviders.server+'/land/'+this.NIC).subscribe((res:any)=>{ 
-          for(this.i in res.message){this.data=res.message; 
-            console.log(res.message);
-            this.arr2.push({'land':res.message[this.i]. land_number,'dis':res.message[this.i].District,'gra':res.message[this.i]. Gramaseva_division}); 
-          console.log(this.arr2[this.i]);
-            //this.di=res.message[i]. District;
-          }},
-              
-          err=>{
-            console.log(err);
-           }
-        )
-      });
+      
      
 
   }
@@ -130,12 +64,55 @@ arr2:any=[];
   }
   ngOnInit() {
     this.photos=[];
+    this.myform=new FormGroup({
+      userdetails:new FormControl({
+        crop:new FormControl('',Validators.required),
+        SDate:new FormControl('',Validators.required),
+        EDate:new FormControl('',Validators.required),
+        optional:new FormControl('',Validators.required),
+        type:new FormControl('',Validators.required),
+        // landD:new FormControl('',Validators.required),
+        // land:new FormControl('',Validators.required),
+      })
+    })
+    this.storage.get('storage_co').then((res)=>{
+      console.log(res);
+      this.datastorage1=res;
+      //this.name=this.datastorage.Name;
+      console.log(this.datastorage1);
+      if(res==0){
+        this.hideMe=true;
+       }
     
+     this.showrisks();
+     this.showpolicy();
+     this.va();
+    });
+   
+    this.storage.get('storage_XXX').then((res)=>{
+      console.log(res);
+      this.datastorage=res;
+      this.NIC=this.datastorage.NIC;
+      console.log(this.NIC);
+     
+      return this.http.get(AccessProviders.server+'/land/'+this.NIC).subscribe((res:any)=>{ 
+        for(this.i in res.message){this.data=res.message; 
+          console.log(res.message);
+          this.arr2.push({'land':res.message[this.i]. land_number,'dis':res.message[this.i].District,'gra':res.message[this.i]. Gramaseva_division}); 
+        console.log(this.arr2[this.i]);
+          //this.di=res.message[i]. District;
+        }},  
+        err=>{
+          console.log(err);
+         }
+      )
+    });
+   
   }
   location(){
     this.router.navigate(['/location']);
   }
- back(){
+  back(){
     this.router.navigate(['/home/tab2']);
   }
   addlocation(){
@@ -170,7 +147,7 @@ arr2:any=[];
     this.http.get(AccessProviders.server+'/detail/'+this.datastorage1).subscribe((res:any)=>{ 
       this.policy=res.message;
       console.log(this.policy);
-  })
+    })
   }
   submit(){
     console.log(this.type);
@@ -252,12 +229,6 @@ arr2:any=[];
     } 
    
     
-    
-    //this.disableButton=true;
-    // const loader=await this.loadingCtrl.create({
-    //     message:'Please wait......',
-    // });
-    //loader.present();
     this.http.get(AccessProviders.server+'/agentId/'+this.district+'/'+this.gramasewa_division+'/'+this.datastorage1).subscribe((res:any)=>{ 
       for(this.i in res.message){this.id=res.message[this.i].id;
          //this.arr2.push({'id':res.message[this.i].id}); 
@@ -306,19 +277,16 @@ arr2:any=[];
 
        }}
        )
-      
-    
-     
-     
   
   }
+
   async presentToast(a) {
     let toast = await this.toastCtrl.create({
       message: a,
       duration: 3000,
       position: 'top'
     });
-  toast.present();
+   toast.present();
   }
   openCamera(){
     const options: CameraOptions = {
@@ -330,7 +298,7 @@ arr2:any=[];
     
     this.camera.getPicture(options).then((imageData) => {
       this.cameradata=imageData;
-     this.base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.base64Image = 'data:image/jpeg;base64,' + imageData;
       this.photos.push(this.base64Image);
       this.photos.reverse();
     }, (err) => {
@@ -346,11 +314,11 @@ arr2:any=[];
       mediaType: this.camera.MediaType.PICTURE
     }
     
-    this.camera.getPicture(options).then((imageData) => {
-    this.cameradata=imageData;
-    this.base64Image = 'data:image/jpeg;base64,' + imageData;
-    this.photos.push(this.base64Image);
-    this.photos.reverse();
+      this.camera.getPicture(options).then((imageData) => {
+      this.cameradata=imageData;
+      this.base64Image = 'data:image/jpeg;base64,' + imageData;
+      this.photos.push(this.base64Image);
+      this.photos.reverse();
     }, (err) => {
      // Handle error
     });
@@ -382,7 +350,6 @@ arr2:any=[];
     let body={
       images:this.cameradata
     };
-  
   }
 
 }

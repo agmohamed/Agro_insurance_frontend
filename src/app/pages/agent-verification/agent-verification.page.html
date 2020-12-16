@@ -12,29 +12,29 @@
         <h1>Policy Details</h1>
     </div>    
  <ion-card class="c1">
- <ion-row>
-   <ion-col>
+    <ion-row>
+        <ion-col>
       NIC
-   </ion-col>
-   <ion-col>
-      {{d.NIC}}
-    </ion-col>
- </ion-row>
- <ion-row>
-    <ion-col>
-        Land Number
-    </ion-col>
-    <ion-col>
-        {{d.land_number}}
-     </ion-col>
-  </ion-row>
-  <ion-row>
-      <ion-col>
-          Start Date
-      </ion-col>
-      <ion-col>
-          {{d.start_date| date: 'yyyy/MM/dd'}}
        </ion-col>
+        <ion-col>
+      {{d.NIC}}
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+        Land Number
+        </ion-col>
+        <ion-col>
+        {{d.land_number}}
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+          Start Date
+        </ion-col>
+        <ion-col>
+          {{d.start_date| date: 'yyyy/MM/dd'}}
+        </ion-col>
     </ion-row>
     <ion-row>
         <ion-col>
@@ -43,56 +43,55 @@
         <ion-col>
             {{d.end_date| date: 'yyyy/MM/dd'}}
          </ion-col>
-      </ion-row>
-      <ion-row>
-          <ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
               Crop
-          </ion-col>
-          <ion-col>
+        </ion-col>
+        <ion-col>
               {{d.Crop}}
-           </ion-col>
-        </ion-row>
-      <ion-row>
-            <ion-col>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
                 Size of Land
-            </ion-col>
-            <ion-col>
+        </ion-col>
+        <ion-col>
                 {{d.Size}}
-             </ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
                 Risk_type
-            </ion-col>
-            <ion-col>
+        </ion-col>
+        <ion-col>
                 {{d.risk_type}}
-             </ion-col>
-        </ion-row>
-      </ion-card> 
+        </ion-col>
+    </ion-row>
+  </ion-card> 
 
-        <ion-item class="ion-margin-bottom">
+      <ion-item class="ion-margin-bottom">
             <ion-label>Location</ion-label> 
             <ion-button (click)="location()">Viewland</ion-button>
-          </ion-item>
-          <ion-item class="ion-margin-bottom">
+      </ion-item>
+      <ion-item class="ion-margin-bottom">
            <ion-label>Upload image</ion-label> 
-              <ion-button (click)="viewimage()">View </ion-button>
-            </ion-item> 
+            <ion-button (click)="viewimage()">View </ion-button>
+      </ion-item> 
        
  
   <div *ngIf="hide1">
    <ion-img src="{{d.documents}}"></ion-img>
-   
   </div>
  
   <ion-item class="ion-margin-bottom">
-  <ion-label>Verification</ion-label>
-  <ion-select  [(ngModel)]="verifi">
+    <ion-label>Verification</ion-label>
+    <ion-select  [(ngModel)]="verifi">
       <ion-select-option>Accept</ion-select-option>
       <ion-select-option>Reject</ion-select-option>
-  </ion-select>
-  <ion-button (click)="submit()">submit</ion-button>
-</ion-item >
+    </ion-select>
+    <ion-button (click)="submit()">submit</ion-button>
+  </ion-item >
 
 <div *ngIf="hide">
   <ion-item class="ion-margin-bottom">
@@ -101,5 +100,5 @@
   </ion-item>
 </div>
 
-<ion-button expand="block" color="success" shape="round" (click)="onClick()">confirm</ion-button>
+  <ion-button expand="block" color="success" shape="round" (click)="onClick()">confirm</ion-button>
 </ion-content>

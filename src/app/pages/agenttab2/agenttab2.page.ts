@@ -17,22 +17,27 @@ export class Agenttab2Page implements OnInit {
  phone:any;
  district:any;
  gramasewa_division:any;
-  constructor(private router:Router, private storage:Storage,public http:HttpClient,
-    private toastCtrl:ToastController, private navCtrl:NavController) { 
-    this.storage.get('storage_agent').then((res)=>{
-      console.log(res);
-      this.data=res;
-     this.name=res.Name;
-     this.nic=res.NIC;
-     this.district=res.District;
-     this.gramasewa_division=res.Gramaseva_division;
-    });
-   }
+  constructor(
+    private router:Router, 
+    private storage:Storage,
+    public http:HttpClient,
+    private toastCtrl:ToastController, 
+    private navCtrl:NavController) { }
 
   
 
   ngOnInit() {
+    //get agent details from the storage
+  this.storage.get('storage_agent').then((res)=>{
+      console.log(res);
+      this.data=res;
+      this.name=res.Name;
+      this.nic=res.NIC;
+      this.district=res.District;
+      this.gramasewa_division=res.Gramaseva_division;
+    });
   }
+  //logout from the application
   async processLogout(){
     this.storage.clear();
     this.navCtrl.navigateRoot('/welcome');

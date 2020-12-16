@@ -16,9 +16,14 @@ nic:any;
 district:any;
 gramasewa_division:any;
   constructor(
-    private router:Router,private storage:Storage,public http:HttpClient,
-    private toastCtrl:ToastController, private navCtrl:NavController
-  ) { 
+    private router:Router,
+    private storage:Storage,
+    public http:HttpClient,
+    private toastCtrl:ToastController, 
+    private navCtrl:NavController
+  ) { }
+
+  ngOnInit() {
     this.storage.get('storage_org').then((res)=>{
       console.log(res);
       this.data=res;
@@ -27,9 +32,6 @@ gramasewa_division:any;
       this.district=res.District;
       this.gramasewa_division=res.Gramaseva_division;
     });
-  }
-
-  ngOnInit() {
   }
   async processLogout(){
     this.storage.clear();

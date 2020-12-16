@@ -5,12 +5,6 @@
       </ion-buttons>
     <!-- <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon> -->
     <ion-title>Hi {{name}}</ion-title>
-    
-     <!-- <ion-buttons slot="end">
-      <ion-button color="light" (click)="processLogout()">
-        <ion-icon slot="icon-only" name="exit"></ion-icon>
-      </ion-button>
-    </ion-buttons>  -->
   </ion-toolbar>
 </ion-header>
 
@@ -51,14 +45,9 @@
             <ion-card class="card" *ngFor=" let d of data; let i=index" >
                 <h1  >Policy Number-{{d.id}}</h1>
                 <ion-img src="/assets/icon/cal.png"  style="height: 50px;width: 100px;"></ion-img>
-                    <!----<p>Next Payment : <strong class="te">January 20 2021 </strong>
-                      <strong class="am"> Total amount to pay:4000</strong>
-                    
-                    </p>-->
                 <strong >Total premium : {{d.premium}}</strong><br>
                 <strong >Amount to be paid: {{amount[i]}}</strong>
             </ion-card>
-               
         </ion-col>
       </ion-row> 
     </ion-grid> 

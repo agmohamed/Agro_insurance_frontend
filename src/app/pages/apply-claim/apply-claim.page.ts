@@ -18,25 +18,26 @@ export class ApplyClaimPage implements OnInit {
   hide2=false;
   hide3=false;
   hide4=false;
-  constructor(private router:Router,
-    private acessPr:AccessProviders,public http:HttpClient,private storage:Storage) 
-    {
-      this.storage.get('storage_appliedClaim').then((res)=>{
-        console.log(res);
-        this.id=res;
-        this.storage.get('storage_co').then((res)=>{
-          console.log(res);
-          this.company_id=res;
-          this.getclaim();
-        })
-       
-     
-      });
-     }
+  constructor(
+    private router:Router,
+    private acessPr:AccessProviders,
+    public http:HttpClient,
+    private storage:Storage) 
+    {}
 
   ngOnInit() {
+    this.storage.get('storage_appliedClaim').then((res)=>{
+      console.log(res);
+      this.id=res;
+      this.storage.get('storage_co').then((res)=>{
+        console.log(res);
+        this.company_id=res;
+        this.getclaim();
+      })
+    });
   }
 
+//get claim details according to claim id
   getclaim(){
     this.http.get(AccessProviders.server+'/getclaim/'+this.id).subscribe((res:any)=>{ 
           this.data=res.message;

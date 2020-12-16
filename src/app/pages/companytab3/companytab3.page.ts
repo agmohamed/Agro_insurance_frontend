@@ -14,8 +14,12 @@ id:any;
 data:any; data1:any;
 va:any;
 request: string = "policy";
-  constructor(private router:Router,public http:HttpClient,private storage:Storage) { 
-    
+  constructor(
+    private router:Router,
+    public http:HttpClient,
+    private storage:Storage) { }
+
+  ngOnInit() {
     this.storage.get('storage_company').then((res)=>{
       this.id=res.id;
       console.log(this.id);
@@ -33,19 +37,15 @@ request: string = "policy";
                 console.log(res.message);
               }) 
              }
-             else{
+          else{
             this.http.get(AccessProviders.server+'/getclaimSANASA/'+this.id).subscribe((res:any)=>{ 
                   this.data1=res.message; 
                   console.log(res.message);
                    
                   }) 
              }   
-       
      });
      
-  }
-
-  ngOnInit() {
   }
 
   doRefresh(event) {
@@ -72,6 +72,7 @@ request: string = "policy";
         event.target.complete();
         }, 2000);
   }
+  
   view(event){
     this.va=event.target.id;
     this.storage.set('storage_companypolicy',this.va);

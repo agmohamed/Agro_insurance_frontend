@@ -17,22 +17,14 @@ hide1=false;
 hide2=false;
 hide3=false;
 hide4=false;
-  constructor(private router:Router,
-    private acessPr:AccessProviders,public http:HttpClient,private storage:Storage) 
-    {
-      this.storage.get('storage_appliedPolicy').then((res)=>{
-        console.log(res);
-        this.id=res;
-        this.storage.get('storage_co').then((res)=>{
-          console.log(res);
-          this.company_id=res;
-          this.getpolicy();
-        })
-       
+  constructor(
+    private router:Router,
+    private acessPr:AccessProviders,
+    public http:HttpClient,
+    private storage:Storage) 
+    {}
      
-      });
-     }
-     
+    //get policy details according to policy id
      getpolicy(){
       this.http.get(AccessProviders.server+'/getpolicy/'+this.id).subscribe((res:any)=>{ 
             this.data=res.message;
@@ -59,6 +51,15 @@ hide4=false;
         
     }
   ngOnInit() {
+    this.storage.get('storage_appliedPolicy').then((res)=>{
+      console.log(res);
+      this.id=res;
+      this.storage.get('storage_co').then((res)=>{
+        console.log(res);
+        this.company_id=res;
+        this.getpolicy();
+      })
+    });
   }
   show(){
     if(this.hide4==false)

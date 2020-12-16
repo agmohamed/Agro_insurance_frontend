@@ -12,9 +12,13 @@ de:any;
 de1:any;
 pic:any;
 de2:any;
-  constructor(private router:Router,private storage:Storage,
-    private toastCtrl:ToastController, private navCtrl:NavController) { 
+  constructor(
+    private router:Router,
+    private storage:Storage,
+    private toastCtrl:ToastController, 
+    private navCtrl:NavController) { }
 
+  ngOnInit() {
     this.storage.get('storage_company').then((res)=>{
       this.de=res.name;
       this.de1=res.description;
@@ -25,9 +29,6 @@ de2:any;
       //this.name=this.datastorage.Name;
       //console.log(this.l1);
     });
-  }
-
-  ngOnInit() {
   }
   back(){
     this.router.navigate(['/login']);

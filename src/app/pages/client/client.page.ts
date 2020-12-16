@@ -111,35 +111,27 @@ pic:any;
     this.hid=true;
     
   }
+  //update the farmer's paid amount for premium
   update(){
     
     console.log(this.policyid);
     return new Promise(resoler=>{
       let body={
         amount:this.amount
-        
-       
-
       }
       this.acessPr.updateAmount(body,this.policyid).subscribe((res:any)=>{
           if(res.status==true){
             //loader.dismiss();
            // this.disableButton=false;
             this.presentToast("update successfully");
-            //this.router.navigate(['/home/tab2']);
               console.log('true');
               this.hid=false;
           }else{
-            //loader.dismiss();
-            //this.disableButton=false;
+            
            // this.presentToast(res.message);
           }
-      },(err=>{
-        //loader.dismiss();
-       // this.disableButton=false;
-       // this.presentAlert('Timeout');
-        }));
       });
+    });
     
   }
   async presentToast(a) {
@@ -151,6 +143,7 @@ pic:any;
   toast.present();
   }
 
+  //navigate to rating page
   rate(){
     this.router.navigate(['/rateuser']);
   }

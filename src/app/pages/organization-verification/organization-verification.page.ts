@@ -22,6 +22,10 @@ status:any;
   constructor(private router:Router,private storage:Storage,public http:HttpClient,
     private acessPr:AccessProviders,) {
 
+    
+   }
+
+  ngOnInit() {
     this.storage.get('storage_info1').then((res)=>{
       this.id=res;
       console.log( res);
@@ -36,9 +40,6 @@ status:any;
         });
      })
     });
-   }
-
-  ngOnInit() {
   }
 
   onClick(){
@@ -78,6 +79,7 @@ status:any;
         });
       });
   }
+  
   submit(){
     if(this.verifi=='False')
       this.hide=true;

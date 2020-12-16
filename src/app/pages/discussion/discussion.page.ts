@@ -15,15 +15,18 @@ answer:any;
 hide=false;
 va:any;
 company_id:any;
-  constructor(private router:Router,public http:HttpClient,private storage:Storage
-    ,private acessPr:AccessProviders,
-    private toastCtrl:ToastController) { 
-      this.doRefresh(0);
-  }
+  constructor(
+    private router:Router,
+    public http:HttpClient,
+    private storage:Storage,
+    private acessPr:AccessProviders,
+    private toastCtrl:ToastController)
+     { }
 
   doRefresh(event) {
     this.storage.get('storage_company').then((res)=>{
       this.company_id=res.id;
+      //get requested discussion forms details
      this.http.get(AccessProviders.server+'/getallrequestissues/'+this.company_id).subscribe((res:any)=>{ 
         this.data=res.message; 
         console.log(res.message);
@@ -37,6 +40,7 @@ company_id:any;
      
   } 
   ngOnInit() {
+    this.doRefresh(0);
   }
   back(){
     this.router.navigate(['/company/companytab1']);
@@ -45,6 +49,7 @@ company_id:any;
     this.va=event.target.id;
     this.hide=true;
   }
+  //submit answers for requested forms
   submit(){
     console.log(this.answer);
     console.log(this.va);
@@ -60,9 +65,7 @@ company_id:any;
                 console.log('true');
                 
           }else{
-                //loader.dismiss();
-                //this.disableButton=false;
-                // this.presentToast(res.message);
+             this.presentToast("cannot submit");
           }
       });
     });

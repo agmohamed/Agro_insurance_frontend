@@ -12,59 +12,54 @@
               <div class="center"> 
                 <ion-img src="/assets/icon/man.png" style="height: 100px;width: 100px;" class="ion-align-self-end"></ion-img> 
             </div> 
-          </div>
+        </div>
         
       
-        <ion-card-content color="light">
+      <ion-card-content color="light">
           <ion-row>
-            <!-- <ion-img src="/assets/icon/star1.png"  style="height: 40px;width: 40px;" ></ion-img>
-            <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
-            <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
-            <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
-            <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img> -->
             <ion-img src="{{pic}}"  style="height: 300;width: 300;" ></ion-img>
           </ion-row>
-        <ion-row>
-          <ion-item class="pla">
-          <ion-label><strong>Name  :</strong>    </ion-label>
-          <ion-input   [(ngModel)]="name"></ion-input>
-        </ion-item>
-        </ion-row>
-        <ion-row>
+          <ion-row>
+            <ion-item class="pla">
+                <ion-label><strong>Name  :</strong>    </ion-label>
+                <ion-input   [(ngModel)]="name"></ion-input>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
             <ion-item>
-          <ion-label><strong>Telephone :</strong> </ion-label>
-          <ion-input type="text"  [(ngModel)]="phone"></ion-input>
+                <ion-label><strong>Telephone :</strong> </ion-label>
+                <ion-input type="text"  [(ngModel)]="phone"></ion-input>
             </ion-item>
           </ion-row>
           <ion-row>
               <ion-item>
-              <ion-label><strong>Address  : </strong> </ion-label>
-              <ion-input type="text"  [(ngModel)]="address"></ion-input>
+                  <ion-label><strong>Address  : </strong> </ion-label>
+                  <ion-input type="text"  [(ngModel)]="address"></ion-input>
               </ion-item>
-            </ion-row>
-            <ion-row>
+          </ion-row>
+          <ion-row>
                 <ion-button   class="no-padding" (click)="update()" shape="round" >
                     Update</ion-button>
-    
                 <ion-button class="no-padding"  shape="round" (click)="processLogout()"  color="light">
                         SignOut</ion-button> 
-            </ion-row>
+          </ion-row>
             
-        </ion-card-content>
-      </ion-card>
-      <div class="center">
+      </ion-card-content>
+    </ion-card>
+
+    <div class="center">
      <ion-button class="btn1"  shape="round" (click)="viewhistory1()"> 
-        
       View Policy History
       </ion-button> 
     </div>
     <div class="center">
         <ion-button class="btn1"  shape="round" (click)="viewhistory2()"> 
-           
          View Claim History
          </ion-button> 
-       </div>
-      <div *ngIf="hide1">
+    </div>
+    
+    <div *ngIf="hide1">
       <ion-card class="card1" *ngFor="let d of val">
           <ion-item>
             <ion-icon name="albums" slot="start"></ion-icon>
@@ -76,10 +71,10 @@
           </ion-card-content>
           <img [src]="d.documents" />
           <ion-button class="btn2" shape="round"  (click)="view($event)" id="{{d.id}}">{{d.status}}</ion-button>
-        </ion-card>
-      </div>
-      <div *ngIf="hide2">
-          <ion-card class="card1" *ngFor="let d of val1">
+      </ion-card>
+    </div>
+    <div *ngIf="hide2">
+        <ion-card class="card1" *ngFor="let d of val1">
               <ion-item>
                 <ion-icon name="albums" slot="start"></ion-icon>
                 <ion-card-title>Claim Number-{{d.id}}</ion-card-title>
@@ -91,16 +86,7 @@
               </ion-card-content>
               <img [src]="d.documents" />
               <ion-button class="btn2" shape="round"  (click)="view1($event)" id="{{d.id}}">{{d.status}}</ion-button>
-            </ion-card>
-          </div>
-        <!-- <ion-card>
-            <ion-item>
-              <ion-icon name="star-half" slot="start"></ion-icon>
-              <ion-card-title>Ratings</ion-card-title>
-            </ion-item>
-          
-            <ion-card-content>
-              ratings of user
-            </ion-card-content>
-          </ion-card> -->
+        </ion-card>
+      </div>
+       
 </ion-content>

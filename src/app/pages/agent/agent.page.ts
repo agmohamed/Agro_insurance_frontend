@@ -20,13 +20,18 @@ data1:any;
 verify:any=[];
 i:any;
 request: string = "summary";
-  constructor(private router:Router, private storage:Storage,public http:HttpClient,
-    private toastCtrl:ToastController, private navCtrl:NavController) {
-    this.doRefresh(0);
-   }
+  constructor(
+    private router:Router, 
+    private storage:Storage,
+    public http:HttpClient,
+    private toastCtrl:ToastController,
+     private navCtrl:NavController) 
+     {}
 
   ngOnInit() {
+    this.doRefresh(0);
   }
+  //navigate to agent verification page
   view(event){
     this.va=event.target.id;
     this.storage.set('storage_info',this.va);
@@ -50,13 +55,14 @@ request: string = "summary";
         event.target.complete();
         }, 2000);
   }
-  
+  //get requested policy details
   getpolicy(){
     this.http.get(AccessProviders.server+'/agent/'+this.agent_id+'/'+this.id).subscribe((res:any)=>{ 
           this.data=res.message;
        })
       
   }
+  //get policy details which agent verify
   getpolicydetails(){
     this.http.get(AccessProviders.server+'/policyapplyhistory/'+this.agent_id+'/'+this.id).subscribe((res:any)=>{ 
           this.data1=res.message;
@@ -67,10 +73,10 @@ request: string = "summary";
             else if(res.message[this.i].agent_verification==1)
             this.verify[this.i]="Accept";
           }
-         
        })
       
   }
+
   back(){
 
     this.router.navigate(['/login']);
@@ -83,6 +89,6 @@ request: string = "summary";
       duration: 3000,
       position: 'top'
     });
-  toast.present();
+    toast.present();
   }
 }

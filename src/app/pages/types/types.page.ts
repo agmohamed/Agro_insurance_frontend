@@ -11,6 +11,7 @@ export class TypesPage implements OnInit {
 
   ngOnInit() {
   }
+  //navigate to view insurance companies
   gopage(){
     this.router.navigate(['/insurance-compnay']);
   }

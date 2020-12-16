@@ -45,9 +45,7 @@
       
 <div [ngSwitch]="request">
   <ion-list *ngSwitchCase="'history'"> 
-    
-   
-    <ion-card color="light" (click)="go()" *ngFor="let d of data1;let i=index">
+   <ion-card color="light" (click)="go()" *ngFor="let d of data1;let i=index">
       
     <ion-card-title><strong>PolicyRequest -{{d.id}}</strong></ion-card-title>
       <ion-row>
@@ -59,40 +57,39 @@
         </ion-col>
       </ion-row>
       <ion-row>
-          <ion-col>
+        <ion-col>
               Agent Verification
+        </ion-col>
+        <ion-col>
+              {{verify[i]}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+                Land Number
+        </ion-col>
+        <ion-col>
+                {{d.land_number}}
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+                  Land Size
           </ion-col>
           <ion-col>
-              {{verify[i]}}
-          </ion-col>
-        </ion-row>
-        <ion-row>
-            <ion-col>
-                Land Number
-            </ion-col>
-            <ion-col>
-                {{d.land_number}}
-            </ion-col>
-          </ion-row>
-          <ion-row>
-              <ion-col>
-                  Land Size
-              </ion-col>
-              <ion-col>
                   {{d.Size}}
-              </ion-col>
-            </ion-row>
-            <ion-row>
-                <ion-col>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
                     Policy Status
-                </ion-col>
-                <ion-col>
+          </ion-col>
+          <ion-col>
                     {{d.status}}
-                </ion-col>
-              </ion-row>
+          </ion-col>
+      </ion-row>
     </ion-card>
-    
-
-</ion-list>
+  
+  </ion-list>
 </div>
 </ion-content>

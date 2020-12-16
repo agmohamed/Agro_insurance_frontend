@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import { ActionSheetController } from '@ionic/angular';
 import { Router,ActivatedRoute } from '@angular/router';
 import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -13,25 +11,29 @@ import {Storage} from '@ionic/storage';
 export class WelcomePage implements OnInit {
   va:any;
   
-  constructor(private camera: Camera,public actionSheetController: ActionSheetController, public http:HttpClient,
-     private router:Router,private splashScreen: SplashScreen,
+  constructor(
+    public http:HttpClient,
+     private router:Router,
+     private splashScreen: SplashScreen,
      private storage:Storage) {
     }
 
   ngOnInit() {
   }
 
+  //navigate farmer to login 
 openLogin1(event){
   this.va=event.target.id;
   this.storage.set('storage_login',this.va);
   this.router.navigate(['/login']);
  }
+ //navigate officer to login
  openLogin2(event){
   this.va=event.target.id;
   this.storage.set('storage_login',this.va);
   this.router.navigate(['/officer-login']);
  }
-
+//view details of insurances
  details(){
   this.router.navigate(['/types']);
  }

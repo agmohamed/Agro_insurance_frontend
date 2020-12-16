@@ -29,10 +29,10 @@ const routes: Routes = [
     path: 'insurance-compnay',
     loadChildren: () => import('./pages/insurance-compnay/insurance-compnay.module').then( m => m.InsuranceCompnayPageModule)
   },
-  {
-    path: 'aaib',
-    loadChildren: () => import('./pages/aaib/aaib.module').then( m => m.AaibPageModule)
-  },
+  // {
+  //   path: 'aaib',
+  //   loadChildren: () => import('./pages/aaib/aaib.module').then( m => m.AaibPageModule)
+  // },
   
   {
     path: 'tab4',
@@ -50,14 +50,14 @@ const routes: Routes = [
     path: 'des1',
     loadChildren: () => import('./pages/des1/des1.module').then( m => m.Des1PageModule)
   },
-  {
-    path: 'des2',
-    loadChildren: () => import('./pages/des2/des2.module').then( m => m.Des2PageModule)
-  },
-  {
-    path: 'des3',
-    loadChildren: () => import('./pages/des3/des3.module').then( m => m.Des3PageModule)
-  },
+  // {
+  //   path: 'des2',
+  //   loadChildren: () => import('./pages/des2/des2.module').then( m => m.Des2PageModule)
+  // },
+  // {
+  //   path: 'des3',
+  //   loadChildren: () => import('./pages/des3/des3.module').then( m => m.Des3PageModule)
+  // },
   {
     path: 'claim',
     loadChildren: () => import('./pages/claim/claim.module').then( m => m.ClaimPageModule)
@@ -82,10 +82,10 @@ const routes: Routes = [
   //   path: 'organization',
   //   loadChildren: () => import('./pages/organization/organization.module').then( m => m.OrganizationPageModule)
   // },
-  {
-    path: 'active-policy',
-    loadChildren: () => import('./pages/active-policy/active-policy.module').then( m => m.ActivePolicyPageModule)
-  },
+  // {
+  //   path: 'active-policy',
+  //   loadChildren: () => import('./pages/active-policy/active-policy.module').then( m => m.ActivePolicyPageModule)
+  // },
   {
     path: 'update',
     loadChildren: () => import('./pages/update/update.module').then( m => m.UpdatePageModule)
@@ -146,7 +146,8 @@ const routes: Routes = [
   {
     path: 'organization-home',
     loadChildren: () => import('./pages/organization-home/organization-home.module').then( m => m.OrganizationHomePageModule)
-  },  {
+  },
+  {
     path: 'officer-login',
     loadChildren: () => import('./pages/officer-login/officer-login.module').then( m => m.OfficerLoginPageModule)
   },

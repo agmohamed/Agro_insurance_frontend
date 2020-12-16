@@ -20,7 +20,9 @@ arr3:any=[];
   constructor(private router:Router,public http:HttpClient,
     private storage:Storage,private acessPr:AccessProviders,
     private toastCtrl:ToastController,) 
-    { 
+    { }
+
+  ngOnInit() {
     this.storage.get('storage_cropdetails').then((res)=>{
       this.id=res;
       console.log(this.id);
@@ -34,13 +36,13 @@ arr3:any=[];
            }
          })
       })
-   }
-
-  ngOnInit() {
   }
+
   back(){
     this.router.navigate(['/company/companytab2']);
   }
+  
+  //update the currently available policy types
   update(){
     for(let i=0;i<this.data.length;i++){
       console.log(this.data[i].rate);

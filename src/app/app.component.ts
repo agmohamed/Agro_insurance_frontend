@@ -45,25 +45,7 @@ storage3:any;
       }
     });
   
-    // if(  this.storage1!=null){
-    //   this.navCtrl.navigateRoot('/insurance-compnay');
-    // }
-    // else if( this.storage2!=null){
-    //   this.navCtrl.navigateRoot('/company');
-    // }
-    // else if( this.storage3!=null){
-    //   this.navCtrl.navigateRoot('/agent');
-    // }
-    // else{
-    //   this.navCtrl.navigateRoot('/welcome');
-    // }
   }
-  // check(){
-  //   if( this.acessPr.checkLogged()) {
-  //     this.navCtrl.navigateRoot('/home');
-  //   } else {
-  //     this.navCtrl.navigateRoot('/login');
-  //   }
-  // }
+  
   
 }

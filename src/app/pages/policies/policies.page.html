@@ -5,27 +5,16 @@
           <ion-back-button></ion-back-button>
       </ion-buttons>
       <ion-row>
-          <!-- <ion-button shape="round" size="small" >crop</ion-button>
-          <ion-button shape="round" size="small" >livestock</ion-button> -->
-         
       </ion-row>
       <ion-title>Policy Application</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!--<ion-item>
-    <ion-label>Insurance type</ion-label>
-    <ion-select interface="popover" [(ngModel)]="selected_value"  >
-      <ion-select-option value="p">Indemnity based Comprehensive Crop insurance</ion-select-option>
-      <ion-select-option value="b">Weather Index Based Inusrance</ion-select-option>
-     
-    </ion-select>
-  </ion-item>-->
   <div id="header"><h1>Policy Details</h1></div>
-  <ion-card>
+<ion-card>
    
-   <ion-item>
+    <ion-item>
 
       <ion-label floating>Crop type</ion-label>
       <ion-select  [(ngModel)]="crop"  >
@@ -40,43 +29,42 @@
     
       <ion-label >Start Date</ion-label>
       <ion-datetime  displayFormat="YYYY-MM-DD" min="2020" max="2030" [(ngModel)]="Start_date"></ion-datetime>
-  </ion-item>
-  <ion-item>
+    </ion-item>
+    <ion-item>
       <ion-label >End Date</ion-label>
       <ion-datetime displayFormat="YYYY-MM-DD" min="2020" max="2030" [(ngModel)]="End_date" ></ion-datetime>
-  </ion-item>
+    </ion-item>
+
   <div *ngIf="hideMe">
-  <ion-item>
-    <ion-label >optional policy for</ion-label>
-    <ion-select   interface="action-sheet"  [(ngModel)]="risk" >
+    <ion-item>
+      <ion-label >optional policy for</ion-label>
+      <ion-select   interface="action-sheet"  [(ngModel)]="risk" >
       <ion-select-option  *ngFor="let r of risktype"><ion-label size="small">{{r.risk_type}}</ion-label></ion-select-option>
-    </ion-select>
-  </ion-item>
-</div>
+      </ion-select>
+    </ion-item>
+  </div>
 <!-- <div *ngIf="hide"> -->
-  <ion-item>
-    <ion-label> policy type</ion-label>
-    <ion-select  interface="action-sheet"  [(ngModel)]="type" >
-      <ion-select-option *ngFor="let p of policy">{{p.Name}}</ion-select-option>
-    </ion-select>
-  </ion-item>
-
-
+    <ion-item>
+      <ion-label> policy type</ion-label>
+      <ion-select  interface="action-sheet"  [(ngModel)]="type" >
+          <ion-select-option *ngFor="let p of policy">{{p.Name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
 <!-- </div> -->
 </ion-card>
 
 <!----<div *ngIf="hideMe">-->
   <div id="header"><h1>Land Details</h1></div>
 
-  <ion-item class="it1">
+    <ion-item class="it1">
       <ion-label floating>If land is already registered select one</ion-label>
       <ion-select (ionChange)="onClick()" [(ngModel)]="selectland">
           <ion-select-option  *ngFor="let item of data;" value="{{item.land_number}}">{{item.land_number}} </ion-select-option>
       </ion-select>
       <!----<button ion-button full (click)="onClick()">Save</button>-->
-  </ion-item>
+    </ion-item>
 
-    <div  class="d2"><ion-label>If not enter details</ion-label></div>
+  <div  class="d2"><ion-label>If not enter details</ion-label></div>
     <ion-card>
       <ion-title></ion-title>
       <div *ngIf="hid">
@@ -86,7 +74,7 @@
       </ion-item>
      
       <ion-item>
-        <!-- <ion-input type="text" placeholder="District" [(ngModel)]="district"></ion-input> -->
+        
         <ion-label>District</ion-label>
           <ion-select  [(ngModel)]="district"  >
             <ion-select-option >Kegalle</ion-select-option>
@@ -97,14 +85,14 @@
           <ion-label>Gramasewa Division</ion-label>
           <ion-select  [(ngModel)]="gramasewa_division" >
             <ion-select-option >Dehiowita</ion-select-option>
-            <ion-select-option >ruwanwella</ion-select-option>
+            <ion-select-option >Ruwanwella</ion-select-option>
           </ion-select>
-        </ion-item>
+      </ion-item>
         <!-- <ion-item>
             <ion-input type="text" placeholder="Agrarian Service Centre" [(ngModel)]="aib"></ion-input>
           </ion-item>-->
           
-        <ion-item>
+      <ion-item>
           <ion-label>Owership</ion-label>
           <ion-select  [(ngModel)]="owership"  >
             <ion-select-option >own</ion-select-option>
@@ -112,49 +100,47 @@
             <ion-select-option >Leased</ion-select-option>
             
           </ion-select>
-        </ion-item>
+      </ion-item>
         <ion-button color="primary" size="small" (click)="location()">Mark the land</ion-button>
         <ion-row>
             <ion-col col-4>
                 <ion-button color="primary" size="small" (click)="addlocation()">Add</ion-button>
             </ion-col>
-           <ion-col col-4>
+            <ion-col col-4>
               Latitude :<strong>{{l1}}</strong>
-           </ion-col>
-           <ion-col col-4>
+            </ion-col>
+            <ion-col col-4>
             longitude :<strong>{{l2}}</strong>
-          </ion-col >
+            </ion-col >
         </ion-row>
-        Address:<ion-input type="text" placeholder="Address"  [(ngModel)]="addr"></ion-input>
-      </div>
 
+          Address:<ion-input type="text" placeholder="Address"  [(ngModel)]="addr"></ion-input>
+      </div>
     </ion-card>
     <ion-card>
   
-    <ion-item>
-        <ion-input type="text" placeholder="Land Size(Acres)" [(ngModel)]="size"></ion-input>
-  </ion-item>
+      <ion-item>
+          <ion-input type="text" placeholder="Land Size(Acres)" [(ngModel)]="size"></ion-input>
+      </ion-item>
 
-<ion-item>
-  <ion-label fixed>Add Required Documents <br>
-    <p>(copy of Bank Account <br>Which use to get loan for <br>this land )</p></ion-label>
-  <ion-button color="primary" size="small" (click)="presentActionSheet()">Take picture</ion-button>
-  
-</ion-item>
+      <ion-item>
+        <ion-label fixed>Add Required Documents <br>
+        <p>(copy of Bank Account <br>Which use to get loan for <br>this land )</p></ion-label>
+        <ion-button color="primary" size="small" (click)="presentActionSheet()">Take picture</ion-button>
+      </ion-item>
 <!-- <div>
   <ion-button expand="small" color='success'  (click)="add()">Submit</ion-button>
 </div> -->
-<ion-grid>
-    <ion-row>
-      <ion-col col-6 *ngFor="let p of photos">
-        <img [src]="p"/>
-      </ion-col>
-    
-    </ion-row>
-</ion-grid>
-</ion-card>
-<div>
+    <ion-grid>
+        <ion-row>
+            <ion-col col-6 *ngFor="let p of photos">
+              <img [src]="p"/>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    </ion-card>
+  <div>
     <ion-button expand="block" shape="round" color='success' class="bt1"  (click)="submit()">Submit</ion-button>
-</div>
+  </div>
   
 </ion-content>

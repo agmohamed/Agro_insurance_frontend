@@ -24,10 +24,12 @@ export class CompanyhistoryPage implements OnInit {
   id:any;
   i:any;
 
-  constructor(private router:Router, private storage:Storage,public http:HttpClient,
-    private toastCtrl:ToastController, private navCtrl:NavController) {
-     
-    }
+  constructor(
+    private router:Router, 
+    private storage:Storage,
+    public http:HttpClient,
+    private toastCtrl:ToastController, 
+    private navCtrl:NavController) {}
     
   ngOnInit() {
     this.storage.get('storage_company').then((res)=>{

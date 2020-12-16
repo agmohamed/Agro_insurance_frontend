@@ -12,21 +12,20 @@ export class Companytab4Page implements OnInit {
 id:any;
 data:any;
 va:any;
-  constructor(private router:Router,private storage:Storage, public http:HttpClient,) {
+  constructor(
+    private router:Router,
+    private storage:Storage, 
+    public http:HttpClient,) { }
+
+  ngOnInit() {
     this.storage.get('storage_company').then((res)=>{
       this.id=res.id;
-      
       return this.http.get(AccessProviders.server+'/getclients/'+this.id).subscribe((res:any)=>{ 
       this.data=res.message; 
           console.log(res.message);
          
         })
-      //this.name=this.datastorage.Name;
-      //console.log(this.l1);
     });
-   }
-
-  ngOnInit() {
   }
  
   go(event){

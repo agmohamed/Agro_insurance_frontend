@@ -14,13 +14,16 @@ datastorage1:any;
 val:any;
 i:any;
 value:any;
-  constructor(private router:Router, private acessPr:AccessProviders,
-    public http:HttpClient,private storage:Storage) {
-      this.doRefresh(0);
-     }
+  constructor(
+    private router:Router, 
+    private acessPr:AccessProviders,
+    public http:HttpClient,
+    private storage:Storage) {}
 
   ngOnInit() {
+    this.doRefresh(0);
   }
+
   doRefresh(event) {
     this.storage.get('storage_XXX').then((res)=>{
         console.log(res);
@@ -29,6 +32,7 @@ value:any;
           console.log(res);
           this.datastorage1=res;
           console.log(this.datastorage1);
+          //get all applied claim details
        return this.http.get(AccessProviders.server+'/claimdetail/'+this.NIC+'/'+this.datastorage1).subscribe((res:any)=>{ 
             for(this.i in res.message){this.val=res.message; console.log(res.message)}},
                err=>{
@@ -41,9 +45,12 @@ value:any;
         event.target.complete();
         }, 2000);
   }
+  
+  //navigate to claim form
   add(){
     this.router.navigate(['/claim']);
   }
+  //navigate to view more claim details
   view(event){
     this.value=event.target.id;
     console.log('hello');

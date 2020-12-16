@@ -29,28 +29,30 @@ export class Agenttab1Page implements OnInit {
   private lineChart: Chart;
   private barChart2: Chart;
   i:any;
-  constructor(private router:Router, private storage:Storage,public http:HttpClient,
-    private toastCtrl:ToastController, private navCtrl:NavController) {
-
-   
-   }
+  constructor(
+    private router:Router, 
+    private storage:Storage,
+    public http:HttpClient,
+    private toastCtrl:ToastController,
+    private navCtrl:NavController) {}
 
 
 
 
   ngOnInit() {
-    this.storage.get('storage_agent').then((res)=>{
+   this.storage.get('storage_agent').then((res)=>{
       console.log(res);
       this.datastorage=res;
       this.id=this.datastorage.company_id;
       this.agent_id= this.datastorage.id;
       console.log(this.id);
       console.log(this.agent_id);
-     this.getpolicy();
-     this.getAllpolicy();
-     this.getAllActivepolicy();
+      this.getpolicy();
+      this.getAllpolicy();
+      this.getAllActivepolicy();
     });
   }
+  //all applied insurances according to agent area
   barChartMethod1() {
     this.barChart= new Chart(this.barCanvas.nativeElement, {
       type: "bar",
@@ -93,6 +95,7 @@ export class Agenttab1Page implements OnInit {
       }
     });
   }
+   //all active insurances according to agent area
   barChartMethod3() {
     this.barChart= new Chart(this.barCanvas2.nativeElement, {
       type: "bar",

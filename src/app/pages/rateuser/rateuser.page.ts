@@ -10,21 +10,24 @@ import { AccessProviders } from '../../providers/access-providers';
 export class RateuserPage implements OnInit {
 id:any;
 i:any=0;
-  constructor( private router:Router,
-    private storage:Storage,private acessPr:AccessProviders) {
+  constructor( 
+    private router:Router,
+    private storage:Storage,
+    private acessPr:AccessProviders)
+     { }
 
+  ngOnInit() {
     this.storage.get('storage_afarmer').then((res)=>{
       this.id=res;
       console.log(this.id);
     })
-   }
-
-  ngOnInit() {
   }
+
   Onclick(){
     this.i++;
     console.log(this.i);
    }
+   //post the ratings value
   submit(){
   
     return new Promise(resoler=>{

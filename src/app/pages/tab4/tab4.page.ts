@@ -27,6 +27,48 @@ value:any;  value1:any;
     private alertCtrl:AlertController,private acessPr:AccessProviders,
     private navCtrl:NavController) {
 
+    
+   }
+
+   update(){
+    console.log(this.name);
+    console.log(this.phone);
+    return new Promise(resoler=>{
+    
+      let body={
+        
+       name:this.name,
+        phone:this.phone,
+        address:this.address
+
+      }
+      
+      this.acessPr.updatefarmer(body,this.id).subscribe((res:any)=>{
+          if(res.status==true){
+            //loader.dismiss();
+           // this.disableButton=false;
+            this.presentToast('Update sucessfully');
+            //this.router.navigate(['/home/tab2']);
+              console.log('true');
+          }else{
+            //loader.dismiss();
+            //this.disableButton=false;
+           // this.presentToast(res.message);
+          }
+      });
+    });
+   }
+
+   async presentToast(a) {
+    let toast = await this.toastCtrl.create({
+      message: a,
+      duration: 3000,
+      position: 'top'
+    });
+  toast.present();
+  }
+
+  ngOnInit() {
     this.storage.get('storage_XXX').then((res)=>{
       this.data=res;
       this.name=res.Name;
@@ -57,54 +99,17 @@ value:any;  value1:any;
      this.getpolicy();
      this.getclaim();
     }); 
-   }
-   update(){
-    console.log(this.name);
-    console.log(this.phone);
-    return new Promise(resoler=>{
-    
-      let body={
-        
-      name:this.name,
-      phone:this.phone,
-      address:this.address
-
-      }
-      
-      this.acessPr.updatefarmer(body,this.id).subscribe((res:any)=>{
-          if(res.status==true){
-            //loader.dismiss();
-           // this.disableButton=false;
-            this.presentToast('Update sucessfully');
-            //this.router.navigate(['/home/tab2']);
-              console.log('true');
-          }else{
-            //loader.dismiss();
-            //this.disableButton=false;
-           // this.presentToast(res.message);
-          }
-      });
-    });
-   }
-   async presentToast(a) {
-    let toast = await this.toastCtrl.create({
-      message: a,
-      duration: 3000,
-      position: 'top'
-    });
-  toast.present();
   }
-  ngOnInit() {
-  }
+ //get active policies
   getpolicy(){
     return this.http.get(AccessProviders.server+'/allpolicy/'+this.id).subscribe((res:any)=>{ 
     this.val=res.message; console.log(res.message)},
          err=>{
            console.log(err);
-  })
+    })
   
-
   }
+  //get active claims
   getclaim(){
     return this.http.get(AccessProviders.server+'/getclaimforafarmer/'+this.id).subscribe((res:any)=>{ 
     this.val1=res.message; console.log(res.message)},
@@ -112,6 +117,7 @@ value:any;  value1:any;
            console.log(err);
   })
 }
+//logout from the application
   async processLogout(){
     this.storage.clear();
     this.navCtrl.navigateRoot('/welcome');
@@ -123,16 +129,17 @@ value:any;  value1:any;
   toast.present();
   }
 
+  //navigate to view more details about policy
   view(event){
     this.value=event.target.id;
-    console.log('hello');
     console.log(this.value);
     this.storage.set('storage_appliedPolicy',this.value);
     this.router.navigate(['/apply-policy']);
     }
-    view1(event){
+    
+    //navigate to view more details about claim
+  view1(event){
       this.value1=event.target.id;
-      console.log('hello');
       console.log(this.value1);
       this.storage.set('storage_appliedClaim',this.value1);
       this.router.navigate(['/apply-claim']);

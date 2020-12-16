@@ -18,31 +18,17 @@ export class ViewlocationPage  {
   longitude:number;
   land:any;
   data:any;
-  constructor(private router:Router,private geolocation: Geolocation,
-    private nativeGeocoder: NativeGeocoder, private storage:Storage,
-    private acessPr:AccessProviders, public http:HttpClient,) { 
-      this.storage.get('storage_landnumber').then((res)=>{
-        this.land=res;
-        console.log( res);
-       this.http.get(AccessProviders.server+'/landlocation/'+ this.land).subscribe((res:any)=>{ 
-          this.data=res.message; 
-          this.latitude=res.message[0].latitude;
-          this.longitude=res.message[0].longitude;
-          console.log(this.latitude+this.longitude);
-          this.loadMap();
-          console.log(res.message)},
-               err=>{
-                 console.log(err);
-        })
-      });
-    }
+  constructor(
+    private router:Router,
+    private geolocation: Geolocation,
+    private nativeGeocoder: NativeGeocoder, 
+    private storage:Storage,
+    private acessPr:AccessProviders, 
+    public http:HttpClient,) { }
 
- 
+ //show location according to latitude and longitude
   loadMap(){
     this.geolocation.getCurrentPosition().then((resp) => {
-
-      //this.latitude = -34.9290;
-      //this.longitude = 138.6010;
       console.log(this.latitude+this.longitude);
       let latLng = new google.maps.LatLng( this.latitude,this.longitude );
 
@@ -57,6 +43,20 @@ export class ViewlocationPage  {
 
   }
   ngOnInit() {
+    this.storage.get('storage_landnumber').then((res)=>{
+      this.land=res;
+      console.log( res);
+     this.http.get(AccessProviders.server+'/landlocation/'+ this.land).subscribe((res:any)=>{ 
+        this.data=res.message; 
+        this.latitude=res.message[0].latitude;
+        this.longitude=res.message[0].longitude;
+        console.log(this.latitude+this.longitude);
+        this.loadMap();
+        console.log(res.message)},
+             err=>{
+               console.log(err);
+      })
+    });
     //this.loadMap();
   }
   back(){

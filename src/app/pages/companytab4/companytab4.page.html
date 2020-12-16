@@ -2,9 +2,9 @@
     <ion-toolbar color="success">
       <ion-title>History</ion-title>
     </ion-toolbar>
-  </ion-header>
+</ion-header>
   
-   <ion-content>
+<ion-content>
   <ion-card color="light"  *ngFor="let d of data" >
       <ion-item>
         <ion-icon name="person" slot="start"></ion-icon>
@@ -18,15 +18,4 @@
         <ion-button shape="round"  class="no-padding" (click)="go($event)" id="{{d.NIC}}">
             More Info</ion-button>
   </ion-card>
-  
-      <!-- <ion-card>
-          <ion-item>
-            <ion-icon name="star-half" slot="start"></ion-icon>
-            <ion-card-title>Ratings</ion-card-title>
-          </ion-item>
-        
-          <ion-card-content>
-            rate of user
-          </ion-card-content>
-        </ion-card> -->
-      </ion-content> 
+</ion-content> 

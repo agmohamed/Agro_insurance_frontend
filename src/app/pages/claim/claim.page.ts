@@ -50,6 +50,8 @@ export class ClaimPage implements OnInit {
       // base64Image: ['', [Validators.required]],
       });
   }
+
+  //post the claim form data
   submit(){
     // if(this.policy_number==null){
     //   this.presentToast("policy number is required");
@@ -192,6 +194,7 @@ export class ClaimPage implements OnInit {
      // Handle error
     });
   }
+  //open the gallery or camera to get photos
   async presentActionSheet() {
     const actionSheet = await this.actionSheetController.create({
       header: 'choice media',

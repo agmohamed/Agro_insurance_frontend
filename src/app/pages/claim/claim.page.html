@@ -17,7 +17,7 @@
     
   <ion-item>
     <ion-input type="text" formControlName="policy_number" placeholder="Policy Number"  [(ngModel)]="policy_number"></ion-input>
-</ion-item>
+  </ion-item>
 
   <span class="error ion-padding" *ngIf="isSubmitted && errorControl.policy_number.errors?.required">
       Policy Number is required
@@ -26,17 +26,17 @@
       Please provide valid Policy Number
    </span>
 
-<ion-item>
-  <ion-label>Incident Date</ion-label>
-  <ion-datetime  formControlName="date" displayFormat="YYYY-MM-DD" min="2020" max="2030" [(ngModel)]="date" ></ion-datetime>
-</ion-item>
-<span class="error ion-padding" *ngIf="isSubmitted && errorControl.date.errors?.required">
+  <ion-item>
+    <ion-label>Incident Date</ion-label>
+    <ion-datetime  formControlName="date" displayFormat="YYYY-MM-DD" min="2020" max="2030" [(ngModel)]="date" ></ion-datetime>
+  </ion-item>
+  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.date.errors?.required">
     date is required.
-</span>
+  </span>
 
-<ion-item>
-  <ion-label>Type of loss</ion-label>
-  <ion-select formControlName="loss" [(ngModel)]="loss"  >
+  <ion-item>
+    <ion-label>Type of loss</ion-label>
+    <ion-select formControlName="loss" [(ngModel)]="loss"  >
       <ion-select-option >pest damage</ion-select-option>
       <ion-select-option >Drought</ion-select-option>
       <ion-select-option>damaged by elephants</ion-select-option>
@@ -44,34 +44,35 @@
       <ion-select-option >insect effect</ion-select-option>
       <ion-select-option >damage by wild animals</ion-select-option>
       <ion-select-option >other natural perils</ion-select-option>
-  </ion-select>
-</ion-item>
-<span class="error ion-padding" *ngIf="isSubmitted && errorControl.loss.errors?.required">
+    </ion-select>
+  </ion-item>
+  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.loss.errors?.required">
    Type of damage is required
-</span>
-
-<ion-item>
-  <ion-input type="text" formControlName="phone"  [(ngModel)]="phone" placeholder="Contact number" ></ion-input>
-</ion-item>
-<span class="error ion-padding" *ngIf="isSubmitted && errorControl.phone.errors?.required">
-   Phone is required
-</span>
-<span class="error ion-padding" *ngIf="isSubmitted && errorControl.phone.errors?.pattern">
-    Please provide valid Phone Number
- </span>
-
-<ion-item>
-  <ion-input type="text" formControlName="amount"  [(ngModel)]="amount" placeholder="Expected Loss Amount" ></ion-input>
-</ion-item>
-
-<span class="error ion-padding" *ngIf="isSubmitted && errorControl.amount.errors?.required">
-    Amount is required
- </span>
- <span class="error ion-padding" *ngIf="isSubmitted && errorControl.amount.errors?.pattern">
-     Please provide valid amount
   </span>
 
+  <ion-item>
+      <ion-input type="text" formControlName="phone"  [(ngModel)]="phone" placeholder="Contact number" ></ion-input>
+  </ion-item>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.phone.errors?.required">
+   Phone is required
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.phone.errors?.pattern">
+    Please provide valid Phone Number
+    </span>
+
+  <ion-item>
+      <ion-input type="text" formControlName="amount"  [(ngModel)]="amount" placeholder="Expected Loss Amount" ></ion-input>
+  </ion-item>
+
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.amount.errors?.required">
+    Amount is required
+    </span>
+    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.amount.errors?.pattern">
+     Please provide valid amount
+    </span>
+
 </ion-card>
+
   <div id="header"><h1>Loan Details</h1></div>
   <ion-card>
   <ion-item>
@@ -83,37 +84,38 @@
         <ion-select-option >Sampath</ion-select-option>
         
     </ion-select>
-</ion-item>
-<span class="error ion-padding" *ngIf="isSubmitted && errorControl.bank.errors?.required">
+  </ion-item>
+  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.bank.errors?.required">
    Bank is required
  </span>
 
-<ion-item>
-  <ion-input type="text" formControlName="branch" [(ngModel)]="branch" placeholder="Branch" ></ion-input>
-</ion-item>
+  <ion-item>
+      <ion-input type="text" formControlName="branch" [(ngModel)]="branch" placeholder="Branch" ></ion-input>
+  </ion-item>
   <span class="error ion-padding" *ngIf="isSubmitted && errorControl.branch.errors?.required">
     Branch is required
   </span>
 
-<ion-item>
-  <ion-input type="text" formControlName="account" [(ngModel)]="account" placeholder="Account Number" ></ion-input>
-</ion-item>
+  <ion-item>
+      <ion-input type="text" formControlName="account" [(ngModel)]="account" placeholder="Account Number" ></ion-input>
+  </ion-item>
   <span class="error ion-padding" *ngIf="isSubmitted && errorControl.account.errors?.required">
     Account number is required
   </span>
   <span class="error ion-padding" *ngIf="isSubmitted && errorControl.account.errors?.pattern">
       Please provide valid Account number 
    </span>
-<ion-item>
-  <ion-input type="text" formControlName="loan"  [(ngModel)]="loan" placeholder="loan Number" ></ion-input>
-</ion-item>
+  <ion-item>
+     <ion-input type="text" formControlName="loan"  [(ngModel)]="loan" placeholder="loan Number" ></ion-input>
+  </ion-item>
   <span class="error ion-padding" *ngIf="isSubmitted && errorControl.loan.errors?.required">
    Loan number is required
   </span>
-    <span class="error ion-padding" *ngIf="isSubmitted && errorControl.amount.errors?.pattern">
+  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.amount.errors?.pattern">
       Please provide valid  Loan number
-   </span>
+  </span>
 </ion-card>
+
 <ion-item class="it1">
   <ion-label fixed>Add Image</ion-label>
   <ion-button color="primary"  (click)="presentActionSheet()">Take picture</ion-button>

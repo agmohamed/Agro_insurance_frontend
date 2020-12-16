@@ -7,59 +7,35 @@
 
 
 <ion-content>
-  <ion-card>
-
-  </ion-card>
-  
-     
-  
+ 
   <ion-card>
     <ion-row>   
-    <div class="vertical-center"> 
-      <div class="center"> 
-        <ion-img src="/assets/icon/man.png" style="height: 100px;width: 100px;" class="ion-align-self-end"></ion-img> 
-    </div> 
-  </div>
-    
-     
-        <!-- <ion-label>Add rate</ion-label>
-          <ion-select interface="popover" [(ngModel)]="selected_value"  >
-            <ion-select-option value="a">1</ion-select-option>
-            <ion-select-option value="b">2</ion-select-option>
-            <ion-select-option value="c">3</ion-select-option>
-            <ion-select-option value="d">4</ion-select-option>
-            <ion-select-option value="e">5</ion-select-option>
-          </ion-select> -->
-         
-          
-       
-          <ion-item>
+      <div class="vertical-center"> 
+        <div class="center"> 
+          <ion-img src="/assets/icon/man.png" style="height: 100px;width: 100px;" class="ion-align-self-end"></ion-img> 
+        </div> 
+      </div>
+     <ion-item>
             <ion-button expand="full" class="no-padding"  (click)="rate()" color="success">Rate User</ion-button>
-            </ion-item>
+      </ion-item>
            
     </ion-row>
     
 
 <ion-card-content color="light">
   
-    <!-- <ion-img src="/assets/icon/star1.png"  style="height: 40px;width: 40px;" ></ion-img>
-    <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
-    <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
-    <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img>
-    <ion-img src="/assets/icon/star2.png"  style="height: 40px;width: 40px;" ></ion-img> -->
-   
  
     <ion-img src="{{pic}}"  style="height: 300;width: 300;" ></ion-img>
   <div *ngFor="let d1 of data1">
-<ion-row>
-  <ion-label><strong>Name  :</strong>    </ion-label>
-  <ion-label><strong>{{d1.Name}}</strong> </ion-label>
-</ion-row>
-<ion-row>
-  <ion-label><strong>Telephone:</strong> </ion-label>
-    <ion-label><strong>{{d1.Phone}}</strong></ion-label>
-  </ion-row>
-  <ion-row>
+    <ion-row>
+      <ion-label><strong>Name  :</strong>    </ion-label>
+      <ion-label><strong>{{d1.Name}}</strong> </ion-label>
+   </ion-row>
+    <ion-row>
+      <ion-label><strong>Telephone:</strong> </ion-label>
+        <ion-label><strong>{{d1.Phone}}</strong></ion-label>
+    </ion-row>
+    <ion-row>
       <ion-label><strong>Address:</strong> </ion-label>
       <ion-label><strong>{{d1.Address}}</strong></ion-label>
     </ion-row> 
@@ -77,22 +53,15 @@
    <ion-card>
          <ion-row>
             <ion-label><strong>Total Premium  : {{d2.premium}}</strong></ion-label>
-            
          </ion-row>
          <ion-row>
-          <ion-label>Total Paid Amount:{{d2.PaidAmount}}</ion-label>
-          <!-- <ion-input type="text"  [(ngModel)]="amount"></ion-input> -->
-          <ion-button  class="no-padding" size="small" (click)="Click($event)" id="{{d2.id}}" color="success">Click to update</ion-button>
-              
+            <ion-label>Total Paid Amount:{{d2.PaidAmount}}</ion-label>
+            <ion-button  class="no-padding" size="small" (click)="Click($event)" id="{{d2.id}}" color="success">Click to update</ion-button>
+
          </ion-row>
-         <!----<ion-row>
-            <ion-label><strong>current available amount  : 8000</strong></ion-label>
-         </ion-row>-->
-            
-        
-        </ion-card>
+    </ion-card>
    
-      </ion-card>
+    </ion-card>
       <div *ngIf="hid">
         <ion-card>
             <strong>Policyid:{{policyid}}</strong><br> 
@@ -107,13 +76,14 @@
       </div>
       <div class="center">
           <ion-button class="btn1" shape="round" (click)='show1()'>View Claim History</ion-button>
-        </div>
+      </div>
+
       <div *ngIf="hide">
           <ion-card class="card1" *ngFor="let i of data3">
             <ion-item>
               <ion-icon name="albums" slot="start"></ion-icon>
             <ion-title class="c1" size="small"><strong>{{i.Name}}<br>({{i.name}})</strong></ion-title>
-          </ion-item>
+            </ion-item>
               <ion-row>
                 <ion-col>
                     <strong>Crop type </strong>
@@ -157,25 +127,23 @@
                   <ion-col>
                       {{d.policy_number}}
                   </ion-col>
-                   
-                </ion-row>
-                <ion-row>
-                    <ion-col>
+              </ion-row>
+              <ion-row>
+                  <ion-col>
                         <strong> Claim for </strong>
-                    </ion-col>
-                    <ion-col>
+                  </ion-col>
+                  <ion-col>
                         {{d.type_of_loss}}
-                    </ion-col>
-                     
-                  </ion-row>
-                  <ion-row>
-                      <ion-col>
+                  </ion-col>
+              </ion-row>
+              <ion-row>
+                  <ion-col>
                           <strong>Status </strong>
-                      </ion-col>
-                      <ion-col>
+                  </ion-col>
+                  <ion-col>
                          Active
-                      </ion-col>
-                    </ion-row>   
+                  </ion-col>
+              </ion-row>   
             </ion-card>
           </div>
 </ion-content>

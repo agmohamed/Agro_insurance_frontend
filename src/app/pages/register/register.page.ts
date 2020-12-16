@@ -23,21 +23,21 @@ export class RegisterPage implements OnInit {
           private acessPr:AccessProviders,
           private formBuilder:FormBuilder
     ) { 
-      this.validations_form = this.formBuilder.group({
-        Name: ['', [Validators.required, Validators.pattern('^([A-Za-z ])+$')]],
-        Phone: ['', [Validators.required, Validators.pattern('^0[1-9]{9}$')]],
-        NIC: ['', [Validators.required, Validators.pattern('^[0-9]{9}[A-Za-z]$')]],
-        Password: ['', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d^a-zA-Z0-9].{4,12}$')]],
       
-       
-      });
     }
 
   ngOnInit() {
-  
+    this.validations_form = this.formBuilder.group({
+      Name: ['', [Validators.required, Validators.pattern('^([A-Za-z ])+$')]],
+      Phone: ['', [Validators.required, Validators.pattern('^0[1-9]{9}$')]],
+      NIC: ['', [Validators.required, Validators.pattern('^[0-9]{9}[A-Za-z]$')]],
+      Password: ['', [Validators.required, Validators.pattern('^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d^a-zA-Z0-9].{4,12}$')]],
+    
+     
+    });
   }
   ionViewDidEditor(){
-    this.disableButton=false;
+    //this.disableButton=false;
   }
   async tryRegister(){
     //this.router.navigate(['/login']);
@@ -55,7 +55,7 @@ export class RegisterPage implements OnInit {
     //     this.presentToast("YourPhone is required");
     //   }
    // else{
-      this.disableButton=true;
+     
      
       if (this.validations_form.valid){
         const loader=await this.loadingCtrl.create({
@@ -78,20 +78,19 @@ export class RegisterPage implements OnInit {
 
               }else{
                 loader.dismiss();
-                this.disableButton=false;
+                //this.disableButton=false;
                 this.presentToast(res.message);
               }
           },(err=>{
             loader.dismiss();
-            this.disableButton=false;
+            //this.disableButton=false;
             this.presentAlert('Timeout');
           }));
         });
 
       }
-   // }
   }
-  async presentToast(a) {
+ async presentToast(a) {
     let toast = await this.toastCtrl.create({
       message: a,
       duration: 3000,
@@ -104,7 +103,6 @@ export class RegisterPage implements OnInit {
     const alert = await this.alertCtrl.create({
      backdropDismiss:false,
       header: a,
-      
       buttons: [
         {
           text: 'close',
@@ -122,6 +120,7 @@ export class RegisterPage implements OnInit {
 
     await alert.present();
   }
+  
   get errorControl() {
     return this.validations_form.controls;
   }

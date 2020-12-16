@@ -22,9 +22,14 @@ export class Organizationtab1Page implements OnInit {
   id:any;
   @ViewChild("lineCanvas") lineCanvas: ElementRef;
   constructor(
-    private router:Router,private storage:Storage,public http:HttpClient,
-    private toastCtrl:ToastController, private navCtrl:NavController
-  ) {
+    private router:Router,
+    private storage:Storage,
+    public http:HttpClient,
+    private toastCtrl:ToastController,
+    private navCtrl:NavController
+  ) { }
+
+  ngOnInit() {
     this.storage.get('storage_org').then((res)=>{
       console.log(res);
       this.datastorage=res;
@@ -34,9 +39,6 @@ export class Organizationtab1Page implements OnInit {
      this.getAllclaims();
      this.getAllActiveclaims();
     });
-   }
-
-  ngOnInit() {
   }
 
   barChartMethod1() {

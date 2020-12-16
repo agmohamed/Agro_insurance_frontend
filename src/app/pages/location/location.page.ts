@@ -31,7 +31,7 @@ export class LocationPage  {
   ngOnInit() {
     this.loadMap();
   }
-
+//get location latitude and longitude
   loadMap() {
     this.geolocation.getCurrentPosition().then((resp) => {
 
@@ -62,7 +62,7 @@ export class LocationPage  {
       console.log('Error getting location', error);
     });
   }
-
+//get location address
   getAddressFromCoords(lattitude, longitude) {
     console.log("getAddressFromCoords " + lattitude + " " + longitude);
     
@@ -95,13 +95,10 @@ export class LocationPage  {
       
       .catch((error: any) => {
         this.address = "Address Not Available!";
-      }
-        
-      );
-      
-      //console.log(this.arr);
+      });
 
   }
+
   back(){
     this.router.navigate(['/policies']);
   }

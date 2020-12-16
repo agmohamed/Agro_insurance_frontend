@@ -13,31 +13,34 @@ export class Companytab2Page implements OnInit {
 data:any;
 id:any;
 va:any;
-  constructor(private router:Router,public http:HttpClient,private storage:Storage,
-    private acessPr :AccessProviders,  private toastCtrl:ToastController ) { 
-    
-    this.storage.get('storage_company').then((res)=>{
-     this.id=res.id;
-     console.log(this.id);
-      this.doRefresh(0);
-      //this.name=this.datastorage.Name;
-      //console.log(this.l1);
-     
-    });
-   
-  }
+  constructor(
+    private router:Router,
+    public http:HttpClient,
+    private storage:Storage,
+    private acessPr :AccessProviders,  
+    private toastCtrl:ToastController ) { }
+
+
   doRefresh(event) {
     this.http.get(AccessProviders.server+'/getcompanypolicies/'+this.id).subscribe((res:any)=>{ 
       this.data=res.message; 
       console.log(res.message);
       })
-    setTimeout(() => {
+     setTimeout(() => {
         console.log('Async operation has ended');
         event.target.complete();
         }, 2000);
   }
 
   ngOnInit() {
+    this.storage.get('storage_company').then((res)=>{
+      this.id=res.id;
+      console.log(this.id);
+       this.doRefresh(0);
+       //this.name=this.datastorage.Name;
+       //console.log(this.l1);
+      
+     });
   }
  
   update(event){

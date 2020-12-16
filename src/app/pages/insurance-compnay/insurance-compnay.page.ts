@@ -12,8 +12,6 @@ import { AccessProviders } from '../../providers/access-providers';
 })
 export class InsuranceCompnayPage implements OnInit {
   va:string="";
- // server:string='http://localhost:8000';
-// server:string='http://192.168.8.188:8080';
   i:any;
   datastorage:any;
   data:any;
@@ -25,11 +23,12 @@ export class InsuranceCompnayPage implements OnInit {
   hide1=false;
   hide2=false;
   arr:any[]=[];
-  constructor( private router:Router,private storage:Storage, public navCtrl:NavController,
-                public http:HttpClient,) {
 
-                   
-                 }
+  constructor( 
+        private router:Router,
+        private storage:Storage, 
+        public navCtrl:NavController,
+        public http:HttpClient) {}
 
   ngOnInit() {
     this.show();
@@ -41,6 +40,8 @@ export class InsuranceCompnayPage implements OnInit {
   //   }, 2000);
   // }
 
+
+//show company details
   show(){
     this.http.get(AccessProviders.server+'/company').subscribe((res:any)=>{
       
@@ -49,10 +50,10 @@ export class InsuranceCompnayPage implements OnInit {
         this.arr=res.message[this.i].types.split(',');
         for(this.i in this.arr){
           console.log(this.arr[this.i]);
-        }
-       
-         })
+         }
+       })
     }
+    //check whether farmer's login or not
   tryLogin1(event){
 
     this.storage.get("storage_XXX").then((res)=>{
@@ -61,11 +62,11 @@ export class InsuranceCompnayPage implements OnInit {
       }
     });
     this.router.navigate(['/home']);
-    //console.log(event.target.id);
     this.va=event.target.id;
     this.storage.set('storage_co',this.va);
     //this.doRefresh(0);
   }
+
   back(){
     this.router.navigate(['/types']);
   }

@@ -35,24 +35,21 @@ export class LoginPage implements OnInit {
     private acessPr:AccessProviders,
     private navCtrl:NavController,
     private formBuilder:FormBuilder
-  ) {
-    
-      this.storage.get('storage_login').then((res)=>{
-        this.id=res;
-        console.log(this.id);
-         if(this.id=="id2" ){
-           this.hide=false;
-         }
-         
-     });
-    
-   
-  }
+  ) { }
 
   slidesDidLoad(slides: IonSlides) {
     slides.startAutoplay();
   }
   ngOnInit() {
+    
+  //   this.storage.get('storage_login').then((res)=>{
+  //     this.id=res;
+  //     console.log(this.id);
+  //      if(this.id=="id2" ){
+  //        this.hide=false;
+  //      }
+       
+  //  });
     this.validations_form = this.formBuilder.group({
      
       NIC: ['', [Validators.required, Validators.pattern('^[0-9]{9}[A-Za-z]$')]],
@@ -62,19 +59,12 @@ export class LoginPage implements OnInit {
     });
   }
   ionViewDidEditor(){
-    this.disableButton=false;
+    //this.disableButton=false;
   }
   async tryLogin(){
     
     
     this.isSubmitted = true;
-    // if(this.NIC==""){
-    //   this.presentToast("YourUsername is required");
-    // }else if(this.Password=="")
-    // {
-    //   this.presentToast("YourPassword is required");
-    // }else{
-      this.disableButton=true;
       
     if (this.validations_form.valid){
         const loader=await this.loadingCtrl.create({
@@ -88,36 +78,10 @@ export class LoginPage implements OnInit {
             Password:this.Password
           }
           this.acessPr.postLogin(body).subscribe((res:any)=>{
-            // if(res.message=='Success loginCompany' ){
-            //   loader.dismiss();
-            //   this.disableButton=false;
-            //   this.presentToast('Login sucessfully');
-            //   this.storage.set('storage_company',res.data1);
-              
-            //   this.navCtrl.navigateRoot(['/company']);
-            //   console.log(res.data1);
-            // }
-            // else if(res.message=='Success login Agent' ){
-            //   loader.dismiss();
-            //   this.disableButton=false;
-            //   this.presentToast('Login sucessfully');
-            //   this.storage.set('storage_agent',res.data2);
-              
-            //   this.navCtrl.navigateRoot(['/agent-home']);
-            //  console.log(res.data2);
-            // }
-            // else if(res.message=='Success login Organization' ){
-            //   loader.dismiss();
-            //   this.disableButton=false;
-            //   this.presentToast('Login sucessfully');
-            //   this.storage.set('storage_org',res.data3);
-              
-            //   this.navCtrl.navigateRoot(['/organization-home']);
-            //  console.log(res.data3);
-            // }
+            
            if(res.status==true ){
               loader.dismiss();
-              this.disableButton=false;
+              //this.disableButton=false;
               this.presentToast('Login sucessfully');
               this.storage.set('storage_XXX',res.data);
                 
@@ -125,14 +89,14 @@ export class LoginPage implements OnInit {
               console.log(res.data);
               }else{
                // loader.dismiss();
-                this.disableButton=false;
+               // this.disableButton=false;
                 this.presentToast('Email or password or status is wrong');
               }
           }
           ,(err=>{
             loader.dismiss();
            // console.log(err.message);
-            this.disableButton=false;
+            //this.disableButton=false;
             this.presentToast("Enter valid NIC/password");
           })
           );
@@ -141,6 +105,7 @@ export class LoginPage implements OnInit {
       }
     
   }
+
   async presentToast(a) {
     let toast = await this.toastCtrl.create({
       message: a,
@@ -157,14 +122,8 @@ export class LoginPage implements OnInit {
     this.storage.clear();
     this.router.navigate(['/welcome']);
   }
-//   image(){
-//     this.router.navigate(['/welcome']);
-//   }
-//   Getselected(selected_value)
-// {
-// console.log("selector: ", selected_value );
-// }
+
   get errorControl() {
-  return this.validations_form.controls;
+   return this.validations_form.controls;
   }
 }

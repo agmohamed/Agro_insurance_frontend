@@ -23,18 +23,21 @@ issue:any;
 hide=false;
 hide1=false;
 hid1=false;
-  constructor(private router:Router,private storage:Storage, public http:HttpClient,
-    private acessPr:AccessProviders) {
+  constructor(
+    private router:Router,
+    private storage:Storage, 
+    public http:HttpClient,
+    private acessPr:AccessProviders) {}
 
-    this.storage.get('storage_company').then((res)=>{
-        this.companyid=res.id;
-       
-       console.log(this.companyid);
-        
-        //this.name=this.datastorage.Name;
-        //console.log(this.l1);
-    
-    this.storage.get('storage_companypolicy').then((res)=>{
+ngOnInit() {
+  this.storage.get('storage_company').then((res)=>{
+      this.companyid=res.id;
+     console.log(this.companyid);
+      
+      //this.name=this.datastorage.Name;
+      //console.log(this.l1);
+  
+   this.storage.get('storage_companypolicy').then((res)=>{
       this.id=res;
       console.log( res);
       this.http.get(AccessProviders.server+'/getpolicy/'+this.id).subscribe((res:any)=>{ 
@@ -44,23 +47,20 @@ hid1=false;
         this.risk=res.message[0].risk_type;
         this.n=res.message[0].NIC;
         if(res.message[0].agent_verification==1)
-            this.verifi=true;
+          this.verifi=true;
         else if (res.message[0].agent_verification==0)
-            this.verifi=false;
+          this.verifi=false;
         if(res.message[0].risk_type!=""){
-          this.hid1=true;
+        this.hid1=true;
         }
-       // if(res.message[0].agent_verification==1)    
-        console.log(res.message[0].agent_verification);
-        console.log(this.nic);
-        this.storage.set('storage_afarmer',this.n);
-        this.storage.set('storage_landnumber',res.message[0].land_number);
+     // if(res.message[0].agent_verification==1)    
+      console.log(res.message[0].agent_verification);
+      console.log(this.nic);
+      this.storage.set('storage_afarmer',this.n);
+      this.storage.set('storage_landnumber',res.message[0].land_number);
       })
     })
-  }); 
-    }
-
-  ngOnInit() {
+   }); 
   }
 
   verify(){
@@ -109,7 +109,6 @@ hid1=false;
   val(v1){
    
     return new Promise(resoler=>{
-    
       let body={
         premium:v1
       }
@@ -143,7 +142,7 @@ hid1=false;
            this.val(res.me[0]);
             })
       }
-      else if(this.risk=="")
+    else if(this.risk=="")
         this.http.get(AccessProviders.server+'/wrisk/'+this.nic+'/'+this.companyid).
             subscribe((res:any)=>{ 
               console.log(res)
@@ -157,12 +156,11 @@ hid1=false;
           console.log(res);
           this.val(res.me[0]);
         })
-     
-             
+           
     }
-   
-   
+  
   }
+  
   location(){
     this.router.navigate(['/viewlocation']);
   }
