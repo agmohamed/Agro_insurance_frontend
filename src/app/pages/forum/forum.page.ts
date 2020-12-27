@@ -4,6 +4,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
 import { ToastController,LoadingController,AlertController,NavController } from '@ionic/angular';
 import { AccessProviders } from '../../providers/access-providers';
+import { CallNumber } from '@ionic-native/call-number/ngx';
 @Component({
   selector: 'app-forum',
   templateUrl: './forum.page.html',
@@ -23,7 +24,8 @@ data:any;
     private loadingCtrl:LoadingController,
     private alertCtrl:AlertController,
     private acessPr:AccessProviders,
-    private navCtrl:NavController) { 
+    private navCtrl:NavController,
+    private callNumber: CallNumber) { 
 
      
     }
@@ -51,6 +53,7 @@ data:any;
       });
     }); 
   }
+  
   back(){
     this.router.navigate(['/home/tab1']);
   }

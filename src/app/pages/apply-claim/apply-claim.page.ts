@@ -45,9 +45,9 @@ export class ApplyClaimPage implements OnInit {
           if(this.company_id==0){
               this.hide3=true;
             if(res.message[0].organization_verification==1)
-            this.verifi=true;
+            this.verifi="accept";
            else if (res.message[0].organization_verification==0)
-             this.verifi=false;
+             this.verifi="reject";
              console.log( this.verifi);
           }
           else{

@@ -28,17 +28,28 @@
         Know more details about insurances 
         </ion-card-content>
   </ion-card>
-
-  <ion-card color="light" (click)="forum()">
+  <ion-row>
+  <ion-card class ="c1" color="light" (click)="forum()">
      <ion-item  class="ion-activated">
         <ion-img src="/assets/icon/forum.png"  style="height: 50px;width: 100px;" slot="start"></ion-img>
-        <ion-card-title><strong>Discussion Forum</strong></ion-card-title>
+        <!-- <ion-card-title><strong>Discussion Forum</strong></ion-card-title> -->
      </ion-item>
         <ion-card-content class="si">
-            discuss your issues
+            <strong>Discussion Forum</strong><br>
+            discuss your issues with company
         </ion-card-content>
   </ion-card>
-
+  <ion-card class ="c1" color="light" (click)="contact()">
+    <ion-item  class="ion-activated">
+       <ion-img src="/assets/icon/phone.png"  style="height: 50px;width: 100px;" slot="start"></ion-img>
+       <!-- <ion-card-title><strong>Contact your agent</strong></ion-card-title> -->
+    </ion-item>
+       <ion-card-content class="si">
+          <strong>Contact your agent</strong><br>
+          discuss problems with your agent
+       </ion-card-content>
+ </ion-card>
+</ion-row>
     <ion-grid>
       <ion-row>
         <ion-col>

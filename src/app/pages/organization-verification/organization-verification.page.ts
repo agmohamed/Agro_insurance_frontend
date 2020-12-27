@@ -19,6 +19,7 @@ loss:any;
 hide:any;
 issue:any;
 status:any;
+hide1=false;
   constructor(private router:Router,private storage:Storage,public http:HttpClient,
     private acessPr:AccessProviders,) {
 
@@ -88,5 +89,11 @@ status:any;
   }
   location(){
     this.router.navigate(['/viewlocation']);
+  }
+  viewimage(){
+    if(this.hide1==false)
+      this.hide1=true;
+    else
+    this.hide1=false;
   }
 }

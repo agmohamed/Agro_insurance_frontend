@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-toolbar color="success">
+        <!-- <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon> -->
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+      <ion-title>Contact Agent</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card  *ngFor="let d of data"> 
+        <ion-card-title><strong>{{d.Name}}</strong></ion-card-title>
+        <ion-card-content><strong>Gramasewa Division:{{d.Gramaseva_division}}</strong></ion-card-content>
+        <ion-row>
+            <ion-col><strong>{{d.phone}}</strong></ion-col>
+            <ion-col><ion-button expand="small" class="no-padding"  id="{{d.phone}}" (click)="getcall($event)"  color="success" fill="clear">
+              <ion-icon size="large"  name="call" color="success"  item-end> </ion-icon></ion-button></ion-col> 
+        </ion-row>
+      </ion-card>
+      
+   
+</ion-content>

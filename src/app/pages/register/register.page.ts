@@ -37,7 +37,6 @@ export class RegisterPage implements OnInit {
     });
   }
   ionViewDidEditor(){
-    //this.disableButton=false;
   }
   async tryRegister(){
     //this.router.navigate(['/login']);
@@ -72,18 +71,15 @@ export class RegisterPage implements OnInit {
           this.acessPr.postData(body).subscribe((res:any)=>{
               if(res.status==true){
                 loader.dismiss();
-               // this.disableButton=false;
                 this.presentToast(res.message);
                 this.router.navigate(['/login']);
 
               }else{
                 loader.dismiss();
-                //this.disableButton=false;
                 this.presentToast(res.message);
               }
           },(err=>{
             loader.dismiss();
-            //this.disableButton=false;
             this.presentAlert('Timeout');
           }));
         });

@@ -4,7 +4,8 @@
           <ion-icon name="arrow-back" slot="icon-only" ></ion-icon>
         </ion-buttons> -->
         <ion-buttons slot="start" >
-            <ion-back-button></ion-back-button>
+            <!-- <ion-back-button></ion-back-button> -->
+            <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
         </ion-buttons>
       <!-- <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon> -->
     <!-- <ion-title>Login as Farmer</ion-title> -->
@@ -76,10 +77,10 @@
     </form>
     </div>
    
-      <p *ngIf="hide" class="ion-padding info-1">
+      <!-- <p *ngIf="hide" class="ion-padding info-1"> -->
   
         If you do not have an account,click <span (click)="Register()">Register now</span>
-        </p>
+        <!-- </p> -->
         <!-- If you do not have an account,click <span (click)="image()">Register now</span>
         If you do not have an account,click <span (click)="ge()">get</span> -->
 

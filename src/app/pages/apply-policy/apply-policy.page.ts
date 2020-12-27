@@ -30,9 +30,9 @@ hide4=false;
             this.data=res.message;
             console.log(this.data);
             if(res.message[0].agent_verification==1)
-                 this.verifi=true;
+                 this.verifi="accept";
             else if (res.message[0].agent_verification==0)
-                  this.verifi=false;
+                  this.verifi="reject";
             else
             this.verifi=null;
              if(res.message[0].agent_reply!=null){

@@ -81,4 +81,7 @@ export class Tab1Page implements OnInit {
     back(){
       this.router.navigate(['/insurance-compnay']);
     }
+    contact(){
+      this.router.navigate(['/contact-agent']);
+    }
 }

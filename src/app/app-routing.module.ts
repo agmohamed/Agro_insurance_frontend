@@ -150,7 +150,11 @@ const routes: Routes = [
   {
     path: 'officer-login',
     loadChildren: () => import('./pages/officer-login/officer-login.module').then( m => m.OfficerLoginPageModule)
+  },  {
+    path: 'contact-agent',
+    loadChildren: () => import('./pages/contact-agent/contact-agent.module').then( m => m.ContactAgentPageModule)
   },
+
 
   // {
   //   path: 'organizationtab1',

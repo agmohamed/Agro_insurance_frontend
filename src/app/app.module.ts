@@ -22,7 +22,8 @@ import { FilePath } from '@ionic-native/file-path/ngx';
 import { IonicRatingModule } from 'ionic-rating';
  import {Geolocation} from  '@ionic-native/geolocation/ngx';
  import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
- 
+ import { CallNumber } from '@ionic-native/call-number/ngx';
+
  import 'chartjs-plugin-zoom';
 // import { StarRatingModule } from 'ionic3-star-rating';
 @NgModule({
@@ -46,6 +47,7 @@ BrowserModule, IonicRatingModule ,IonicModule.forRoot(), AppRoutingModule,HttpCl
     AccessProviders,
     Geolocation,
     NativeGeocoder,
+    CallNumber,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],

@@ -11,24 +11,24 @@
     <div id="header">
         <h1>Claim Request Details</h1>
     </div> 
-  <ion-card class="c1">
-      <ion-row>
-          <ion-col>
-              NIC
-          </ion-col>
-          <ion-col>
-              {{d.NIC}}
-          </ion-col>
-        </ion-row>
+    <ion-card class="c1">
+            <ion-row>
+                <ion-col>
+                     NIC
+                </ion-col>
+                <ion-col>
+                    {{d.NIC}}
+                </ion-col>
+            </ion-row>
 
-        <ion-row>
-            <ion-col>
-                Policy Number
-            </ion-col>
-            <ion-col>
-                {{d.policy_number}}
-            </ion-col>
-          </ion-row>
+            <ion-row>
+                <ion-col>
+                    Policy Number
+                </ion-col>
+                <ion-col>
+                    {{d.policy_number}}
+                </ion-col>
+            </ion-row>
         
             <ion-row>
                 <ion-col>
@@ -37,67 +37,79 @@
                 <ion-col>
                     {{d.type_of_loss}}
                 </ion-col>
-              </ion-row>
-              <ion-row>
-                  <ion-col>
-                      Loss amount
-                  </ion-col>
-                  <ion-col>
-                      {{d.loss_amount}}
-                  </ion-col>
-                </ion-row>
-                <ion-row>
-                    <ion-col>
-                        Incident Date
-                    </ion-col>
-                    <ion-col>
-                        {{d.incident_date| date: 'yyyy/MM/dd'}}
-                    </ion-col>
-                  </ion-row>
-                  <ion-row>
-                        <ion-col>
-                           Loan Number
-                        </ion-col>
-                        <ion-col>
-                            {{d.loan_number}}
-                        </ion-col>
-                  </ion-row>
-                  <ion-row>
-                        <ion-col>
-                          Bank Name
-                        </ion-col>
-                        <ion-col>
-                            {{d.bank_name}}
-                        </ion-col>
-                  </ion-row>
-                  <ion-row>
-                        <ion-col>
-                         Branch Name
-                        </ion-col>
-                        <ion-col>
-                            {{d.branch}}
-                        </ion-col>
-                  </ion-row>
-                 <ion-row>
-                        <ion-col>
-                        Loan Number
-                        </ion-col>
-                        <ion-col>
-                            {{d.loan_number}}
-                        </ion-col>
-                  </ion-row>
-  </ion-card>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    Loss amount
+                </ion-col>
+                <ion-col>
+                    {{d.loss_amount}}
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    Incident Date
+                </ion-col>
+                <ion-col>
+                    {{d.incident_date| date: 'yyyy/MM/dd'}}
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    Loan Number
+                </ion-col>
+                <ion-col>
+                    {{d.loan_number}}
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    Bank Name
+                </ion-col>
+                <ion-col>
+                    {{d.bank_name}}
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    Branch Name
+                </ion-col>
+                <ion-col>
+                    {{d.branch}}
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    Loan Number
+                </ion-col>
+                <ion-col>
+                    {{d.loan_number}}
+                </ion-col>
+            </ion-row>
+     </ion-card>
+
+    <ion-item class="ion-margin-bottom">
+        <ion-label>Location</ion-label> 
+        <ion-button (click)="location()">Viewland</ion-button>
+    </ion-item>
+    <ion-item class="ion-margin-bottom">
+        <ion-label>Upload image</ion-label> 
+        <ion-button (click)="viewimage()">View </ion-button>
+   </ion-item> 
+
+    <div *ngIf="hide1">
+    <ion-img src="{{d.documents}}"></ion-img>
+    </div>
    
-   
-  <ion-item class="ion-margin-bottom">
-    <ion-label>Verification</ion-label>
-    <ion-select  [(ngModel)]="verifi">
-        <ion-select-option>Reject</ion-select-option>
-        <ion-select-option>Accept</ion-select-option>
-    </ion-select>
-    <ion-button (click)="submit()">submit</ion-button>
+    <ion-item class="ion-margin-bottom">
+        <ion-label>Verification</ion-label>
+        <ion-select  [(ngModel)]="verifi">
+            <ion-select-option>Reject</ion-select-option>
+            <ion-select-option>Accept</ion-select-option>
+        </ion-select>
+        <ion-button (click)="submit()">submit</ion-button>
     
-  </ion-item>
+    </ion-item>
   
   <div *ngIf="hide">
       <ion-item class="ion-margin-bottom">

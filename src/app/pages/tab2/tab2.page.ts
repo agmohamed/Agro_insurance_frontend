@@ -33,10 +33,11 @@ value:any;
    }
    
   ngOnInit() {
+    
     this.doRefresh(0);
     
   }
-  doRefresh(event) {
+   doRefresh(event) {
     this.storage.get('storage_XXX').then((res)=>{
           console.log(res);
           this.datastorage=res.NIC;
