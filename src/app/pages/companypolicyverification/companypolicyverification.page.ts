@@ -86,9 +86,7 @@ ngOnInit() {
                   console.log('true');
                   this.init();
             }else{
-                  //loader.dismiss();
-                  //this.disableButton=false;
-                  // this.presentToast(res.message);
+                  console.log('false');
             }
         });
       });
@@ -115,23 +113,14 @@ ngOnInit() {
       
       this.acessPr.postPremium(body,this.id).subscribe((res:any)=>{
           if(res.status==true){
-            //loader.dismiss();
-            //this.presentToast(res.message);
-            //this.router.navigate(['/home/tab2']);
               console.log('true');
           }else{
-            //loader.dismiss();
-            //this.disableButton=false;
-           // this.presentToast(res.message);
+              console.log('false');
           }
-      },(err=>{
-        //loader.dismiss();
-       // this.disableButton=false;
-       // this.presentAlert('Timeout');
-      }));
+      });
     });
   }
-
+//get premium calculations equations
   init(){
     if(this.companyid==0 && this.risk!=""){
 

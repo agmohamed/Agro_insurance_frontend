@@ -17,34 +17,31 @@
       </div>
      <ion-item>
             <ion-button expand="full" class="no-padding"  (click)="rate()" color="success">Rate User</ion-button>
-      </ion-item>
-           
+     </ion-item>
     </ion-row>
     
 
-<ion-card-content color="light">
-  
- 
-    <ion-img src="{{pic}}"  style="height: 300;width: 300;" ></ion-img>
-  <div *ngFor="let d1 of data1">
-    <ion-row>
-      <ion-label><strong>Name  :</strong>    </ion-label>
-      <ion-label><strong>{{d1.Name}}</strong> </ion-label>
-   </ion-row>
-    <ion-row>
-      <ion-label><strong>Telephone:</strong> </ion-label>
-        <ion-label><strong>{{d1.Phone}}</strong></ion-label>
-    </ion-row>
-    <ion-row>
-      <ion-label><strong>Address:</strong> </ion-label>
-      <ion-label><strong>{{d1.Address}}</strong></ion-label>
-    </ion-row> 
-  </div>
-</ion-card-content>
-</ion-card>
+    <ion-card-content color="light">
+      <ion-img src="{{pic}}"  style="height: 300;width: 300;" ></ion-img>
+      <div *ngFor="let d1 of data1">
+        <ion-row>
+          <ion-label><strong>Name  :</strong>    </ion-label>
+          <ion-label><strong>{{d1.Name}}</strong> </ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-label><strong>Telephone:</strong> </ion-label>
+          <ion-label><strong>{{d1.Phone}}</strong></ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-label><strong>Address:</strong> </ion-label>
+          <ion-label><strong>{{d1.Address}}</strong></ion-label>
+        </ion-row> 
+      </div>
+    </ion-card-content>
+  </ion-card>
 
-<div id="header"><h1>Payment details</h1></div>
-<ion-card class="card2" *ngFor="let d2 of data2">
+  <div id="header"><h1>Payment details</h1></div>
+  <ion-card class="card2" *ngFor="let d2 of data2">
     <ion-header-bar class="bar-stable">
         <h1 class="title"><strong>{{d2.Name}}</strong></h1>
     </ion-header-bar>
@@ -57,11 +54,10 @@
          <ion-row>
             <ion-label>Total Paid Amount:{{d2.PaidAmount}}</ion-label>
             <ion-button  class="no-padding" size="small" (click)="Click($event)" id="{{d2.id}}" color="success">Click to update</ion-button>
-
          </ion-row>
     </ion-card>
    
-    </ion-card>
+  </ion-card>
       <div *ngIf="hid">
         <ion-card>
             <strong>Policyid:{{policyid}}</strong><br> 
@@ -89,9 +85,8 @@
                     <strong>Crop type </strong>
                 </ion-col>
                 <ion-col>
-                    {{i.Crop}}
+                     {{i.Crop}}
                 </ion-col>
-                 
               </ion-row>
              
               <ion-row>
@@ -112,9 +107,9 @@
                   </ion-col>
               </ion-row>
               
-          </ion-card>
-       </div> 
-       <div *ngIf="hide2">
+            </ion-card>
+      </div> 
+      <div *ngIf="hide2">
           <ion-card class="card1" *ngFor="let d of data4">
               <ion-item>
                 <ion-icon name="albums" slot="start"></ion-icon>
@@ -133,7 +128,7 @@
                         <strong> Claim for </strong>
                   </ion-col>
                   <ion-col>
-                        {{d.type_of_loss}}
+                      {{d.type_of_loss}}
                   </ion-col>
               </ion-row>
               <ion-row>
@@ -141,9 +136,9 @@
                           <strong>Status </strong>
                   </ion-col>
                   <ion-col>
-                         Active
+                      Active
                   </ion-col>
               </ion-row>   
-            </ion-card>
-          </div>
+          </ion-card>
+      </div>
 </ion-content>

@@ -38,7 +38,7 @@ export class CompanyhistoryPage implements OnInit {
     })
   }
   doRefresh(event){
-    this.getAllActivepolicy();
+      this.getAllActivepolicy();
       this.getAllActiveclaims();
    setTimeout(() => {
       console.log('Async operation has ended');
@@ -132,7 +132,7 @@ export class CompanyhistoryPage implements OnInit {
       }
     });
   }
-
+  //get active policy 
   getAllActivepolicy(){
     this.http.get(AccessProviders.server+'/getactivePolicydetails/'+this.id).subscribe((res:any)=>{ 
       console.log( res);
@@ -145,6 +145,7 @@ export class CompanyhistoryPage implements OnInit {
        })
       
   }
+  //get numbers of active claims
   getAllActiveclaims(){
     this.http.get(AccessProviders.server+'/allActiveclaimsforCompany/'+this.id).subscribe((res:any)=>{ 
       console.log( res);

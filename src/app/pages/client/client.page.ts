@@ -68,7 +68,7 @@ pic:any;
             console.log(res.message);
            
           })
-        this.http.get(AccessProviders.server+'/getclaimforafarmer/'+this.id).subscribe((res:any)=>{ 
+      this.http.get(AccessProviders.server+'/getclaimforafarmer/'+this.id).subscribe((res:any)=>{ 
             this.data4=res.message;
                
               })       
@@ -79,17 +79,13 @@ pic:any;
           this.am=res.message[0].PaidAmount;
               console.log(res.message);
               console.log( res.message[0].PaidAmount);
-             
             })
             this.com=res.id;
-            
       })  
       
-  });
+    });
   }
-   call(){
-   
-   }
+  
   back(){
     this.router.navigate(['/company/companytab4']);
   
@@ -127,7 +123,7 @@ pic:any;
               console.log('true');
               this.hid=false;
           }else{
-            
+            console.log('false');
            // this.presentToast(res.message);
           }
       });

@@ -37,8 +37,6 @@ export class Agenttab1Page implements OnInit {
     private navCtrl:NavController) {}
 
 
-
-
   ngOnInit() {
    this.storage.get('storage_agent').then((res)=>{
       console.log(res);
@@ -47,7 +45,7 @@ export class Agenttab1Page implements OnInit {
       this.agent_id= this.datastorage.id;
       console.log(this.id);
       console.log(this.agent_id);
-      this.getpolicy();
+      //this.getpolicy();
       this.getAllpolicy();
       this.getAllActivepolicy();
     });
@@ -172,12 +170,14 @@ export class Agenttab1Page implements OnInit {
   // }
   
 
-  getpolicy(){
-    this.http.get(AccessProviders.server+'/policyapplyhistory/'+this.agent_id+'/'+this.id).subscribe((res:any)=>{ 
-          this.data=res.message;
-       })
+  // getpolicy(){
+  //   this.http.get(AccessProviders.server+'/policyapplyhistory/'+this.agent_id+'/'+this.id).subscribe((res:any)=>{ 
+  //         this.data=res.message;
+  //      })
       
-  }
+  // }
+  
+  //get applied all insurances
   getAllpolicy(){
     this.http.get(AccessProviders.server+'/applyAll/'+this.agent_id+'/'+this.id).subscribe((res:any)=>{ 
       console.log( res);
@@ -189,6 +189,7 @@ export class Agenttab1Page implements OnInit {
        })
       
   }
+  //get active insurances
   getAllActivepolicy(){
     this.http.get(AccessProviders.server+'/activeAll/'+this.agent_id+'/'+this.id).subscribe((res:any)=>{ 
       console.log( res);

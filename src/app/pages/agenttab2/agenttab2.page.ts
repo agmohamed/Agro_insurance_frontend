@@ -17,6 +17,7 @@ export class Agenttab2Page implements OnInit {
  phone:any;
  district:any;
  gramasewa_division:any;
+
   constructor(
     private router:Router, 
     private storage:Storage,
@@ -35,6 +36,7 @@ export class Agenttab2Page implements OnInit {
       this.nic=res.NIC;
       this.district=res.District;
       this.gramasewa_division=res.Gramaseva_division;
+      this.phone=res.phone;
     });
   }
   //logout from the application

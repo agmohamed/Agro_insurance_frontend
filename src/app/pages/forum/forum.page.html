@@ -18,15 +18,15 @@
         </ion-refresher-content>
       </ion-refresher>
   <ion-card >
-  <ion-title>Discussions</ion-title>
-    <ion-item>
+    <ion-title>Discussions</ion-title>
+      <ion-item>
         <ion-input type="text" placeholder="Issues"  [(ngModel)]="Issues" ></ion-input>
-    </ion-item>
+      </ion-item>
   
-    <ion-item>
+      <ion-item>
         <ion-input type="text" placeholder="Suggestions" [(ngModel)]="Suggestions" ></ion-input>
-    </ion-item>
-    <ion-button expand="block" shape="round" class="no-padding"  (click)="submit()" color="success">Submit</ion-button>
+      </ion-item>
+      <ion-button expand="block" shape="round" class="no-padding"  (click)="submit()" color="success">Submit</ion-button>
   </ion-card> 
 
   
@@ -41,7 +41,7 @@
             
           </ion-card-content>
           <ion-button shape="round" color="medium">{{d.status}}</ion-button>
-        </ion-card>
+      </ion-card>
      
    
 </ion-content>

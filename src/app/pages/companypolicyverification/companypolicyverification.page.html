@@ -59,6 +59,7 @@
         {{d.Crop}}
       </ion-col>
     </ion-row>
+    
     <div *ngIf="hid1">
     <ion-row>
         <ion-col>
@@ -101,22 +102,22 @@
   <ion-card>
   
   <ion-item class="ion-margin-bottom">
-  <ion-label>Verification</ion-label>
-  <ion-select  [(ngModel)]="verification">
+    <ion-label>Verification</ion-label>
+    <ion-select  [(ngModel)]="verification">
       <ion-select-option>Accept</ion-select-option>
       <ion-select-option>Reject</ion-select-option>
-  </ion-select>
-  <ion-button>
-    <ion-button (click)="view()">Submit</ion-button>
-  </ion-button>
-</ion-item>
-
-<div *ngIf="hide">
-  <ion-item>
-      <ion-label ><strong>Enter Reason:</strong></ion-label>
-    <ion-input type="text" [(ngModel)]="issue" ></ion-input>
+    </ion-select>
+    
+      <ion-button (click)="view()">Submit</ion-button>
+    
   </ion-item>
-</div>
-</ion-card>
-<ion-button expand="block" color="success" shape="round" (click)="verify()">confirm</ion-button>
+
+  <div *ngIf="hide">
+    <ion-item>
+      <ion-label ><strong>Enter Reason:</strong></ion-label>
+     <ion-input type="text" [(ngModel)]="issue" ></ion-input>
+    </ion-item>
+  </div>
+  </ion-card>
+  <ion-button expand="block" color="success" shape="round" (click)="verify()">confirm</ion-button>
 </ion-content>

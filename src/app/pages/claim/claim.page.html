@@ -87,33 +87,33 @@
   </ion-item>
   <span class="error ion-padding" *ngIf="isSubmitted && errorControl.bank.errors?.required">
    Bank is required
- </span>
+  </span>
 
   <ion-item>
       <ion-input type="text" formControlName="branch" [(ngModel)]="branch" placeholder="Branch" ></ion-input>
   </ion-item>
-  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.branch.errors?.required">
+   <span class="error ion-padding" *ngIf="isSubmitted && errorControl.branch.errors?.required">
     Branch is required
-  </span>
+   </span>
 
   <ion-item>
       <ion-input type="text" formControlName="account" [(ngModel)]="account" placeholder="Account Number" ></ion-input>
   </ion-item>
-  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.account.errors?.required">
+   <span class="error ion-padding" *ngIf="isSubmitted && errorControl.account.errors?.required">
     Account number is required
-  </span>
-  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.account.errors?.pattern">
+   </span>
+   <span class="error ion-padding" *ngIf="isSubmitted && errorControl.account.errors?.pattern">
       Please provide valid Account number 
    </span>
   <ion-item>
      <ion-input type="text" formControlName="loan"  [(ngModel)]="loan" placeholder="loan Number" ></ion-input>
   </ion-item>
-  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.loan.errors?.required">
+   <span class="error ion-padding" *ngIf="isSubmitted && errorControl.loan.errors?.required">
    Loan number is required
-  </span>
-  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.amount.errors?.pattern">
+   </span>
+   <span class="error ion-padding" *ngIf="isSubmitted && errorControl.amount.errors?.pattern">
       Please provide valid  Loan number
-  </span>
+   </span>
 </ion-card>
 
 <ion-item class="it1">
@@ -126,7 +126,6 @@
       <ion-col col-6 *ngFor="let p of photos">
         <img [src]="p"/>
       </ion-col>
-    
     </ion-row>
 </ion-grid>
 <div>

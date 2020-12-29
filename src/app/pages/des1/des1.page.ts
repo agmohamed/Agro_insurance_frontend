@@ -3,6 +3,7 @@ import { Router,ActivatedRoute } from '@angular/router';
 import {HttpClient,HttpHeaders,HttpErrorResponse}  from '@angular/common/http';
 import {Storage} from '@ionic/storage';
 import { AccessProviders } from '../../providers/access-providers';
+import { IonSlides } from '@ionic/angular';
 @Component({
   selector: 'app-des1',
   templateUrl: './des1.page.html',
@@ -10,6 +11,7 @@ import { AccessProviders } from '../../providers/access-providers';
 })
 export class Des1Page implements OnInit {
   data:any;
+  data1:any;
   datastorage1:any;
   datastorage2:any;
   datastorage3:any;
@@ -17,31 +19,40 @@ export class Des1Page implements OnInit {
   i:any="";
   nameArr:any;
   company:any;
+  id:number;
   hide=false;
- 
-  constructor(private router:Router,
-              public http:HttpClient,
-              private storage:Storage) {
+  slideOptions = {
+    initialSlide: 1,
+    speed: 300,
+  };
 
-    
-  
-     
-      
-   
-   }
+  constructor(
+    private router:Router,
+    public http:HttpClient,
+    private storage:Storage) {}
 
+    slidesDidLoad(slides: IonSlides) {
+      slides.startAutoplay();
+    }
   ngOnInit() {
     this.storage.get('storage_getde').then((res)=>{
       console.log(res);
       this.datastorage1=res[0];
       this.datastorage2=res[1];
       this.datastorage3=res[2];
+      this.id=res[3];
       this.nameArr=this.datastorage2.split(',');
         for(this.i in this.nameArr){
         console.log(this.nameArr[this.i]);
        }
       //this.name=this.datastorage.Name;
+      this.http.get(AccessProviders.server+'/getcropsdetail/'+this.id).subscribe((res:any)=>{ 
+        this.data1=res.message; 
+        console.log(res.message);
+       
+      })
       console.log(this.datastorage1);
+      console.log(res[3]);
     });
    
     this.storage.get('storage_co').then((res)=>{
@@ -57,6 +68,7 @@ export class Des1Page implements OnInit {
             console.log(err);
           })
       });
+     
   }
   back(){
     this.router.navigate(['/description']);

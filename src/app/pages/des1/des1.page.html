@@ -36,5 +36,24 @@
       </ul>
   </div> 
   </div>
-  
+  <ion-slides [options]="slideOptions" pager="true" #slider (ionSlidesDidLoad)="slidesDidLoad(slider)">
+    <ion-slide >
+      <ion-card class="c1">
+        <ion-card-title>
+            <strong>Value of acre<br></strong></ion-card-title>
+            <ion-item *ngFor="let d of data1">
+              <ion-label>{{d.name}}:{{d.claim_value_for_Acre}}</ion-label>
+          </ion-item>
+      </ion-card>
+    </ion-slide>
+    <ion-slide >
+        <ion-card class="c1">
+            <ion-card-title>
+                <strong>Premium Rate of acre<br></strong></ion-card-title>
+                <ion-item *ngFor="let d of data1">
+                  <ion-label>{{d.name}}:{{d.rate}}</ion-label>
+              </ion-item>
+          </ion-card>
+    </ion-slide>
+  </ion-slides>
 </ion-content>

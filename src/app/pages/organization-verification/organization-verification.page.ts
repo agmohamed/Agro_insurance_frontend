@@ -73,7 +73,7 @@ hide1=false;
                   this.router.navigate(['/organization-home/organization']);
                   console.log('true');
             }else{
-                  //loader.dismiss();
+                  console.log('false');
                   //this.disableButton=false;
                   // this.presentToast(res.message);
             }
@@ -84,7 +84,7 @@ hide1=false;
   submit(){
     if(this.verifi=='False')
       this.hide=true;
-  else 
+    else 
     this.hide=false;
   }
   location(){

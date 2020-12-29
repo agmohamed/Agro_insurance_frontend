@@ -51,7 +51,6 @@ arr3:any=[];
         Description:this.Name,
         Benefits:this.Benefits
        
-
       }
       this.acessPr.addnewpolicyType(body).subscribe((res:any)=>{
           if(res.status==true){
@@ -60,10 +59,11 @@ arr3:any=[];
           this.show();
           
           }else{
-           // this.presentToast(res.message);
+         
+           console.log("not sucessful");
           }
-      });
-      });
+       });
+    });
   }
   show(){
     console.log(this.insurance_id);
@@ -88,12 +88,12 @@ arr3:any=[];
      }
      this.acessPr.addnewpolicyTypeDetails(body).subscribe((res:any)=>{
          if(res.status==true){
-          // this.presentToast('update successfully');
+         
            this.router.navigate(['/company/companytab2']);
  
          }else{
-           
-          // this.presentToast(res.message);
+          console.log("not sucessful");
+         
          }
        })
       })

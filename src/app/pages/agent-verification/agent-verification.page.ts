@@ -65,9 +65,7 @@ hide1=false;
                   this.router.navigate(['/agent-home/agent']);
                   console.log('true');
             }else{
-                  //loader.dismiss();
-                  //this.disableButton=false;
-                  // this.presentToast(res.message);
+              console.log('false');
             }
         });
       });

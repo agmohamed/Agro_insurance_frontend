@@ -87,6 +87,6 @@ export class ApplyClaimPage implements OnInit {
     if(this.hide4==false)
       this.hide4=true;
     else
-    this.hide4=false;
+      this.hide4=false;
   }
 }

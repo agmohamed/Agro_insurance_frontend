@@ -1,6 +1,8 @@
 <ion-header>
   <ion-toolbar color="success">
-      <ion-icon name="arrow-back-outline" (click)="back()"></ion-icon>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
     <ion-title>Update Policy</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -17,5 +19,5 @@
     <ion-input type="text" [(ngModel)]="d1.rate" ></ion-input>
   </ion-item>
 </div>
-    <ion-button expand="small" class="no-padding"  (click)="update()" color="success">Update</ion-button>
+    <ion-button expand="block" shape="round" class="no-padding"  (click)="update()" >Update</ion-button>
 </ion-content>

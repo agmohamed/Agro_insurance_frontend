@@ -67,12 +67,10 @@ hide1:any;
      
       this.acessPr.postcompanyclaimverification(body,this.id).subscribe((res:any)=>{
           if(res.status==true){
-            //this.presentToast(res.message);
             this.router.navigate(['/company/companytab3']);
               console.log('true');
           }else{
-            
-           // this.presentToast(res.message);
+            console.log('false');
           }
       });
     });

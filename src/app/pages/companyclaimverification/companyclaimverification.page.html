@@ -49,48 +49,48 @@
           </ion-col>
           <ion-col>
               {{d.loss_amount}}
-      </ion-col>
-    </ion-row>
-    <ion-row>
-        <ion-col>
-            Phone
-        </ion-col>
-        <ion-col>
-            {{d.phone}}
-    </ion-col>
-    </ion-row> 
-    <ion-row>
-        <ion-col>
-          Bank name
-        </ion-col>
-        <ion-col>
-          {{d.bank_name}}
-      </ion-col>
-    </ion-row> 
-    <ion-row>
-        <ion-col>
-          Branch
-        </ion-col>
-        <ion-col>
-          {{d.branch}}
-        </ion-col>
-    </ion-row> 
-    <ion-row>
-      <ion-col>
-          Loan Number
-      </ion-col>
-      <ion-col>
-          {{d.loan_number}}
-      </ion-col>
-    </ion-row>  
-    <ion-row>
-      <ion-col>
-          Organization Verification
-      </ion-col>
-      <ion-col>
-          {{verifi}}
-  </ion-col>
-  </ion-row>               
+          </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+              Phone
+          </ion-col>
+          <ion-col>
+              {{d.phone}}
+          </ion-col>
+      </ion-row> 
+      <ion-row>
+          <ion-col>
+              Bank name
+          </ion-col>
+          <ion-col>
+              {{d.bank_name}}
+          </ion-col>
+      </ion-row> 
+      <ion-row>
+          <ion-col>
+              Branch
+          </ion-col>
+          <ion-col>
+              {{d.branch}}
+          </ion-col>
+      </ion-row> 
+      <ion-row>
+          <ion-col>
+              Loan Number
+          </ion-col>
+          <ion-col>
+              {{d.loan_number}}
+          </ion-col>
+      </ion-row>  
+      <ion-row>
+          <ion-col>
+              Organization Verification
+          </ion-col>
+          <ion-col>
+            {{verifi}}
+          </ion-col>
+      </ion-row>               
     </ion-card>
 
     <ion-item class="ion-margin-bottom">
@@ -110,15 +110,15 @@
       <ion-label>Location</ion-label>
       <ion-button (click)="location()">Viewland</ion-button>
     </ion-item>
-   <ion-card>
+  <ion-card>
     <ion-item >
-    <ion-label>Verification</ion-label>
-    <ion-select  [(ngModel)]="verification">
+      <ion-label>Verification</ion-label>
+      <ion-select  [(ngModel)]="verification">
         <ion-select-option>Accept</ion-select-option>
         <ion-select-option>Reject</ion-select-option>
-    </ion-select>
-    <ion-button (click)="view()">Submit</ion-button>
-  </ion-item>
+      </ion-select>
+      <ion-button (click)="view()">Submit</ion-button>
+    </ion-item>
   <div *ngIf="hide">
       <ion-item>
           <ion-label ><strong>Enter Reason:</strong></ion-label>
@@ -127,5 +127,5 @@
     </div>
   </ion-card>
   <ion-button expand="block" color="success" shape="round" (click)="submit()">confirm</ion-button>
-  </ion-content>
+</ion-content>
   

@@ -15,6 +15,7 @@ i:any="";
 va1:string="";
 va2:string="";
 va3:string="";
+va4:any;
 arr:any=[];
 
   constructor(private router:Router,
@@ -41,7 +42,8 @@ arr:any=[];
     this.va1=d.Description;
     this.va2=d.Benefits;
     this.va3=d.Name;
-    this.arr=[this.va1,this.va2,this.va3];
+    this.va4=d.id;
+    this.arr=[this.va1,this.va2,this.va3,this.va4];
     this.storage.set('storage_getde',this.arr);
     console.log(this.va1);
     this.router.navigate(['/des1']);
